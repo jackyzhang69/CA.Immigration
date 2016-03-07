@@ -75,6 +75,9 @@ namespace CA.Immigration.Data
     partial void InserttblPerson(tblPerson instance);
     partial void UpdatetblPerson(tblPerson instance);
     partial void DeletetblPerson(tblPerson instance);
+    partial void InserttblGender(tblGender instance);
+    partial void UpdatetblGender(tblGender instance);
+    partial void DeletetblGender(tblGender instance);
     #endregion
 		
 		public CommonDataContext() : 
@@ -224,6 +227,14 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblPerson>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblGender> tblGenders
+		{
+			get
+			{
+				return this.GetTable<tblGender>();
 			}
 		}
 	}
@@ -3434,7 +3445,7 @@ namespace CA.Immigration.Data
 		
 		private System.Data.Linq.Binary _Photo;
 		
-		private System.Data.Linq.Binary _Signature;
+		private System.Data.Linq.Binary _theSignature;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3468,8 +3479,8 @@ namespace CA.Immigration.Data
     partial void OnEmailChanged();
     partial void OnPhotoChanging(System.Data.Linq.Binary value);
     partial void OnPhotoChanged();
-    partial void OnSignatureChanging(System.Data.Linq.Binary value);
-    partial void OnSignatureChanged();
+    partial void OntheSignatureChanging(System.Data.Linq.Binary value);
+    partial void OntheSignatureChanged();
     #endregion
 		
 		public tblPerson()
@@ -3757,22 +3768,132 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Signature", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Signature
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_theSignature", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary theSignature
 		{
 			get
 			{
-				return this._Signature;
+				return this._theSignature;
 			}
 			set
 			{
-				if ((this._Signature != value))
+				if ((this._theSignature != value))
 				{
-					this.OnSignatureChanging(value);
+					this.OntheSignatureChanging(value);
 					this.SendPropertyChanging();
-					this._Signature = value;
-					this.SendPropertyChanged("Signature");
-					this.OnSignatureChanged();
+					this._theSignature = value;
+					this.SendPropertyChanged("theSignature");
+					this.OntheSignatureChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblGender")]
+	public partial class tblGender : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _Gender;
+		
+		private System.Nullable<int> _GenderCode;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnGenderChanging(string value);
+    partial void OnGenderChanged();
+    partial void OnGenderCodeChanging(System.Nullable<int> value);
+    partial void OnGenderCodeChanged();
+    #endregion
+		
+		public tblGender()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(7) NOT NULL", CanBeNull=false)]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this.OnGenderChanging(value);
+					this.SendPropertyChanging();
+					this._Gender = value;
+					this.SendPropertyChanged("Gender");
+					this.OnGenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GenderCode", DbType="Int")]
+		public System.Nullable<int> GenderCode
+		{
+			get
+			{
+				return this._GenderCode;
+			}
+			set
+			{
+				if ((this._GenderCode != value))
+				{
+					this.OnGenderCodeChanging(value);
+					this.SendPropertyChanging();
+					this._GenderCode = value;
+					this.SendPropertyChanged("GenderCode");
+					this.OnGenderCodeChanged();
 				}
 			}
 		}

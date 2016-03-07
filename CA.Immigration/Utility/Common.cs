@@ -6,6 +6,8 @@ using CA.Immigration.Utility;
 using CA.Immigration.Data;
 using System.IO;
 using System.Drawing;
+using System.Data;
+using System.Drawing.Imaging;
 
 namespace CA.Immigration.Utility
 {
@@ -57,7 +59,6 @@ namespace CA.Immigration.Utility
         {"YT","Yukon" }
         };
     }
-
     public class ContactInfo
     {
         public string Telephone { get; set; }
@@ -68,8 +69,6 @@ namespace CA.Immigration.Utility
 
 
     }
-
-
     public class Media
     {
 
@@ -89,7 +88,6 @@ namespace CA.Immigration.Utility
 
 
     }
-
     public static class ExtentionMethods
     {
 
@@ -157,37 +155,53 @@ namespace CA.Immigration.Utility
                     return 3;
             }
         }
-    }
 
+        public static string MarriageStatusIdtoString(this string MarriageId) {
+            using (CommonDataContext cd = new CommonDataContext())
+            {
+                return cd.tblMarriageStatusTypes.Where(x => x.TypeCode == MarriageId).Select(x => x.MarriageStatusType).FirstOrDefault();
+            }
+        }
+        public static string MarriageStatusStringtoId(this string marriagestatus)
+        {
+            using (CommonDataContext cd = new CommonDataContext())
+            {
+                return cd.tblMarriageStatusTypes.Where(x => x.MarriageStatusType == marriagestatus).Select(x => x.TypeCode).FirstOrDefault();
+            }
+        }
+    }
     public class ImageWork
     {
-        public static byte[] ImageToByteArray(System.Drawing.Image imageIn, string format)
+        public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
         {
             using (MemoryStream ms = new MemoryStream())
             {
-                switch (format.ToUpper()) {
-                    case "JPG":
-                        imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        break;
-                    case "PNG":
-                        imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                        break;
-                    case "BMP":
-                        imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                        break;
-                }
-                
+                imageIn.Save(ms, imageIn.RawFormat);
+
                 return ms.ToArray();
             }
         }
 
-        public static System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn, string format)
+        public static System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
         {
             using (MemoryStream ms = new MemoryStream(byteArrayIn))
             {
                 Image returnImage = Image.FromStream(ms);
+
                 return returnImage;
             }
+        }
+
+        public static byte[] BinarytoByteArray(string input)
+        {
+            int numOfBytes = input.Length / 8;
+            byte[] bytes = new byte[numOfBytes];
+            for (int i = 0; i < numOfBytes; ++i)
+            {
+                bytes[i] = Convert.ToByte(input.Substring(8 * i, 8), 2);
+            }
+            return bytes;
+
         }
         public static Aspose.Pdf.Generator.Image ByteArrayToAsposeImage(byte[] byteArrayIn, string format)
         {
@@ -207,14 +221,64 @@ namespace CA.Immigration.Utility
                         AsposeImage.ImageInfo.ImageFileType = Aspose.Pdf.Generator.ImageFileType.Bmp;
                         break;
                 }
-            // Specify the image source as MemoryStream
-            AsposeImage.ImageInfo.ImageStream = ms;
-            return AsposeImage;
+                // Specify the image source as MemoryStream
+                AsposeImage.ImageInfo.ImageStream = ms;
+                return AsposeImage;
+            }
         }
+
     }
-}
 
+    public static class ImageHelper
+    {
+        public static ImageFormat GetContentType(byte[] imageBytes)
+        {
+            MemoryStream ms = new MemoryStream(imageBytes);
 
+            using (BinaryReader br = new BinaryReader(ms))
+            {
+                int maxMagicBytesLength = imageFormatDecoders.Keys.OrderByDescending(x => x.Length).First().Length;
+
+                byte[] magicBytes = new byte[maxMagicBytesLength];
+
+                for (int i = 0; i < maxMagicBytesLength; i += 1)
+                {
+                    magicBytes[i] = br.ReadByte();
+
+                    foreach (var kvPair in imageFormatDecoders)
+                    {
+                        if (magicBytes.StartsWith(kvPair.Key))
+                        {
+                            return kvPair.Value;
+                        }
+                    }
+                }
+
+                throw new ArgumentException("Could not recognize image format", "binaryReader");
+            }
+        }
+
+        private static bool StartsWith(this byte[] thisBytes, byte[] thatBytes)
+        {
+            for (int i = 0; i < thatBytes.Length; i += 1)
+            {
+                if (thisBytes[i] != thatBytes[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private static Dictionary<byte[], ImageFormat> imageFormatDecoders = new Dictionary<byte[], ImageFormat>()
+    {
+        { new byte[]{ 0x42, 0x4D }, ImageFormat.Bmp},
+        { new byte[]{ 0x47, 0x49, 0x46, 0x38, 0x37, 0x61 }, ImageFormat.Gif },
+        { new byte[]{ 0x47, 0x49, 0x46, 0x38, 0x39, 0x61 }, ImageFormat.Gif },
+        { new byte[]{ 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A }, ImageFormat.Png },
+        { new byte[]{ 0xff, 0xd8 }, ImageFormat.Jpeg },
+    };
+    }
 
 
 }
