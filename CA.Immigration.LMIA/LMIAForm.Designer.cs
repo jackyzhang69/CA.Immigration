@@ -63,8 +63,50 @@
             this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam2 = new CA.Immigration.LMIA.ApplicationSteam();
             this.tabBusinessDetails = new System.Windows.Forms.TabPage();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtReceiveSupport = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.grpLayOff = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtLayoffCanadians = new System.Windows.Forms.TextBox();
+            this.txtTFWs = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.grpLMIARecord = new System.Windows.Forms.GroupBox();
+            this.chkLMIAMisRep = new System.Windows.Forms.CheckBox();
+            this.chkLMIACompliance1415 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkLMIA1415 = new System.Windows.Forms.CheckBox();
+            this.chkLMIACompliance1213 = new System.Windows.Forms.CheckBox();
+            this.chkLMIA1213 = new System.Windows.Forms.CheckBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtLMIASFN = new System.Windows.Forms.TextBox();
+            this.txtLMIAPublicPolicy = new System.Windows.Forms.TextBox();
+            this.txtRevocationDate = new System.Windows.Forms.TextBox();
+            this.grpEmployeeStructure = new System.Windows.Forms.GroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabApplication = new System.Windows.Forms.TabPage();
-            this.tabADandMedia = new System.Windows.Forms.TabControl();
+            this.tabLMIAApplication = new System.Windows.Forms.TabControl();
             this.tabAD = new System.Windows.Forms.TabPage();
             this.dbOpsJobAd = new CA.Immigration.LMIA.DBOps();
             this.ucAddress1 = new CA.Immigration.LMIA.UCAddress();
@@ -126,18 +168,7 @@
             this.lblSpecific = new System.Windows.Forms.Label();
             this.lblGeneral = new System.Windows.Forms.Label();
             this.lblOfficial = new System.Windows.Forms.Label();
-            this.tabJobPost = new System.Windows.Forms.TabPage();
-            this.dgvJobPostMonitor = new System.Windows.Forms.DataGridView();
-            this.PostMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostInitialPrintDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostLastPrintDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostProvenDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostAccountPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostOtherInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PostLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.tabJobOffer = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -149,56 +180,39 @@
             this.financial2 = new CA.Immigration.LMIA.financial();
             this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationSteam();
-            this.grpEmployeeStructure = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.grpLMIARecord = new System.Windows.Forms.GroupBox();
-            this.chkLMIA1213 = new System.Windows.Forms.CheckBox();
-            this.chkLMIACompliance1213 = new System.Windows.Forms.CheckBox();
-            this.chkLMIA1415 = new System.Windows.Forms.CheckBox();
-            this.chkLMIACompliance1415 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.chkLMIAMisRep = new System.Windows.Forms.CheckBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtRevocationDate = new System.Windows.Forms.TextBox();
-            this.txtLMIASFN = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtLMIAPublicPolicy = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.grpLayOff = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.txtLayoffCanadians = new System.Windows.Forms.TextBox();
-            this.txtTFWs = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtReceiveSupport = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btnNew = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnInsert = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.cmbDurationUnit = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.chkLanguageRequired = new System.Windows.Forms.CheckBox();
+            this.grpLMIALanguage = new System.Windows.Forms.GroupBox();
+            this.chkLIMAOral = new System.Windows.Forms.CheckBox();
+            this.chkLMIAoralEnglish = new System.Windows.Forms.CheckBox();
+            this.chkLMIAOralFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAOralEnglisOrFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAOralEnglisAndFrench = new System.Windows.Forms.CheckBox();
+            this.chkLIMAWriting = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingEnglish = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingEnglisOrFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingEnglisAndFrench = new System.Windows.Forms.CheckBox();
+            this.txtLMIAOtherLanguage = new System.Windows.Forms.TextBox();
+            this.chkLMIAOtherLanguage = new System.Windows.Forms.CheckBox();
             this.tabBase.SuspendLayout();
             this.tabAdvisor.SuspendLayout();
             this.tbcSubAdvisor.SuspendLayout();
             this.tabAnalysis.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabBusinessDetails.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.grpLayOff.SuspendLayout();
+            this.grpLMIARecord.SuspendLayout();
+            this.grpEmployeeStructure.SuspendLayout();
             this.tabApplication.SuspendLayout();
-            this.tabADandMedia.SuspendLayout();
+            this.tabLMIAApplication.SuspendLayout();
             this.tabAD.SuspendLayout();
             this.stsStatus.SuspendLayout();
             this.grpSelectEmployer.SuspendLayout();
@@ -211,14 +225,10 @@
             this.tabMedia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).BeginInit();
-            this.tabJobPost.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJobPostMonitor)).BeginInit();
+            this.tabJobOffer.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.grpEmployeeStructure.SuspendLayout();
-            this.grpLMIARecord.SuspendLayout();
-            this.grpLayOff.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.grpLMIALanguage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBase
@@ -382,9 +392,439 @@
             this.tabBusinessDetails.Text = "Business Details";
             this.tabBusinessDetails.UseVisualStyleBackColor = true;
             // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(523, 621);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 4;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(619, 621);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(705, 621);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 4;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(786, 621);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(75, 23);
+            this.btnNew.TabIndex = 4;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.checkBox3);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.txtReceiveSupport);
+            this.groupBox3.Controls.Add(this.label23);
+            this.groupBox3.Location = new System.Drawing.Point(6, 482);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(967, 103);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Receive support from government";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(12, 19);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(592, 17);
+            this.checkBox3.TabIndex = 0;
+            this.checkBox3.Text = "10. Does your business receive support through Employment and Social Development " +
+    "Canada\'s Work-Sharing program?";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(326, 19);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(255, 13);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "You answered yes, so how many Canadians laid off?";
+            // 
+            // txtReceiveSupport
+            // 
+            this.txtReceiveSupport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtReceiveSupport.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtReceiveSupport.Location = new System.Drawing.Point(49, 72);
+            this.txtReceiveSupport.Name = "txtReceiveSupport";
+            this.txtReceiveSupport.Size = new System.Drawing.Size(899, 20);
+            this.txtReceiveSupport.TabIndex = 1;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(46, 45);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(106, 13);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "If yes, provide details";
+            // 
+            // grpLayOff
+            // 
+            this.grpLayOff.Controls.Add(this.checkBox2);
+            this.grpLayOff.Controls.Add(this.label19);
+            this.grpLayOff.Controls.Add(this.txtLayoffCanadians);
+            this.grpLayOff.Controls.Add(this.txtTFWs);
+            this.grpLayOff.Controls.Add(this.label18);
+            this.grpLayOff.Controls.Add(this.textBox12);
+            this.grpLayOff.Controls.Add(this.label20);
+            this.grpLayOff.Location = new System.Drawing.Point(6, 364);
+            this.grpLayOff.Name = "grpLayOff";
+            this.grpLayOff.Size = new System.Drawing.Size(967, 103);
+            this.grpLayOff.TabIndex = 2;
+            this.grpLayOff.TabStop = false;
+            this.grpLayOff.Text = "Lay Off";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(12, 19);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(281, 17);
+            this.checkBox2.TabIndex = 0;
+            this.checkBox2.Text = "9. Were any employees laid off in the past 12 months?";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(724, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(90, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "How many TFW?";
+            // 
+            // txtLayoffCanadians
+            // 
+            this.txtLayoffCanadians.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLayoffCanadians.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtLayoffCanadians.Location = new System.Drawing.Point(619, 16);
+            this.txtLayoffCanadians.Name = "txtLayoffCanadians";
+            this.txtLayoffCanadians.Size = new System.Drawing.Size(69, 20);
+            this.txtLayoffCanadians.TabIndex = 1;
+            // 
+            // txtTFWs
+            // 
+            this.txtTFWs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTFWs.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtTFWs.Location = new System.Drawing.Point(848, 17);
+            this.txtTFWs.Name = "txtTFWs";
+            this.txtTFWs.Size = new System.Drawing.Size(100, 20);
+            this.txtTFWs.TabIndex = 1;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(326, 19);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(255, 13);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "You answered yes, so how many Canadians laid off?";
+            // 
+            // textBox12
+            // 
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox12.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox12.Location = new System.Drawing.Point(49, 72);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(899, 20);
+            this.textBox12.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(46, 45);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(236, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Reason(s) for layoff(s) and occupations affected:";
+            // 
+            // grpLMIARecord
+            // 
+            this.grpLMIARecord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpLMIARecord.Controls.Add(this.chkLMIAMisRep);
+            this.grpLMIARecord.Controls.Add(this.chkLMIACompliance1415);
+            this.grpLMIARecord.Controls.Add(this.checkBox1);
+            this.grpLMIARecord.Controls.Add(this.chkLMIA1415);
+            this.grpLMIARecord.Controls.Add(this.chkLMIACompliance1213);
+            this.grpLMIARecord.Controls.Add(this.chkLMIA1213);
+            this.grpLMIARecord.Controls.Add(this.label15);
+            this.grpLMIARecord.Controls.Add(this.label17);
+            this.grpLMIARecord.Controls.Add(this.label12);
+            this.grpLMIARecord.Controls.Add(this.txtLMIASFN);
+            this.grpLMIARecord.Controls.Add(this.txtLMIAPublicPolicy);
+            this.grpLMIARecord.Controls.Add(this.txtRevocationDate);
+            this.grpLMIARecord.Location = new System.Drawing.Point(3, 173);
+            this.grpLMIARecord.Name = "grpLMIARecord";
+            this.grpLMIARecord.Size = new System.Drawing.Size(967, 182);
+            this.grpLMIARecord.TabIndex = 1;
+            this.grpLMIARecord.TabStop = false;
+            this.grpLMIARecord.Text = "LMIA Record";
+            // 
+            // chkLMIAMisRep
+            // 
+            this.chkLMIAMisRep.AutoSize = true;
+            this.chkLMIAMisRep.Location = new System.Drawing.Point(54, 95);
+            this.chkLMIAMisRep.Name = "chkLMIAMisRep";
+            this.chkLMIAMisRep.Size = new System.Drawing.Size(159, 17);
+            this.chkLMIAMisRep.TabIndex = 1;
+            this.chkLMIAMisRep.Text = "Revocation due to MisRep?";
+            this.chkLMIAMisRep.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIACompliance1415
+            // 
+            this.chkLMIACompliance1415.AutoSize = true;
+            this.chkLMIACompliance1415.Location = new System.Drawing.Point(499, 47);
+            this.chkLMIACompliance1415.Name = "chkLMIACompliance1415";
+            this.chkLMIACompliance1415.Size = new System.Drawing.Size(267, 17);
+            this.chkLMIACompliance1415.TabIndex = 1;
+            this.chkLMIACompliance1415.Text = "Did you comply with the rquirement in LMIA annex?";
+            this.chkLMIACompliance1415.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(14, 72);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(527, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "8.Have you had an LMIA revoked within the previous 2 years from the date you subm" +
+    "itted this application?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIA1415
+            // 
+            this.chkLMIA1415.AutoSize = true;
+            this.chkLMIA1415.Location = new System.Drawing.Point(14, 49);
+            this.chkLMIA1415.Name = "chkLMIA1415";
+            this.chkLMIA1415.Size = new System.Drawing.Size(405, 17);
+            this.chkLMIA1415.TabIndex = 0;
+            this.chkLMIA1415.Text = "7. Did you employ a TFW (as the result of receiving a positive LMIA) in 2014-15?";
+            this.chkLMIA1415.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIACompliance1213
+            // 
+            this.chkLMIACompliance1213.AutoSize = true;
+            this.chkLMIACompliance1213.Location = new System.Drawing.Point(499, 24);
+            this.chkLMIACompliance1213.Name = "chkLMIACompliance1213";
+            this.chkLMIACompliance1213.Size = new System.Drawing.Size(267, 17);
+            this.chkLMIACompliance1213.TabIndex = 1;
+            this.chkLMIACompliance1213.Text = "Did you comply with the rquirement in LMIA annex?";
+            this.chkLMIACompliance1213.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIA1213
+            // 
+            this.chkLMIA1213.AutoSize = true;
+            this.chkLMIA1213.Location = new System.Drawing.Point(14, 26);
+            this.chkLMIA1213.Name = "chkLMIA1213";
+            this.chkLMIA1213.Size = new System.Drawing.Size(405, 17);
+            this.chkLMIA1213.TabIndex = 0;
+            this.chkLMIA1213.Text = "6. Did you employ a TFW (as the result of receiving a positive LMIA) in 2012-13?";
+            this.chkLMIA1213.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(524, 97);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(100, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "System File Number";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(49, 120);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(583, 13);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "If the public policy considerations that justified the revocation are no longer r" +
+    "elevant, please provide a detailed explanation:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(263, 97);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Revocation Date";
+            // 
+            // txtLMIASFN
+            // 
+            this.txtLMIASFN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLMIASFN.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtLMIASFN.Location = new System.Drawing.Point(666, 95);
+            this.txtLMIASFN.Name = "txtLMIASFN";
+            this.txtLMIASFN.Size = new System.Drawing.Size(100, 20);
+            this.txtLMIASFN.TabIndex = 1;
+            // 
+            // txtLMIAPublicPolicy
+            // 
+            this.txtLMIAPublicPolicy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtLMIAPublicPolicy.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtLMIAPublicPolicy.Location = new System.Drawing.Point(52, 147);
+            this.txtLMIAPublicPolicy.Name = "txtLMIAPublicPolicy";
+            this.txtLMIAPublicPolicy.Size = new System.Drawing.Size(899, 20);
+            this.txtLMIAPublicPolicy.TabIndex = 1;
+            // 
+            // txtRevocationDate
+            // 
+            this.txtRevocationDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRevocationDate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtRevocationDate.Location = new System.Drawing.Point(368, 95);
+            this.txtRevocationDate.Name = "txtRevocationDate";
+            this.txtRevocationDate.Size = new System.Drawing.Size(100, 20);
+            this.txtRevocationDate.TabIndex = 1;
+            // 
+            // grpEmployeeStructure
+            // 
+            this.grpEmployeeStructure.Controls.Add(this.textBox11);
+            this.grpEmployeeStructure.Controls.Add(this.textBox10);
+            this.grpEmployeeStructure.Controls.Add(this.label11);
+            this.grpEmployeeStructure.Controls.Add(this.textBox9);
+            this.grpEmployeeStructure.Controls.Add(this.label10);
+            this.grpEmployeeStructure.Controls.Add(this.textBox8);
+            this.grpEmployeeStructure.Controls.Add(this.label9);
+            this.grpEmployeeStructure.Controls.Add(this.textBox5);
+            this.grpEmployeeStructure.Controls.Add(this.label8);
+            this.grpEmployeeStructure.Controls.Add(this.label7);
+            this.grpEmployeeStructure.Controls.Add(this.label6);
+            this.grpEmployeeStructure.Location = new System.Drawing.Point(3, 3);
+            this.grpEmployeeStructure.Name = "grpEmployeeStructure";
+            this.grpEmployeeStructure.Size = new System.Drawing.Size(970, 164);
+            this.grpEmployeeStructure.TabIndex = 0;
+            this.grpEmployeeStructure.TabStop = false;
+            this.grpEmployeeStructure.Text = "Employee Structure";
+            // 
+            // textBox11
+            // 
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox11.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox11.Location = new System.Drawing.Point(851, 124);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 1;
+            // 
+            // textBox10
+            // 
+            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox10.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox10.Location = new System.Drawing.Point(851, 98);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(526, 13);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "5. Total number of TFWs (as the result of receiving a positive LMIA) at the work " +
+    "location specified on this form:";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox9.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox9.Location = new System.Drawing.Point(851, 72);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(16, 101);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(629, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "4. Total number of employees (including Canadians/permanent residents and TFWs) w" +
+    "orking in this occupation at this work location.";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox8.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox8.Location = new System.Drawing.Point(851, 46);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 75);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(490, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "3. Total number of Canadian/permanent resident employees at the work location spe" +
+    "cified on this form:";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox5.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox5.Location = new System.Drawing.Point(851, 20);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 49);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(438, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "2. Total number of employees currently employed at the work location specified on" +
+    " this form:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(-122, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "label6";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(517, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "1. Number of employees currently employed nationally under this Canada Revenue Ag" +
+    "ency Business number";
+            // 
             // tabApplication
             // 
-            this.tabApplication.Controls.Add(this.tabADandMedia);
+            this.tabApplication.Controls.Add(this.tabLMIAApplication);
             this.tabApplication.Location = new System.Drawing.Point(4, 22);
             this.tabApplication.Name = "tabApplication";
             this.tabApplication.Padding = new System.Windows.Forms.Padding(3);
@@ -393,21 +833,21 @@
             this.tabApplication.Text = "Application";
             this.tabApplication.UseVisualStyleBackColor = true;
             // 
-            // tabADandMedia
+            // tabLMIAApplication
             // 
-            this.tabADandMedia.Controls.Add(this.tabAD);
-            this.tabADandMedia.Controls.Add(this.tabMainDuties);
-            this.tabADandMedia.Controls.Add(this.tabQualifications);
-            this.tabADandMedia.Controls.Add(this.tabJobAdPreview);
-            this.tabADandMedia.Controls.Add(this.tabMedia);
-            this.tabADandMedia.Controls.Add(this.tabJobPost);
-            this.tabADandMedia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabADandMedia.Location = new System.Drawing.Point(3, 3);
-            this.tabADandMedia.Margin = new System.Windows.Forms.Padding(2);
-            this.tabADandMedia.Name = "tabADandMedia";
-            this.tabADandMedia.SelectedIndex = 0;
-            this.tabADandMedia.Size = new System.Drawing.Size(985, 734);
-            this.tabADandMedia.TabIndex = 5;
+            this.tabLMIAApplication.Controls.Add(this.tabAD);
+            this.tabLMIAApplication.Controls.Add(this.tabMainDuties);
+            this.tabLMIAApplication.Controls.Add(this.tabQualifications);
+            this.tabLMIAApplication.Controls.Add(this.tabJobAdPreview);
+            this.tabLMIAApplication.Controls.Add(this.tabMedia);
+            this.tabLMIAApplication.Controls.Add(this.tabJobOffer);
+            this.tabLMIAApplication.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabLMIAApplication.Location = new System.Drawing.Point(3, 3);
+            this.tabLMIAApplication.Margin = new System.Windows.Forms.Padding(2);
+            this.tabLMIAApplication.Name = "tabLMIAApplication";
+            this.tabLMIAApplication.SelectedIndex = 0;
+            this.tabLMIAApplication.Size = new System.Drawing.Size(985, 734);
+            this.tabLMIAApplication.TabIndex = 5;
             // 
             // tabAD
             // 
@@ -623,7 +1063,7 @@
             this.tabMainDuties.Margin = new System.Windows.Forms.Padding(2);
             this.tabMainDuties.Name = "tabMainDuties";
             this.tabMainDuties.Padding = new System.Windows.Forms.Padding(2);
-            this.tabMainDuties.Size = new System.Drawing.Size(977, 621);
+            this.tabMainDuties.Size = new System.Drawing.Size(977, 708);
             this.tabMainDuties.TabIndex = 1;
             this.tabMainDuties.Text = "Main Duties";
             this.tabMainDuties.UseVisualStyleBackColor = true;
@@ -670,7 +1110,7 @@
             this.tabQualifications.Location = new System.Drawing.Point(4, 22);
             this.tabQualifications.Margin = new System.Windows.Forms.Padding(2);
             this.tabQualifications.Name = "tabQualifications";
-            this.tabQualifications.Size = new System.Drawing.Size(977, 621);
+            this.tabQualifications.Size = new System.Drawing.Size(977, 708);
             this.tabQualifications.TabIndex = 3;
             this.tabQualifications.Text = "Qualifications";
             this.tabQualifications.UseVisualStyleBackColor = true;
@@ -739,7 +1179,7 @@
             this.tabJobAdPreview.Location = new System.Drawing.Point(4, 22);
             this.tabJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
             this.tabJobAdPreview.Name = "tabJobAdPreview";
-            this.tabJobAdPreview.Size = new System.Drawing.Size(977, 621);
+            this.tabJobAdPreview.Size = new System.Drawing.Size(977, 708);
             this.tabJobAdPreview.TabIndex = 6;
             this.tabJobAdPreview.Text = "Job Ad Preview";
             this.tabJobAdPreview.UseVisualStyleBackColor = true;
@@ -788,7 +1228,7 @@
             this.tabMedia.Location = new System.Drawing.Point(4, 22);
             this.tabMedia.Margin = new System.Windows.Forms.Padding(2);
             this.tabMedia.Name = "tabMedia";
-            this.tabMedia.Size = new System.Drawing.Size(977, 621);
+            this.tabMedia.Size = new System.Drawing.Size(977, 708);
             this.tabMedia.TabIndex = 5;
             this.tabMedia.Text = "Media Selection";
             this.tabMedia.UseVisualStyleBackColor = true;
@@ -1076,105 +1516,25 @@
             this.lblOfficial.TabIndex = 1;
             this.lblOfficial.Text = "Official Media";
             // 
-            // tabJobPost
+            // tabJobOffer
             // 
-            this.tabJobPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabJobPost.Controls.Add(this.dgvJobPostMonitor);
-            this.tabJobPost.Location = new System.Drawing.Point(4, 22);
-            this.tabJobPost.Margin = new System.Windows.Forms.Padding(2);
-            this.tabJobPost.Name = "tabJobPost";
-            this.tabJobPost.Size = new System.Drawing.Size(977, 621);
-            this.tabJobPost.TabIndex = 8;
-            this.tabJobPost.Text = "Job Post Monitor";
-            this.tabJobPost.UseVisualStyleBackColor = true;
-            // 
-            // dgvJobPostMonitor
-            // 
-            this.dgvJobPostMonitor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvJobPostMonitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvJobPostMonitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PostMedia,
-            this.PostDate,
-            this.PostExpiryDate,
-            this.PostInitialPrintDate,
-            this.PostLastPrintDate,
-            this.PostProvenDays,
-            this.PostAccount,
-            this.PostAccountPassword,
-            this.PostOtherInfo,
-            this.PostLink});
-            this.dgvJobPostMonitor.Location = new System.Drawing.Point(1, 3);
-            this.dgvJobPostMonitor.Name = "dgvJobPostMonitor";
-            this.dgvJobPostMonitor.RowHeadersVisible = false;
-            this.dgvJobPostMonitor.Size = new System.Drawing.Size(973, 208);
-            this.dgvJobPostMonitor.TabIndex = 0;
-            // 
-            // PostMedia
-            // 
-            this.PostMedia.HeaderText = "Media";
-            this.PostMedia.Name = "PostMedia";
-            // 
-            // PostDate
-            // 
-            this.PostDate.FillWeight = 80F;
-            this.PostDate.HeaderText = "Post Date";
-            this.PostDate.Name = "PostDate";
-            this.PostDate.Width = 80;
-            // 
-            // PostExpiryDate
-            // 
-            this.PostExpiryDate.FillWeight = 80F;
-            this.PostExpiryDate.HeaderText = "Epiry Date";
-            this.PostExpiryDate.Name = "PostExpiryDate";
-            this.PostExpiryDate.Width = 80;
-            // 
-            // PostInitialPrintDate
-            // 
-            this.PostInitialPrintDate.FillWeight = 80F;
-            this.PostInitialPrintDate.HeaderText = "Initial Print Date";
-            this.PostInitialPrintDate.Name = "PostInitialPrintDate";
-            this.PostInitialPrintDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PostInitialPrintDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.PostInitialPrintDate.Width = 80;
-            // 
-            // PostLastPrintDate
-            // 
-            this.PostLastPrintDate.FillWeight = 80F;
-            this.PostLastPrintDate.HeaderText = "Last Print Date";
-            this.PostLastPrintDate.Name = "PostLastPrintDate";
-            this.PostLastPrintDate.Width = 80;
-            // 
-            // PostProvenDays
-            // 
-            this.PostProvenDays.FillWeight = 60F;
-            this.PostProvenDays.HeaderText = "Proven Days";
-            this.PostProvenDays.Name = "PostProvenDays";
-            this.PostProvenDays.Width = 60;
-            // 
-            // PostAccount
-            // 
-            this.PostAccount.HeaderText = "Account";
-            this.PostAccount.Name = "PostAccount";
-            // 
-            // PostAccountPassword
-            // 
-            this.PostAccountPassword.FillWeight = 80F;
-            this.PostAccountPassword.HeaderText = "AccountPassword";
-            this.PostAccountPassword.Name = "PostAccountPassword";
-            this.PostAccountPassword.Width = 80;
-            // 
-            // PostOtherInfo
-            // 
-            this.PostOtherInfo.HeaderText = "OtherInfo";
-            this.PostOtherInfo.Name = "PostOtherInfo";
-            // 
-            // PostLink
-            // 
-            this.PostLink.FillWeight = 150F;
-            this.PostLink.HeaderText = "Link";
-            this.PostLink.Name = "PostLink";
-            this.PostLink.Width = 150;
+            this.tabJobOffer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabJobOffer.Controls.Add(this.grpLMIALanguage);
+            this.tabJobOffer.Controls.Add(this.chkLanguageRequired);
+            this.tabJobOffer.Controls.Add(this.cmbDurationUnit);
+            this.tabJobOffer.Controls.Add(this.textBox14);
+            this.tabJobOffer.Controls.Add(this.label24);
+            this.tabJobOffer.Controls.Add(this.textBox15);
+            this.tabJobOffer.Controls.Add(this.label25);
+            this.tabJobOffer.Controls.Add(this.textBox13);
+            this.tabJobOffer.Controls.Add(this.label21);
+            this.tabJobOffer.Location = new System.Drawing.Point(4, 22);
+            this.tabJobOffer.Margin = new System.Windows.Forms.Padding(2);
+            this.tabJobOffer.Name = "tabJobOffer";
+            this.tabJobOffer.Size = new System.Drawing.Size(977, 708);
+            this.tabJobOffer.TabIndex = 8;
+            this.tabJobOffer.Text = "Job Offer";
+            this.tabJobOffer.UseVisualStyleBackColor = true;
             // 
             // tabPage1
             // 
@@ -1284,435 +1644,226 @@
             this.applicationSteam1.Size = new System.Drawing.Size(970, 69);
             this.applicationSteam1.TabIndex = 7;
             // 
-            // grpEmployeeStructure
-            // 
-            this.grpEmployeeStructure.Controls.Add(this.textBox11);
-            this.grpEmployeeStructure.Controls.Add(this.textBox10);
-            this.grpEmployeeStructure.Controls.Add(this.label11);
-            this.grpEmployeeStructure.Controls.Add(this.textBox9);
-            this.grpEmployeeStructure.Controls.Add(this.label10);
-            this.grpEmployeeStructure.Controls.Add(this.textBox8);
-            this.grpEmployeeStructure.Controls.Add(this.label9);
-            this.grpEmployeeStructure.Controls.Add(this.textBox5);
-            this.grpEmployeeStructure.Controls.Add(this.label8);
-            this.grpEmployeeStructure.Controls.Add(this.label7);
-            this.grpEmployeeStructure.Controls.Add(this.label6);
-            this.grpEmployeeStructure.Location = new System.Drawing.Point(3, 3);
-            this.grpEmployeeStructure.Name = "grpEmployeeStructure";
-            this.grpEmployeeStructure.Size = new System.Drawing.Size(970, 164);
-            this.grpEmployeeStructure.TabIndex = 0;
-            this.grpEmployeeStructure.TabStop = false;
-            this.grpEmployeeStructure.Text = "Employee Structure";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(517, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "1. Number of employees currently employed nationally under this Canada Revenue Ag" +
-    "ency Business number";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox5.Location = new System.Drawing.Point(851, 20);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(-122, 50);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "label6";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 49);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(438, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "2. Total number of employees currently employed at the work location specified on" +
-    " this form:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox8.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox8.Location = new System.Drawing.Point(851, 46);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 75);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(490, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "3. Total number of Canadian/permanent resident employees at the work location spe" +
-    "cified on this form:";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox9.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox9.Location = new System.Drawing.Point(851, 72);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 1;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(16, 101);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(629, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "4. Total number of employees (including Canadians/permanent residents and TFWs) w" +
-    "orking in this occupation at this work location.";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox10.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox10.Location = new System.Drawing.Point(851, 98);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 127);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(526, 13);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "5. Total number of TFWs (as the result of receiving a positive LMIA) at the work " +
-    "location specified on this form:";
-            // 
-            // textBox11
-            // 
-            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox11.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox11.Location = new System.Drawing.Point(851, 124);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 1;
-            // 
-            // grpLMIARecord
-            // 
-            this.grpLMIARecord.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpLMIARecord.Controls.Add(this.chkLMIAMisRep);
-            this.grpLMIARecord.Controls.Add(this.chkLMIACompliance1415);
-            this.grpLMIARecord.Controls.Add(this.checkBox1);
-            this.grpLMIARecord.Controls.Add(this.chkLMIA1415);
-            this.grpLMIARecord.Controls.Add(this.chkLMIACompliance1213);
-            this.grpLMIARecord.Controls.Add(this.chkLMIA1213);
-            this.grpLMIARecord.Controls.Add(this.label15);
-            this.grpLMIARecord.Controls.Add(this.label17);
-            this.grpLMIARecord.Controls.Add(this.label12);
-            this.grpLMIARecord.Controls.Add(this.txtLMIASFN);
-            this.grpLMIARecord.Controls.Add(this.txtLMIAPublicPolicy);
-            this.grpLMIARecord.Controls.Add(this.txtRevocationDate);
-            this.grpLMIARecord.Location = new System.Drawing.Point(3, 173);
-            this.grpLMIARecord.Name = "grpLMIARecord";
-            this.grpLMIARecord.Size = new System.Drawing.Size(967, 182);
-            this.grpLMIARecord.TabIndex = 1;
-            this.grpLMIARecord.TabStop = false;
-            this.grpLMIARecord.Text = "LMIA Record";
-            // 
-            // chkLMIA1213
-            // 
-            this.chkLMIA1213.AutoSize = true;
-            this.chkLMIA1213.Location = new System.Drawing.Point(14, 26);
-            this.chkLMIA1213.Name = "chkLMIA1213";
-            this.chkLMIA1213.Size = new System.Drawing.Size(405, 17);
-            this.chkLMIA1213.TabIndex = 0;
-            this.chkLMIA1213.Text = "6. Did you employ a TFW (as the result of receiving a positive LMIA) in 2012-13?";
-            this.chkLMIA1213.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIACompliance1213
-            // 
-            this.chkLMIACompliance1213.AutoSize = true;
-            this.chkLMIACompliance1213.Location = new System.Drawing.Point(499, 24);
-            this.chkLMIACompliance1213.Name = "chkLMIACompliance1213";
-            this.chkLMIACompliance1213.Size = new System.Drawing.Size(267, 17);
-            this.chkLMIACompliance1213.TabIndex = 1;
-            this.chkLMIACompliance1213.Text = "Did you comply with the rquirement in LMIA annex?";
-            this.chkLMIACompliance1213.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIA1415
-            // 
-            this.chkLMIA1415.AutoSize = true;
-            this.chkLMIA1415.Location = new System.Drawing.Point(14, 49);
-            this.chkLMIA1415.Name = "chkLMIA1415";
-            this.chkLMIA1415.Size = new System.Drawing.Size(405, 17);
-            this.chkLMIA1415.TabIndex = 0;
-            this.chkLMIA1415.Text = "7. Did you employ a TFW (as the result of receiving a positive LMIA) in 2014-15?";
-            this.chkLMIA1415.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIACompliance1415
-            // 
-            this.chkLMIACompliance1415.AutoSize = true;
-            this.chkLMIACompliance1415.Location = new System.Drawing.Point(499, 47);
-            this.chkLMIACompliance1415.Name = "chkLMIACompliance1415";
-            this.chkLMIACompliance1415.Size = new System.Drawing.Size(267, 17);
-            this.chkLMIACompliance1415.TabIndex = 1;
-            this.chkLMIACompliance1415.Text = "Did you comply with the rquirement in LMIA annex?";
-            this.chkLMIACompliance1415.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(14, 72);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(527, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "8.Have you had an LMIA revoked within the previous 2 years from the date you subm" +
-    "itted this application?";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAMisRep
-            // 
-            this.chkLMIAMisRep.AutoSize = true;
-            this.chkLMIAMisRep.Location = new System.Drawing.Point(54, 95);
-            this.chkLMIAMisRep.Name = "chkLMIAMisRep";
-            this.chkLMIAMisRep.Size = new System.Drawing.Size(159, 17);
-            this.chkLMIAMisRep.TabIndex = 1;
-            this.chkLMIAMisRep.Text = "Revocation due to MisRep?";
-            this.chkLMIAMisRep.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(263, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Revocation Date";
-            // 
-            // txtRevocationDate
-            // 
-            this.txtRevocationDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRevocationDate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtRevocationDate.Location = new System.Drawing.Point(368, 95);
-            this.txtRevocationDate.Name = "txtRevocationDate";
-            this.txtRevocationDate.Size = new System.Drawing.Size(100, 20);
-            this.txtRevocationDate.TabIndex = 1;
-            // 
-            // txtLMIASFN
-            // 
-            this.txtLMIASFN.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLMIASFN.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtLMIASFN.Location = new System.Drawing.Point(666, 95);
-            this.txtLMIASFN.Name = "txtLMIASFN";
-            this.txtLMIASFN.Size = new System.Drawing.Size(100, 20);
-            this.txtLMIASFN.TabIndex = 1;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(524, 97);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "System File Number";
-            // 
-            // txtLMIAPublicPolicy
-            // 
-            this.txtLMIAPublicPolicy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLMIAPublicPolicy.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtLMIAPublicPolicy.Location = new System.Drawing.Point(52, 147);
-            this.txtLMIAPublicPolicy.Name = "txtLMIAPublicPolicy";
-            this.txtLMIAPublicPolicy.Size = new System.Drawing.Size(899, 20);
-            this.txtLMIAPublicPolicy.TabIndex = 1;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(49, 120);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(583, 13);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "If the public policy considerations that justified the revocation are no longer r" +
-    "elevant, please provide a detailed explanation:";
-            // 
-            // grpLayOff
-            // 
-            this.grpLayOff.Controls.Add(this.checkBox2);
-            this.grpLayOff.Controls.Add(this.label19);
-            this.grpLayOff.Controls.Add(this.txtLayoffCanadians);
-            this.grpLayOff.Controls.Add(this.txtTFWs);
-            this.grpLayOff.Controls.Add(this.label18);
-            this.grpLayOff.Controls.Add(this.textBox12);
-            this.grpLayOff.Controls.Add(this.label20);
-            this.grpLayOff.Location = new System.Drawing.Point(6, 364);
-            this.grpLayOff.Name = "grpLayOff";
-            this.grpLayOff.Size = new System.Drawing.Size(967, 103);
-            this.grpLayOff.TabIndex = 2;
-            this.grpLayOff.TabStop = false;
-            this.grpLayOff.Text = "Lay Off";
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(12, 19);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(281, 17);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "9. Were any employees laid off in the past 12 months?";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // txtLayoffCanadians
-            // 
-            this.txtLayoffCanadians.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtLayoffCanadians.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtLayoffCanadians.Location = new System.Drawing.Point(619, 16);
-            this.txtLayoffCanadians.Name = "txtLayoffCanadians";
-            this.txtLayoffCanadians.Size = new System.Drawing.Size(69, 20);
-            this.txtLayoffCanadians.TabIndex = 1;
-            // 
-            // txtTFWs
-            // 
-            this.txtTFWs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTFWs.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtTFWs.Location = new System.Drawing.Point(848, 17);
-            this.txtTFWs.Name = "txtTFWs";
-            this.txtTFWs.Size = new System.Drawing.Size(100, 20);
-            this.txtTFWs.TabIndex = 1;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(326, 19);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(255, 13);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "You answered yes, so how many Canadians laid off?";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(724, 19);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(90, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "How many TFW?";
-            // 
-            // textBox12
-            // 
-            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox12.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.textBox12.Location = new System.Drawing.Point(49, 72);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(899, 20);
-            this.textBox12.TabIndex = 1;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(46, 45);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(236, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Reason(s) for layoff(s) and occupations affected:";
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(12, 19);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(592, 17);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "10. Does your business receive support through Employment and Social Development " +
-    "Canada\'s Work-Sharing program?";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.txtReceiveSupport);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Location = new System.Drawing.Point(6, 482);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(967, 103);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Receive support from government";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(326, 19);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(255, 13);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "You answered yes, so how many Canadians laid off?";
-            // 
-            // txtReceiveSupport
-            // 
-            this.txtReceiveSupport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtReceiveSupport.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtReceiveSupport.Location = new System.Drawing.Point(49, 72);
-            this.txtReceiveSupport.Name = "txtReceiveSupport";
-            this.txtReceiveSupport.Size = new System.Drawing.Size(899, 20);
-            this.txtReceiveSupport.TabIndex = 1;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(46, 45);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(106, 13);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "If yes, provide details";
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(786, 621);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 4;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(705, 621);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(619, 621);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // btnInsert
-            // 
-            this.btnInsert.Location = new System.Drawing.Point(523, 621);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnInsert.TabIndex = 4;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 8);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Number of TFWs";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(116, 5);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(54, 20);
+            this.textBox13.TabIndex = 1;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(202, 12);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(93, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Expected duration";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(315, 8);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(43, 20);
+            this.textBox14.TabIndex = 1;
+            // 
+            // cmbDurationUnit
+            // 
+            this.cmbDurationUnit.FormattingEnabled = true;
+            this.cmbDurationUnit.Items.AddRange(new object[] {
+            "Days",
+            "Weeks",
+            "Months",
+            "Years",
+            "Permanent"});
+            this.cmbDurationUnit.Location = new System.Drawing.Point(364, 7);
+            this.cmbDurationUnit.Name = "cmbDurationUnit";
+            this.cmbDurationUnit.Size = new System.Drawing.Size(78, 21);
+            this.cmbDurationUnit.TabIndex = 2;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(476, 10);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(103, 13);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Expected Start Date";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(585, 7);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(77, 20);
+            this.textBox15.TabIndex = 1;
+            // 
+            // chkLanguageRequired
+            // 
+            this.chkLanguageRequired.AutoSize = true;
+            this.chkLanguageRequired.Checked = true;
+            this.chkLanguageRequired.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLanguageRequired.Location = new System.Drawing.Point(703, 9);
+            this.chkLanguageRequired.Name = "chkLanguageRequired";
+            this.chkLanguageRequired.Size = new System.Drawing.Size(265, 17);
+            this.chkLanguageRequired.TabIndex = 3;
+            this.chkLanguageRequired.Text = "This offer requires the English or/and French ability";
+            this.chkLanguageRequired.UseVisualStyleBackColor = true;
+            // 
+            // grpLMIALanguage
+            // 
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOtherLanguage);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglisAndFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglisOrFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralEnglisAndFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralEnglisOrFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglish);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralFrench);
+            this.grpLMIALanguage.Controls.Add(this.txtLMIAOtherLanguage);
+            this.grpLMIALanguage.Controls.Add(this.chkLIMAWriting);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAoralEnglish);
+            this.grpLMIALanguage.Controls.Add(this.chkLIMAOral);
+            this.grpLMIALanguage.Location = new System.Drawing.Point(17, 34);
+            this.grpLMIALanguage.Name = "grpLMIALanguage";
+            this.grpLMIALanguage.Size = new System.Drawing.Size(950, 150);
+            this.grpLMIALanguage.TabIndex = 4;
+            this.grpLMIALanguage.TabStop = false;
+            this.grpLMIALanguage.Text = "Language Requirement";
+            // 
+            // chkLIMAOral
+            // 
+            this.chkLIMAOral.AutoSize = true;
+            this.chkLIMAOral.Checked = true;
+            this.chkLIMAOral.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLIMAOral.Location = new System.Drawing.Point(13, 20);
+            this.chkLIMAOral.Name = "chkLIMAOral";
+            this.chkLIMAOral.Size = new System.Drawing.Size(346, 17);
+            this.chkLIMAOral.TabIndex = 0;
+            this.chkLIMAOral.Text = "The offer of employment requires the ability to communicate orally in:";
+            this.chkLIMAOral.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAoralEnglish
+            // 
+            this.chkLMIAoralEnglish.AutoSize = true;
+            this.chkLMIAoralEnglish.Checked = true;
+            this.chkLMIAoralEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLMIAoralEnglish.Location = new System.Drawing.Point(33, 43);
+            this.chkLMIAoralEnglish.Name = "chkLMIAoralEnglish";
+            this.chkLMIAoralEnglish.Size = new System.Drawing.Size(60, 17);
+            this.chkLMIAoralEnglish.TabIndex = 1;
+            this.chkLMIAoralEnglish.Text = "English";
+            this.chkLMIAoralEnglish.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAOralFrench
+            // 
+            this.chkLMIAOralFrench.AutoSize = true;
+            this.chkLMIAOralFrench.Location = new System.Drawing.Point(99, 43);
+            this.chkLMIAOralFrench.Name = "chkLMIAOralFrench";
+            this.chkLMIAOralFrench.Size = new System.Drawing.Size(59, 17);
+            this.chkLMIAOralFrench.TabIndex = 1;
+            this.chkLMIAOralFrench.Text = "French";
+            this.chkLMIAOralFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAOralEnglisOrFrench
+            // 
+            this.chkLMIAOralEnglisOrFrench.AutoSize = true;
+            this.chkLMIAOralEnglisOrFrench.Location = new System.Drawing.Point(164, 43);
+            this.chkLMIAOralEnglisOrFrench.Name = "chkLMIAOralEnglisOrFrench";
+            this.chkLMIAOralEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
+            this.chkLMIAOralEnglisOrFrench.TabIndex = 1;
+            this.chkLMIAOralEnglisOrFrench.Text = "English or French";
+            this.chkLMIAOralEnglisOrFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAOralEnglisAndFrench
+            // 
+            this.chkLMIAOralEnglisAndFrench.AutoSize = true;
+            this.chkLMIAOralEnglisAndFrench.Location = new System.Drawing.Point(269, 43);
+            this.chkLMIAOralEnglisAndFrench.Name = "chkLMIAOralEnglisAndFrench";
+            this.chkLMIAOralEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
+            this.chkLMIAOralEnglisAndFrench.TabIndex = 1;
+            this.chkLMIAOralEnglisAndFrench.Text = "English and French";
+            this.chkLMIAOralEnglisAndFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLIMAWriting
+            // 
+            this.chkLIMAWriting.AutoSize = true;
+            this.chkLIMAWriting.Checked = true;
+            this.chkLIMAWriting.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLIMAWriting.Location = new System.Drawing.Point(506, 20);
+            this.chkLIMAWriting.Name = "chkLIMAWriting";
+            this.chkLIMAWriting.Size = new System.Drawing.Size(355, 17);
+            this.chkLIMAWriting.TabIndex = 0;
+            this.chkLIMAWriting.Text = "The offer of employment requires the ability to communicate  in writing:";
+            this.chkLIMAWriting.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingEnglish
+            // 
+            this.chkLMIAWritingEnglish.AutoSize = true;
+            this.chkLMIAWritingEnglish.Checked = true;
+            this.chkLMIAWritingEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLMIAWritingEnglish.Location = new System.Drawing.Point(526, 43);
+            this.chkLMIAWritingEnglish.Name = "chkLMIAWritingEnglish";
+            this.chkLMIAWritingEnglish.Size = new System.Drawing.Size(60, 17);
+            this.chkLMIAWritingEnglish.TabIndex = 1;
+            this.chkLMIAWritingEnglish.Text = "English";
+            this.chkLMIAWritingEnglish.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingFrench
+            // 
+            this.chkLMIAWritingFrench.AutoSize = true;
+            this.chkLMIAWritingFrench.Location = new System.Drawing.Point(592, 43);
+            this.chkLMIAWritingFrench.Name = "chkLMIAWritingFrench";
+            this.chkLMIAWritingFrench.Size = new System.Drawing.Size(59, 17);
+            this.chkLMIAWritingFrench.TabIndex = 1;
+            this.chkLMIAWritingFrench.Text = "French";
+            this.chkLMIAWritingFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingEnglisOrFrench
+            // 
+            this.chkLMIAWritingEnglisOrFrench.AutoSize = true;
+            this.chkLMIAWritingEnglisOrFrench.Location = new System.Drawing.Point(657, 43);
+            this.chkLMIAWritingEnglisOrFrench.Name = "chkLMIAWritingEnglisOrFrench";
+            this.chkLMIAWritingEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
+            this.chkLMIAWritingEnglisOrFrench.TabIndex = 1;
+            this.chkLMIAWritingEnglisOrFrench.Text = "English or French";
+            this.chkLMIAWritingEnglisOrFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingEnglisAndFrench
+            // 
+            this.chkLMIAWritingEnglisAndFrench.AutoSize = true;
+            this.chkLMIAWritingEnglisAndFrench.Location = new System.Drawing.Point(762, 43);
+            this.chkLMIAWritingEnglisAndFrench.Name = "chkLMIAWritingEnglisAndFrench";
+            this.chkLMIAWritingEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
+            this.chkLMIAWritingEnglisAndFrench.TabIndex = 1;
+            this.chkLMIAWritingEnglisAndFrench.Text = "English and French";
+            this.chkLMIAWritingEnglisAndFrench.UseVisualStyleBackColor = true;
+            // 
+            // txtLMIAOtherLanguage
+            // 
+            this.txtLMIAOtherLanguage.Location = new System.Drawing.Point(15, 106);
+            this.txtLMIAOtherLanguage.Name = "txtLMIAOtherLanguage";
+            this.txtLMIAOtherLanguage.Size = new System.Drawing.Size(929, 20);
+            this.txtLMIAOtherLanguage.TabIndex = 1;
+            // 
+            // chkLMIAOtherLanguage
+            // 
+            this.chkLMIAOtherLanguage.AutoSize = true;
+            this.chkLMIAOtherLanguage.Location = new System.Drawing.Point(15, 73);
+            this.chkLMIAOtherLanguage.Name = "chkLMIAOtherLanguage";
+            this.chkLMIAOtherLanguage.Size = new System.Drawing.Size(466, 17);
+            this.chkLMIAOtherLanguage.TabIndex = 2;
+            this.chkLMIAOtherLanguage.Text = "Is this job required to have language ability other than English or French, pleas" +
+    "e explain below";
+            this.chkLMIAOtherLanguage.UseVisualStyleBackColor = true;
             // 
             // LMIAForm
             // 
@@ -1730,8 +1881,16 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabBusinessDetails.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.grpLayOff.ResumeLayout(false);
+            this.grpLayOff.PerformLayout();
+            this.grpLMIARecord.ResumeLayout(false);
+            this.grpLMIARecord.PerformLayout();
+            this.grpEmployeeStructure.ResumeLayout(false);
+            this.grpEmployeeStructure.PerformLayout();
             this.tabApplication.ResumeLayout(false);
-            this.tabADandMedia.ResumeLayout(false);
+            this.tabLMIAApplication.ResumeLayout(false);
             this.tabAD.ResumeLayout(false);
             this.tabAD.PerformLayout();
             this.stsStatus.ResumeLayout(false);
@@ -1749,19 +1908,13 @@
             this.tabMedia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).EndInit();
-            this.tabJobPost.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvJobPostMonitor)).EndInit();
+            this.tabJobOffer.ResumeLayout(false);
+            this.tabJobOffer.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.grpEmployeeStructure.ResumeLayout(false);
-            this.grpEmployeeStructure.PerformLayout();
-            this.grpLMIARecord.ResumeLayout(false);
-            this.grpLMIARecord.PerformLayout();
-            this.grpLayOff.ResumeLayout(false);
-            this.grpLayOff.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grpLMIALanguage.ResumeLayout(false);
+            this.grpLMIALanguage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1770,7 +1923,7 @@
 
         private System.Windows.Forms.TabControl tabBase;
         private System.Windows.Forms.TabPage tabApplication;
-        private System.Windows.Forms.TabControl tabADandMedia;
+        private System.Windows.Forms.TabControl tabLMIAApplication;
         private System.Windows.Forms.StatusStrip stsStatus;
         private System.Windows.Forms.ToolStripStatusLabel stsEmployer;
         private System.Windows.Forms.ToolStripStatusLabel stsEmployee;
@@ -1798,7 +1951,7 @@
         private System.Windows.Forms.Label lblSpecific;
         private System.Windows.Forms.Label lblGeneral;
         private System.Windows.Forms.Label lblOfficial;
-        private System.Windows.Forms.TabPage tabJobPost;
+        private System.Windows.Forms.TabPage tabJobOffer;
         private UCAddress ucAddress1;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ESDC;
@@ -1823,17 +1976,6 @@
         private System.Windows.Forms.DataGridViewLinkColumn MediaLink;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dgvJobPostMonitor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostMedia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostExpiryDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostInitialPrintDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostLastPrintDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostProvenDays;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostAccount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostAccountPassword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PostOtherInfo;
-        private System.Windows.Forms.DataGridViewLinkColumn PostLink;
         private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -1911,5 +2053,26 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.CheckBox chkLanguageRequired;
+        private System.Windows.Forms.ComboBox cmbDurationUnit;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox grpLMIALanguage;
+        private System.Windows.Forms.CheckBox chkLMIAWritingEnglisAndFrench;
+        private System.Windows.Forms.CheckBox chkLMIAWritingEnglisOrFrench;
+        private System.Windows.Forms.CheckBox chkLMIAOralEnglisAndFrench;
+        private System.Windows.Forms.CheckBox chkLMIAWritingFrench;
+        private System.Windows.Forms.CheckBox chkLMIAOralEnglisOrFrench;
+        private System.Windows.Forms.CheckBox chkLMIAWritingEnglish;
+        private System.Windows.Forms.CheckBox chkLMIAOralFrench;
+        private System.Windows.Forms.CheckBox chkLIMAWriting;
+        private System.Windows.Forms.CheckBox chkLMIAoralEnglish;
+        private System.Windows.Forms.CheckBox chkLIMAOral;
+        private System.Windows.Forms.CheckBox chkLMIAOtherLanguage;
+        private System.Windows.Forms.TextBox txtLMIAOtherLanguage;
     }
 }

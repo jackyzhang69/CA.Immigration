@@ -29,8 +29,8 @@ namespace CA.Immigration.LMIA
         private void LMIAForm_Load(object sender, EventArgs e)
         {
 
-            UCAppStream.lblAnotherEmployer.Visible = false;
-            UCAppStream.txtAnotherEmployer.Visible = false;
+            //UCAppStream.lblAnotherEmployer.Visible = false;
+            //UCAppStream.txtAnotherEmployer.Visible = false;
         
         }
     }
