@@ -16,19 +16,19 @@ Id int not null primary key Identity(1,1),
 ProvinceCode int not null,  -- Match with CIC country code defenition
 Province varchar(2) not null
 )
-insert into tblCNDProvinces values(1,'AB')
-insert into tblCNDProvinces values(2,'BC')
-insert into tblCNDProvinces values(3,'MB')
-insert into tblCNDProvinces values(4,'NB')
-insert into tblCNDProvinces values(5,'NL')
-insert into tblCNDProvinces values(6,'NS')
-insert into tblCNDProvinces values(7,'NT')
-insert into tblCNDProvinces values(8,'NU')
-insert into tblCNDProvinces values(9,'ON')
-insert into tblCNDProvinces values(10,'PE')
-insert into tblCNDProvinces values(11,'QC')
-insert into tblCNDProvinces values(12,'SK')
-insert into tblCNDProvinces values(13,'YT')
+insert into tblCNDProvince values(1,'AB')
+insert into tblCNDProvince values(2,'BC')
+insert into tblCNDProvince values(3,'MB')
+insert into tblCNDProvince values(4,'NB')
+insert into tblCNDProvince values(5,'NL')
+insert into tblCNDProvince values(6,'NS')
+insert into tblCNDProvince values(7,'NT')
+insert into tblCNDProvince values(8,'NU')
+insert into tblCNDProvince values(9,'ON')
+insert into tblCNDProvince values(10,'PE')
+insert into tblCNDProvince values(11,'QC')
+insert into tblCNDProvince values(12,'SK')
+insert into tblCNDProvince values(13,'YT')
 
 -- PK Table indicates education level
 create table tblEducationLevel
@@ -38,23 +38,23 @@ LevelCode int not null,  -- Matchs CIC defenition code
 Level varchar(100) not null
 )
 
-insert into tblEducationLevels values(1,'Primary School')
-insert into tblEducationLevels values(2,'Secondary School')
-insert into tblEducationLevels values(3,'PTC/TCST/DVS/AVS')
-insert into tblEducationLevels values(4,'CEGEP-Pre-universtiy')
-insert into tblEducationLevels values(5,'CEGEP-Technical')
-insert into tblEducationLevels values(6,'College-Certificate')
-insert into tblEducationLevels values(7,'College-Diploma')
-insert into tblEducationLevels values(8,'College-Applied Degree')
-insert into tblEducationLevels values(9,'University-Bachelor Deg.')
-insert into tblEducationLevels values(10,'University-Master Deg')
-insert into tblEducationLevels values(11,'University-Doctorate')
-insert into tblEducationLevels values(12,'University-Other Studies')
-insert into tblEducationLevels values(13,'ESL/FSL')
-insert into tblEducationLevels values(14,'ESL/FSL and College')
-insert into tblEducationLevels values(16,'ESL/FSL and University')
-insert into tblEducationLevels values(17,'Other Studies')
-insert into tblEducationLevels values(18,'Not Applicable')
+insert into tblEducationLevel values(1,'Primary School')
+insert into tblEducationLevel values(2,'Secondary School')
+insert into tblEducationLevel values(3,'PTC/TCST/DVS/AVS')
+insert into tblEducationLevel values(4,'CEGEP-Pre-universtiy')
+insert into tblEducationLevel values(5,'CEGEP-Technical')
+insert into tblEducationLevel values(6,'College-Certificate')
+insert into tblEducationLevel values(7,'College-Diploma')
+insert into tblEducationLevel values(8,'College-Applied Degree')
+insert into tblEducationLevel values(9,'University-Bachelor Deg.')
+insert into tblEducationLevel values(10,'University-Master Deg')
+insert into tblEducationLevel values(11,'University-Doctorate')
+insert into tblEducationLevel values(12,'University-Other Studies')
+insert into tblEducationLevel values(13,'ESL/FSL')
+insert into tblEducationLevel values(14,'ESL/FSL and College')
+insert into tblEducationLevel values(16,'ESL/FSL and University')
+insert into tblEducationLevel values(17,'Other Studies')
+insert into tblEducationLevel values(18,'Not Applicable')
 
 
 -- Creat Gender type PK table 
@@ -64,9 +64,9 @@ Id int not null primary key Identity(1,1),
 Gender varchar(7) not null
 )
 
-insert into tblGenders values('Male')
-insert into tblGenders values('Female')
-insert into tblGenders values('Unknown')
+insert into tblGender values('Male')
+insert into tblGender values('Female')
+insert into tblGender values('Unknown')
 
 -- Create Canada visit purpose PK table
 create table tblCNDVisitPurpose
@@ -76,12 +76,12 @@ PurposeCode int not null,  -- Matchs CIC defenition code
 Purpose varchar(15) not null
 )
 
-insert into tblCNDVisitPurposes values (1,'Business')
-insert into tblCNDVisitPurposes values (2,'Tourism')
-insert into tblCNDVisitPurposes values (3,'Study')
-insert into tblCNDVisitPurposes values (4,'Work')
-insert into tblCNDVisitPurposes values (5,'Other')
-insert into tblCNDVisitPurposes values (6,'Family Visit')
+insert into tblCNDVisitPurpose values (1,'Business')
+insert into tblCNDVisitPurpose values (2,'Tourism')
+insert into tblCNDVisitPurpose values (3,'Study')
+insert into tblCNDVisitPurpose values (4,'Work')
+insert into tblCNDVisitPurpose values (5,'Other')
+insert into tblCNDVisitPurpose values (6,'Family Visit')
 
 -- Creat phone type PK table
 create table tblPhoneType
@@ -91,9 +91,9 @@ TypeCode int not null,  -- Code matchs CIC Definition
 Type varchar(10) not null
 )
 
-insert into tblPhoneTypes values(1, 'Residence')
-insert into tblPhoneTypes values(2, 'Cellular')
-insert into tblPhoneTypes values(3, 'Business')
+insert into tblPhoneType values(1, 'Residence')
+insert into tblPhoneType values(2, 'Cellular')
+insert into tblPhoneType values(3, 'Business')
 
 -- Creat address type PK table
 create table tblAddressType
@@ -102,8 +102,8 @@ Id int not null primary key Identity(1,1),
 AddressType varchar(15) not null
 )
 
-insert into tblAddressTypes values('Residential')
-insert into tblAddressTypes values('Mailing')
+insert into tblAddressType values('Residential')
+insert into tblAddressType values('Mailing')
 
 -- Creat language type PK table
 create table tblLanguageType
@@ -121,7 +121,7 @@ TypeCode int not null,   -- Type code matchs CIC defenition
 MarriageStatusType varchar(20) not null,
 )
 
-insert into tblMarriageStatusTypes values (1, 'Annulled Marriage')
+insert into tblMarriageStatusType values (1, 'Annulled Marriage')
 insert into tblMarriageStatusTypes values (2, 'Common-Law')
 insert into tblMarriageStatusTypes values (3, 'Divorced')
 insert into tblMarriageStatusTypes values (4, 'Legally Separated')

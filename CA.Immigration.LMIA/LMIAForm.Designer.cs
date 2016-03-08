@@ -29,16 +29,31 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabBase = new System.Windows.Forms.TabControl();
-            this.tabAdvisor = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabApplication = new System.Windows.Forms.TabPage();
-            this.tbcADandMedia = new System.Windows.Forms.TabControl();
-            this.tbAD = new System.Windows.Forms.TabPage();
+            this.tabADandMedia = new System.Windows.Forms.TabControl();
+            this.tabAD = new System.Windows.Forms.TabPage();
+            this.dbOpsJobAd = new CA.Immigration.LMIA.DBOps();
+            this.ucAddress1 = new CA.Immigration.LMIA.UCAddress();
             this.stsStatus = new System.Windows.Forms.StatusStrip();
             this.stsEmployer = new System.Windows.Forms.ToolStripStatusLabel();
             this.stsEmployee = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,195 +70,189 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tbESDCMainDuties = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tabMainDuties = new System.Windows.Forms.TabPage();
+            this.dbOpsMainDuties = new CA.Immigration.LMIA.DBOps();
+            this.dgvMainDuties = new System.Windows.Forms.DataGridView();
             this.ESDC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtESDCMainduties = new System.Windows.Forms.TextBox();
-            this.tbMainDuties = new System.Windows.Forms.TabPage();
-            this.txtMainDuties = new System.Windows.Forms.TextBox();
-            this.tbESDCQualification = new System.Windows.Forms.TabPage();
-            this.txtESDCQualification = new System.Windows.Forms.TextBox();
-            this.tbQualification = new System.Windows.Forms.TabPage();
-            this.txtQualification = new System.Windows.Forms.TextBox();
-            this.tbCompanyBrief = new System.Windows.Forms.TabPage();
-            this.txtCompanyBrief = new System.Windows.Forms.TextBox();
-            this.tbPositionSummary = new System.Windows.Forms.TabPage();
-            this.txtPositionSummary = new System.Windows.Forms.TextBox();
-            this.tbMedia = new System.Windows.Forms.TabPage();
+            this.tabQualifications = new System.Windows.Forms.TabPage();
+            this.dbOpsQualification = new CA.Immigration.LMIA.DBOps();
+            this.dgvQualifications = new System.Windows.Forms.DataGridView();
+            this.isReasonable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ESDCQualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PositionQualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabJobAdPreview = new System.Windows.Forms.TabPage();
+            this.btnWord = new System.Windows.Forms.Button();
+            this.btnPDF = new System.Windows.Forms.Button();
+            this.txtJobAdPreview = new System.Windows.Forms.TextBox();
+            this.tabMedia = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btnGoForPosting = new System.Windows.Forms.Button();
             this.dgvMedia = new System.Windows.Forms.DataGridView();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.tbADPreview = new System.Windows.Forms.TabPage();
-            this.txtJobAdPreview = new System.Windows.Forms.TextBox();
+            this.MediaSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.MediaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MediaType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MediaScope = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MediaCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MediaDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MediaRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MediaLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.lblOther = new System.Windows.Forms.Label();
+            this.lblSpecific = new System.Windows.Forms.Label();
+            this.lblGeneral = new System.Windows.Forms.Label();
+            this.lblOfficial = new System.Windows.Forms.Label();
+            this.tabJobPost = new System.Windows.Forms.TabPage();
+            this.dgvJobPostMonitor = new System.Windows.Forms.DataGridView();
+            this.PostMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostInitialPrintDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostLastPrintDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostProvenDays = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostAccount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostAccountPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostOtherInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PostLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lmFactors2 = new CA.Immigration.LMIA.LMFactors();
+            this.indicators2 = new CA.Immigration.LMIA.Indicators();
+            this.financial2 = new CA.Immigration.LMIA.financial();
+            this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
+            this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationSteam();
+            this.tabAdvisor = new System.Windows.Forms.TabPage();
+            this.tbcSubAdvisor = new System.Windows.Forms.TabControl();
+            this.tabAnalysis = new System.Windows.Forms.TabPage();
+            this.tabBusinessDetails = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.lmFactors1 = new CA.Immigration.LMIA.LMFactors();
             this.indicators1 = new CA.Immigration.LMIA.Indicators();
             this.financial1 = new CA.Immigration.LMIA.financial();
             this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
-            this.UCAppStream = new CA.Immigration.LMIA.ApplicationSteam();
-            this.ucAddress1 = new CA.Immigration.LMIA.UCAddress();
+            this.applicationSteam2 = new CA.Immigration.LMIA.ApplicationSteam();
             this.tabBase.SuspendLayout();
-            this.tabAdvisor.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.tabApplication.SuspendLayout();
-            this.tbcADandMedia.SuspendLayout();
-            this.tbAD.SuspendLayout();
+            this.tabADandMedia.SuspendLayout();
+            this.tabAD.SuspendLayout();
             this.stsStatus.SuspendLayout();
             this.grpSelectEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployer)).BeginInit();
-            this.tbESDCMainDuties.SuspendLayout();
+            this.tabMainDuties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMainDuties)).BeginInit();
+            this.tabQualifications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQualifications)).BeginInit();
+            this.tabJobAdPreview.SuspendLayout();
+            this.tabMedia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tbMainDuties.SuspendLayout();
-            this.tbESDCQualification.SuspendLayout();
-            this.tbQualification.SuspendLayout();
-            this.tbCompanyBrief.SuspendLayout();
-            this.tbPositionSummary.SuspendLayout();
-            this.tbMedia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).BeginInit();
-            this.tbADPreview.SuspendLayout();
+            this.tabJobPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJobPostMonitor)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tabAdvisor.SuspendLayout();
+            this.tbcSubAdvisor.SuspendLayout();
+            this.tabAnalysis.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBase
             // 
             this.tabBase.Controls.Add(this.tabAdvisor);
             this.tabBase.Controls.Add(this.tabApplication);
+            this.tabBase.Controls.Add(this.tabPage1);
             this.tabBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabBase.Location = new System.Drawing.Point(0, 0);
-            this.tabBase.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabBase.Name = "tabBase";
             this.tabBase.SelectedIndex = 0;
-            this.tabBase.Size = new System.Drawing.Size(1498, 1221);
+            this.tabBase.Size = new System.Drawing.Size(999, 766);
             this.tabBase.TabIndex = 0;
-            // 
-            // tabAdvisor
-            // 
-            this.tabAdvisor.CausesValidation = false;
-            this.tabAdvisor.Controls.Add(this.groupBox1);
-            this.tabAdvisor.Controls.Add(this.lmFactors1);
-            this.tabAdvisor.Controls.Add(this.indicators1);
-            this.tabAdvisor.Controls.Add(this.financial1);
-            this.tabAdvisor.Controls.Add(this.jobPosition1);
-            this.tabAdvisor.Controls.Add(this.UCAppStream);
-            this.tabAdvisor.Location = new System.Drawing.Point(4, 29);
-            this.tabAdvisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabAdvisor.Name = "tabAdvisor";
-            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabAdvisor.Size = new System.Drawing.Size(1490, 1188);
-            this.tabAdvisor.TabIndex = 0;
-            this.tabAdvisor.Text = "Advisor";
-            this.tabAdvisor.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(549, 531);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(918, 545);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Reasonable Employment Need";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 286);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(250, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "The impact of the current situation";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(307, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "The situation the employer is currely facing";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(0, 334);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(916, 209);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(0, 82);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(918, 184);
-            this.textBox1.TabIndex = 0;
             // 
             // tabApplication
             // 
-            this.tabApplication.Controls.Add(this.tbcADandMedia);
-            this.tabApplication.Location = new System.Drawing.Point(4, 29);
-            this.tabApplication.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tabApplication.Controls.Add(this.tabADandMedia);
+            this.tabApplication.Location = new System.Drawing.Point(4, 22);
             this.tabApplication.Name = "tabApplication";
-            this.tabApplication.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabApplication.Size = new System.Drawing.Size(1490, 1104);
+            this.tabApplication.Padding = new System.Windows.Forms.Padding(3);
+            this.tabApplication.Size = new System.Drawing.Size(991, 653);
             this.tabApplication.TabIndex = 1;
             this.tabApplication.Text = "Application";
             this.tabApplication.UseVisualStyleBackColor = true;
             // 
-            // tbcADandMedia
+            // tabADandMedia
             // 
-            this.tbcADandMedia.Controls.Add(this.tbAD);
-            this.tbcADandMedia.Controls.Add(this.tbESDCMainDuties);
-            this.tbcADandMedia.Controls.Add(this.tbMainDuties);
-            this.tbcADandMedia.Controls.Add(this.tbESDCQualification);
-            this.tbcADandMedia.Controls.Add(this.tbQualification);
-            this.tbcADandMedia.Controls.Add(this.tbCompanyBrief);
-            this.tbcADandMedia.Controls.Add(this.tbPositionSummary);
-            this.tbcADandMedia.Controls.Add(this.tbMedia);
-            this.tbcADandMedia.Controls.Add(this.tbADPreview);
-            this.tbcADandMedia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbcADandMedia.Location = new System.Drawing.Point(4, 5);
-            this.tbcADandMedia.Name = "tbcADandMedia";
-            this.tbcADandMedia.SelectedIndex = 0;
-            this.tbcADandMedia.Size = new System.Drawing.Size(1482, 1094);
-            this.tbcADandMedia.TabIndex = 5;
+            this.tabADandMedia.Controls.Add(this.tabAD);
+            this.tabADandMedia.Controls.Add(this.tabMainDuties);
+            this.tabADandMedia.Controls.Add(this.tabQualifications);
+            this.tabADandMedia.Controls.Add(this.tabJobAdPreview);
+            this.tabADandMedia.Controls.Add(this.tabMedia);
+            this.tabADandMedia.Controls.Add(this.tabJobPost);
+            this.tabADandMedia.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabADandMedia.Location = new System.Drawing.Point(3, 3);
+            this.tabADandMedia.Margin = new System.Windows.Forms.Padding(2);
+            this.tabADandMedia.Name = "tabADandMedia";
+            this.tabADandMedia.SelectedIndex = 0;
+            this.tabADandMedia.Size = new System.Drawing.Size(985, 647);
+            this.tabADandMedia.TabIndex = 5;
             // 
-            // tbAD
+            // tabAD
             // 
-            this.tbAD.BackColor = System.Drawing.Color.White;
-            this.tbAD.Controls.Add(this.ucAddress1);
-            this.tbAD.Controls.Add(this.stsStatus);
-            this.tbAD.Controls.Add(this.grpSelectEmployer);
-            this.tbAD.Controls.Add(this.chkEducation);
-            this.tbAD.Controls.Add(this.chkBenefit);
-            this.tbAD.Controls.Add(this.txtEmploymentTerm);
-            this.tbAD.Controls.Add(this.label14);
-            this.tbAD.Controls.Add(this.label13);
-            this.tbAD.Controls.Add(this.label3);
-            this.tbAD.Controls.Add(this.textBox6);
-            this.tbAD.Controls.Add(this.label16);
-            this.tbAD.Location = new System.Drawing.Point(4, 29);
-            this.tbAD.Name = "tbAD";
-            this.tbAD.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAD.Size = new System.Drawing.Size(1474, 1061);
-            this.tbAD.TabIndex = 0;
-            this.tbAD.Text = "Job AD";
+            this.tabAD.AutoScroll = true;
+            this.tabAD.BackColor = System.Drawing.Color.White;
+            this.tabAD.Controls.Add(this.dbOpsJobAd);
+            this.tabAD.Controls.Add(this.ucAddress1);
+            this.tabAD.Controls.Add(this.stsStatus);
+            this.tabAD.Controls.Add(this.grpSelectEmployer);
+            this.tabAD.Controls.Add(this.chkEducation);
+            this.tabAD.Controls.Add(this.chkBenefit);
+            this.tabAD.Controls.Add(this.txtEmploymentTerm);
+            this.tabAD.Controls.Add(this.label14);
+            this.tabAD.Controls.Add(this.label13);
+            this.tabAD.Controls.Add(this.label3);
+            this.tabAD.Controls.Add(this.textBox6);
+            this.tabAD.Controls.Add(this.label16);
+            this.tabAD.Location = new System.Drawing.Point(4, 22);
+            this.tabAD.Margin = new System.Windows.Forms.Padding(2);
+            this.tabAD.Name = "tabAD";
+            this.tabAD.Padding = new System.Windows.Forms.Padding(2);
+            this.tabAD.Size = new System.Drawing.Size(977, 621);
+            this.tabAD.TabIndex = 0;
+            this.tabAD.Text = "Job AD";
+            // 
+            // dbOpsJobAd
+            // 
+            this.dbOpsJobAd.Location = new System.Drawing.Point(500, 554);
+            this.dbOpsJobAd.Name = "dbOpsJobAd";
+            this.dbOpsJobAd.Size = new System.Drawing.Size(387, 28);
+            this.dbOpsJobAd.TabIndex = 8;
+            // 
+            // ucAddress1
+            // 
+            this.ucAddress1.AutoSize = true;
+            this.ucAddress1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ucAddress1.Location = new System.Drawing.Point(5, 59);
+            this.ucAddress1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ucAddress1.Name = "ucAddress1";
+            this.ucAddress1.Size = new System.Drawing.Size(882, 141);
+            this.ucAddress1.TabIndex = 7;
             // 
             // stsStatus
             // 
@@ -252,10 +261,10 @@
             this.stsEmployer,
             this.stsEmployee,
             this.stsAppId});
-            this.stsStatus.Location = new System.Drawing.Point(3, 1036);
+            this.stsStatus.Location = new System.Drawing.Point(2, 597);
             this.stsStatus.Name = "stsStatus";
-            this.stsStatus.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
-            this.stsStatus.Size = new System.Drawing.Size(1468, 22);
+            this.stsStatus.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
+            this.stsStatus.Size = new System.Drawing.Size(973, 22);
             this.stsStatus.TabIndex = 6;
             this.stsStatus.Text = "Status";
             // 
@@ -279,9 +288,11 @@
             this.grpSelectEmployer.Controls.Add(this.dgvEmployer);
             this.grpSelectEmployer.Controls.Add(this.textBox7);
             this.grpSelectEmployer.Controls.Add(this.lblEmployer);
-            this.grpSelectEmployer.Location = new System.Drawing.Point(394, 375);
+            this.grpSelectEmployer.Location = new System.Drawing.Point(263, 244);
+            this.grpSelectEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectEmployer.Name = "grpSelectEmployer";
-            this.grpSelectEmployer.Size = new System.Drawing.Size(936, 445);
+            this.grpSelectEmployer.Padding = new System.Windows.Forms.Padding(2);
+            this.grpSelectEmployer.Size = new System.Drawing.Size(624, 289);
             this.grpSelectEmployer.TabIndex = 4;
             this.grpSelectEmployer.TabStop = false;
             this.grpSelectEmployer.Text = "Select Employer from Database";
@@ -291,25 +302,28 @@
             this.dgvEmployer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmployer.Location = new System.Drawing.Point(6, 78);
+            this.dgvEmployer.Location = new System.Drawing.Point(4, 51);
+            this.dgvEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployer.Name = "dgvEmployer";
             this.dgvEmployer.RowTemplate.Height = 28;
-            this.dgvEmployer.Size = new System.Drawing.Size(924, 360);
+            this.dgvEmployer.Size = new System.Drawing.Size(616, 234);
             this.dgvEmployer.TabIndex = 4;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(160, 35);
+            this.textBox7.Location = new System.Drawing.Point(107, 23);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(230, 26);
+            this.textBox7.Size = new System.Drawing.Size(155, 20);
             this.textBox7.TabIndex = 3;
             // 
             // lblEmployer
             // 
             this.lblEmployer.AutoSize = true;
-            this.lblEmployer.Location = new System.Drawing.Point(14, 35);
+            this.lblEmployer.Location = new System.Drawing.Point(9, 23);
+            this.lblEmployer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmployer.Name = "lblEmployer";
-            this.lblEmployer.Size = new System.Drawing.Size(121, 20);
+            this.lblEmployer.Size = new System.Drawing.Size(81, 13);
             this.lblEmployer.TabIndex = 2;
             this.lblEmployer.Text = "Employer Name";
             // 
@@ -328,9 +342,10 @@
             "Secondary school",
             "Vocational school diploma/certificate",
             "No formal education requirement"});
-            this.chkEducation.Location = new System.Drawing.Point(28, 586);
+            this.chkEducation.Location = new System.Drawing.Point(19, 381);
+            this.chkEducation.Margin = new System.Windows.Forms.Padding(2);
             this.chkEducation.Name = "chkEducation";
-            this.chkEducation.Size = new System.Drawing.Size(296, 235);
+            this.chkEducation.Size = new System.Drawing.Size(199, 154);
             this.chkEducation.TabIndex = 3;
             // 
             // chkBenefit
@@ -342,84 +357,98 @@
             "Dental insurance",
             "Pension",
             "Extended medical insurance"});
-            this.chkBenefit.Location = new System.Drawing.Point(28, 411);
+            this.chkBenefit.Location = new System.Drawing.Point(19, 267);
+            this.chkBenefit.Margin = new System.Windows.Forms.Padding(2);
             this.chkBenefit.Name = "chkBenefit";
-            this.chkBenefit.Size = new System.Drawing.Size(296, 88);
+            this.chkBenefit.Size = new System.Drawing.Size(199, 49);
             this.chkBenefit.TabIndex = 3;
             // 
             // txtEmploymentTerm
             // 
-            this.txtEmploymentTerm.Location = new System.Drawing.Point(590, 37);
+            this.txtEmploymentTerm.Location = new System.Drawing.Point(393, 24);
+            this.txtEmploymentTerm.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmploymentTerm.Name = "txtEmploymentTerm";
-            this.txtEmploymentTerm.Size = new System.Drawing.Size(230, 26);
+            this.txtEmploymentTerm.Size = new System.Drawing.Size(155, 20);
             this.txtEmploymentTerm.TabIndex = 1;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 545);
+            this.label14.Location = new System.Drawing.Point(16, 354);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(177, 20);
+            this.label14.Size = new System.Drawing.Size(118, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Education Requirement";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(24, 369);
+            this.label13.Location = new System.Drawing.Point(16, 240);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(126, 20);
+            this.label13.Size = new System.Drawing.Size(86, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "Benefit Package";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(442, 43);
+            this.label3.Location = new System.Drawing.Point(295, 28);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 20);
+            this.label3.Size = new System.Drawing.Size(91, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Employment Term";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(171, 38);
+            this.textBox6.Location = new System.Drawing.Point(114, 25);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(230, 26);
+            this.textBox6.Size = new System.Drawing.Size(155, 20);
             this.textBox6.TabIndex = 1;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(24, 38);
+            this.label16.Location = new System.Drawing.Point(16, 25);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(125, 20);
+            this.label16.Size = new System.Drawing.Size(84, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "Operating Name";
             // 
-            // tbESDCMainDuties
+            // tabMainDuties
             // 
-            this.tbESDCMainDuties.Controls.Add(this.dataGridView1);
-            this.tbESDCMainDuties.Controls.Add(this.txtESDCMainduties);
-            this.tbESDCMainDuties.Location = new System.Drawing.Point(4, 29);
-            this.tbESDCMainDuties.Name = "tbESDCMainDuties";
-            this.tbESDCMainDuties.Padding = new System.Windows.Forms.Padding(3);
-            this.tbESDCMainDuties.Size = new System.Drawing.Size(1474, 1061);
-            this.tbESDCMainDuties.TabIndex = 1;
-            this.tbESDCMainDuties.Text = "ESDC MainDuties";
-            this.tbESDCMainDuties.UseVisualStyleBackColor = true;
+            this.tabMainDuties.Controls.Add(this.dbOpsMainDuties);
+            this.tabMainDuties.Controls.Add(this.dgvMainDuties);
+            this.tabMainDuties.Location = new System.Drawing.Point(4, 22);
+            this.tabMainDuties.Margin = new System.Windows.Forms.Padding(2);
+            this.tabMainDuties.Name = "tabMainDuties";
+            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(2);
+            this.tabMainDuties.Size = new System.Drawing.Size(977, 621);
+            this.tabMainDuties.TabIndex = 1;
+            this.tabMainDuties.Text = "Main Duties";
+            this.tabMainDuties.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dbOpsMainDuties
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dbOpsMainDuties.Location = new System.Drawing.Point(574, 570);
+            this.dbOpsMainDuties.Name = "dbOpsMainDuties";
+            this.dbOpsMainDuties.Size = new System.Drawing.Size(389, 30);
+            this.dbOpsMainDuties.TabIndex = 3;
+            // 
+            // dgvMainDuties
+            // 
+            this.dgvMainDuties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMainDuties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ESDC,
             this.JobDescription});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 8);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1455, 526);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvMainDuties.Location = new System.Drawing.Point(2, 5);
+            this.dgvMainDuties.Name = "dgvMainDuties";
+            this.dgvMainDuties.Size = new System.Drawing.Size(970, 544);
+            this.dgvMainDuties.TabIndex = 2;
             // 
             // ESDC
             // 
@@ -438,131 +467,276 @@
             this.JobDescription.MinimumWidth = 100;
             this.JobDescription.Name = "JobDescription";
             // 
-            // txtESDCMainduties
+            // tabQualifications
             // 
-            this.txtESDCMainduties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtESDCMainduties.Location = new System.Drawing.Point(3, 3);
-            this.txtESDCMainduties.Multiline = true;
-            this.txtESDCMainduties.Name = "txtESDCMainduties";
-            this.txtESDCMainduties.Size = new System.Drawing.Size(1468, 1055);
-            this.txtESDCMainduties.TabIndex = 0;
+            this.tabQualifications.Controls.Add(this.dbOpsQualification);
+            this.tabQualifications.Controls.Add(this.dgvQualifications);
+            this.tabQualifications.Location = new System.Drawing.Point(4, 22);
+            this.tabQualifications.Margin = new System.Windows.Forms.Padding(2);
+            this.tabQualifications.Name = "tabQualifications";
+            this.tabQualifications.Size = new System.Drawing.Size(977, 621);
+            this.tabQualifications.TabIndex = 3;
+            this.tabQualifications.Text = "Qualifications";
+            this.tabQualifications.UseVisualStyleBackColor = true;
             // 
-            // tbMainDuties
+            // dbOpsQualification
             // 
-            this.tbMainDuties.Controls.Add(this.txtMainDuties);
-            this.tbMainDuties.Location = new System.Drawing.Point(4, 29);
-            this.tbMainDuties.Name = "tbMainDuties";
-            this.tbMainDuties.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMainDuties.Size = new System.Drawing.Size(1474, 1061);
-            this.tbMainDuties.TabIndex = 2;
-            this.tbMainDuties.Text = "Main Duties";
-            this.tbMainDuties.UseVisualStyleBackColor = true;
+            this.dbOpsQualification.Location = new System.Drawing.Point(13, 524);
+            this.dbOpsQualification.Name = "dbOpsQualification";
+            this.dbOpsQualification.Size = new System.Drawing.Size(389, 30);
+            this.dbOpsQualification.TabIndex = 2;
             // 
-            // txtMainDuties
+            // dgvQualifications
             // 
-            this.txtMainDuties.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMainDuties.Location = new System.Drawing.Point(3, 3);
-            this.txtMainDuties.Multiline = true;
-            this.txtMainDuties.Name = "txtMainDuties";
-            this.txtMainDuties.Size = new System.Drawing.Size(1468, 1055);
-            this.txtMainDuties.TabIndex = 0;
+            this.dgvQualifications.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvQualifications.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvQualifications.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.isReasonable,
+            this.ESDCQualification,
+            this.PositionQualification});
+            this.dgvQualifications.Location = new System.Drawing.Point(0, 0);
+            this.dgvQualifications.Name = "dgvQualifications";
+            this.dgvQualifications.RowHeadersVisible = false;
+            this.dgvQualifications.Size = new System.Drawing.Size(978, 499);
+            this.dgvQualifications.TabIndex = 1;
             // 
-            // tbESDCQualification
+            // isReasonable
             // 
-            this.tbESDCQualification.Controls.Add(this.txtESDCQualification);
-            this.tbESDCQualification.Location = new System.Drawing.Point(4, 29);
-            this.tbESDCQualification.Name = "tbESDCQualification";
-            this.tbESDCQualification.Size = new System.Drawing.Size(1474, 1061);
-            this.tbESDCQualification.TabIndex = 3;
-            this.tbESDCQualification.Text = "ESDC Qualification";
-            this.tbESDCQualification.UseVisualStyleBackColor = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle2.NullValue = false;
+            this.isReasonable.DefaultCellStyle = dataGridViewCellStyle2;
+            this.isReasonable.FillWeight = 65F;
+            this.isReasonable.Frozen = true;
+            this.isReasonable.HeaderText = "Reasonable";
+            this.isReasonable.Name = "isReasonable";
+            this.isReasonable.Width = 65;
             // 
-            // txtESDCQualification
+            // ESDCQualification
             // 
-            this.txtESDCQualification.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtESDCQualification.Location = new System.Drawing.Point(0, 0);
-            this.txtESDCQualification.Multiline = true;
-            this.txtESDCQualification.Name = "txtESDCQualification";
-            this.txtESDCQualification.Size = new System.Drawing.Size(1474, 1061);
-            this.txtESDCQualification.TabIndex = 0;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ESDCQualification.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ESDCQualification.FillWeight = 400F;
+            this.ESDCQualification.HeaderText = "ESDC Qualification";
+            this.ESDCQualification.Name = "ESDCQualification";
+            this.ESDCQualification.Width = 400;
             // 
-            // tbQualification
+            // PositionQualification
             // 
-            this.tbQualification.Controls.Add(this.txtQualification);
-            this.tbQualification.Location = new System.Drawing.Point(4, 29);
-            this.tbQualification.Name = "tbQualification";
-            this.tbQualification.Size = new System.Drawing.Size(1474, 1061);
-            this.tbQualification.TabIndex = 4;
-            this.tbQualification.Text = "Qualification";
-            this.tbQualification.UseVisualStyleBackColor = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PositionQualification.DefaultCellStyle = dataGridViewCellStyle4;
+            this.PositionQualification.FillWeight = 500F;
+            this.PositionQualification.HeaderText = "Position Qualification";
+            this.PositionQualification.Name = "PositionQualification";
+            this.PositionQualification.Width = 500;
             // 
-            // txtQualification
+            // tabJobAdPreview
             // 
-            this.txtQualification.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtQualification.Location = new System.Drawing.Point(0, 0);
-            this.txtQualification.Multiline = true;
-            this.txtQualification.Name = "txtQualification";
-            this.txtQualification.Size = new System.Drawing.Size(1474, 1061);
-            this.txtQualification.TabIndex = 0;
+            this.tabJobAdPreview.Controls.Add(this.btnWord);
+            this.tabJobAdPreview.Controls.Add(this.btnPDF);
+            this.tabJobAdPreview.Controls.Add(this.txtJobAdPreview);
+            this.tabJobAdPreview.Location = new System.Drawing.Point(4, 22);
+            this.tabJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
+            this.tabJobAdPreview.Name = "tabJobAdPreview";
+            this.tabJobAdPreview.Size = new System.Drawing.Size(977, 621);
+            this.tabJobAdPreview.TabIndex = 6;
+            this.tabJobAdPreview.Text = "Job Ad Preview";
+            this.tabJobAdPreview.UseVisualStyleBackColor = true;
             // 
-            // tbCompanyBrief
+            // btnWord
             // 
-            this.tbCompanyBrief.Controls.Add(this.txtCompanyBrief);
-            this.tbCompanyBrief.Location = new System.Drawing.Point(4, 29);
-            this.tbCompanyBrief.Name = "tbCompanyBrief";
-            this.tbCompanyBrief.Size = new System.Drawing.Size(1474, 1061);
-            this.tbCompanyBrief.TabIndex = 6;
-            this.tbCompanyBrief.Text = "Company brief";
-            this.tbCompanyBrief.UseVisualStyleBackColor = true;
+            this.btnWord.Location = new System.Drawing.Point(650, 585);
+            this.btnWord.Name = "btnWord";
+            this.btnWord.Size = new System.Drawing.Size(118, 23);
+            this.btnWord.TabIndex = 1;
+            this.btnWord.Text = "Generate Word Doc";
+            this.btnWord.UseVisualStyleBackColor = true;
             // 
-            // txtCompanyBrief
+            // btnPDF
             // 
-            this.txtCompanyBrief.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCompanyBrief.Location = new System.Drawing.Point(0, 0);
-            this.txtCompanyBrief.Multiline = true;
-            this.txtCompanyBrief.Name = "txtCompanyBrief";
-            this.txtCompanyBrief.Size = new System.Drawing.Size(1474, 1061);
-            this.txtCompanyBrief.TabIndex = 0;
+            this.btnPDF.Location = new System.Drawing.Point(802, 585);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(114, 23);
+            this.btnPDF.TabIndex = 1;
+            this.btnPDF.Text = "Generate PDF Doc";
+            this.btnPDF.UseVisualStyleBackColor = true;
             // 
-            // tbPositionSummary
+            // txtJobAdPreview
             // 
-            this.tbPositionSummary.Controls.Add(this.txtPositionSummary);
-            this.tbPositionSummary.Location = new System.Drawing.Point(4, 29);
-            this.tbPositionSummary.Name = "tbPositionSummary";
-            this.tbPositionSummary.Size = new System.Drawing.Size(1474, 1061);
-            this.tbPositionSummary.TabIndex = 7;
-            this.tbPositionSummary.Text = "Position Summary";
-            this.tbPositionSummary.UseVisualStyleBackColor = true;
+            this.txtJobAdPreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtJobAdPreview.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtJobAdPreview.Location = new System.Drawing.Point(0, 0);
+            this.txtJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
+            this.txtJobAdPreview.Multiline = true;
+            this.txtJobAdPreview.Name = "txtJobAdPreview";
+            this.txtJobAdPreview.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtJobAdPreview.Size = new System.Drawing.Size(977, 569);
+            this.txtJobAdPreview.TabIndex = 0;
             // 
-            // txtPositionSummary
+            // tabMedia
             // 
-            this.txtPositionSummary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPositionSummary.Location = new System.Drawing.Point(0, 0);
-            this.txtPositionSummary.Multiline = true;
-            this.txtPositionSummary.Name = "txtPositionSummary";
-            this.txtPositionSummary.Size = new System.Drawing.Size(1474, 1061);
-            this.txtPositionSummary.TabIndex = 0;
+            this.tabMedia.Controls.Add(this.button1);
+            this.tabMedia.Controls.Add(this.dataGridView1);
+            this.tabMedia.Controls.Add(this.btnGoForPosting);
+            this.tabMedia.Controls.Add(this.dgvMedia);
+            this.tabMedia.Controls.Add(this.lblOther);
+            this.tabMedia.Controls.Add(this.lblSpecific);
+            this.tabMedia.Controls.Add(this.lblGeneral);
+            this.tabMedia.Controls.Add(this.lblOfficial);
+            this.tabMedia.Location = new System.Drawing.Point(4, 22);
+            this.tabMedia.Margin = new System.Windows.Forms.Padding(2);
+            this.tabMedia.Name = "tabMedia";
+            this.tabMedia.Size = new System.Drawing.Size(977, 621);
+            this.tabMedia.TabIndex = 5;
+            this.tabMedia.Text = "Media Selection";
+            this.tabMedia.UseVisualStyleBackColor = true;
             // 
-            // tbMedia
+            // button1
             // 
-            this.tbMedia.Controls.Add(this.btnGoForPosting);
-            this.tbMedia.Controls.Add(this.dgvMedia);
-            this.tbMedia.Controls.Add(this.label18);
-            this.tbMedia.Controls.Add(this.label17);
-            this.tbMedia.Controls.Add(this.label19);
-            this.tbMedia.Controls.Add(this.label20);
-            this.tbMedia.Location = new System.Drawing.Point(4, 29);
-            this.tbMedia.Name = "tbMedia";
-            this.tbMedia.Size = new System.Drawing.Size(1474, 1061);
-            this.tbMedia.TabIndex = 5;
-            this.tbMedia.Text = "Media Selection";
-            this.tbMedia.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(850, 586);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 25);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewLinkColumn1});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 354);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(973, 227);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Media";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn2.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Post Date";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn3.FillWeight = 85F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Epiry Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 85;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Initial Print Date";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewTextBoxColumn5.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Last Print Date";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn6.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Proven Days";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Account";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewTextBoxColumn8.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewTextBoxColumn9.FillWeight = 150F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Other Information";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewLinkColumn1
+            // 
+            this.dataGridViewLinkColumn1.FillWeight = 200F;
+            this.dataGridViewLinkColumn1.HeaderText = "Link";
+            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
+            this.dataGridViewLinkColumn1.Width = 200;
             // 
             // btnGoForPosting
             // 
-            this.btnGoForPosting.Location = new System.Drawing.Point(1244, 622);
+            this.btnGoForPosting.Location = new System.Drawing.Point(2, 307);
+            this.btnGoForPosting.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoForPosting.Name = "btnGoForPosting";
-            this.btnGoForPosting.Size = new System.Drawing.Size(171, 38);
+            this.btnGoForPosting.Size = new System.Drawing.Size(114, 25);
             this.btnGoForPosting.TabIndex = 3;
             this.btnGoForPosting.Text = "Go Posting";
             this.btnGoForPosting.UseVisualStyleBackColor = true;
@@ -572,159 +746,528 @@
             this.dgvMedia.AllowUserToOrderColumns = true;
             this.dgvMedia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMedia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvMedia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedia.Location = new System.Drawing.Point(3, 3);
+            this.dgvMedia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MediaSelect,
+            this.MediaName,
+            this.MediaType,
+            this.MediaScope,
+            this.MediaCost,
+            this.MediaDuration,
+            this.MediaRemark,
+            this.MediaLink});
+            this.dgvMedia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.dgvMedia.Location = new System.Drawing.Point(2, 2);
+            this.dgvMedia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMedia.Name = "dgvMedia";
+            this.dgvMedia.RowHeadersVisible = false;
             this.dgvMedia.RowTemplate.Height = 28;
-            this.dgvMedia.Size = new System.Drawing.Size(1464, 598);
+            this.dgvMedia.Size = new System.Drawing.Size(973, 301);
             this.dgvMedia.TabIndex = 2;
             // 
-            // label18
+            // MediaSelect
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(747, 703);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(104, 20);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Official Media";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle17.NullValue = false;
+            this.MediaSelect.DefaultCellStyle = dataGridViewCellStyle17;
+            this.MediaSelect.FillWeight = 45F;
+            this.MediaSelect.HeaderText = "Select";
+            this.MediaSelect.Name = "MediaSelect";
+            this.MediaSelect.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.MediaSelect.Width = 45;
             // 
-            // label17
+            // MediaName
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(514, 703);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(104, 20);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Official Media";
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.MediaName.DefaultCellStyle = dataGridViewCellStyle18;
+            this.MediaName.FillWeight = 150F;
+            this.MediaName.HeaderText = "Media";
+            this.MediaName.Name = "MediaName";
+            this.MediaName.Width = 150;
             // 
-            // label19
+            // MediaType
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(262, 703);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(104, 20);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Official Media";
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.MediaType.DefaultCellStyle = dataGridViewCellStyle19;
+            this.MediaType.FillWeight = 80F;
+            this.MediaType.HeaderText = "Type";
+            this.MediaType.Name = "MediaType";
+            this.MediaType.Width = 80;
             // 
-            // label20
+            // MediaScope
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(32, 703);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(104, 20);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "Official Media";
+            this.MediaScope.FillWeight = 80F;
+            this.MediaScope.HeaderText = "Scope";
+            this.MediaScope.Name = "MediaScope";
+            this.MediaScope.Width = 80;
             // 
-            // tbADPreview
+            // MediaCost
             // 
-            this.tbADPreview.Controls.Add(this.txtJobAdPreview);
-            this.tbADPreview.Location = new System.Drawing.Point(4, 29);
-            this.tbADPreview.Name = "tbADPreview";
-            this.tbADPreview.Size = new System.Drawing.Size(1474, 1061);
-            this.tbADPreview.TabIndex = 8;
-            this.tbADPreview.Text = "Job AD Preview";
-            this.tbADPreview.UseVisualStyleBackColor = true;
+            this.MediaCost.FillWeight = 60F;
+            this.MediaCost.HeaderText = "Cost";
+            this.MediaCost.Name = "MediaCost";
+            this.MediaCost.Width = 60;
             // 
-            // txtJobAdPreview
+            // MediaDuration
             // 
-            this.txtJobAdPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtJobAdPreview.Location = new System.Drawing.Point(0, 0);
-            this.txtJobAdPreview.Multiline = true;
-            this.txtJobAdPreview.Name = "txtJobAdPreview";
-            this.txtJobAdPreview.Size = new System.Drawing.Size(1474, 1061);
-            this.txtJobAdPreview.TabIndex = 0;
+            this.MediaDuration.FillWeight = 50F;
+            this.MediaDuration.HeaderText = "Duration";
+            this.MediaDuration.Name = "MediaDuration";
+            this.MediaDuration.Width = 50;
+            // 
+            // MediaRemark
+            // 
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.MediaRemark.DefaultCellStyle = dataGridViewCellStyle20;
+            this.MediaRemark.FillWeight = 250F;
+            this.MediaRemark.HeaderText = "Remark";
+            this.MediaRemark.Name = "MediaRemark";
+            this.MediaRemark.Width = 250;
+            // 
+            // MediaLink
+            // 
+            this.MediaLink.FillWeight = 250F;
+            this.MediaLink.HeaderText = "Link";
+            this.MediaLink.Name = "MediaLink";
+            this.MediaLink.Width = 250;
+            // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.Location = new System.Drawing.Point(714, 313);
+            this.lblOther.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(65, 13);
+            this.lblOther.TabIndex = 1;
+            this.lblOther.Text = "Other Media";
+            // 
+            // lblSpecific
+            // 
+            this.lblSpecific.AutoSize = true;
+            this.lblSpecific.Location = new System.Drawing.Point(559, 313);
+            this.lblSpecific.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSpecific.Name = "lblSpecific";
+            this.lblSpecific.Size = new System.Drawing.Size(117, 13);
+            this.lblSpecific.TabIndex = 1;
+            this.lblSpecific.Text = "Specific Industry Media";
+            // 
+            // lblGeneral
+            // 
+            this.lblGeneral.AutoSize = true;
+            this.lblGeneral.Location = new System.Drawing.Point(391, 313);
+            this.lblGeneral.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGeneral.Name = "lblGeneral";
+            this.lblGeneral.Size = new System.Drawing.Size(113, 13);
+            this.lblGeneral.TabIndex = 1;
+            this.lblGeneral.Text = "General Recruit Media";
+            // 
+            // lblOfficial
+            // 
+            this.lblOfficial.AutoSize = true;
+            this.lblOfficial.Location = new System.Drawing.Point(237, 313);
+            this.lblOfficial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOfficial.Name = "lblOfficial";
+            this.lblOfficial.Size = new System.Drawing.Size(71, 13);
+            this.lblOfficial.TabIndex = 1;
+            this.lblOfficial.Text = "Official Media";
+            // 
+            // tabJobPost
+            // 
+            this.tabJobPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabJobPost.Controls.Add(this.dgvJobPostMonitor);
+            this.tabJobPost.Location = new System.Drawing.Point(4, 22);
+            this.tabJobPost.Margin = new System.Windows.Forms.Padding(2);
+            this.tabJobPost.Name = "tabJobPost";
+            this.tabJobPost.Size = new System.Drawing.Size(977, 621);
+            this.tabJobPost.TabIndex = 8;
+            this.tabJobPost.Text = "Job Post Monitor";
+            this.tabJobPost.UseVisualStyleBackColor = true;
+            // 
+            // dgvJobPostMonitor
+            // 
+            this.dgvJobPostMonitor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvJobPostMonitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJobPostMonitor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PostMedia,
+            this.PostDate,
+            this.PostExpiryDate,
+            this.PostInitialPrintDate,
+            this.PostLastPrintDate,
+            this.PostProvenDays,
+            this.PostAccount,
+            this.PostAccountPassword,
+            this.PostOtherInfo,
+            this.PostLink});
+            this.dgvJobPostMonitor.Location = new System.Drawing.Point(1, 3);
+            this.dgvJobPostMonitor.Name = "dgvJobPostMonitor";
+            this.dgvJobPostMonitor.RowHeadersVisible = false;
+            this.dgvJobPostMonitor.Size = new System.Drawing.Size(973, 208);
+            this.dgvJobPostMonitor.TabIndex = 0;
+            // 
+            // PostMedia
+            // 
+            this.PostMedia.HeaderText = "Media";
+            this.PostMedia.Name = "PostMedia";
+            // 
+            // PostDate
+            // 
+            this.PostDate.FillWeight = 80F;
+            this.PostDate.HeaderText = "Post Date";
+            this.PostDate.Name = "PostDate";
+            this.PostDate.Width = 80;
+            // 
+            // PostExpiryDate
+            // 
+            this.PostExpiryDate.FillWeight = 80F;
+            this.PostExpiryDate.HeaderText = "Epiry Date";
+            this.PostExpiryDate.Name = "PostExpiryDate";
+            this.PostExpiryDate.Width = 80;
+            // 
+            // PostInitialPrintDate
+            // 
+            this.PostInitialPrintDate.FillWeight = 80F;
+            this.PostInitialPrintDate.HeaderText = "Initial Print Date";
+            this.PostInitialPrintDate.Name = "PostInitialPrintDate";
+            this.PostInitialPrintDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.PostInitialPrintDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.PostInitialPrintDate.Width = 80;
+            // 
+            // PostLastPrintDate
+            // 
+            this.PostLastPrintDate.FillWeight = 80F;
+            this.PostLastPrintDate.HeaderText = "Last Print Date";
+            this.PostLastPrintDate.Name = "PostLastPrintDate";
+            this.PostLastPrintDate.Width = 80;
+            // 
+            // PostProvenDays
+            // 
+            this.PostProvenDays.FillWeight = 60F;
+            this.PostProvenDays.HeaderText = "Proven Days";
+            this.PostProvenDays.Name = "PostProvenDays";
+            this.PostProvenDays.Width = 60;
+            // 
+            // PostAccount
+            // 
+            this.PostAccount.HeaderText = "Account";
+            this.PostAccount.Name = "PostAccount";
+            // 
+            // PostAccountPassword
+            // 
+            this.PostAccountPassword.FillWeight = 80F;
+            this.PostAccountPassword.HeaderText = "AccountPassword";
+            this.PostAccountPassword.Name = "PostAccountPassword";
+            this.PostAccountPassword.Width = 80;
+            // 
+            // PostOtherInfo
+            // 
+            this.PostOtherInfo.HeaderText = "OtherInfo";
+            this.PostOtherInfo.Name = "PostOtherInfo";
+            // 
+            // PostLink
+            // 
+            this.PostLink.FillWeight = 150F;
+            this.PostLink.HeaderText = "Link";
+            this.PostLink.Name = "PostLink";
+            this.PostLink.Width = 150;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.lmFactors2);
+            this.tabPage1.Controls.Add(this.indicators2);
+            this.tabPage1.Controls.Add(this.financial2);
+            this.tabPage1.Controls.Add(this.jobPosition2);
+            this.tabPage1.Controls.Add(this.applicationSteam1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(991, 653);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Location = new System.Drawing.Point(367, 318);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(612, 354);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Reasonable Employment Need";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 186);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "The impact of the current situation";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(207, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "The situation the employer is currely facing";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Location = new System.Drawing.Point(0, 217);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(612, 137);
+            this.textBox3.TabIndex = 1;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(0, 53);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(613, 121);
+            this.textBox4.TabIndex = 0;
+            // 
+            // lmFactors2
+            // 
+            this.lmFactors2.Location = new System.Drawing.Point(19, 318);
+            this.lmFactors2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lmFactors2.Name = "lmFactors2";
+            this.lmFactors2.Size = new System.Drawing.Size(333, 355);
+            this.lmFactors2.TabIndex = 11;
+            // 
+            // indicators2
+            // 
+            this.indicators2.Location = new System.Drawing.Point(739, 55);
+            this.indicators2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.indicators2.Name = "indicators2";
+            this.indicators2.Size = new System.Drawing.Size(241, 260);
+            this.indicators2.TabIndex = 10;
+            // 
+            // financial2
+            // 
+            this.financial2.Location = new System.Drawing.Point(13, 193);
+            this.financial2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.financial2.Name = "financial2";
+            this.financial2.Size = new System.Drawing.Size(720, 122);
+            this.financial2.TabIndex = 9;
+            // 
+            // jobPosition2
+            // 
+            this.jobPosition2.Location = new System.Drawing.Point(12, 54);
+            this.jobPosition2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jobPosition2.Name = "jobPosition2";
+            this.jobPosition2.Size = new System.Drawing.Size(721, 126);
+            this.jobPosition2.TabIndex = 8;
+            // 
+            // applicationSteam1
+            // 
+            this.applicationSteam1.Location = new System.Drawing.Point(10, -20);
+            this.applicationSteam1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.applicationSteam1.Name = "applicationSteam1";
+            this.applicationSteam1.Size = new System.Drawing.Size(970, 69);
+            this.applicationSteam1.TabIndex = 7;
+            // 
+            // tabAdvisor
+            // 
+            this.tabAdvisor.CausesValidation = false;
+            this.tabAdvisor.Controls.Add(this.tbcSubAdvisor);
+            this.tabAdvisor.Location = new System.Drawing.Point(4, 22);
+            this.tabAdvisor.Name = "tabAdvisor";
+            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAdvisor.Size = new System.Drawing.Size(991, 740);
+            this.tabAdvisor.TabIndex = 0;
+            this.tabAdvisor.Text = "Advisor";
+            this.tabAdvisor.UseVisualStyleBackColor = true;
+            // 
+            // tbcSubAdvisor
+            // 
+            this.tbcSubAdvisor.Controls.Add(this.tabAnalysis);
+            this.tbcSubAdvisor.Controls.Add(this.tabBusinessDetails);
+            this.tbcSubAdvisor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcSubAdvisor.Location = new System.Drawing.Point(3, 3);
+            this.tbcSubAdvisor.Name = "tbcSubAdvisor";
+            this.tbcSubAdvisor.SelectedIndex = 0;
+            this.tbcSubAdvisor.Size = new System.Drawing.Size(985, 734);
+            this.tbcSubAdvisor.TabIndex = 0;
+            // 
+            // tabAnalysis
+            // 
+            this.tabAnalysis.Controls.Add(this.groupBox1);
+            this.tabAnalysis.Controls.Add(this.lmFactors1);
+            this.tabAnalysis.Controls.Add(this.indicators1);
+            this.tabAnalysis.Controls.Add(this.financial1);
+            this.tabAnalysis.Controls.Add(this.jobPosition1);
+            this.tabAnalysis.Controls.Add(this.applicationSteam2);
+            this.tabAnalysis.Location = new System.Drawing.Point(4, 22);
+            this.tabAnalysis.Name = "tabAnalysis";
+            this.tabAnalysis.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAnalysis.Size = new System.Drawing.Size(977, 708);
+            this.tabAnalysis.TabIndex = 0;
+            this.tabAnalysis.Text = "Analysis";
+            this.tabAnalysis.UseVisualStyleBackColor = true;
+            // 
+            // tabBusinessDetails
+            // 
+            this.tabBusinessDetails.Location = new System.Drawing.Point(4, 22);
+            this.tabBusinessDetails.Name = "tabBusinessDetails";
+            this.tabBusinessDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBusinessDetails.Size = new System.Drawing.Size(979, 623);
+            this.tabBusinessDetails.TabIndex = 1;
+            this.tabBusinessDetails.Text = "Business Details";
+            this.tabBusinessDetails.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Location = new System.Drawing.Point(361, 349);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(612, 354);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Reasonable Employment Need";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 186);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "The impact of the current situation";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(207, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "The situation the employer is currely facing";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(0, 217);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(612, 137);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(0, 53);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(613, 121);
+            this.textBox2.TabIndex = 0;
             // 
             // lmFactors1
             // 
-            this.lmFactors1.Location = new System.Drawing.Point(27, 531);
-            this.lmFactors1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.lmFactors1.Location = new System.Drawing.Point(7, 352);
+            this.lmFactors1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lmFactors1.Name = "lmFactors1";
-            this.lmFactors1.Size = new System.Drawing.Size(500, 546);
-            this.lmFactors1.TabIndex = 5;
+            this.lmFactors1.Size = new System.Drawing.Size(333, 355);
+            this.lmFactors1.TabIndex = 17;
             // 
             // indicators1
             // 
-            this.indicators1.Location = new System.Drawing.Point(1107, 126);
-            this.indicators1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.indicators1.Location = new System.Drawing.Point(733, 86);
+            this.indicators1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.indicators1.Name = "indicators1";
-            this.indicators1.Size = new System.Drawing.Size(362, 400);
-            this.indicators1.TabIndex = 4;
+            this.indicators1.Size = new System.Drawing.Size(241, 260);
+            this.indicators1.TabIndex = 16;
             // 
             // financial1
             // 
-            this.financial1.Location = new System.Drawing.Point(18, 338);
-            this.financial1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.financial1.Location = new System.Drawing.Point(7, 224);
+            this.financial1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.financial1.Name = "financial1";
-            this.financial1.Size = new System.Drawing.Size(1080, 188);
-            this.financial1.TabIndex = 2;
+            this.financial1.Size = new System.Drawing.Size(720, 122);
+            this.financial1.TabIndex = 15;
             // 
             // jobPosition1
             // 
-            this.jobPosition1.Location = new System.Drawing.Point(16, 125);
-            this.jobPosition1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.jobPosition1.Location = new System.Drawing.Point(6, 85);
+            this.jobPosition1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobPosition1.Name = "jobPosition1";
-            this.jobPosition1.Size = new System.Drawing.Size(1082, 194);
-            this.jobPosition1.TabIndex = 1;
+            this.jobPosition1.Size = new System.Drawing.Size(721, 126);
+            this.jobPosition1.TabIndex = 14;
             // 
-            // UCAppStream
+            // applicationSteam2
             // 
-            this.UCAppStream.Location = new System.Drawing.Point(14, 11);
-            this.UCAppStream.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.UCAppStream.Name = "UCAppStream";
-            this.UCAppStream.Size = new System.Drawing.Size(1455, 106);
-            this.UCAppStream.TabIndex = 0;
-            // 
-            // ucAddress1
-            // 
-            this.ucAddress1.AutoSize = true;
-            this.ucAddress1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ucAddress1.Location = new System.Drawing.Point(8, 91);
-            this.ucAddress1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucAddress1.Name = "ucAddress1";
-            this.ucAddress1.Size = new System.Drawing.Size(1321, 212);
-            this.ucAddress1.TabIndex = 7;
+            this.applicationSteam2.Location = new System.Drawing.Point(4, 11);
+            this.applicationSteam2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.applicationSteam2.Name = "applicationSteam2";
+            this.applicationSteam2.Size = new System.Drawing.Size(970, 69);
+            this.applicationSteam2.TabIndex = 13;
             // 
             // LMIAForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1498, 1221);
+            this.ClientSize = new System.Drawing.Size(999, 766);
             this.Controls.Add(this.tabBase);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LMIAForm";
             this.Text = "LMIAForm";
             this.Load += new System.EventHandler(this.LMIAForm_Load);
             this.tabBase.ResumeLayout(false);
-            this.tabAdvisor.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabApplication.ResumeLayout(false);
-            this.tbcADandMedia.ResumeLayout(false);
-            this.tbAD.ResumeLayout(false);
-            this.tbAD.PerformLayout();
+            this.tabADandMedia.ResumeLayout(false);
+            this.tabAD.ResumeLayout(false);
+            this.tabAD.PerformLayout();
             this.stsStatus.ResumeLayout(false);
             this.stsStatus.PerformLayout();
             this.grpSelectEmployer.ResumeLayout(false);
             this.grpSelectEmployer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployer)).EndInit();
-            this.tbESDCMainDuties.ResumeLayout(false);
-            this.tbESDCMainDuties.PerformLayout();
+            this.tabMainDuties.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMainDuties)).EndInit();
+            this.tabQualifications.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvQualifications)).EndInit();
+            this.tabJobAdPreview.ResumeLayout(false);
+            this.tabJobAdPreview.PerformLayout();
+            this.tabMedia.ResumeLayout(false);
+            this.tabMedia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tbMainDuties.ResumeLayout(false);
-            this.tbMainDuties.PerformLayout();
-            this.tbESDCQualification.ResumeLayout(false);
-            this.tbESDCQualification.PerformLayout();
-            this.tbQualification.ResumeLayout(false);
-            this.tbQualification.PerformLayout();
-            this.tbCompanyBrief.ResumeLayout(false);
-            this.tbCompanyBrief.PerformLayout();
-            this.tbPositionSummary.ResumeLayout(false);
-            this.tbPositionSummary.PerformLayout();
-            this.tbMedia.ResumeLayout(false);
-            this.tbMedia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).EndInit();
-            this.tbADPreview.ResumeLayout(false);
-            this.tbADPreview.PerformLayout();
+            this.tabJobPost.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJobPostMonitor)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabAdvisor.ResumeLayout(false);
+            this.tbcSubAdvisor.ResumeLayout(false);
+            this.tabAnalysis.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -732,20 +1275,8 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabBase;
-        private System.Windows.Forms.TabPage tabAdvisor;
-        private financial financial1;
-        private JobPosition jobPosition1;
-        private ApplicationSteam UCAppStream;
         private System.Windows.Forms.TabPage tabApplication;
-        private Indicators indicators1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private LMFactors lmFactors1;
-        private System.Windows.Forms.TabControl tbcADandMedia;
-        private System.Windows.Forms.TabPage tbAD;
+        private System.Windows.Forms.TabControl tabADandMedia;
         private System.Windows.Forms.StatusStrip stsStatus;
         private System.Windows.Forms.ToolStripStatusLabel stsEmployer;
         private System.Windows.Forms.ToolStripStatusLabel stsEmployee;
@@ -762,30 +1293,87 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TabPage tbESDCMainDuties;
-        private System.Windows.Forms.TextBox txtESDCMainduties;
-        private System.Windows.Forms.TabPage tbMainDuties;
-        private System.Windows.Forms.TextBox txtMainDuties;
-        private System.Windows.Forms.TabPage tbESDCQualification;
-        private System.Windows.Forms.TextBox txtESDCQualification;
-        private System.Windows.Forms.TabPage tbQualification;
-        private System.Windows.Forms.TextBox txtQualification;
-        private System.Windows.Forms.TabPage tbCompanyBrief;
-        private System.Windows.Forms.TextBox txtCompanyBrief;
-        private System.Windows.Forms.TabPage tbPositionSummary;
-        private System.Windows.Forms.TextBox txtPositionSummary;
-        private System.Windows.Forms.TabPage tbMedia;
+        private System.Windows.Forms.TabPage tabMainDuties;
+        private System.Windows.Forms.TabPage tabQualifications;
+        private System.Windows.Forms.TabPage tabJobAdPreview;
+        private System.Windows.Forms.TextBox txtJobAdPreview;
+        private System.Windows.Forms.TabPage tabMedia;
         private System.Windows.Forms.Button btnGoForPosting;
         private System.Windows.Forms.DataGridView dgvMedia;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TabPage tbADPreview;
-        private System.Windows.Forms.TextBox txtJobAdPreview;
+        private System.Windows.Forms.Label lblOther;
+        private System.Windows.Forms.Label lblSpecific;
+        private System.Windows.Forms.Label lblGeneral;
+        private System.Windows.Forms.Label lblOfficial;
+        private System.Windows.Forms.TabPage tabJobPost;
         private UCAddress ucAddress1;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn ESDC;
+        private System.Windows.Forms.DataGridView dgvMainDuties;
+        private System.Windows.Forms.DataGridView dgvQualifications;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn isReasonable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ESDCQualification;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PositionQualification;
+        private DBOps dbOpsJobAd;
+        private DBOps dbOpsMainDuties;
+        private DBOps dbOpsQualification;
+        public System.Windows.Forms.TabPage tabAD;
+        private System.Windows.Forms.Button btnWord;
+        private System.Windows.Forms.Button btnPDF;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn MediaSelect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MediaName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MediaType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MediaScope;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MediaCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MediaDuration;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MediaRemark;
+        private System.Windows.Forms.DataGridViewLinkColumn MediaLink;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvJobPostMonitor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostMedia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostExpiryDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostInitialPrintDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostLastPrintDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostProvenDays;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostAccount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostAccountPassword;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PostOtherInfo;
+        private System.Windows.Forms.DataGridViewLinkColumn PostLink;
+        private System.Windows.Forms.DataGridViewLinkColumn dataGridViewLinkColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TabControl tbcSubAdvisor;
+        private System.Windows.Forms.TabPage tabAnalysis;
+        private ApplicationSteam applicationSteam2;
+        private System.Windows.Forms.TabPage tabBusinessDetails;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private LMFactors lmFactors2;
+        private Indicators indicators2;
+        private financial financial2;
+        private JobPosition jobPosition2;
+        private ApplicationSteam applicationSteam1;
+        private JobPosition jobPosition1;
+        private financial financial1;
+        private Indicators indicators1;
+        private LMFactors lmFactors1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabPage tabAdvisor;
     }
 }

@@ -54,5 +54,16 @@ namespace CA.Immigration.Properties {
                 return ((string)(this["SPConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=GS-W020\\sqlexpress;Initial Catalog=Common;User ID=sa;Password=Zxy6902" +
+            "11")]
+        public string CommonConnectionString1 {
+            get {
+                return ((string)(this["CommonConnectionString1"]));
+            }
+        }
     }
 }

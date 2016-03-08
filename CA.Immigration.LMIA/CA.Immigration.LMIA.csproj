@@ -97,6 +97,12 @@
     <Compile Include="ApplicationSteam.designer.cs">
       <DependentUpon>ApplicationSteam.cs</DependentUpon>
     </Compile>
+    <Compile Include="DBOps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DBOps.Designer.cs">
+      <DependentUpon>DBOps.cs</DependentUpon>
+    </Compile>
     <Compile Include="financial.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,14 +147,8 @@
     <Compile Include="UCAddress.designer.cs">
       <DependentUpon>UCAddress.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ApplicationSteam.resx">
-      <DependentUpon>ApplicationSteam.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="financial.resx">
       <DependentUpon>financial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Indicators.resx">
-      <DependentUpon>Indicators.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JobPosition.resx">
       <DependentUpon>JobPosition.cs</DependentUpon>
