@@ -32,11 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -48,18 +43,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabBase = new System.Windows.Forms.TabControl();
-            this.tabAdvisor = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lmFactors1 = new CA.Immigration.LMIA.LMFactors();
-            this.indicators1 = new CA.Immigration.LMIA.Indicators();
-            this.financial1 = new CA.Immigration.LMIA.financial();
-            this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
-            this.UCAppStream = new CA.Immigration.LMIA.ApplicationSteam();
             this.tabApplication = new System.Windows.Forms.TabPage();
             this.tabADandMedia = new System.Windows.Forms.TabControl();
             this.tabAD = new System.Windows.Forms.TabPage();
@@ -93,17 +82,24 @@
             this.ESDCQualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PositionQualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabJobAdPreview = new System.Windows.Forms.TabPage();
+            this.btnWord = new System.Windows.Forms.Button();
+            this.btnPDF = new System.Windows.Forms.Button();
             this.txtJobAdPreview = new System.Windows.Forms.TextBox();
             this.tabMedia = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
             this.btnGoForPosting = new System.Windows.Forms.Button();
             this.dgvMedia = new System.Windows.Forms.DataGridView();
-            this.lblOther = new System.Windows.Forms.Label();
-            this.lblSpecific = new System.Windows.Forms.Label();
-            this.lblGeneral = new System.Windows.Forms.Label();
-            this.lblOfficial = new System.Windows.Forms.Label();
-            this.tabJobPost = new System.Windows.Forms.TabPage();
-            this.btnPDF = new System.Windows.Forms.Button();
-            this.btnWord = new System.Windows.Forms.Button();
             this.MediaSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.MediaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MediaType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +108,11 @@
             this.MediaDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MediaRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MediaLink = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.lblOther = new System.Windows.Forms.Label();
+            this.lblSpecific = new System.Windows.Forms.Label();
+            this.lblGeneral = new System.Windows.Forms.Label();
+            this.lblOfficial = new System.Windows.Forms.Label();
+            this.tabJobPost = new System.Windows.Forms.TabPage();
             this.dgvJobPostMonitor = new System.Windows.Forms.DataGridView();
             this.PostMedia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PostDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -123,21 +124,32 @@
             this.PostAccountPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PostOtherInfo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PostLink = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewLinkColumn1 = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lmFactors2 = new CA.Immigration.LMIA.LMFactors();
+            this.indicators2 = new CA.Immigration.LMIA.Indicators();
+            this.financial2 = new CA.Immigration.LMIA.financial();
+            this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
+            this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationSteam();
+            this.tabAdvisor = new System.Windows.Forms.TabPage();
+            this.tbcSubAdvisor = new System.Windows.Forms.TabControl();
+            this.tabAnalysis = new System.Windows.Forms.TabPage();
+            this.tabBusinessDetails = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lmFactors1 = new CA.Immigration.LMIA.LMFactors();
+            this.indicators1 = new CA.Immigration.LMIA.Indicators();
+            this.financial1 = new CA.Immigration.LMIA.financial();
+            this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
+            this.applicationSteam2 = new CA.Immigration.LMIA.ApplicationSteam();
             this.tabBase.SuspendLayout();
-            this.tabAdvisor.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.tabApplication.SuspendLayout();
             this.tabADandMedia.SuspendLayout();
             this.tabAD.SuspendLayout();
@@ -150,131 +162,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvQualifications)).BeginInit();
             this.tabJobAdPreview.SuspendLayout();
             this.tabMedia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).BeginInit();
             this.tabJobPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobPostMonitor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tabAdvisor.SuspendLayout();
+            this.tbcSubAdvisor.SuspendLayout();
+            this.tabAnalysis.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBase
             // 
             this.tabBase.Controls.Add(this.tabAdvisor);
             this.tabBase.Controls.Add(this.tabApplication);
+            this.tabBase.Controls.Add(this.tabPage1);
             this.tabBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabBase.Location = new System.Drawing.Point(0, 0);
             this.tabBase.Name = "tabBase";
             this.tabBase.SelectedIndex = 0;
-            this.tabBase.Size = new System.Drawing.Size(999, 679);
+            this.tabBase.Size = new System.Drawing.Size(999, 766);
             this.tabBase.TabIndex = 0;
-            // 
-            // tabAdvisor
-            // 
-            this.tabAdvisor.CausesValidation = false;
-            this.tabAdvisor.Controls.Add(this.groupBox1);
-            this.tabAdvisor.Controls.Add(this.lmFactors1);
-            this.tabAdvisor.Controls.Add(this.indicators1);
-            this.tabAdvisor.Controls.Add(this.financial1);
-            this.tabAdvisor.Controls.Add(this.jobPosition1);
-            this.tabAdvisor.Controls.Add(this.UCAppStream);
-            this.tabAdvisor.Location = new System.Drawing.Point(4, 22);
-            this.tabAdvisor.Name = "tabAdvisor";
-            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAdvisor.Size = new System.Drawing.Size(991, 653);
-            this.tabAdvisor.TabIndex = 0;
-            this.tabAdvisor.Text = "Advisor";
-            this.tabAdvisor.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(366, 345);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(612, 354);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Reasonable Employment Need";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 186);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "The impact of the current situation";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "The situation the employer is currely facing";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(0, 217);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(612, 137);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(0, 53);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(613, 121);
-            this.textBox1.TabIndex = 0;
-            // 
-            // lmFactors1
-            // 
-            this.lmFactors1.Location = new System.Drawing.Point(18, 345);
-            this.lmFactors1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lmFactors1.Name = "lmFactors1";
-            this.lmFactors1.Size = new System.Drawing.Size(333, 355);
-            this.lmFactors1.TabIndex = 5;
-            // 
-            // indicators1
-            // 
-            this.indicators1.Location = new System.Drawing.Point(738, 82);
-            this.indicators1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.indicators1.Name = "indicators1";
-            this.indicators1.Size = new System.Drawing.Size(241, 260);
-            this.indicators1.TabIndex = 4;
-            // 
-            // financial1
-            // 
-            this.financial1.Location = new System.Drawing.Point(12, 220);
-            this.financial1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.financial1.Name = "financial1";
-            this.financial1.Size = new System.Drawing.Size(720, 122);
-            this.financial1.TabIndex = 2;
-            // 
-            // jobPosition1
-            // 
-            this.jobPosition1.Location = new System.Drawing.Point(11, 81);
-            this.jobPosition1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.jobPosition1.Name = "jobPosition1";
-            this.jobPosition1.Size = new System.Drawing.Size(721, 126);
-            this.jobPosition1.TabIndex = 1;
-            // 
-            // UCAppStream
-            // 
-            this.UCAppStream.Location = new System.Drawing.Point(9, 7);
-            this.UCAppStream.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UCAppStream.Name = "UCAppStream";
-            this.UCAppStream.Size = new System.Drawing.Size(970, 69);
-            this.UCAppStream.TabIndex = 0;
             // 
             // tabApplication
             // 
@@ -638,6 +548,24 @@
             this.tabJobAdPreview.Text = "Job Ad Preview";
             this.tabJobAdPreview.UseVisualStyleBackColor = true;
             // 
+            // btnWord
+            // 
+            this.btnWord.Location = new System.Drawing.Point(650, 585);
+            this.btnWord.Name = "btnWord";
+            this.btnWord.Size = new System.Drawing.Size(118, 23);
+            this.btnWord.TabIndex = 1;
+            this.btnWord.Text = "Generate Word Doc";
+            this.btnWord.UseVisualStyleBackColor = true;
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.Location = new System.Drawing.Point(802, 585);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(114, 23);
+            this.btnPDF.TabIndex = 1;
+            this.btnPDF.Text = "Generate PDF Doc";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            // 
             // txtJobAdPreview
             // 
             this.txtJobAdPreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -668,6 +596,140 @@
             this.tabMedia.TabIndex = 5;
             this.tabMedia.Text = "Media Selection";
             this.tabMedia.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(850, 586);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 25);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewLinkColumn1});
+            this.dataGridView1.Location = new System.Drawing.Point(4, 354);
+            this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(973, 227);
+            this.dataGridView1.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Media";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewTextBoxColumn2.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Post Date";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn3.FillWeight = 85F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Epiry Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 85;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Initial Print Date";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn4.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewTextBoxColumn5.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Last Print Date";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn6.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Proven Days";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Account";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewTextBoxColumn8.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Password";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridViewTextBoxColumn9.FillWeight = 150F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Other Information";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 150;
+            // 
+            // dataGridViewLinkColumn1
+            // 
+            this.dataGridViewLinkColumn1.FillWeight = 200F;
+            this.dataGridViewLinkColumn1.HeaderText = "Link";
+            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
+            this.dataGridViewLinkColumn1.Width = 200;
             // 
             // btnGoForPosting
             // 
@@ -710,76 +772,6 @@
             this.dgvMedia.RowTemplate.Height = 28;
             this.dgvMedia.Size = new System.Drawing.Size(973, 301);
             this.dgvMedia.TabIndex = 2;
-            // 
-            // lblOther
-            // 
-            this.lblOther.AutoSize = true;
-            this.lblOther.Location = new System.Drawing.Point(714, 313);
-            this.lblOther.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(65, 13);
-            this.lblOther.TabIndex = 1;
-            this.lblOther.Text = "Other Media";
-            // 
-            // lblSpecific
-            // 
-            this.lblSpecific.AutoSize = true;
-            this.lblSpecific.Location = new System.Drawing.Point(559, 313);
-            this.lblSpecific.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSpecific.Name = "lblSpecific";
-            this.lblSpecific.Size = new System.Drawing.Size(117, 13);
-            this.lblSpecific.TabIndex = 1;
-            this.lblSpecific.Text = "Specific Industry Media";
-            // 
-            // lblGeneral
-            // 
-            this.lblGeneral.AutoSize = true;
-            this.lblGeneral.Location = new System.Drawing.Point(391, 313);
-            this.lblGeneral.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblGeneral.Name = "lblGeneral";
-            this.lblGeneral.Size = new System.Drawing.Size(113, 13);
-            this.lblGeneral.TabIndex = 1;
-            this.lblGeneral.Text = "General Recruit Media";
-            // 
-            // lblOfficial
-            // 
-            this.lblOfficial.AutoSize = true;
-            this.lblOfficial.Location = new System.Drawing.Point(237, 313);
-            this.lblOfficial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOfficial.Name = "lblOfficial";
-            this.lblOfficial.Size = new System.Drawing.Size(71, 13);
-            this.lblOfficial.TabIndex = 1;
-            this.lblOfficial.Text = "Official Media";
-            // 
-            // tabJobPost
-            // 
-            this.tabJobPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabJobPost.Controls.Add(this.dgvJobPostMonitor);
-            this.tabJobPost.Location = new System.Drawing.Point(4, 22);
-            this.tabJobPost.Margin = new System.Windows.Forms.Padding(2);
-            this.tabJobPost.Name = "tabJobPost";
-            this.tabJobPost.Size = new System.Drawing.Size(977, 621);
-            this.tabJobPost.TabIndex = 8;
-            this.tabJobPost.Text = "Job Post Monitor";
-            this.tabJobPost.UseVisualStyleBackColor = true;
-            // 
-            // btnPDF
-            // 
-            this.btnPDF.Location = new System.Drawing.Point(802, 585);
-            this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(114, 23);
-            this.btnPDF.TabIndex = 1;
-            this.btnPDF.Text = "Generate PDF Doc";
-            this.btnPDF.UseVisualStyleBackColor = true;
-            // 
-            // btnWord
-            // 
-            this.btnWord.Location = new System.Drawing.Point(650, 585);
-            this.btnWord.Name = "btnWord";
-            this.btnWord.Size = new System.Drawing.Size(118, 23);
-            this.btnWord.TabIndex = 1;
-            this.btnWord.Text = "Generate Word Doc";
-            this.btnWord.UseVisualStyleBackColor = true;
             // 
             // MediaSelect
             // 
@@ -847,6 +839,58 @@
             this.MediaLink.HeaderText = "Link";
             this.MediaLink.Name = "MediaLink";
             this.MediaLink.Width = 250;
+            // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.Location = new System.Drawing.Point(714, 313);
+            this.lblOther.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(65, 13);
+            this.lblOther.TabIndex = 1;
+            this.lblOther.Text = "Other Media";
+            // 
+            // lblSpecific
+            // 
+            this.lblSpecific.AutoSize = true;
+            this.lblSpecific.Location = new System.Drawing.Point(559, 313);
+            this.lblSpecific.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSpecific.Name = "lblSpecific";
+            this.lblSpecific.Size = new System.Drawing.Size(117, 13);
+            this.lblSpecific.TabIndex = 1;
+            this.lblSpecific.Text = "Specific Industry Media";
+            // 
+            // lblGeneral
+            // 
+            this.lblGeneral.AutoSize = true;
+            this.lblGeneral.Location = new System.Drawing.Point(391, 313);
+            this.lblGeneral.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGeneral.Name = "lblGeneral";
+            this.lblGeneral.Size = new System.Drawing.Size(113, 13);
+            this.lblGeneral.TabIndex = 1;
+            this.lblGeneral.Text = "General Recruit Media";
+            // 
+            // lblOfficial
+            // 
+            this.lblOfficial.AutoSize = true;
+            this.lblOfficial.Location = new System.Drawing.Point(237, 313);
+            this.lblOfficial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOfficial.Name = "lblOfficial";
+            this.lblOfficial.Size = new System.Drawing.Size(71, 13);
+            this.lblOfficial.TabIndex = 1;
+            this.lblOfficial.Text = "Official Media";
+            // 
+            // tabJobPost
+            // 
+            this.tabJobPost.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabJobPost.Controls.Add(this.dgvJobPostMonitor);
+            this.tabJobPost.Location = new System.Drawing.Point(4, 22);
+            this.tabJobPost.Margin = new System.Windows.Forms.Padding(2);
+            this.tabJobPost.Name = "tabJobPost";
+            this.tabJobPost.Size = new System.Drawing.Size(977, 621);
+            this.tabJobPost.TabIndex = 8;
+            this.tabJobPost.Text = "Job Post Monitor";
+            this.tabJobPost.UseVisualStyleBackColor = true;
             // 
             // dgvJobPostMonitor
             // 
@@ -936,153 +980,265 @@
             this.PostLink.Name = "PostLink";
             this.PostLink.Width = 150;
             // 
-            // dataGridView1
+            // tabPage1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.lmFactors2);
+            this.tabPage1.Controls.Add(this.indicators2);
+            this.tabPage1.Controls.Add(this.financial2);
+            this.tabPage1.Controls.Add(this.jobPosition2);
+            this.tabPage1.Controls.Add(this.applicationSteam1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(991, 653);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Location = new System.Drawing.Point(367, 318);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(612, 354);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Reasonable Employment Need";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 186);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(168, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "The impact of the current situation";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(207, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "The situation the employer is currely facing";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewLinkColumn1});
-            this.dataGridView1.Location = new System.Drawing.Point(4, 354);
-            this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(973, 227);
-            this.dataGridView1.TabIndex = 4;
+            this.textBox3.Location = new System.Drawing.Point(0, 217);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(612, 137);
+            this.textBox3.TabIndex = 1;
             // 
-            // button1
+            // textBox4
             // 
-            this.button1.Location = new System.Drawing.Point(850, 586);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 25);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
+            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox4.Location = new System.Drawing.Point(0, 53);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(613, 121);
+            this.textBox4.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // lmFactors2
             // 
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Media";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.lmFactors2.Location = new System.Drawing.Point(19, 318);
+            this.lmFactors2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lmFactors2.Name = "lmFactors2";
+            this.lmFactors2.Size = new System.Drawing.Size(333, 355);
+            this.lmFactors2.TabIndex = 11;
             // 
-            // dataGridViewTextBoxColumn2
+            // indicators2
             // 
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn2.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Post Date";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 80;
+            this.indicators2.Location = new System.Drawing.Point(739, 55);
+            this.indicators2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.indicators2.Name = "indicators2";
+            this.indicators2.Size = new System.Drawing.Size(241, 260);
+            this.indicators2.TabIndex = 10;
             // 
-            // dataGridViewTextBoxColumn3
+            // financial2
             // 
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewTextBoxColumn3.FillWeight = 85F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Epiry Date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 85;
+            this.financial2.Location = new System.Drawing.Point(13, 193);
+            this.financial2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.financial2.Name = "financial2";
+            this.financial2.Size = new System.Drawing.Size(720, 122);
+            this.financial2.TabIndex = 9;
             // 
-            // dataGridViewTextBoxColumn4
+            // jobPosition2
             // 
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Initial Print Date";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn4.Width = 80;
+            this.jobPosition2.Location = new System.Drawing.Point(12, 54);
+            this.jobPosition2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jobPosition2.Name = "jobPosition2";
+            this.jobPosition2.Size = new System.Drawing.Size(721, 126);
+            this.jobPosition2.TabIndex = 8;
             // 
-            // dataGridViewTextBoxColumn5
+            // applicationSteam1
             // 
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewTextBoxColumn5.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Last Print Date";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 80;
+            this.applicationSteam1.Location = new System.Drawing.Point(10, -20);
+            this.applicationSteam1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.applicationSteam1.Name = "applicationSteam1";
+            this.applicationSteam1.Size = new System.Drawing.Size(970, 69);
+            this.applicationSteam1.TabIndex = 7;
             // 
-            // dataGridViewTextBoxColumn6
+            // tabAdvisor
             // 
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn6.FillWeight = 60F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Proven Days";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 60;
+            this.tabAdvisor.CausesValidation = false;
+            this.tabAdvisor.Controls.Add(this.tbcSubAdvisor);
+            this.tabAdvisor.Location = new System.Drawing.Point(4, 22);
+            this.tabAdvisor.Name = "tabAdvisor";
+            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAdvisor.Size = new System.Drawing.Size(991, 740);
+            this.tabAdvisor.TabIndex = 0;
+            this.tabAdvisor.Text = "Advisor";
+            this.tabAdvisor.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // tbcSubAdvisor
             // 
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Account";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.tbcSubAdvisor.Controls.Add(this.tabAnalysis);
+            this.tbcSubAdvisor.Controls.Add(this.tabBusinessDetails);
+            this.tbcSubAdvisor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcSubAdvisor.Location = new System.Drawing.Point(3, 3);
+            this.tbcSubAdvisor.Name = "tbcSubAdvisor";
+            this.tbcSubAdvisor.SelectedIndex = 0;
+            this.tbcSubAdvisor.Size = new System.Drawing.Size(985, 734);
+            this.tbcSubAdvisor.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn8
+            // tabAnalysis
             // 
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewTextBoxColumn8.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Password";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 80;
+            this.tabAnalysis.Controls.Add(this.groupBox1);
+            this.tabAnalysis.Controls.Add(this.lmFactors1);
+            this.tabAnalysis.Controls.Add(this.indicators1);
+            this.tabAnalysis.Controls.Add(this.financial1);
+            this.tabAnalysis.Controls.Add(this.jobPosition1);
+            this.tabAnalysis.Controls.Add(this.applicationSteam2);
+            this.tabAnalysis.Location = new System.Drawing.Point(4, 22);
+            this.tabAnalysis.Name = "tabAnalysis";
+            this.tabAnalysis.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAnalysis.Size = new System.Drawing.Size(977, 708);
+            this.tabAnalysis.TabIndex = 0;
+            this.tabAnalysis.Text = "Analysis";
+            this.tabAnalysis.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn9
+            // tabBusinessDetails
             // 
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HotTrack;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewTextBoxColumn9.FillWeight = 150F;
-            this.dataGridViewTextBoxColumn9.HeaderText = "Other Information";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 150;
+            this.tabBusinessDetails.Location = new System.Drawing.Point(4, 22);
+            this.tabBusinessDetails.Name = "tabBusinessDetails";
+            this.tabBusinessDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBusinessDetails.Size = new System.Drawing.Size(979, 623);
+            this.tabBusinessDetails.TabIndex = 1;
+            this.tabBusinessDetails.Text = "Business Details";
+            this.tabBusinessDetails.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewLinkColumn1
+            // groupBox1
             // 
-            this.dataGridViewLinkColumn1.FillWeight = 200F;
-            this.dataGridViewLinkColumn1.HeaderText = "Link";
-            this.dataGridViewLinkColumn1.Name = "dataGridViewLinkColumn1";
-            this.dataGridViewLinkColumn1.Width = 200;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Location = new System.Drawing.Point(361, 349);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(612, 354);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Reasonable Employment Need";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 186);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "The impact of the current situation";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(207, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "The situation the employer is currely facing";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(0, 217);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(612, 137);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(0, 53);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(613, 121);
+            this.textBox2.TabIndex = 0;
+            // 
+            // lmFactors1
+            // 
+            this.lmFactors1.Location = new System.Drawing.Point(7, 352);
+            this.lmFactors1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lmFactors1.Name = "lmFactors1";
+            this.lmFactors1.Size = new System.Drawing.Size(333, 355);
+            this.lmFactors1.TabIndex = 17;
+            // 
+            // indicators1
+            // 
+            this.indicators1.Location = new System.Drawing.Point(733, 86);
+            this.indicators1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.indicators1.Name = "indicators1";
+            this.indicators1.Size = new System.Drawing.Size(241, 260);
+            this.indicators1.TabIndex = 16;
+            // 
+            // financial1
+            // 
+            this.financial1.Location = new System.Drawing.Point(7, 224);
+            this.financial1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.financial1.Name = "financial1";
+            this.financial1.Size = new System.Drawing.Size(720, 122);
+            this.financial1.TabIndex = 15;
+            // 
+            // jobPosition1
+            // 
+            this.jobPosition1.Location = new System.Drawing.Point(6, 85);
+            this.jobPosition1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jobPosition1.Name = "jobPosition1";
+            this.jobPosition1.Size = new System.Drawing.Size(721, 126);
+            this.jobPosition1.TabIndex = 14;
+            // 
+            // applicationSteam2
+            // 
+            this.applicationSteam2.Location = new System.Drawing.Point(4, 11);
+            this.applicationSteam2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.applicationSteam2.Name = "applicationSteam2";
+            this.applicationSteam2.Size = new System.Drawing.Size(970, 69);
+            this.applicationSteam2.TabIndex = 13;
             // 
             // LMIAForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 679);
+            this.ClientSize = new System.Drawing.Size(999, 766);
             this.Controls.Add(this.tabBase);
             this.Name = "LMIAForm";
             this.Text = "LMIAForm";
             this.Load += new System.EventHandler(this.LMIAForm_Load);
             this.tabBase.ResumeLayout(false);
-            this.tabAdvisor.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tabApplication.ResumeLayout(false);
             this.tabADandMedia.ResumeLayout(false);
             this.tabAD.ResumeLayout(false);
@@ -1100,10 +1256,18 @@
             this.tabJobAdPreview.PerformLayout();
             this.tabMedia.ResumeLayout(false);
             this.tabMedia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).EndInit();
             this.tabJobPost.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvJobPostMonitor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.tabAdvisor.ResumeLayout(false);
+            this.tbcSubAdvisor.ResumeLayout(false);
+            this.tabAnalysis.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1111,18 +1275,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabBase;
-        private System.Windows.Forms.TabPage tabAdvisor;
-        private financial financial1;
-        private JobPosition jobPosition1;
-        private ApplicationSteam UCAppStream;
         private System.Windows.Forms.TabPage tabApplication;
-        private Indicators indicators1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private LMFactors lmFactors1;
         private System.Windows.Forms.TabControl tabADandMedia;
         private System.Windows.Forms.StatusStrip stsStatus;
         private System.Windows.Forms.ToolStripStatusLabel stsEmployer;
@@ -1197,5 +1350,30 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TabControl tbcSubAdvisor;
+        private System.Windows.Forms.TabPage tabAnalysis;
+        private ApplicationSteam applicationSteam2;
+        private System.Windows.Forms.TabPage tabBusinessDetails;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private LMFactors lmFactors2;
+        private Indicators indicators2;
+        private financial financial2;
+        private JobPosition jobPosition2;
+        private ApplicationSteam applicationSteam1;
+        private JobPosition jobPosition1;
+        private financial financial1;
+        private Indicators indicators1;
+        private LMFactors lmFactors1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TabPage tabAdvisor;
     }
 }
