@@ -30,18 +30,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Aspose.Pdf, Version=11.2.0.0, Culture=neutral, PublicKeyToken=6947866647e416ec, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Program Files (x86)\Aspose\Aspose.Pdf for .NET\Bin\net4.0_ClientProfile\Aspose.Pdf.dll</HintPath>
+    <Reference Include="Aspose.Pdf">
+      <HintPath>..\..\..\References\Aspose.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="iTextAsian">
+      <HintPath>..\..\..\References\iTextAsian.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>..\..\..\Users\jacky\Documents\Visual Studio 2015\Projects\LoginApp\LoginApp\itextsharp.dll</HintPath>
+      <HintPath>..\..\..\References\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.pdfa">
-      <HintPath>..\..\..\Users\jacky\Documents\Visual Studio 2015\Projects\LoginApp\LoginApp\itextsharp.pdfa.dll</HintPath>
+      <HintPath>..\..\..\References\itextsharp.pdfa.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.xtra">
-      <HintPath>..\..\..\Users\jacky\Documents\Visual Studio 2015\Projects\LoginApp\LoginApp\itextsharp.xtra.dll</HintPath>
+      <HintPath>..\..\..\References\itextsharp.xtra.dll</HintPath>
     </Reference>
     <Reference Include="Nevron.Nov.Barcode, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
       <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Barcode.dll</HintPath>

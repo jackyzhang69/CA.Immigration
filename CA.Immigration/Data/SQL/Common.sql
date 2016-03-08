@@ -175,23 +175,6 @@ TypeCode int,  -- Code matchs CIC Definition
 LanguageType varchar(10)
 )
 
--- Create marriage status type PK table
-create table tblMarriageStatusType
-(
-Id int not null primary key Identity(1,1),
-TypeCode int not null,   -- Type code matchs CIC defenition
-MarriageStatusType varchar(20) not null,
-)
-
-insert into tblMarriageStatusType values (1, 'Annulled Marriage')
-insert into tblMarriageStatusType values (2, 'Common-Law')
-insert into tblMarriageStatusType values (3, 'Divorced')
-insert into tblMarriageStatusType values (4, 'Legally Separated')
-insert into tblMarriageStatusType values (5, 'Married')
-insert into tblMarriageStatusType values (6, 'Single')
-insert into tblMarriageStatusType values (7, 'Unknown')
-insert into tblMarriageStatusType values (8, 'Widowed')
-
 -- Create Status type PK table
 create table tblStatusType
 (
@@ -215,9 +198,9 @@ Type int, -- 1 Current 2 Previous 3 Country where applying
 ResidenceType varchar(25)
 )
 
-insert into tblResidenceTypeId values('Current')
-insert into tblResidenceTypeId values('Previous')
-insert into tblResidenceTypeId values('Country where applying')
+insert into tblResidenceType values(1,'Current')
+insert into tblResidenceType values(2,'Previous')
+insert into tblResidenceType values(3,'Country where applying')
 
 -------------------------------------------------------------------------
 
@@ -360,21 +343,21 @@ relationship char(2)
 )
 
 -- Create marriage status type PK table
-create table tblMarriageStatusTypes
+create table tblMarriageStatusType
 (
 Id int not null primary key Identity(1,1),
 TypeCode char(2),   -- Type code matchs CIC defenition
 MarriageStatusType varchar(20) not null,
 )
 
-insert into tblMarriageStatusTypes values ('09', 'Annulled Marriage')
-insert into tblMarriageStatusTypes values ('03', 'Common-Law')
-insert into tblMarriageStatusTypes values ('04', 'Divorced')
-insert into tblMarriageStatusTypes values ('05', 'Legally Separated')
-insert into tblMarriageStatusTypes values ('01', 'Married')
-insert into tblMarriageStatusTypes values ('02', 'Single')
-insert into tblMarriageStatusTypes values ('00', 'Unknown')
-insert into tblMarriageStatusTypes values ('06', 'Widowed')
+insert into tblMarriageStatusType values ('09', 'Annulled Marriage')
+insert into tblMarriageStatusType values ('03', 'Common-Law')
+insert into tblMarriageStatusType values ('04', 'Divorced')
+insert into tblMarriageStatusType values ('05', 'Legally Separated')
+insert into tblMarriageStatusType values ('01', 'Married')
+insert into tblMarriageStatusType values ('02', 'Single')
+insert into tblMarriageStatusType values ('00', 'Unknown')
+insert into tblMarriageStatusType values ('06', 'Widowed')
 -- Create residence table
 create table tblResidence
 (
