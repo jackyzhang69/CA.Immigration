@@ -17,16 +17,16 @@ namespace CA.Immigration
 
 
         // Build a dictionary of IMM1294 based on the Application Id
-        public static Dictionary<string, string> IMM5476(int AppId)
+        public static Dictionary<string, string> IMM5476(int ApplicantId,int RCICId)
         {
             CommonDataContext cmdc = new CommonDataContext();
 
-            int personId = (int)cmdc.tblApplications.Where(x => x.Id == AppId).Select(x => x.ApplicantId).FirstOrDefault();
-            int rcicId = (int)cmdc.tblApplications.Where(x => x.Id == AppId).Select(x => x.RCICId).FirstOrDefault();
+            //int personId = (int)cmdc.tblApplications.Where(x => x.Id == ApplicantId).Select(x => x.ApplicantId).FirstOrDefault();
+            //int rcicId = (int)cmdc.tblApplications.Where(x => x.Id == ApplicantId).Select(x => x.RCICId).FirstOrDefault();
 
-            tblPerson person = cmdc.tblPersons.Where(x => x.Id == personId).Select(x => x).FirstOrDefault();
-            tblRCIC rcic = cmdc.tblRCICs.Where(x => x.Id == rcicId).Select(x => x).FirstOrDefault();
-            tblPassport passport = cmdc.tblPassports.Where(x => (x.PersonId == personId && x.IsValid == true)).Select(x => x).FirstOrDefault();
+            tblPerson person = cmdc.tblPersons.Where(x => x.Id == ApplicantId).Select(x => x).FirstOrDefault();
+            tblRCIC rcic = cmdc.tblRCICs.Where(x => x.Id == RCICId).Select(x => x).FirstOrDefault();
+            //tblPassport passport = cmdc.tblPassports.Where(x => (x.PersonId == ApplicantId && x.IsValid == true)).Select(x => x).FirstOrDefault();
 
             DateTime dob = (DateTime)person.DOB;
             
@@ -67,7 +67,7 @@ namespace CA.Immigration
         {
             CommonDataContext cmdc = new CommonDataContext();
 
-            // tblApplication has to be changed... to be adaptable for more applicatons
+            // tblApplication has to be changed... to be adaptable for more applications
             int personId = (int)cmdc.tblApplications.Where(x => x.Id == AppId).Select(x => x.ApplicantId).FirstOrDefault();
             // and employer Id
             int rcicId = (int)cmdc.tblApplications.Where(x => x.Id == AppId).Select(x => x.RCICId).FirstOrDefault();

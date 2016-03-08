@@ -40,37 +40,48 @@
             this.tbcFrontPage = new System.Windows.Forms.TabControl();
             this.tbcMain = new System.Windows.Forms.TabPage();
             this.spcBase = new System.Windows.Forms.SplitContainer();
-            this.cmbProgram = new System.Windows.Forms.ComboBox();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.lblSelectedEmployerId = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblSelectedPersonId = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblSelectedEmployer = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSelectPerson = new System.Windows.Forms.Label();
-            this.btnAdvisor = new System.Windows.Forms.Button();
-            this.btnSelectEmployer = new System.Windows.Forms.Button();
-            this.btnSelectPerson = new System.Windows.Forms.Button();
             this.tbcApplication = new System.Windows.Forms.TabControl();
             this.tblLMIA = new System.Windows.Forms.TabPage();
             this.tblSP = new System.Windows.Forms.TabPage();
+            this.grpSelect = new System.Windows.Forms.GroupBox();
+            this.btnSelectPerson = new System.Windows.Forms.Button();
+            this.cmbProgram = new System.Windows.Forms.ComboBox();
+            this.btnSelectEmployer = new System.Windows.Forms.Button();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.btnAdvisor = new System.Windows.Forms.Button();
+            this.lblSelectedEmployerId = new System.Windows.Forms.Label();
+            this.btnApplication = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSelectPerson = new System.Windows.Forms.Label();
+            this.lblSelectedPersonId = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblSelectedEmployer = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.MainStatus = new System.Windows.Forms.StatusStrip();
             this.stsSystem = new System.Windows.Forms.ToolStripStatusLabel();
             this.tblPerson = new System.Windows.Forms.TabPage();
             this.spltPerson = new System.Windows.Forms.SplitContainer();
-            this.btnPBIInsert = new System.Windows.Forms.Button();
+            this.btnFindaPerson = new System.Windows.Forms.Button();
+            this.btnMakeImm5476 = new System.Windows.Forms.Button();
             this.grpPersonBasic = new System.Windows.Forms.GroupBox();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnPBIInsert = new System.Windows.Forms.Button();
+            this.pcbSignature = new System.Windows.Forms.PictureBox();
+            this.btnSignature = new System.Windows.Forms.Button();
+            this.btnPhoto = new System.Windows.Forms.Button();
+            this.pcbPhoto = new System.Windows.Forms.PictureBox();
             this.dtpPBIDOB = new System.Windows.Forms.DateTimePicker();
             this.cmbPBIMS = new System.Windows.Forms.ComboBox();
             this.cbxAlias = new System.Windows.Forms.CheckBox();
             this.cmbPBIGender = new System.Windows.Forms.ComboBox();
             this.txtPBIEmail = new System.Windows.Forms.TextBox();
             this.txtPBIPhone = new System.Windows.Forms.TextBox();
-            this.T = new System.Windows.Forms.TextBox();
+            this.txtPBIUCI = new System.Windows.Forms.TextBox();
             this.txtPBIALN = new System.Windows.Forms.TextBox();
             this.txtPBIAFN = new System.Windows.Forms.TextBox();
             this.txtPBIln = new System.Windows.Forms.TextBox();
@@ -88,7 +99,7 @@
             this.lblPBIMiddleName = new System.Windows.Forms.Label();
             this.lblPBIFirstName = new System.Windows.Forms.Label();
             this.tbcPersonDetails = new System.Windows.Forms.TabControl();
-            this.txtPBIUCI = new System.Windows.Forms.TabPage();
+            this.tabPassport = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblPDIPPPeronName = new System.Windows.Forms.Label();
             this.lblPDIPPPersonId = new System.Windows.Forms.Label();
@@ -112,15 +123,14 @@
             this.tblPersonalHistory = new System.Windows.Forms.TabPage();
             this.tblTravelHistory = new System.Windows.Forms.TabPage();
             this.tblResidence = new System.Windows.Forms.TabPage();
-            this.btnApplication = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.tbcFrontPage.SuspendLayout();
             this.tbcMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcBase)).BeginInit();
             this.spcBase.Panel1.SuspendLayout();
-            this.spcBase.Panel2.SuspendLayout();
             this.spcBase.SuspendLayout();
             this.tbcApplication.SuspendLayout();
+            this.grpSelect.SuspendLayout();
             this.MainStatus.SuspendLayout();
             this.tblPerson.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spltPerson)).BeginInit();
@@ -128,8 +138,10 @@
             this.spltPerson.Panel2.SuspendLayout();
             this.spltPerson.SuspendLayout();
             this.grpPersonBasic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSignature)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).BeginInit();
             this.tbcPersonDetails.SuspendLayout();
-            this.txtPBIUCI.SuspendLayout();
+            this.tabPassport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -224,8 +236,8 @@
             this.tbcFrontPage.Location = new System.Drawing.Point(0, 33);
             this.tbcFrontPage.Name = "tbcFrontPage";
             this.tbcFrontPage.SelectedIndex = 0;
-            this.tbcFrontPage.Size = new System.Drawing.Size(1665, 943);
-            this.tbcFrontPage.TabIndex = 1;
+            this.tbcFrontPage.Size = new System.Drawing.Size(1665, 1239);
+            this.tbcFrontPage.TabIndex = 0;
             // 
             // tbcMain
             // 
@@ -234,7 +246,7 @@
             this.tbcMain.Location = new System.Drawing.Point(4, 32);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tbcMain.Size = new System.Drawing.Size(1657, 907);
+            this.tbcMain.Size = new System.Drawing.Size(1657, 1203);
             this.tbcMain.TabIndex = 0;
             this.tbcMain.Text = "Main";
             this.tbcMain.UseVisualStyleBackColor = true;
@@ -248,175 +260,20 @@
             // 
             // spcBase.Panel1
             // 
-            this.spcBase.Panel1.Controls.Add(this.cmbProgram);
-            this.spcBase.Panel1.Controls.Add(this.cmbCategory);
-            this.spcBase.Panel1.Controls.Add(this.lblSelectedEmployerId);
-            this.spcBase.Panel1.Controls.Add(this.label2);
-            this.spcBase.Panel1.Controls.Add(this.lblSelectedPersonId);
-            this.spcBase.Panel1.Controls.Add(this.label6);
-            this.spcBase.Panel1.Controls.Add(this.lblSelectedEmployer);
-            this.spcBase.Panel1.Controls.Add(this.label3);
-            this.spcBase.Panel1.Controls.Add(this.label5);
-            this.spcBase.Panel1.Controls.Add(this.label4);
-            this.spcBase.Panel1.Controls.Add(this.label1);
-            this.spcBase.Panel1.Controls.Add(this.lblSelectPerson);
-            this.spcBase.Panel1.Controls.Add(this.btnApplication);
-            this.spcBase.Panel1.Controls.Add(this.btnAdvisor);
-            this.spcBase.Panel1.Controls.Add(this.btnSelectEmployer);
-            this.spcBase.Panel1.Controls.Add(this.btnSelectPerson);
-            // 
-            // spcBase.Panel2
-            // 
-            this.spcBase.Panel2.Controls.Add(this.tbcApplication);
-            this.spcBase.Size = new System.Drawing.Size(1651, 871);
-            this.spcBase.SplitterDistance = 488;
+            this.spcBase.Panel1.Controls.Add(this.tbcApplication);
+            this.spcBase.Panel1.Controls.Add(this.grpSelect);
+            this.spcBase.Size = new System.Drawing.Size(1651, 1167);
+            this.spcBase.SplitterDistance = 424;
             this.spcBase.TabIndex = 1;
-            // 
-            // cmbProgram
-            // 
-            this.cmbProgram.FormattingEnabled = true;
-            this.cmbProgram.Location = new System.Drawing.Point(172, 175);
-            this.cmbProgram.Name = "cmbProgram";
-            this.cmbProgram.Size = new System.Drawing.Size(340, 28);
-            this.cmbProgram.TabIndex = 6;
-            this.cmbProgram.SelectionChangeCommitted += new System.EventHandler(this.cmbProgram_SelectionChangeCommitted);
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(172, 141);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(340, 28);
-            this.cmbCategory.TabIndex = 6;
-            this.cmbCategory.SelectionChangeCommitted += new System.EventHandler(this.cmbCategory_SelectionChangeCommitted);
-            // 
-            // lblSelectedEmployerId
-            // 
-            this.lblSelectedEmployerId.AutoSize = true;
-            this.lblSelectedEmployerId.Location = new System.Drawing.Point(485, 86);
-            this.lblSelectedEmployerId.Name = "lblSelectedEmployerId";
-            this.lblSelectedEmployerId.Size = new System.Drawing.Size(35, 20);
-            this.lblSelectedEmployerId.TabIndex = 3;
-            this.lblSelectedEmployerId.Text = "Null";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(382, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Person ID:";
-            // 
-            // lblSelectedPersonId
-            // 
-            this.lblSelectedPersonId.AutoSize = true;
-            this.lblSelectedPersonId.Location = new System.Drawing.Point(485, 34);
-            this.lblSelectedPersonId.Name = "lblSelectedPersonId";
-            this.lblSelectedPersonId.Size = new System.Drawing.Size(35, 20);
-            this.lblSelectedPersonId.TabIndex = 3;
-            this.lblSelectedPersonId.Text = "Null";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 178);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 20);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Select Program";
-            // 
-            // lblSelectedEmployer
-            // 
-            this.lblSelectedEmployer.AutoSize = true;
-            this.lblSelectedEmployer.Location = new System.Drawing.Point(245, 86);
-            this.lblSelectedEmployer.Name = "lblSelectedEmployer";
-            this.lblSelectedEmployer.Size = new System.Drawing.Size(35, 20);
-            this.lblSelectedEmployer.TabIndex = 3;
-            this.lblSelectedEmployer.Text = "Null";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Select Category";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(382, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Employer ID:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(161, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Employer:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(159, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Person:";
-            // 
-            // lblSelectPerson
-            // 
-            this.lblSelectPerson.AutoSize = true;
-            this.lblSelectPerson.Location = new System.Drawing.Point(245, 34);
-            this.lblSelectPerson.Name = "lblSelectPerson";
-            this.lblSelectPerson.Size = new System.Drawing.Size(35, 20);
-            this.lblSelectPerson.TabIndex = 3;
-            this.lblSelectPerson.Text = "Null";
-            // 
-            // btnAdvisor
-            // 
-            this.btnAdvisor.Location = new System.Drawing.Point(16, 233);
-            this.btnAdvisor.Name = "btnAdvisor";
-            this.btnAdvisor.Size = new System.Drawing.Size(100, 38);
-            this.btnAdvisor.TabIndex = 2;
-            this.btnAdvisor.Text = "Advisor";
-            this.btnAdvisor.UseVisualStyleBackColor = true;
-            // 
-            // btnSelectEmployer
-            // 
-            this.btnSelectEmployer.Location = new System.Drawing.Point(12, 74);
-            this.btnSelectEmployer.Name = "btnSelectEmployer";
-            this.btnSelectEmployer.Size = new System.Drawing.Size(138, 44);
-            this.btnSelectEmployer.TabIndex = 2;
-            this.btnSelectEmployer.Text = "Select Employer";
-            this.btnSelectEmployer.UseVisualStyleBackColor = true;
-            this.btnSelectEmployer.Click += new System.EventHandler(this.btnSelectEmployer_Click);
-            // 
-            // btnSelectPerson
-            // 
-            this.btnSelectPerson.Location = new System.Drawing.Point(12, 24);
-            this.btnSelectPerson.Name = "btnSelectPerson";
-            this.btnSelectPerson.Size = new System.Drawing.Size(138, 44);
-            this.btnSelectPerson.TabIndex = 2;
-            this.btnSelectPerson.Text = "Select Person";
-            this.btnSelectPerson.UseVisualStyleBackColor = true;
-            this.btnSelectPerson.Click += new System.EventHandler(this.btnCreatePerson_Click);
             // 
             // tbcApplication
             // 
             this.tbcApplication.Controls.Add(this.tblLMIA);
             this.tbcApplication.Controls.Add(this.tblSP);
-            this.tbcApplication.Location = new System.Drawing.Point(12, 12);
+            this.tbcApplication.Location = new System.Drawing.Point(639, 3);
             this.tbcApplication.Name = "tbcApplication";
             this.tbcApplication.SelectedIndex = 0;
-            this.tbcApplication.Size = new System.Drawing.Size(690, 366);
+            this.tbcApplication.Size = new System.Drawing.Size(1012, 311);
             this.tbcApplication.TabIndex = 0;
             // 
             // tblLMIA
@@ -424,7 +281,7 @@
             this.tblLMIA.Location = new System.Drawing.Point(4, 29);
             this.tblLMIA.Name = "tblLMIA";
             this.tblLMIA.Padding = new System.Windows.Forms.Padding(3);
-            this.tblLMIA.Size = new System.Drawing.Size(682, 333);
+            this.tblLMIA.Size = new System.Drawing.Size(1004, 278);
             this.tblLMIA.TabIndex = 0;
             this.tblLMIA.Text = "LMIA";
             this.tblLMIA.UseVisualStyleBackColor = true;
@@ -434,17 +291,189 @@
             this.tblSP.Location = new System.Drawing.Point(4, 29);
             this.tblSP.Name = "tblSP";
             this.tblSP.Padding = new System.Windows.Forms.Padding(3);
-            this.tblSP.Size = new System.Drawing.Size(682, 333);
+            this.tblSP.Size = new System.Drawing.Size(1004, 278);
             this.tblSP.TabIndex = 1;
             this.tblSP.Text = "Study Permit";
             this.tblSP.UseVisualStyleBackColor = true;
+            // 
+            // grpSelect
+            // 
+            this.grpSelect.Controls.Add(this.btnSelectPerson);
+            this.grpSelect.Controls.Add(this.cmbProgram);
+            this.grpSelect.Controls.Add(this.btnSelectEmployer);
+            this.grpSelect.Controls.Add(this.cmbCategory);
+            this.grpSelect.Controls.Add(this.btnAdvisor);
+            this.grpSelect.Controls.Add(this.lblSelectedEmployerId);
+            this.grpSelect.Controls.Add(this.btnApplication);
+            this.grpSelect.Controls.Add(this.label2);
+            this.grpSelect.Controls.Add(this.lblSelectPerson);
+            this.grpSelect.Controls.Add(this.lblSelectedPersonId);
+            this.grpSelect.Controls.Add(this.label1);
+            this.grpSelect.Controls.Add(this.label6);
+            this.grpSelect.Controls.Add(this.label4);
+            this.grpSelect.Controls.Add(this.lblSelectedEmployer);
+            this.grpSelect.Controls.Add(this.label5);
+            this.grpSelect.Controls.Add(this.label3);
+            this.grpSelect.Location = new System.Drawing.Point(3, 3);
+            this.grpSelect.Name = "grpSelect";
+            this.grpSelect.Size = new System.Drawing.Size(630, 311);
+            this.grpSelect.TabIndex = 7;
+            this.grpSelect.TabStop = false;
+            this.grpSelect.Text = "Select Applicant and Program";
+            // 
+            // btnSelectPerson
+            // 
+            this.btnSelectPerson.Location = new System.Drawing.Point(24, 38);
+            this.btnSelectPerson.Name = "btnSelectPerson";
+            this.btnSelectPerson.Size = new System.Drawing.Size(138, 44);
+            this.btnSelectPerson.TabIndex = 2;
+            this.btnSelectPerson.Text = "Select Person";
+            this.btnSelectPerson.UseVisualStyleBackColor = true;
+            this.btnSelectPerson.Click += new System.EventHandler(this.btnCreatePerson_Click);
+            // 
+            // cmbProgram
+            // 
+            this.cmbProgram.FormattingEnabled = true;
+            this.cmbProgram.Location = new System.Drawing.Point(184, 189);
+            this.cmbProgram.Name = "cmbProgram";
+            this.cmbProgram.Size = new System.Drawing.Size(340, 28);
+            this.cmbProgram.TabIndex = 6;
+            this.cmbProgram.SelectionChangeCommitted += new System.EventHandler(this.cmbProgram_SelectionChangeCommitted);
+            // 
+            // btnSelectEmployer
+            // 
+            this.btnSelectEmployer.Location = new System.Drawing.Point(24, 88);
+            this.btnSelectEmployer.Name = "btnSelectEmployer";
+            this.btnSelectEmployer.Size = new System.Drawing.Size(138, 44);
+            this.btnSelectEmployer.TabIndex = 2;
+            this.btnSelectEmployer.Text = "Select Employer";
+            this.btnSelectEmployer.UseVisualStyleBackColor = true;
+            this.btnSelectEmployer.Click += new System.EventHandler(this.btnSelectEmployer_Click);
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Location = new System.Drawing.Point(184, 155);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(340, 28);
+            this.cmbCategory.TabIndex = 6;
+            this.cmbCategory.SelectionChangeCommitted += new System.EventHandler(this.cmbCategory_SelectionChangeCommitted);
+            // 
+            // btnAdvisor
+            // 
+            this.btnAdvisor.Location = new System.Drawing.Point(28, 247);
+            this.btnAdvisor.Name = "btnAdvisor";
+            this.btnAdvisor.Size = new System.Drawing.Size(100, 38);
+            this.btnAdvisor.TabIndex = 2;
+            this.btnAdvisor.Text = "Advisor";
+            this.btnAdvisor.UseVisualStyleBackColor = true;
+            // 
+            // lblSelectedEmployerId
+            // 
+            this.lblSelectedEmployerId.AutoSize = true;
+            this.lblSelectedEmployerId.Location = new System.Drawing.Point(497, 100);
+            this.lblSelectedEmployerId.Name = "lblSelectedEmployerId";
+            this.lblSelectedEmployerId.Size = new System.Drawing.Size(35, 20);
+            this.lblSelectedEmployerId.TabIndex = 3;
+            this.lblSelectedEmployerId.Text = "Null";
+            // 
+            // btnApplication
+            // 
+            this.btnApplication.Location = new System.Drawing.Point(152, 247);
+            this.btnApplication.Name = "btnApplication";
+            this.btnApplication.Size = new System.Drawing.Size(100, 38);
+            this.btnApplication.TabIndex = 2;
+            this.btnApplication.Text = "Application";
+            this.btnApplication.UseVisualStyleBackColor = true;
+            this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(394, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Person ID:";
+            // 
+            // lblSelectPerson
+            // 
+            this.lblSelectPerson.AutoSize = true;
+            this.lblSelectPerson.Location = new System.Drawing.Point(257, 48);
+            this.lblSelectPerson.Name = "lblSelectPerson";
+            this.lblSelectPerson.Size = new System.Drawing.Size(35, 20);
+            this.lblSelectPerson.TabIndex = 3;
+            this.lblSelectPerson.Text = "Null";
+            // 
+            // lblSelectedPersonId
+            // 
+            this.lblSelectedPersonId.AutoSize = true;
+            this.lblSelectedPersonId.Location = new System.Drawing.Point(497, 48);
+            this.lblSelectedPersonId.Name = "lblSelectedPersonId";
+            this.lblSelectedPersonId.Size = new System.Drawing.Size(35, 20);
+            this.lblSelectedPersonId.TabIndex = 3;
+            this.lblSelectedPersonId.Text = "Null";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(171, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Person:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(24, 192);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 20);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Select Program";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(173, 100);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Employer:";
+            // 
+            // lblSelectedEmployer
+            // 
+            this.lblSelectedEmployer.AutoSize = true;
+            this.lblSelectedEmployer.Location = new System.Drawing.Point(257, 100);
+            this.lblSelectedEmployer.Name = "lblSelectedEmployer";
+            this.lblSelectedEmployer.Size = new System.Drawing.Size(35, 20);
+            this.lblSelectedEmployer.TabIndex = 3;
+            this.lblSelectedEmployer.Text = "Null";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(394, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Employer ID:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(122, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Select Category";
             // 
             // MainStatus
             // 
             this.MainStatus.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.MainStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stsSystem});
-            this.MainStatus.Location = new System.Drawing.Point(3, 874);
+            this.MainStatus.Location = new System.Drawing.Point(3, 1170);
             this.MainStatus.Name = "MainStatus";
             this.MainStatus.Size = new System.Drawing.Size(1651, 30);
             this.MainStatus.TabIndex = 0;
@@ -462,7 +491,7 @@
             this.tblPerson.Location = new System.Drawing.Point(4, 32);
             this.tblPerson.Name = "tblPerson";
             this.tblPerson.Padding = new System.Windows.Forms.Padding(3);
-            this.tblPerson.Size = new System.Drawing.Size(1657, 907);
+            this.tblPerson.Size = new System.Drawing.Size(1657, 1203);
             this.tblPerson.TabIndex = 1;
             this.tblPerson.Text = "Person";
             this.tblPerson.UseVisualStyleBackColor = true;
@@ -475,35 +504,54 @@
             // 
             // spltPerson.Panel1
             // 
-            this.spltPerson.Panel1.Controls.Add(this.btnPBIInsert);
+            this.spltPerson.Panel1.Controls.Add(this.btnFindaPerson);
+            this.spltPerson.Panel1.Controls.Add(this.btnMakeImm5476);
             this.spltPerson.Panel1.Controls.Add(this.grpPersonBasic);
             // 
             // spltPerson.Panel2
             // 
             this.spltPerson.Panel2.Controls.Add(this.tbcPersonDetails);
-            this.spltPerson.Size = new System.Drawing.Size(1651, 901);
+            this.spltPerson.Size = new System.Drawing.Size(1651, 1197);
             this.spltPerson.SplitterDistance = 345;
             this.spltPerson.TabIndex = 0;
             // 
-            // btnPBIInsert
+            // btnFindaPerson
             // 
-            this.btnPBIInsert.Location = new System.Drawing.Point(18, 26);
-            this.btnPBIInsert.Name = "btnPBIInsert";
-            this.btnPBIInsert.Size = new System.Drawing.Size(66, 29);
-            this.btnPBIInsert.TabIndex = 1;
-            this.btnPBIInsert.Text = "Insert";
-            this.btnPBIInsert.UseVisualStyleBackColor = true;
-            this.btnPBIInsert.Click += new System.EventHandler(this.btnPBIInsert_Click);
+            this.btnFindaPerson.Location = new System.Drawing.Point(18, 1065);
+            this.btnFindaPerson.Name = "btnFindaPerson";
+            this.btnFindaPerson.Size = new System.Drawing.Size(141, 41);
+            this.btnFindaPerson.TabIndex = 0;
+            this.btnFindaPerson.Text = "Find a person";
+            this.btnFindaPerson.UseVisualStyleBackColor = true;
+            this.btnFindaPerson.Click += new System.EventHandler(this.btnFindaPerson_Click);
+            // 
+            // btnMakeImm5476
+            // 
+            this.btnMakeImm5476.Location = new System.Drawing.Point(183, 1065);
+            this.btnMakeImm5476.Name = "btnMakeImm5476";
+            this.btnMakeImm5476.Size = new System.Drawing.Size(141, 41);
+            this.btnMakeImm5476.TabIndex = 1;
+            this.btnMakeImm5476.Text = "Make IMM5476";
+            this.btnMakeImm5476.UseVisualStyleBackColor = true;
+            this.btnMakeImm5476.Click += new System.EventHandler(this.btnMakeImm5476_Click);
             // 
             // grpPersonBasic
             // 
+            this.grpPersonBasic.Controls.Add(this.btnNew);
+            this.grpPersonBasic.Controls.Add(this.btnDelete);
+            this.grpPersonBasic.Controls.Add(this.btnUpdate);
+            this.grpPersonBasic.Controls.Add(this.btnPBIInsert);
+            this.grpPersonBasic.Controls.Add(this.pcbSignature);
+            this.grpPersonBasic.Controls.Add(this.btnSignature);
+            this.grpPersonBasic.Controls.Add(this.btnPhoto);
+            this.grpPersonBasic.Controls.Add(this.pcbPhoto);
             this.grpPersonBasic.Controls.Add(this.dtpPBIDOB);
             this.grpPersonBasic.Controls.Add(this.cmbPBIMS);
             this.grpPersonBasic.Controls.Add(this.cbxAlias);
             this.grpPersonBasic.Controls.Add(this.cmbPBIGender);
             this.grpPersonBasic.Controls.Add(this.txtPBIEmail);
             this.grpPersonBasic.Controls.Add(this.txtPBIPhone);
-            this.grpPersonBasic.Controls.Add(this.T);
+            this.grpPersonBasic.Controls.Add(this.txtPBIUCI);
             this.grpPersonBasic.Controls.Add(this.txtPBIALN);
             this.grpPersonBasic.Controls.Add(this.txtPBIAFN);
             this.grpPersonBasic.Controls.Add(this.txtPBIln);
@@ -520,27 +568,105 @@
             this.grpPersonBasic.Controls.Add(this.lblPBILastName);
             this.grpPersonBasic.Controls.Add(this.lblPBIMiddleName);
             this.grpPersonBasic.Controls.Add(this.lblPBIFirstName);
-            this.grpPersonBasic.Location = new System.Drawing.Point(8, 102);
+            this.grpPersonBasic.Location = new System.Drawing.Point(3, 3);
             this.grpPersonBasic.Name = "grpPersonBasic";
-            this.grpPersonBasic.Size = new System.Drawing.Size(533, 798);
+            this.grpPersonBasic.Size = new System.Drawing.Size(339, 1047);
             this.grpPersonBasic.TabIndex = 0;
             this.grpPersonBasic.TabStop = false;
             this.grpPersonBasic.Text = "Basic Person Information";
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(234, 993);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(66, 29);
+            this.btnNew.TabIndex = 17;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = true;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(162, 993);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(66, 29);
+            this.btnDelete.TabIndex = 16;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(90, 993);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(66, 29);
+            this.btnUpdate.TabIndex = 15;
+            this.btnUpdate.Text = "Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnPBIInsert
+            // 
+            this.btnPBIInsert.Location = new System.Drawing.Point(18, 993);
+            this.btnPBIInsert.Name = "btnPBIInsert";
+            this.btnPBIInsert.Size = new System.Drawing.Size(66, 29);
+            this.btnPBIInsert.TabIndex = 14;
+            this.btnPBIInsert.Text = "Insert";
+            this.btnPBIInsert.UseVisualStyleBackColor = true;
+            this.btnPBIInsert.Click += new System.EventHandler(this.btnPBIInsert_Click);
+            // 
+            // pcbSignature
+            // 
+            this.pcbSignature.Location = new System.Drawing.Point(180, 883);
+            this.pcbSignature.Name = "pcbSignature";
+            this.pcbSignature.Size = new System.Drawing.Size(131, 45);
+            this.pcbSignature.TabIndex = 9;
+            this.pcbSignature.TabStop = false;
+            // 
+            // btnSignature
+            // 
+            this.btnSignature.Location = new System.Drawing.Point(20, 883);
+            this.btnSignature.Name = "btnSignature";
+            this.btnSignature.Size = new System.Drawing.Size(100, 39);
+            this.btnSignature.TabIndex = 13;
+            this.btnSignature.Text = "Signature";
+            this.btnSignature.UseVisualStyleBackColor = true;
+            this.btnSignature.Click += new System.EventHandler(this.btnSignature_Click);
+            // 
+            // btnPhoto
+            // 
+            this.btnPhoto.Location = new System.Drawing.Point(20, 755);
+            this.btnPhoto.Name = "btnPhoto";
+            this.btnPhoto.Size = new System.Drawing.Size(100, 39);
+            this.btnPhoto.TabIndex = 12;
+            this.btnPhoto.Text = "Photo";
+            this.btnPhoto.UseVisualStyleBackColor = true;
+            this.btnPhoto.Click += new System.EventHandler(this.btnPhoto_Click);
+            // 
+            // pcbPhoto
+            // 
+            this.pcbPhoto.Location = new System.Drawing.Point(180, 686);
+            this.pcbPhoto.Name = "pcbPhoto";
+            this.pcbPhoto.Size = new System.Drawing.Size(130, 173);
+            this.pcbPhoto.TabIndex = 6;
+            this.pcbPhoto.TabStop = false;
+            // 
             // dtpPBIDOB
             // 
-            this.dtpPBIDOB.Location = new System.Drawing.Point(68, 194);
+            this.dtpPBIDOB.CalendarTitleForeColor = System.Drawing.SystemColors.HotTrack;
+            this.dtpPBIDOB.CustomFormat = "";
+            this.dtpPBIDOB.Location = new System.Drawing.Point(149, 194);
             this.dtpPBIDOB.Name = "dtpPBIDOB";
-            this.dtpPBIDOB.Size = new System.Drawing.Size(244, 26);
-            this.dtpPBIDOB.TabIndex = 5;
+            this.dtpPBIDOB.Size = new System.Drawing.Size(163, 26);
+            this.dtpPBIDOB.TabIndex = 3;
             // 
             // cmbPBIMS
             // 
+            this.cmbPBIMS.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbPBIMS.FormattingEnabled = true;
             this.cmbPBIMS.Location = new System.Drawing.Point(151, 538);
             this.cmbPBIMS.Name = "cmbPBIMS";
             this.cmbPBIMS.Size = new System.Drawing.Size(161, 28);
-            this.cmbPBIMS.TabIndex = 4;
+            this.cmbPBIMS.TabIndex = 9;
             // 
             // cbxAlias
             // 
@@ -548,66 +674,74 @@
             this.cbxAlias.Location = new System.Drawing.Point(20, 305);
             this.cbxAlias.Name = "cbxAlias";
             this.cbxAlias.Size = new System.Drawing.Size(170, 24);
-            this.cbxAlias.TabIndex = 3;
+            this.cbxAlias.TabIndex = 5;
             this.cbxAlias.Text = "Do you have Alias?";
             this.cbxAlias.UseVisualStyleBackColor = true;
             // 
             // cmbPBIGender
             // 
+            this.cmbPBIGender.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbPBIGender.FormattingEnabled = true;
             this.cmbPBIGender.Items.AddRange(new object[] {
             "Male",
             "Female",
-            "Unknown"});
+            "Unknow"});
             this.cmbPBIGender.Location = new System.Drawing.Point(151, 256);
             this.cmbPBIGender.Name = "cmbPBIGender";
             this.cmbPBIGender.Size = new System.Drawing.Size(161, 28);
-            this.cmbPBIGender.TabIndex = 2;
+            this.cmbPBIGender.TabIndex = 4;
             // 
             // txtPBIEmail
             // 
+            this.txtPBIEmail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIEmail.Location = new System.Drawing.Point(67, 654);
             this.txtPBIEmail.Name = "txtPBIEmail";
             this.txtPBIEmail.Size = new System.Drawing.Size(245, 26);
-            this.txtPBIEmail.TabIndex = 1;
+            this.txtPBIEmail.TabIndex = 11;
             // 
             // txtPBIPhone
             // 
+            this.txtPBIPhone.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIPhone.Location = new System.Drawing.Point(149, 593);
             this.txtPBIPhone.Name = "txtPBIPhone";
             this.txtPBIPhone.Size = new System.Drawing.Size(163, 26);
-            this.txtPBIPhone.TabIndex = 1;
+            this.txtPBIPhone.TabIndex = 10;
             // 
-            // T
+            // txtPBIUCI
             // 
-            this.T.Location = new System.Drawing.Point(149, 487);
-            this.T.Name = "T";
-            this.T.Size = new System.Drawing.Size(163, 26);
-            this.T.TabIndex = 1;
+            this.txtPBIUCI.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtPBIUCI.Location = new System.Drawing.Point(149, 487);
+            this.txtPBIUCI.Name = "txtPBIUCI";
+            this.txtPBIUCI.Size = new System.Drawing.Size(163, 26);
+            this.txtPBIUCI.TabIndex = 8;
             // 
             // txtPBIALN
             // 
+            this.txtPBIALN.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIALN.Location = new System.Drawing.Point(149, 428);
             this.txtPBIALN.Name = "txtPBIALN";
             this.txtPBIALN.Size = new System.Drawing.Size(163, 26);
-            this.txtPBIALN.TabIndex = 1;
+            this.txtPBIALN.TabIndex = 7;
             // 
             // txtPBIAFN
             // 
+            this.txtPBIAFN.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIAFN.Location = new System.Drawing.Point(149, 363);
             this.txtPBIAFN.Name = "txtPBIAFN";
             this.txtPBIAFN.Size = new System.Drawing.Size(163, 26);
-            this.txtPBIAFN.TabIndex = 1;
+            this.txtPBIAFN.TabIndex = 6;
             // 
             // txtPBIln
             // 
+            this.txtPBIln.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIln.Location = new System.Drawing.Point(149, 139);
             this.txtPBIln.Name = "txtPBIln";
             this.txtPBIln.Size = new System.Drawing.Size(163, 26);
-            this.txtPBIln.TabIndex = 1;
+            this.txtPBIln.TabIndex = 2;
             // 
             // txtPBImn
             // 
+            this.txtPBImn.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBImn.Location = new System.Drawing.Point(149, 86);
             this.txtPBImn.Name = "txtPBImn";
             this.txtPBImn.Size = new System.Drawing.Size(163, 26);
@@ -615,10 +749,11 @@
             // 
             // txtPBIfn
             // 
+            this.txtPBIfn.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIfn.Location = new System.Drawing.Point(149, 38);
             this.txtPBIfn.Name = "txtPBIfn";
             this.txtPBIfn.Size = new System.Drawing.Size(163, 26);
-            this.txtPBIfn.TabIndex = 1;
+            this.txtPBIfn.TabIndex = 0;
             // 
             // lblPBIEmail
             // 
@@ -721,7 +856,7 @@
             // 
             // tbcPersonDetails
             // 
-            this.tbcPersonDetails.Controls.Add(this.txtPBIUCI);
+            this.tbcPersonDetails.Controls.Add(this.tabPassport);
             this.tbcPersonDetails.Controls.Add(this.tblEducation);
             this.tbcPersonDetails.Controls.Add(this.tblWork);
             this.tbcPersonDetails.Controls.Add(this.tblAssets);
@@ -732,19 +867,19 @@
             this.tbcPersonDetails.Location = new System.Drawing.Point(0, 0);
             this.tbcPersonDetails.Name = "tbcPersonDetails";
             this.tbcPersonDetails.SelectedIndex = 0;
-            this.tbcPersonDetails.Size = new System.Drawing.Size(1302, 901);
+            this.tbcPersonDetails.Size = new System.Drawing.Size(1302, 1197);
             this.tbcPersonDetails.TabIndex = 0;
             // 
-            // txtPBIUCI
+            // tabPassport
             // 
-            this.txtPBIUCI.Controls.Add(this.splitContainer1);
-            this.txtPBIUCI.Location = new System.Drawing.Point(4, 29);
-            this.txtPBIUCI.Name = "txtPBIUCI";
-            this.txtPBIUCI.Padding = new System.Windows.Forms.Padding(3);
-            this.txtPBIUCI.Size = new System.Drawing.Size(1294, 868);
-            this.txtPBIUCI.TabIndex = 0;
-            this.txtPBIUCI.Text = "Passport";
-            this.txtPBIUCI.UseVisualStyleBackColor = true;
+            this.tabPassport.Controls.Add(this.splitContainer1);
+            this.tabPassport.Location = new System.Drawing.Point(4, 29);
+            this.tabPassport.Name = "tabPassport";
+            this.tabPassport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPassport.Size = new System.Drawing.Size(1294, 1164);
+            this.tabPassport.TabIndex = 0;
+            this.tabPassport.Text = "Passport";
+            this.tabPassport.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
             // 
@@ -762,8 +897,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1288, 862);
-            this.splitContainer1.SplitterDistance = 94;
+            this.splitContainer1.Size = new System.Drawing.Size(1288, 1158);
+            this.splitContainer1.SplitterDistance = 126;
             this.splitContainer1.TabIndex = 3;
             // 
             // lblPDIPPPeronName
@@ -804,8 +939,8 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.btnInsertPassport);
             this.splitContainer2.Panel1.Controls.Add(this.dgvPassport);
-            this.splitContainer2.Size = new System.Drawing.Size(1288, 764);
-            this.splitContainer2.SplitterDistance = 349;
+            this.splitContainer2.Size = new System.Drawing.Size(1288, 1028);
+            this.splitContainer2.SplitterDistance = 465;
             this.splitContainer2.TabIndex = 0;
             // 
             // btnInsertPassport
@@ -834,7 +969,7 @@
             this.tblEducation.Location = new System.Drawing.Point(4, 29);
             this.tblEducation.Name = "tblEducation";
             this.tblEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tblEducation.Size = new System.Drawing.Size(1294, 868);
+            this.tblEducation.Size = new System.Drawing.Size(1294, 1164);
             this.tblEducation.TabIndex = 1;
             this.tblEducation.Text = "tblEducation";
             this.tblEducation.UseVisualStyleBackColor = true;
@@ -918,7 +1053,7 @@
             this.tblWork.Location = new System.Drawing.Point(4, 29);
             this.tblWork.Name = "tblWork";
             this.tblWork.Padding = new System.Windows.Forms.Padding(3);
-            this.tblWork.Size = new System.Drawing.Size(1294, 868);
+            this.tblWork.Size = new System.Drawing.Size(1294, 1164);
             this.tblWork.TabIndex = 2;
             this.tblWork.Text = "Work Experience";
             this.tblWork.UseVisualStyleBackColor = true;
@@ -928,7 +1063,7 @@
             this.tblAssets.Location = new System.Drawing.Point(4, 29);
             this.tblAssets.Name = "tblAssets";
             this.tblAssets.Padding = new System.Windows.Forms.Padding(3);
-            this.tblAssets.Size = new System.Drawing.Size(1294, 868);
+            this.tblAssets.Size = new System.Drawing.Size(1294, 1164);
             this.tblAssets.TabIndex = 3;
             this.tblAssets.Text = "Assets";
             this.tblAssets.UseVisualStyleBackColor = true;
@@ -938,7 +1073,7 @@
             this.tblPersonalHistory.Location = new System.Drawing.Point(4, 29);
             this.tblPersonalHistory.Name = "tblPersonalHistory";
             this.tblPersonalHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tblPersonalHistory.Size = new System.Drawing.Size(1294, 868);
+            this.tblPersonalHistory.Size = new System.Drawing.Size(1294, 1164);
             this.tblPersonalHistory.TabIndex = 4;
             this.tblPersonalHistory.Text = "Personal History";
             this.tblPersonalHistory.UseVisualStyleBackColor = true;
@@ -948,7 +1083,7 @@
             this.tblTravelHistory.Location = new System.Drawing.Point(4, 29);
             this.tblTravelHistory.Name = "tblTravelHistory";
             this.tblTravelHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tblTravelHistory.Size = new System.Drawing.Size(1294, 868);
+            this.tblTravelHistory.Size = new System.Drawing.Size(1294, 1164);
             this.tblTravelHistory.TabIndex = 5;
             this.tblTravelHistory.Text = "Travel History";
             this.tblTravelHistory.UseVisualStyleBackColor = true;
@@ -958,26 +1093,16 @@
             this.tblResidence.Location = new System.Drawing.Point(4, 29);
             this.tblResidence.Name = "tblResidence";
             this.tblResidence.Padding = new System.Windows.Forms.Padding(3);
-            this.tblResidence.Size = new System.Drawing.Size(1294, 868);
+            this.tblResidence.Size = new System.Drawing.Size(1294, 1164);
             this.tblResidence.TabIndex = 6;
             this.tblResidence.Text = "Residence History";
             this.tblResidence.UseVisualStyleBackColor = true;
-            // 
-            // btnApplication
-            // 
-            this.btnApplication.Location = new System.Drawing.Point(140, 233);
-            this.btnApplication.Name = "btnApplication";
-            this.btnApplication.Size = new System.Drawing.Size(100, 38);
-            this.btnApplication.TabIndex = 2;
-            this.btnApplication.Text = "Application";
-            this.btnApplication.UseVisualStyleBackColor = true;
-            this.btnApplication.Click += new System.EventHandler(this.btnApplication_Click);
             // 
             // StartupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1665, 976);
+            this.ClientSize = new System.Drawing.Size(1665, 1272);
             this.Controls.Add(this.tbcFrontPage);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
@@ -990,11 +1115,11 @@
             this.tbcMain.ResumeLayout(false);
             this.tbcMain.PerformLayout();
             this.spcBase.Panel1.ResumeLayout(false);
-            this.spcBase.Panel1.PerformLayout();
-            this.spcBase.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.spcBase)).EndInit();
             this.spcBase.ResumeLayout(false);
             this.tbcApplication.ResumeLayout(false);
+            this.grpSelect.ResumeLayout(false);
+            this.grpSelect.PerformLayout();
             this.MainStatus.ResumeLayout(false);
             this.MainStatus.PerformLayout();
             this.tblPerson.ResumeLayout(false);
@@ -1004,8 +1129,10 @@
             this.spltPerson.ResumeLayout(false);
             this.grpPersonBasic.ResumeLayout(false);
             this.grpPersonBasic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbSignature)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbPhoto)).EndInit();
             this.tbcPersonDetails.ResumeLayout(false);
-            this.txtPBIUCI.ResumeLayout(false);
+            this.tabPassport.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -1052,7 +1179,7 @@
         private System.Windows.Forms.SplitContainer spltPerson;
         private System.Windows.Forms.GroupBox grpPersonBasic;
         private System.Windows.Forms.TabControl tbcPersonDetails;
-        private System.Windows.Forms.TabPage txtPBIUCI;
+        private System.Windows.Forms.TabPage tabPassport;
         private System.Windows.Forms.TabPage tblEducation;
         private System.Windows.Forms.TabPage tblWork;
         private System.Windows.Forms.TabPage tblAssets;
@@ -1064,7 +1191,7 @@
         private System.Windows.Forms.ComboBox cmbPBIGender;
         private System.Windows.Forms.TextBox txtPBIEmail;
         private System.Windows.Forms.TextBox txtPBIPhone;
-        private System.Windows.Forms.TextBox T;
+        private System.Windows.Forms.TextBox txtPBIUCI;
         private System.Windows.Forms.TextBox txtPBIALN;
         private System.Windows.Forms.TextBox txtPBIAFN;
         private System.Windows.Forms.TextBox txtPBIln;
@@ -1091,7 +1218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EduCity;
         private System.Windows.Forms.DataGridViewTextBoxColumn EduCountry;
         private System.Windows.Forms.DataGridViewTextBoxColumn EduCanadaProvince;
-        private System.Windows.Forms.Button btnPBIInsert;
         private System.Windows.Forms.DateTimePicker dtpPBIDOB;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label lblPDIPPPeronName;
@@ -1109,6 +1235,17 @@
         private System.Windows.Forms.ComboBox cmbProgram;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnApplication;
+        private System.Windows.Forms.GroupBox grpSelect;
+        private System.Windows.Forms.PictureBox pcbSignature;
+        private System.Windows.Forms.Button btnSignature;
+        private System.Windows.Forms.Button btnPhoto;
+        private System.Windows.Forms.PictureBox pcbPhoto;
+        private System.Windows.Forms.Button btnMakeImm5476;
+        private System.Windows.Forms.Button btnFindaPerson;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnPBIInsert;
     }
 }
 

@@ -71,7 +71,7 @@ namespace CA.Immigration.PDF
                 foreach (FormSignData f in fsd)
                 {
                     // how to handle Null image value????
-                    byte[] bt = cdc.tblPersons.Where(x => x.Id == f.SignerId).Select(x => x.Signature).FirstOrDefault().ToArray();
+                    byte[] bt = cdc.tblPersons.Where(x => x.Id == f.SignerId).Select(x => x.theSignature).FirstOrDefault().ToArray();
                     mender.AddImage(new MemoryStream(bt), f.Page, f.x1, f.y1, f.x2, f.y2);
                 }
             }

@@ -91,14 +91,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationSteam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ApplicationSteam.designer.cs">
+      <DependentUpon>ApplicationSteam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="financial.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="financial.designer.cs">
+      <DependentUpon>financial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Indicators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Indicators.designer.cs">
+      <DependentUpon>Indicators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="JobPosition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="JobPosition.designer.cs">
+      <DependentUpon>JobPosition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LMFactors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LMFactors.designer.cs">
+      <DependentUpon>LMFactors.cs</DependentUpon>
+    </Compile>
     <Compile Include="LMIAForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LMIAForm.Designer.cs">
+    <Compile Include="LMIAForm.designer.cs">
       <DependentUpon>LMIAForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="theApplication.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="theApplication.designer.cs">
+      <DependentUpon>theApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCAddress.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCAddress.designer.cs">
+      <DependentUpon>UCAddress.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ApplicationSteam.resx">
+      <DependentUpon>ApplicationSteam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="financial.resx">
+      <DependentUpon>financial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Indicators.resx">
+      <DependentUpon>Indicators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JobPosition.resx">
+      <DependentUpon>JobPosition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LMFactors.resx">
+      <DependentUpon>LMFactors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LMIAForm.resx">
       <DependentUpon>LMIAForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,6 +168,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="theApplication.resx">
+      <DependentUpon>theApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCAddress.resx">
+      <DependentUpon>UCAddress.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
