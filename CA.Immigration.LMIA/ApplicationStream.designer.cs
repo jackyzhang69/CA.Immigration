@@ -1,6 +1,6 @@
 ﻿namespace CA.Immigration.LMIA
 {
-    partial class ApplicationSteam
+    partial class ApplicationStream
     {
         /// <summary> 
         /// Required designer variable.

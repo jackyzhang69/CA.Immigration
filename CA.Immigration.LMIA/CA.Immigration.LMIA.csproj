@@ -91,11 +91,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationSteam.cs">
+    <Compile Include="ApplicationStream.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ApplicationSteam.designer.cs">
-      <DependentUpon>ApplicationSteam.cs</DependentUpon>
+    <Compile Include="ApplicationStream.designer.cs">
+      <DependentUpon>ApplicationStream.cs</DependentUpon>
     </Compile>
     <Compile Include="DBOps.cs">
       <SubType>UserControl</SubType>

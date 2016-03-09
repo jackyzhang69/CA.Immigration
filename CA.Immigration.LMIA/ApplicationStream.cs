@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace CA.Immigration.LMIA
 {
-    public partial class ApplicationSteam : UserControl
+    public partial class ApplicationStream : UserControl
     {
-        public ApplicationSteam()
+        public ApplicationStream()
         {
             InitializeComponent();
+            ckbOtherEmployer.Checked = false;
+            lblAnotherEmployer.Visible = false;
+            txtAnotherEmployer.Visible = false;
         }
 
         private void ckbOtherEmployer_CheckedChanged(object sender, EventArgs e)

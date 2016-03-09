@@ -18,6 +18,7 @@ namespace CA.Immigration
         public static bool CurrentStreamIdReadOnly = false;
         public static int? CurrentApplicationId;
         public static bool CurrentApplicationReadOnly = false;
+        public static string CurrentNOC;
 
         public enum AppStream
         {

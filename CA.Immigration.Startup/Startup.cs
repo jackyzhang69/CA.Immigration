@@ -294,7 +294,7 @@ namespace CA.Immigration.Startup
             switch (GlobalData.CurrentStreamId)
             {
                 case (int)GlobalData.AppStream.LMIAPRandWP:
-                    LMIAForm lmiaform = new LMIAForm((int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentEmployerId);  //int appId,int employerId, int personId
+                    LMIAForm lmiaform = new LMIAForm((int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentEmployerId,(int)GlobalData.CurrentStreamId);  //int appId,int employerId, int personId
                     lmiaform.Show();
                     break;
                 default:
