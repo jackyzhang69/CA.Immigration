@@ -50,12 +50,18 @@
             this.lblNOC = new System.Windows.Forms.Label();
             this.txtJobTitle = new System.Windows.Forms.TextBox();
             this.lblJobTitle = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.grbPosition.SuspendLayout();
             this.SuspendLayout();
             // 
             // grbPosition
             // 
             this.grbPosition.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.grbPosition.Controls.Add(this.checkBox1);
             this.grbPosition.Controls.Add(this.btnCheckNOC);
             this.grbPosition.Controls.Add(this.btnJobBank);
             this.grbPosition.Controls.Add(this.btnTop100);
@@ -67,9 +73,13 @@
             this.grbPosition.Controls.Add(this.label20);
             this.grbPosition.Controls.Add(this.textBox1);
             this.grbPosition.Controls.Add(this.label19);
+            this.grbPosition.Controls.Add(this.textBox4);
             this.grbPosition.Controls.Add(this.txtLocalNOCMedian);
+            this.grbPosition.Controls.Add(this.label2);
             this.grbPosition.Controls.Add(this.lblLocalNOCMedian);
+            this.grbPosition.Controls.Add(this.textBox3);
             this.grbPosition.Controls.Add(this.txtProvincialMedian);
+            this.grbPosition.Controls.Add(this.label1);
             this.grbPosition.Controls.Add(this.lblProvincialMedian);
             this.grbPosition.Controls.Add(this.txtHourlyRate);
             this.grbPosition.Controls.Add(this.lblWage);
@@ -82,14 +92,14 @@
             this.grbPosition.Margin = new System.Windows.Forms.Padding(2);
             this.grbPosition.Name = "grbPosition";
             this.grbPosition.Padding = new System.Windows.Forms.Padding(2);
-            this.grbPosition.Size = new System.Drawing.Size(676, 121);
+            this.grbPosition.Size = new System.Drawing.Size(676, 154);
             this.grbPosition.TabIndex = 1;
             this.grbPosition.TabStop = false;
             this.grbPosition.Text = "Position Information";
             // 
             // btnCheckNOC
             // 
-            this.btnCheckNOC.Location = new System.Drawing.Point(176, 90);
+            this.btnCheckNOC.Location = new System.Drawing.Point(451, 119);
             this.btnCheckNOC.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckNOC.Name = "btnCheckNOC";
             this.btnCheckNOC.Size = new System.Drawing.Size(93, 22);
@@ -99,7 +109,7 @@
             // 
             // btnJobBank
             // 
-            this.btnJobBank.Location = new System.Drawing.Point(304, 90);
+            this.btnJobBank.Location = new System.Drawing.Point(579, 119);
             this.btnJobBank.Margin = new System.Windows.Forms.Padding(2);
             this.btnJobBank.Name = "btnJobBank";
             this.btnJobBank.Size = new System.Drawing.Size(93, 22);
@@ -109,7 +119,7 @@
             // 
             // btnTop100
             // 
-            this.btnTop100.Location = new System.Drawing.Point(15, 90);
+            this.btnTop100.Location = new System.Drawing.Point(290, 119);
             this.btnTop100.Margin = new System.Windows.Forms.Padding(2);
             this.btnTop100.Name = "btnTop100";
             this.btnTop100.Size = new System.Drawing.Size(127, 22);
@@ -280,13 +290,59 @@
             this.lblJobTitle.TabIndex = 0;
             this.lblJobTitle.Text = "Job Title";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 89);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Same place same position Lowest Salary";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(215, 86);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(54, 20);
+            this.textBox3.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(275, 88);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(201, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Same place same position Highest Salary";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(480, 86);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(45, 20);
+            this.textBox4.TabIndex = 3;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(560, 88);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(107, 17);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "No same position";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // JobPosition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grbPosition);
             this.Name = "JobPosition";
-            this.Size = new System.Drawing.Size(676, 126);
+            this.Size = new System.Drawing.Size(676, 156);
             this.grbPosition.ResumeLayout(false);
             this.grbPosition.PerformLayout();
             this.ResumeLayout(false);
@@ -317,5 +373,10 @@
         private System.Windows.Forms.Label lblNOC;
         private System.Windows.Forms.TextBox txtJobTitle;
         private System.Windows.Forms.Label lblJobTitle;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

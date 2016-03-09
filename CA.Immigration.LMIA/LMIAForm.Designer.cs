@@ -52,6 +52,7 @@
             this.tabAdvisor = new System.Windows.Forms.TabPage();
             this.tbcSubAdvisor = new System.Windows.Forms.TabControl();
             this.tabAnalysis = new System.Windows.Forms.TabPage();
+            this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.lmFactors1 = new CA.Immigration.LMIA.LMFactors();
             this.indicators1 = new CA.Immigration.LMIA.Indicators();
             this.financial1 = new CA.Immigration.LMIA.financial();
-            this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam2 = new CA.Immigration.LMIA.ApplicationSteam();
             this.tabBusinessDetails = new System.Windows.Forms.TabPage();
             this.btnInsert = new System.Windows.Forms.Button();
@@ -169,6 +169,27 @@
             this.lblGeneral = new System.Windows.Forms.Label();
             this.lblOfficial = new System.Windows.Forms.Label();
             this.tabJobOffer = new System.Windows.Forms.TabPage();
+            this.grpLMIALanguage = new System.Windows.Forms.GroupBox();
+            this.chkLMIAOtherLanguage = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingEnglisAndFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingEnglisOrFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAOralEnglisAndFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAOralEnglisOrFrench = new System.Windows.Forms.CheckBox();
+            this.chkLMIAWritingEnglish = new System.Windows.Forms.CheckBox();
+            this.chkLMIAOralFrench = new System.Windows.Forms.CheckBox();
+            this.txtLMIAOtherLanguage = new System.Windows.Forms.TextBox();
+            this.chkLIMAWriting = new System.Windows.Forms.CheckBox();
+            this.chkLMIAoralEnglish = new System.Windows.Forms.CheckBox();
+            this.chkLIMAOral = new System.Windows.Forms.CheckBox();
+            this.chkLanguageRequired = new System.Windows.Forms.CheckBox();
+            this.cmbDurationUnit = new System.Windows.Forms.ComboBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -180,27 +201,6 @@
             this.financial2 = new CA.Immigration.LMIA.financial();
             this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationSteam();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.cmbDurationUnit = new System.Windows.Forms.ComboBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.chkLanguageRequired = new System.Windows.Forms.CheckBox();
-            this.grpLMIALanguage = new System.Windows.Forms.GroupBox();
-            this.chkLIMAOral = new System.Windows.Forms.CheckBox();
-            this.chkLMIAoralEnglish = new System.Windows.Forms.CheckBox();
-            this.chkLMIAOralFrench = new System.Windows.Forms.CheckBox();
-            this.chkLMIAOralEnglisOrFrench = new System.Windows.Forms.CheckBox();
-            this.chkLMIAOralEnglisAndFrench = new System.Windows.Forms.CheckBox();
-            this.chkLIMAWriting = new System.Windows.Forms.CheckBox();
-            this.chkLMIAWritingEnglish = new System.Windows.Forms.CheckBox();
-            this.chkLMIAWritingFrench = new System.Windows.Forms.CheckBox();
-            this.chkLMIAWritingEnglisOrFrench = new System.Windows.Forms.CheckBox();
-            this.chkLMIAWritingEnglisAndFrench = new System.Windows.Forms.CheckBox();
-            this.txtLMIAOtherLanguage = new System.Windows.Forms.TextBox();
-            this.chkLMIAOtherLanguage = new System.Windows.Forms.CheckBox();
             this.tabBase.SuspendLayout();
             this.tabAdvisor.SuspendLayout();
             this.tbcSubAdvisor.SuspendLayout();
@@ -226,9 +226,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).BeginInit();
             this.tabJobOffer.SuspendLayout();
+            this.grpLMIALanguage.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.grpLMIALanguage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBase
@@ -268,11 +268,11 @@
             // 
             // tabAnalysis
             // 
+            this.tabAnalysis.Controls.Add(this.jobPosition1);
             this.tabAnalysis.Controls.Add(this.groupBox1);
             this.tabAnalysis.Controls.Add(this.lmFactors1);
             this.tabAnalysis.Controls.Add(this.indicators1);
             this.tabAnalysis.Controls.Add(this.financial1);
-            this.tabAnalysis.Controls.Add(this.jobPosition1);
             this.tabAnalysis.Controls.Add(this.applicationSteam2);
             this.tabAnalysis.Location = new System.Drawing.Point(4, 22);
             this.tabAnalysis.Name = "tabAnalysis";
@@ -281,6 +281,13 @@
             this.tabAnalysis.TabIndex = 0;
             this.tabAnalysis.Text = "Analysis";
             this.tabAnalysis.UseVisualStyleBackColor = true;
+            // 
+            // jobPosition1
+            // 
+            this.jobPosition1.Location = new System.Drawing.Point(4, 86);
+            this.jobPosition1.Name = "jobPosition1";
+            this.jobPosition1.Size = new System.Drawing.Size(722, 156);
+            this.jobPosition1.TabIndex = 19;
             // 
             // groupBox1
             // 
@@ -352,19 +359,11 @@
             // 
             // financial1
             // 
-            this.financial1.Location = new System.Drawing.Point(7, 224);
+            this.financial1.Location = new System.Drawing.Point(7, 241);
             this.financial1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.financial1.Name = "financial1";
-            this.financial1.Size = new System.Drawing.Size(720, 122);
+            this.financial1.Size = new System.Drawing.Size(720, 105);
             this.financial1.TabIndex = 15;
-            // 
-            // jobPosition1
-            // 
-            this.jobPosition1.Location = new System.Drawing.Point(6, 85);
-            this.jobPosition1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.jobPosition1.Name = "jobPosition1";
-            this.jobPosition1.Size = new System.Drawing.Size(721, 126);
-            this.jobPosition1.TabIndex = 14;
             // 
             // applicationSteam2
             // 
@@ -1536,6 +1535,227 @@
             this.tabJobOffer.Text = "Job Offer";
             this.tabJobOffer.UseVisualStyleBackColor = true;
             // 
+            // grpLMIALanguage
+            // 
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOtherLanguage);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglisAndFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglisOrFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralEnglisAndFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralEnglisOrFrench);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglish);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralFrench);
+            this.grpLMIALanguage.Controls.Add(this.txtLMIAOtherLanguage);
+            this.grpLMIALanguage.Controls.Add(this.chkLIMAWriting);
+            this.grpLMIALanguage.Controls.Add(this.chkLMIAoralEnglish);
+            this.grpLMIALanguage.Controls.Add(this.chkLIMAOral);
+            this.grpLMIALanguage.Location = new System.Drawing.Point(17, 34);
+            this.grpLMIALanguage.Name = "grpLMIALanguage";
+            this.grpLMIALanguage.Size = new System.Drawing.Size(950, 150);
+            this.grpLMIALanguage.TabIndex = 4;
+            this.grpLMIALanguage.TabStop = false;
+            this.grpLMIALanguage.Text = "Language Requirement";
+            // 
+            // chkLMIAOtherLanguage
+            // 
+            this.chkLMIAOtherLanguage.AutoSize = true;
+            this.chkLMIAOtherLanguage.Location = new System.Drawing.Point(15, 73);
+            this.chkLMIAOtherLanguage.Name = "chkLMIAOtherLanguage";
+            this.chkLMIAOtherLanguage.Size = new System.Drawing.Size(466, 17);
+            this.chkLMIAOtherLanguage.TabIndex = 2;
+            this.chkLMIAOtherLanguage.Text = "Is this job required to have language ability other than English or French, pleas" +
+    "e explain below";
+            this.chkLMIAOtherLanguage.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingEnglisAndFrench
+            // 
+            this.chkLMIAWritingEnglisAndFrench.AutoSize = true;
+            this.chkLMIAWritingEnglisAndFrench.Location = new System.Drawing.Point(762, 43);
+            this.chkLMIAWritingEnglisAndFrench.Name = "chkLMIAWritingEnglisAndFrench";
+            this.chkLMIAWritingEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
+            this.chkLMIAWritingEnglisAndFrench.TabIndex = 1;
+            this.chkLMIAWritingEnglisAndFrench.Text = "English and French";
+            this.chkLMIAWritingEnglisAndFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingEnglisOrFrench
+            // 
+            this.chkLMIAWritingEnglisOrFrench.AutoSize = true;
+            this.chkLMIAWritingEnglisOrFrench.Location = new System.Drawing.Point(657, 43);
+            this.chkLMIAWritingEnglisOrFrench.Name = "chkLMIAWritingEnglisOrFrench";
+            this.chkLMIAWritingEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
+            this.chkLMIAWritingEnglisOrFrench.TabIndex = 1;
+            this.chkLMIAWritingEnglisOrFrench.Text = "English or French";
+            this.chkLMIAWritingEnglisOrFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAOralEnglisAndFrench
+            // 
+            this.chkLMIAOralEnglisAndFrench.AutoSize = true;
+            this.chkLMIAOralEnglisAndFrench.Location = new System.Drawing.Point(269, 43);
+            this.chkLMIAOralEnglisAndFrench.Name = "chkLMIAOralEnglisAndFrench";
+            this.chkLMIAOralEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
+            this.chkLMIAOralEnglisAndFrench.TabIndex = 1;
+            this.chkLMIAOralEnglisAndFrench.Text = "English and French";
+            this.chkLMIAOralEnglisAndFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingFrench
+            // 
+            this.chkLMIAWritingFrench.AutoSize = true;
+            this.chkLMIAWritingFrench.Location = new System.Drawing.Point(592, 43);
+            this.chkLMIAWritingFrench.Name = "chkLMIAWritingFrench";
+            this.chkLMIAWritingFrench.Size = new System.Drawing.Size(59, 17);
+            this.chkLMIAWritingFrench.TabIndex = 1;
+            this.chkLMIAWritingFrench.Text = "French";
+            this.chkLMIAWritingFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAOralEnglisOrFrench
+            // 
+            this.chkLMIAOralEnglisOrFrench.AutoSize = true;
+            this.chkLMIAOralEnglisOrFrench.Location = new System.Drawing.Point(164, 43);
+            this.chkLMIAOralEnglisOrFrench.Name = "chkLMIAOralEnglisOrFrench";
+            this.chkLMIAOralEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
+            this.chkLMIAOralEnglisOrFrench.TabIndex = 1;
+            this.chkLMIAOralEnglisOrFrench.Text = "English or French";
+            this.chkLMIAOralEnglisOrFrench.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAWritingEnglish
+            // 
+            this.chkLMIAWritingEnglish.AutoSize = true;
+            this.chkLMIAWritingEnglish.Checked = true;
+            this.chkLMIAWritingEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLMIAWritingEnglish.Location = new System.Drawing.Point(526, 43);
+            this.chkLMIAWritingEnglish.Name = "chkLMIAWritingEnglish";
+            this.chkLMIAWritingEnglish.Size = new System.Drawing.Size(60, 17);
+            this.chkLMIAWritingEnglish.TabIndex = 1;
+            this.chkLMIAWritingEnglish.Text = "English";
+            this.chkLMIAWritingEnglish.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAOralFrench
+            // 
+            this.chkLMIAOralFrench.AutoSize = true;
+            this.chkLMIAOralFrench.Location = new System.Drawing.Point(99, 43);
+            this.chkLMIAOralFrench.Name = "chkLMIAOralFrench";
+            this.chkLMIAOralFrench.Size = new System.Drawing.Size(59, 17);
+            this.chkLMIAOralFrench.TabIndex = 1;
+            this.chkLMIAOralFrench.Text = "French";
+            this.chkLMIAOralFrench.UseVisualStyleBackColor = true;
+            // 
+            // txtLMIAOtherLanguage
+            // 
+            this.txtLMIAOtherLanguage.Location = new System.Drawing.Point(15, 106);
+            this.txtLMIAOtherLanguage.Name = "txtLMIAOtherLanguage";
+            this.txtLMIAOtherLanguage.Size = new System.Drawing.Size(929, 20);
+            this.txtLMIAOtherLanguage.TabIndex = 1;
+            // 
+            // chkLIMAWriting
+            // 
+            this.chkLIMAWriting.AutoSize = true;
+            this.chkLIMAWriting.Checked = true;
+            this.chkLIMAWriting.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLIMAWriting.Location = new System.Drawing.Point(506, 20);
+            this.chkLIMAWriting.Name = "chkLIMAWriting";
+            this.chkLIMAWriting.Size = new System.Drawing.Size(355, 17);
+            this.chkLIMAWriting.TabIndex = 0;
+            this.chkLIMAWriting.Text = "The offer of employment requires the ability to communicate  in writing:";
+            this.chkLIMAWriting.UseVisualStyleBackColor = true;
+            // 
+            // chkLMIAoralEnglish
+            // 
+            this.chkLMIAoralEnglish.AutoSize = true;
+            this.chkLMIAoralEnglish.Checked = true;
+            this.chkLMIAoralEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLMIAoralEnglish.Location = new System.Drawing.Point(33, 43);
+            this.chkLMIAoralEnglish.Name = "chkLMIAoralEnglish";
+            this.chkLMIAoralEnglish.Size = new System.Drawing.Size(60, 17);
+            this.chkLMIAoralEnglish.TabIndex = 1;
+            this.chkLMIAoralEnglish.Text = "English";
+            this.chkLMIAoralEnglish.UseVisualStyleBackColor = true;
+            // 
+            // chkLIMAOral
+            // 
+            this.chkLIMAOral.AutoSize = true;
+            this.chkLIMAOral.Checked = true;
+            this.chkLIMAOral.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLIMAOral.Location = new System.Drawing.Point(13, 20);
+            this.chkLIMAOral.Name = "chkLIMAOral";
+            this.chkLIMAOral.Size = new System.Drawing.Size(346, 17);
+            this.chkLIMAOral.TabIndex = 0;
+            this.chkLIMAOral.Text = "The offer of employment requires the ability to communicate orally in:";
+            this.chkLIMAOral.UseVisualStyleBackColor = true;
+            // 
+            // chkLanguageRequired
+            // 
+            this.chkLanguageRequired.AutoSize = true;
+            this.chkLanguageRequired.Checked = true;
+            this.chkLanguageRequired.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLanguageRequired.Location = new System.Drawing.Point(703, 9);
+            this.chkLanguageRequired.Name = "chkLanguageRequired";
+            this.chkLanguageRequired.Size = new System.Drawing.Size(265, 17);
+            this.chkLanguageRequired.TabIndex = 3;
+            this.chkLanguageRequired.Text = "This offer requires the English or/and French ability";
+            this.chkLanguageRequired.UseVisualStyleBackColor = true;
+            // 
+            // cmbDurationUnit
+            // 
+            this.cmbDurationUnit.FormattingEnabled = true;
+            this.cmbDurationUnit.Items.AddRange(new object[] {
+            "Days",
+            "Weeks",
+            "Months",
+            "Years",
+            "Permanent"});
+            this.cmbDurationUnit.Location = new System.Drawing.Point(364, 7);
+            this.cmbDurationUnit.Name = "cmbDurationUnit";
+            this.cmbDurationUnit.Size = new System.Drawing.Size(78, 21);
+            this.cmbDurationUnit.TabIndex = 2;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(315, 8);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(43, 20);
+            this.textBox14.TabIndex = 1;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(202, 12);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(93, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Expected duration";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(585, 7);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(77, 20);
+            this.textBox15.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(476, 10);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(103, 13);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Expected Start Date";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(116, 5);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(54, 20);
+            this.textBox13.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 8);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(88, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Number of TFWs";
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -1644,227 +1864,6 @@
             this.applicationSteam1.Size = new System.Drawing.Size(970, 69);
             this.applicationSteam1.TabIndex = 7;
             // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(13, 8);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(88, 13);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Number of TFWs";
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(116, 5);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(54, 20);
-            this.textBox13.TabIndex = 1;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(202, 12);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(93, 13);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Expected duration";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(315, 8);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(43, 20);
-            this.textBox14.TabIndex = 1;
-            // 
-            // cmbDurationUnit
-            // 
-            this.cmbDurationUnit.FormattingEnabled = true;
-            this.cmbDurationUnit.Items.AddRange(new object[] {
-            "Days",
-            "Weeks",
-            "Months",
-            "Years",
-            "Permanent"});
-            this.cmbDurationUnit.Location = new System.Drawing.Point(364, 7);
-            this.cmbDurationUnit.Name = "cmbDurationUnit";
-            this.cmbDurationUnit.Size = new System.Drawing.Size(78, 21);
-            this.cmbDurationUnit.TabIndex = 2;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(476, 10);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(103, 13);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Expected Start Date";
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(585, 7);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(77, 20);
-            this.textBox15.TabIndex = 1;
-            // 
-            // chkLanguageRequired
-            // 
-            this.chkLanguageRequired.AutoSize = true;
-            this.chkLanguageRequired.Checked = true;
-            this.chkLanguageRequired.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLanguageRequired.Location = new System.Drawing.Point(703, 9);
-            this.chkLanguageRequired.Name = "chkLanguageRequired";
-            this.chkLanguageRequired.Size = new System.Drawing.Size(265, 17);
-            this.chkLanguageRequired.TabIndex = 3;
-            this.chkLanguageRequired.Text = "This offer requires the English or/and French ability";
-            this.chkLanguageRequired.UseVisualStyleBackColor = true;
-            // 
-            // grpLMIALanguage
-            // 
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAOtherLanguage);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglisAndFrench);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglisOrFrench);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralEnglisAndFrench);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingFrench);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralEnglisOrFrench);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAWritingEnglish);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAOralFrench);
-            this.grpLMIALanguage.Controls.Add(this.txtLMIAOtherLanguage);
-            this.grpLMIALanguage.Controls.Add(this.chkLIMAWriting);
-            this.grpLMIALanguage.Controls.Add(this.chkLMIAoralEnglish);
-            this.grpLMIALanguage.Controls.Add(this.chkLIMAOral);
-            this.grpLMIALanguage.Location = new System.Drawing.Point(17, 34);
-            this.grpLMIALanguage.Name = "grpLMIALanguage";
-            this.grpLMIALanguage.Size = new System.Drawing.Size(950, 150);
-            this.grpLMIALanguage.TabIndex = 4;
-            this.grpLMIALanguage.TabStop = false;
-            this.grpLMIALanguage.Text = "Language Requirement";
-            // 
-            // chkLIMAOral
-            // 
-            this.chkLIMAOral.AutoSize = true;
-            this.chkLIMAOral.Checked = true;
-            this.chkLIMAOral.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLIMAOral.Location = new System.Drawing.Point(13, 20);
-            this.chkLIMAOral.Name = "chkLIMAOral";
-            this.chkLIMAOral.Size = new System.Drawing.Size(346, 17);
-            this.chkLIMAOral.TabIndex = 0;
-            this.chkLIMAOral.Text = "The offer of employment requires the ability to communicate orally in:";
-            this.chkLIMAOral.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAoralEnglish
-            // 
-            this.chkLMIAoralEnglish.AutoSize = true;
-            this.chkLMIAoralEnglish.Checked = true;
-            this.chkLMIAoralEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLMIAoralEnglish.Location = new System.Drawing.Point(33, 43);
-            this.chkLMIAoralEnglish.Name = "chkLMIAoralEnglish";
-            this.chkLMIAoralEnglish.Size = new System.Drawing.Size(60, 17);
-            this.chkLMIAoralEnglish.TabIndex = 1;
-            this.chkLMIAoralEnglish.Text = "English";
-            this.chkLMIAoralEnglish.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAOralFrench
-            // 
-            this.chkLMIAOralFrench.AutoSize = true;
-            this.chkLMIAOralFrench.Location = new System.Drawing.Point(99, 43);
-            this.chkLMIAOralFrench.Name = "chkLMIAOralFrench";
-            this.chkLMIAOralFrench.Size = new System.Drawing.Size(59, 17);
-            this.chkLMIAOralFrench.TabIndex = 1;
-            this.chkLMIAOralFrench.Text = "French";
-            this.chkLMIAOralFrench.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAOralEnglisOrFrench
-            // 
-            this.chkLMIAOralEnglisOrFrench.AutoSize = true;
-            this.chkLMIAOralEnglisOrFrench.Location = new System.Drawing.Point(164, 43);
-            this.chkLMIAOralEnglisOrFrench.Name = "chkLMIAOralEnglisOrFrench";
-            this.chkLMIAOralEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
-            this.chkLMIAOralEnglisOrFrench.TabIndex = 1;
-            this.chkLMIAOralEnglisOrFrench.Text = "English or French";
-            this.chkLMIAOralEnglisOrFrench.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAOralEnglisAndFrench
-            // 
-            this.chkLMIAOralEnglisAndFrench.AutoSize = true;
-            this.chkLMIAOralEnglisAndFrench.Location = new System.Drawing.Point(269, 43);
-            this.chkLMIAOralEnglisAndFrench.Name = "chkLMIAOralEnglisAndFrench";
-            this.chkLMIAOralEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
-            this.chkLMIAOralEnglisAndFrench.TabIndex = 1;
-            this.chkLMIAOralEnglisAndFrench.Text = "English and French";
-            this.chkLMIAOralEnglisAndFrench.UseVisualStyleBackColor = true;
-            // 
-            // chkLIMAWriting
-            // 
-            this.chkLIMAWriting.AutoSize = true;
-            this.chkLIMAWriting.Checked = true;
-            this.chkLIMAWriting.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLIMAWriting.Location = new System.Drawing.Point(506, 20);
-            this.chkLIMAWriting.Name = "chkLIMAWriting";
-            this.chkLIMAWriting.Size = new System.Drawing.Size(355, 17);
-            this.chkLIMAWriting.TabIndex = 0;
-            this.chkLIMAWriting.Text = "The offer of employment requires the ability to communicate  in writing:";
-            this.chkLIMAWriting.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAWritingEnglish
-            // 
-            this.chkLMIAWritingEnglish.AutoSize = true;
-            this.chkLMIAWritingEnglish.Checked = true;
-            this.chkLMIAWritingEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLMIAWritingEnglish.Location = new System.Drawing.Point(526, 43);
-            this.chkLMIAWritingEnglish.Name = "chkLMIAWritingEnglish";
-            this.chkLMIAWritingEnglish.Size = new System.Drawing.Size(60, 17);
-            this.chkLMIAWritingEnglish.TabIndex = 1;
-            this.chkLMIAWritingEnglish.Text = "English";
-            this.chkLMIAWritingEnglish.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAWritingFrench
-            // 
-            this.chkLMIAWritingFrench.AutoSize = true;
-            this.chkLMIAWritingFrench.Location = new System.Drawing.Point(592, 43);
-            this.chkLMIAWritingFrench.Name = "chkLMIAWritingFrench";
-            this.chkLMIAWritingFrench.Size = new System.Drawing.Size(59, 17);
-            this.chkLMIAWritingFrench.TabIndex = 1;
-            this.chkLMIAWritingFrench.Text = "French";
-            this.chkLMIAWritingFrench.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAWritingEnglisOrFrench
-            // 
-            this.chkLMIAWritingEnglisOrFrench.AutoSize = true;
-            this.chkLMIAWritingEnglisOrFrench.Location = new System.Drawing.Point(657, 43);
-            this.chkLMIAWritingEnglisOrFrench.Name = "chkLMIAWritingEnglisOrFrench";
-            this.chkLMIAWritingEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
-            this.chkLMIAWritingEnglisOrFrench.TabIndex = 1;
-            this.chkLMIAWritingEnglisOrFrench.Text = "English or French";
-            this.chkLMIAWritingEnglisOrFrench.UseVisualStyleBackColor = true;
-            // 
-            // chkLMIAWritingEnglisAndFrench
-            // 
-            this.chkLMIAWritingEnglisAndFrench.AutoSize = true;
-            this.chkLMIAWritingEnglisAndFrench.Location = new System.Drawing.Point(762, 43);
-            this.chkLMIAWritingEnglisAndFrench.Name = "chkLMIAWritingEnglisAndFrench";
-            this.chkLMIAWritingEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
-            this.chkLMIAWritingEnglisAndFrench.TabIndex = 1;
-            this.chkLMIAWritingEnglisAndFrench.Text = "English and French";
-            this.chkLMIAWritingEnglisAndFrench.UseVisualStyleBackColor = true;
-            // 
-            // txtLMIAOtherLanguage
-            // 
-            this.txtLMIAOtherLanguage.Location = new System.Drawing.Point(15, 106);
-            this.txtLMIAOtherLanguage.Name = "txtLMIAOtherLanguage";
-            this.txtLMIAOtherLanguage.Size = new System.Drawing.Size(929, 20);
-            this.txtLMIAOtherLanguage.TabIndex = 1;
-            // 
-            // chkLMIAOtherLanguage
-            // 
-            this.chkLMIAOtherLanguage.AutoSize = true;
-            this.chkLMIAOtherLanguage.Location = new System.Drawing.Point(15, 73);
-            this.chkLMIAOtherLanguage.Name = "chkLMIAOtherLanguage";
-            this.chkLMIAOtherLanguage.Size = new System.Drawing.Size(466, 17);
-            this.chkLMIAOtherLanguage.TabIndex = 2;
-            this.chkLMIAOtherLanguage.Text = "Is this job required to have language ability other than English or French, pleas" +
-    "e explain below";
-            this.chkLMIAOtherLanguage.UseVisualStyleBackColor = true;
-            // 
             // LMIAForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1910,11 +1909,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedia)).EndInit();
             this.tabJobOffer.ResumeLayout(false);
             this.tabJobOffer.PerformLayout();
+            this.grpLMIALanguage.ResumeLayout(false);
+            this.grpLMIALanguage.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.grpLMIALanguage.ResumeLayout(false);
-            this.grpLMIALanguage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2001,7 +2000,6 @@
         private financial financial2;
         private JobPosition jobPosition2;
         private ApplicationSteam applicationSteam1;
-        private JobPosition jobPosition1;
         private financial financial1;
         private Indicators indicators1;
         private LMFactors lmFactors1;
@@ -2074,5 +2072,6 @@
         private System.Windows.Forms.CheckBox chkLIMAOral;
         private System.Windows.Forms.CheckBox chkLMIAOtherLanguage;
         private System.Windows.Forms.TextBox txtLMIAOtherLanguage;
+        private JobPosition jobPosition1;
     }
 }
