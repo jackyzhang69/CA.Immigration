@@ -56,14 +56,23 @@ Witness nvarchar(20)
 
 -- Application information
 create table tblLMIAApplication(
-LMIAId int not null primary key identity(1,1),
-ApplicationId int, -- refer to the mother application table
-EmployeeId int,
+LMIAApplicationId int not null primary key identity(1,1),
 LMIAType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
+StreamType int, --0 for High Wage Stream 1 for Low Wage Stream
+EmployerId int,
+EmployeeId int,
+RCICId int,
+CreatedDate date,
+SubmittedDate date,
+ClosedDate date,
+ApplicationNumber nvarchar(20),
+ApplicationFee money,
 SecondEmployer nvarchar(30),
 NumberofPosition int,
 ApplicationFeePerPosition money,
 PayMethod int  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
+MoreThanOneEmployer bit,
+AnotherEmployerName
 )
 
 -- Application followup 
@@ -90,11 +99,11 @@ TotalCndThisLocation int, --3. Total number of Canadian/permanent resident emplo
 TotalEmployeeThisOccupationLocation int,  --4. Total number of employees (including Canadians/permanent residents and TFWs) working in this occupation at this work location:
 TotalTFWAfterPositive int,  --5. Total number of foreign workers (as a result of receiving a positive LMIA) at the work location specified on this form:
 Q6 int , --	1 N 2 Y, within two years before 12/31/2013, did you employ a foreign worker(as the result of receiving LMIA)
-Q6_1 int,  --  1N 2 Y,If YES – did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that were substantially the same as those that were described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
+Q6_1 int,  --  1N 2 Y,If YES ?did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that were substantially the same as those that were described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
 Q7 int , --	Have you applied for and received a positive LMIA on or after December 31, 2013, and employed a foreign worker in that position?
-Q7_1 int,  --	  If YES – did you provide all foreign workers employed by you, on LMIAs received on or after December 31, 2013, with employment in the same occupation as described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s)) and with substantially the same wages and working conditions - but not less favourable than- those set out in that offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
+Q7_1 int,  --	  If YES ?did you provide all foreign workers employed by you, on LMIAs received on or after December 31, 2013, with employment in the same occupation as described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s)) and with substantially the same wages and working conditions - but not less favourable than- those set out in that offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
 Q8 int ,  --	  Have you had an LMIA revoked, within the previous 2 years from the date you submitted this Application?
-Q8_1 int, 	--If YES – was the LMIA revoked because you had provided false, misleading or inaccurate information in the context of a request for an opinion?
+Q8_1 int, 	--If YES ?was the LMIA revoked because you had provided false, misleading or inaccurate information in the context of a request for an opinion?
 Q8_2 date, -- If yes, please provide the following details regarding this revocation:	Date (yyyy-mm-dd):
 Q8_3 nvarchar(20),--System File Number:	  
 Q8_4 nvarchar(100),	 -- If the public policy considerations that justified the revocation are no longer relevant, please provide a detailed explanation:

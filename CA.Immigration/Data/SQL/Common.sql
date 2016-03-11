@@ -1,4 +1,4 @@
-use common
+fuse common
 go
 
 -- RCIC Information table
@@ -122,12 +122,13 @@ insert into tblEducationLevel values(18,'Not Applicable')
 create table tblGender
 (
 Id int not null primary key Identity(1,1),
+GenderCode int, -- 1 Male 2 Female 3 Unknow
 Gender varchar(7) not null
 )
 
-insert into tblGender values('Male')
-insert into tblGender values('Female')
-insert into tblGender values('Unknown')
+insert into tblGender values(1, 'Male')
+insert into tblGender values(2, 'Female')
+insert into tblGender values(3, 'Unknown')
 
 -- Create Canada visit purpose PK table
 create table tblCNDVisitPurpose
@@ -329,7 +330,8 @@ Id int not null primary key Identity(1,1),
 PersonId int ,  -- FK to reference the Person Id,
 NativeLanguageId char(3) ,  --FK to reference the language Id who matchs CIC defenition
 OtherMostlyUse char(2), --Other than native language, which one does you use mostly 01 English, 02 French 03 neither, 04 Both
-CommIn varchar(20)  -- English or french, Both,Neither
+CommIn varchar(20),  -- English or french, Both,Neither
+LanguageTest bit
 )
 
 
@@ -389,7 +391,7 @@ MarriageStatusId char(2),
 Phone varchar(20),
 Email varchar(100),
 Photo Image,
-[Signature] Image
+theSignature Image
 )
 
 -- Create Phone table
@@ -417,4 +419,41 @@ create table tblCategory
 (
   Id int not null primary key identity(1,1),
 Name varchar(100),
+)
+
+create table tblFinance
+(
+Id int not null primary key identity(1,1),
+ApplicationId int,
+FiscalYear int,
+TotalRevenue money,
+Cash money,
+NetIncome money,
+RetainedEarning money,
+GrossPayroll money,
+T4SlipsIssued int
+)
+
+create table tblLMIAPosition
+(
+Id int not null primary key identity(1,1),
+ApplicationId int,
+JobTitle varchar(100),
+NOC char(4),
+Province char(2),
+WorkingHours float,
+HourlyRate money,
+ProvincialMedian money,
+LocalNOCMedian money,
+LocalNOCLowest money,
+LocalNOCHighest money,
+SamePlaceSamePositionLowest money,
+SamePlaceSamePositionHighest money,
+NoSamePosition bit,
+UmemploymentRate float,
+COPSRating int,  -- 1 poor 2 moderate 3 good
+OccupationProfile int, -- 1 poor 2 moderate 3 good
+EmployerSituation nvarchar(500),
+EmployerImact nvarchar(500)
+
 )

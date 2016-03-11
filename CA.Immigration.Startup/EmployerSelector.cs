@@ -23,9 +23,9 @@ namespace CA.Immigration.Startup
 
         private void EmployerSelector_Load(object sender, EventArgs e)
         {
-            using (LMIADCDataContext ld = new LMIADCDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
-                dgvEmployer.DataSource = ld.tblEmployers.Select(x => new { Id = x.Id, OperatingName = x.OperatingName, Contact = x.ContactFirstName + " " + x.ContactLastName, Phone = x.ContactPhone, Email = x.ContactEmail, City = x.BizCity });
+                dgvEmployer.DataSource = cdc.tblEmployers.Select(x => new { Id = x.Id, OperatingName = x.OperatingName, Contact = x.ContactFirstName + " " + x.ContactLastName, Phone = x.ContactPhone, Email = x.ContactEmail, City = x.BizCity });
 
             }
             DataGridViewColumn ecolumn0 = dgvEmployer.Columns[0]; //Id

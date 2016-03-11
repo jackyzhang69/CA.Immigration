@@ -16,7 +16,6 @@ namespace CA.Immigration.SP
         // Build a dictionary of IMM1294 based on the Application Id
         public static Dictionary<string, string> IMM1294(int AppId)
         {
-            SPDataContext spdc = new SPDataContext();
             CommonDataContext cmdc = new CommonDataContext();
 
             int personId = (int)cmdc.tblApplications.Where(x => x.Id == AppId).Select(x => x.ApplicantId).FirstOrDefault();
@@ -31,7 +30,7 @@ namespace CA.Immigration.SP
             tblAddress address = cmdc.tblAddresses.Where(x => (x.PersonId == personId) && x.AddressTypeId=="Residential").Select(x => x).FirstOrDefault();
             tblPhone phone = cmdc.tblPhones.Where(x => x.PersonId == personId).Select(x => x).FirstOrDefault();
 
-            tblStudyInfo std = spdc.tblStudyInfos.Where(x => x.ApplicationId == AppId).Select(x => x).FirstOrDefault();
+            tblStudyInfo std = cmdc.tblStudyInfos.Where(x => x.ApplicationId == AppId).Select(x => x).FirstOrDefault();
 
 
 

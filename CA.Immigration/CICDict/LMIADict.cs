@@ -15,7 +15,6 @@ namespace CA.Immigration.LMIA
         // Build a dictionary of EMP5593 based on the Application Id
         public static Dictionary<string, string> EMP5593(int AppId)
         {
-            LMIADCDataContext ld = new LMIADCDataContext();
             CommonDataContext cd = new CommonDataContext();
 
             //var joinedApplication = from c in cd.tblApplications
@@ -26,27 +25,27 @@ namespace CA.Immigration.LMIA
 
             // Get employer, employee Ids from Application Id
             int ? employerId = (int)cd.tblApplications.Where(x => x.Id == AppId).Select(x => x.ApplicantId).FirstOrDefault();
-            int? employeeId = (int)ld.tblLMIAApplications.Where(x => x.ApplicationId == AppId).Select(x => x.EmployeeId).FirstOrDefault();
+            int? employeeId = (int)cd.tblLMIAApplications.Where(x => x.Id == AppId).Select(x => x.EmployeeId).FirstOrDefault();
             int? rcicId = (int)cd.tblApplications.Where(x => x.Id == AppId).Select(x => x.RCICId).FirstOrDefault();
-            int? bizDetailId = (int)ld.tblBusinessDetails.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
-            int? joboffer1Id = (int)ld.tblJobOffer1s.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
-            int? joboffer2Id = (int)ld.tblJobOffer2s.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
-            int? recruitsumId = (int)ld.tblRecruitSummaries.Where(x => x.ApplicationId == AppId).Select(x => x.Id).FirstOrDefault();
-            int? impactlmId = (int)ld.tblImpactLMs.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
-            int? creditcardId = (int)ld.tblCreditCards.Where(x => x.EmployerId == employerId).Select(x => x.Id).FirstOrDefault();
+            int? bizDetailId = (int)cd.tblBusinessDetails.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
+            int? joboffer1Id = (int)cd.tblJobOffer1s.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
+            int? joboffer2Id = (int)cd.tblJobOffer2s.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
+            int? recruitsumId = (int)cd.tblRecruitSummaries.Where(x => x.ApplicationId == AppId).Select(x => x.Id).FirstOrDefault();
+            int? impactlmId = (int)cd.tblImpactLMs.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
+            int? creditcardId = (int)cd.tblCreditCards.Where(x => x.EmployerId == employerId).Select(x => x.Id).FirstOrDefault();
             //Get employer, employee information based on Ids
-            var employer = ld.tblEmployers.Where(x => x.Id == employerId).Select(x => x).FirstOrDefault();
+            var employer = cd.tblEmployers.Where(x => x.Id == employerId).Select(x => x).FirstOrDefault();
             var employee = cd.tblPersons.Where(x => x.Id == employeeId).Select(x => x).FirstOrDefault();
             var employeePassport = cd.tblPassports.Where(x => x.Id == employeeId).Select(x => x).FirstOrDefault();
             var employeeAddress = cd.tblAddresses.Where(x => x.Id == employeeId).Select(x => x).FirstOrDefault();
-            var employeeMore = ld.tblEmployees.Where(x => x.Id == employeeId).Select(x => x).FirstOrDefault();
-            var LMIAApp = ld.tblLMIAApplications.Where(x => x.ApplicationId == AppId).Select(x => x).FirstOrDefault();
-            var bizdetail = ld.tblBusinessDetails.Where(x => x.Id == bizDetailId).Select(x => x).FirstOrDefault();
-            var joboffer1 = ld.tblJobOffer1s.Where(x => x.Id == joboffer1Id).Select(x => x).FirstOrDefault();
-            var joboffer2 = ld.tblJobOffer2s.Where(x => x.Id == joboffer2Id).Select(x => x).FirstOrDefault();
-            var recruitsum = ld.tblRecruitSummaries.Where(x => x.Id == recruitsumId).Select(x => x).FirstOrDefault();
-            var impactlm = ld.tblImpactLMs.Where(x => x.Id == impactlmId).Select(x => x).FirstOrDefault();
-            var creditcard = ld.tblCreditCards.Where(x => x.Id == creditcardId).Select(x => x).FirstOrDefault();
+            var employeeMore = cd.tblEmployees.Where(x => x.Id == employeeId).Select(x => x).FirstOrDefault();
+            var LMIAApp = cd.tblLMIAApplications.Where(x => x.Id == AppId).Select(x => x).FirstOrDefault();
+            var bizdetail = cd.tblBusinessDetails.Where(x => x.Id == bizDetailId).Select(x => x).FirstOrDefault();
+            var joboffer1 = cd.tblJobOffer1s.Where(x => x.Id == joboffer1Id).Select(x => x).FirstOrDefault();
+            var joboffer2 = cd.tblJobOffer2s.Where(x => x.Id == joboffer2Id).Select(x => x).FirstOrDefault();
+            var recruitsum = cd.tblRecruitSummaries.Where(x => x.Id == recruitsumId).Select(x => x).FirstOrDefault();
+            var impactlm = cd.tblImpactLMs.Where(x => x.Id == impactlmId).Select(x => x).FirstOrDefault();
+            var creditcard = cd.tblCreditCards.Where(x => x.Id == creditcardId).Select(x => x).FirstOrDefault();
 
             string rcicName;
             if(rcicId != null)

@@ -110,16 +110,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Data\LMIADC.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LMIADC.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="Data\SP.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SP.dbml</DependentUpon>
-    </Compile>
     <Compile Include="CICDict\RepDict.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="PDF\FormOPs.cs" />
@@ -173,21 +163,8 @@
       <LastGenOutput>Common.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Data\SP.dbml.layout">
-      <DependentUpon>SP.dbml</DependentUpon>
-    </None>
     <None Include="app.config" />
     <EmbeddedResource Include="Aspose.Pdf.lic" />
-    <None Include="Data\LMIADC.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>LMIADC.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Data\SP.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>SP.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,11 +181,6 @@
     <Content Include="Data\SQL\SP.sql" />
     <Content Include="PDF\FillForms\IMMForm-Dictionary.txt" />
     <Content Include="Signature-Jacky.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Data\LMIADC.dbml.layout">
-      <DependentUpon>LMIADC.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

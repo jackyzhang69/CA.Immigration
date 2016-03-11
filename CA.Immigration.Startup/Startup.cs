@@ -249,9 +249,9 @@ namespace CA.Immigration.Startup
             if (GlobalData.CurrentEmployerId != null)
             {
                 lblSelectedEmployerId.Text = GlobalData.CurrentEmployerId.ToString();
-                using (LMIADCDataContext ld = new LMIADCDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
-                    tblEmployer e = ld.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
+                    tblEmployer e = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
                     lblSelectedEmployer.Text = e.LegalName;
                 }
                 lblSelectedEmployer.Visible = true;
