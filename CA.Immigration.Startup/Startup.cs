@@ -294,7 +294,7 @@ namespace CA.Immigration.Startup
             switch (GlobalData.CurrentStreamId)
             {
                 case (int)GlobalData.AppStream.LMIAPRandWP:
-                    LMIAForm lmiaform = new LMIAForm((int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentEmployerId,(int)GlobalData.CurrentStreamId);  //int appId,int employerId, int personId
+                    LMIAForm lmiaform = new LMIAForm((int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentStreamId);  //int appId,int employerId, int personId
                     lmiaform.Show();
                     break;
                 default:
@@ -407,10 +407,11 @@ namespace CA.Immigration.Startup
         {
             lblSelectPerson.Text = null;
             lblSelectedPersonId.Text = null;
-           
+
         }
 
-        private void cleanPassport() {
+        private void cleanPassport()
+        {
             lblPDIPPPersonId.Text = null;
             lblPDIPPPeronName.Text = null;
         }
@@ -431,5 +432,68 @@ namespace CA.Immigration.Startup
             pcbPhoto.Image = null;
             pcbSignature = null;
         }
+
+        private void btnAnalysisInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEBIInsert_Click(object sender, EventArgs e)
+        {
+
+            // check validation
+
+            // insert a row
+            using (CommonDataContext cdc = new CommonDataContext())
+            {
+
+                tblEmployer emp = new tblEmployer
+                {
+                    ESDCId = txtESDCId.Text,
+                    CRA_BN = txtCRABN.Text,
+                    LegalName = txtLegalName.Text,
+                    OperatingName = txtOperatingName.Text,
+                    FranchiseName = txtFranchise.Text,
+                    CompanyType = BEIcompanyType.cmbCompanyType.SelectedIndex != -1 ? BEIcompanyType.cmbCompanyType.SelectedIndex + 1 : -1, //index 0 is corporate
+                    MailingAddress = txtMailAddress.Text,
+                    MailingCity = txtMailCity.Text,
+                    MailingProvince = canadaProvincesMail.cmbProvince.SelectedIndex != -1 ? canadaProvincesMail.cmbProvince.SelectedText : null,
+                    MailingCountry = txtCountryMail.Text,
+                    MailingPostalCode = txtPostalMail.Text,
+                    BizAddress = txtBusinessAddress.Text,
+                    BizProvince = canadaProvincesBusiness.cmbProvince.SelectedIndex != -1 ? canadaProvincesBusiness.cmbProvince.SelectedText : null,
+                    BizCountry = txtBusinessCountry.Text,
+                    BizPostalCode = txtPostalBusiness.Text,
+                    BizTelephone = txtEBIPhone.Text,
+                    Website = txtEBIWebsite.Text,
+                    // BizStartDate= dtpBusinessStartDate.Value,
+                    BizActivity = txtEBIBusinessActivities.Text,
+                    ContactFirstName = txtEBIFirstName.Text,
+                    ContactMiddleName = txtEBIMiddleName.Text,
+                    ContactLastName = txtEBILastName.Text,
+                    ContactJobTitle = txtEBIJobTitle.Text,
+                    ContactPhone = txtEBIPrimaryContactPhone.Text,
+                    ContactEmail = txtEBIPrimaryContactEmail.Text,
+                    ContactFax = txteBIPrimaryContactFax.Text
+                };
+                try
+                {
+                    cdc.tblEmployers.InsertOnSubmit(emp);
+                    cdc.SubmitChanges();
+                    MessageBox.Show("Record has been saved into Database!");
+                    btnEBIInsert.Visible = false;
+
+                }
+                catch (Exception exc)
+                {
+
+                    MessageBox.Show(exc.Message);
+                }
+
+                // set up global data
+                GlobalData.CurrentEmployerId = emp.Id;
+            }
+        }
     }
 }
+

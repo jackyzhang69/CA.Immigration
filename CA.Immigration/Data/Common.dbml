@@ -99,40 +99,6 @@
       <Column Name="Duration" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblEmployer" Member="tblEmployers">
-    <Type Name="tblEmployer">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ESDCId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRA_BN" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="LegalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="OperatingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FranchiseName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="FranchiseAware" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CompanyType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MailingCity" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MailingProvince" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MailingCountry" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MailingPostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="BizAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BizCity" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="BizProvince" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="BizCountry" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="BizPostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="BizTelephone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Website" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="BizStartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="BizActivity" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ContactFirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ContactMiddleName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ContactLastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ContactJobTitle" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ContactFax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Witness" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblFollowup" Member="tblFollowups">
     <Type Name="tblFollowup">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -479,6 +445,40 @@
       <Column Name="ApplicationFeePerPosition" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="PayMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="AnotherEmployerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmployer" Member="tblEmployers">
+    <Type Name="tblEmployer">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ESDCId" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="CRA_BN" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="LegalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OperatingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FranchiseName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FranchiseAware" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MailingCity" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailingProvince" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailingCountry" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailingPostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BizAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BizCity" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BizProvince" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BizCountry" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BizPostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BizTelephone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Website" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BizStartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BizActivity" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ContactFirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ContactMiddleName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ContactLastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ContactJobTitle" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ContactPhone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ContactFax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="theWitness" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

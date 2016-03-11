@@ -51,9 +51,6 @@ namespace CA.Immigration.Data
     partial void InserttblEmployee(tblEmployee instance);
     partial void UpdatetblEmployee(tblEmployee instance);
     partial void DeletetblEmployee(tblEmployee instance);
-    partial void InserttblEmployer(tblEmployer instance);
-    partial void UpdatetblEmployer(tblEmployer instance);
-    partial void DeletetblEmployer(tblEmployer instance);
     partial void InserttblFollowup(tblFollowup instance);
     partial void UpdatetblFollowup(tblFollowup instance);
     partial void DeletetblFollowup(tblFollowup instance);
@@ -114,6 +111,9 @@ namespace CA.Immigration.Data
     partial void InserttblLMIAApplication(tblLMIAApplication instance);
     partial void UpdatetblLMIAApplication(tblLMIAApplication instance);
     partial void DeletetblLMIAApplication(tblLMIAApplication instance);
+    partial void InserttblEmployer(tblEmployer instance);
+    partial void UpdatetblEmployer(tblEmployer instance);
+    partial void DeletetblEmployer(tblEmployer instance);
     #endregion
 		
 		public CommonDataContext() : 
@@ -199,14 +199,6 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblEmployee>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblEmployer> tblEmployers
-		{
-			get
-			{
-				return this.GetTable<tblEmployer>();
 			}
 		}
 		
@@ -367,6 +359,14 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblLMIAApplication>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblEmployer> tblEmployers
+		{
+			get
+			{
+				return this.GetTable<tblEmployer>();
 			}
 		}
 	}
@@ -2316,764 +2316,6 @@ namespace CA.Immigration.Data
 					this._Duration = value;
 					this.SendPropertyChanged("Duration");
 					this.OnDurationChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblEmployer")]
-	public partial class tblEmployer : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _ESDCId;
-		
-		private string _CRA_BN;
-		
-		private string _LegalName;
-		
-		private string _OperatingName;
-		
-		private string _FranchiseName;
-		
-		private System.Nullable<int> _FranchiseAware;
-		
-		private System.Nullable<int> _CompanyType;
-		
-		private string _MailingAddress;
-		
-		private string _MailingCity;
-		
-		private string _MailingProvince;
-		
-		private string _MailingCountry;
-		
-		private string _MailingPostalCode;
-		
-		private string _BizAddress;
-		
-		private string _BizCity;
-		
-		private string _BizProvince;
-		
-		private string _BizCountry;
-		
-		private string _BizPostalCode;
-		
-		private string _BizTelephone;
-		
-		private string _Website;
-		
-		private System.Nullable<System.DateTime> _BizStartDate;
-		
-		private string _BizActivity;
-		
-		private string _ContactFirstName;
-		
-		private string _ContactMiddleName;
-		
-		private string _ContactLastName;
-		
-		private string _ContactJobTitle;
-		
-		private string _ContactPhone;
-		
-		private string _ContactFax;
-		
-		private string _ContactEmail;
-		
-		private string _Witness;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnESDCIdChanging(System.Nullable<int> value);
-    partial void OnESDCIdChanged();
-    partial void OnCRA_BNChanging(string value);
-    partial void OnCRA_BNChanged();
-    partial void OnLegalNameChanging(string value);
-    partial void OnLegalNameChanged();
-    partial void OnOperatingNameChanging(string value);
-    partial void OnOperatingNameChanged();
-    partial void OnFranchiseNameChanging(string value);
-    partial void OnFranchiseNameChanged();
-    partial void OnFranchiseAwareChanging(System.Nullable<int> value);
-    partial void OnFranchiseAwareChanged();
-    partial void OnCompanyTypeChanging(System.Nullable<int> value);
-    partial void OnCompanyTypeChanged();
-    partial void OnMailingAddressChanging(string value);
-    partial void OnMailingAddressChanged();
-    partial void OnMailingCityChanging(string value);
-    partial void OnMailingCityChanged();
-    partial void OnMailingProvinceChanging(string value);
-    partial void OnMailingProvinceChanged();
-    partial void OnMailingCountryChanging(string value);
-    partial void OnMailingCountryChanged();
-    partial void OnMailingPostalCodeChanging(string value);
-    partial void OnMailingPostalCodeChanged();
-    partial void OnBizAddressChanging(string value);
-    partial void OnBizAddressChanged();
-    partial void OnBizCityChanging(string value);
-    partial void OnBizCityChanged();
-    partial void OnBizProvinceChanging(string value);
-    partial void OnBizProvinceChanged();
-    partial void OnBizCountryChanging(string value);
-    partial void OnBizCountryChanged();
-    partial void OnBizPostalCodeChanging(string value);
-    partial void OnBizPostalCodeChanged();
-    partial void OnBizTelephoneChanging(string value);
-    partial void OnBizTelephoneChanged();
-    partial void OnWebsiteChanging(string value);
-    partial void OnWebsiteChanged();
-    partial void OnBizStartDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnBizStartDateChanged();
-    partial void OnBizActivityChanging(string value);
-    partial void OnBizActivityChanged();
-    partial void OnContactFirstNameChanging(string value);
-    partial void OnContactFirstNameChanged();
-    partial void OnContactMiddleNameChanging(string value);
-    partial void OnContactMiddleNameChanged();
-    partial void OnContactLastNameChanging(string value);
-    partial void OnContactLastNameChanged();
-    partial void OnContactJobTitleChanging(string value);
-    partial void OnContactJobTitleChanged();
-    partial void OnContactPhoneChanging(string value);
-    partial void OnContactPhoneChanged();
-    partial void OnContactFaxChanging(string value);
-    partial void OnContactFaxChanged();
-    partial void OnContactEmailChanging(string value);
-    partial void OnContactEmailChanged();
-    partial void OnWitnessChanging(string value);
-    partial void OnWitnessChanged();
-    #endregion
-		
-		public tblEmployer()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESDCId", DbType="Int")]
-		public System.Nullable<int> ESDCId
-		{
-			get
-			{
-				return this._ESDCId;
-			}
-			set
-			{
-				if ((this._ESDCId != value))
-				{
-					this.OnESDCIdChanging(value);
-					this.SendPropertyChanging();
-					this._ESDCId = value;
-					this.SendPropertyChanged("ESDCId");
-					this.OnESDCIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRA_BN", DbType="NVarChar(15)")]
-		public string CRA_BN
-		{
-			get
-			{
-				return this._CRA_BN;
-			}
-			set
-			{
-				if ((this._CRA_BN != value))
-				{
-					this.OnCRA_BNChanging(value);
-					this.SendPropertyChanging();
-					this._CRA_BN = value;
-					this.SendPropertyChanged("CRA_BN");
-					this.OnCRA_BNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LegalName", DbType="NVarChar(50)")]
-		public string LegalName
-		{
-			get
-			{
-				return this._LegalName;
-			}
-			set
-			{
-				if ((this._LegalName != value))
-				{
-					this.OnLegalNameChanging(value);
-					this.SendPropertyChanging();
-					this._LegalName = value;
-					this.SendPropertyChanged("LegalName");
-					this.OnLegalNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OperatingName", DbType="NVarChar(50)")]
-		public string OperatingName
-		{
-			get
-			{
-				return this._OperatingName;
-			}
-			set
-			{
-				if ((this._OperatingName != value))
-				{
-					this.OnOperatingNameChanging(value);
-					this.SendPropertyChanging();
-					this._OperatingName = value;
-					this.SendPropertyChanged("OperatingName");
-					this.OnOperatingNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FranchiseName", DbType="NVarChar(50)")]
-		public string FranchiseName
-		{
-			get
-			{
-				return this._FranchiseName;
-			}
-			set
-			{
-				if ((this._FranchiseName != value))
-				{
-					this.OnFranchiseNameChanging(value);
-					this.SendPropertyChanging();
-					this._FranchiseName = value;
-					this.SendPropertyChanged("FranchiseName");
-					this.OnFranchiseNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FranchiseAware", DbType="Int")]
-		public System.Nullable<int> FranchiseAware
-		{
-			get
-			{
-				return this._FranchiseAware;
-			}
-			set
-			{
-				if ((this._FranchiseAware != value))
-				{
-					this.OnFranchiseAwareChanging(value);
-					this.SendPropertyChanging();
-					this._FranchiseAware = value;
-					this.SendPropertyChanged("FranchiseAware");
-					this.OnFranchiseAwareChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyType", DbType="Int")]
-		public System.Nullable<int> CompanyType
-		{
-			get
-			{
-				return this._CompanyType;
-			}
-			set
-			{
-				if ((this._CompanyType != value))
-				{
-					this.OnCompanyTypeChanging(value);
-					this.SendPropertyChanging();
-					this._CompanyType = value;
-					this.SendPropertyChanged("CompanyType");
-					this.OnCompanyTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingAddress", DbType="NVarChar(50)")]
-		public string MailingAddress
-		{
-			get
-			{
-				return this._MailingAddress;
-			}
-			set
-			{
-				if ((this._MailingAddress != value))
-				{
-					this.OnMailingAddressChanging(value);
-					this.SendPropertyChanging();
-					this._MailingAddress = value;
-					this.SendPropertyChanged("MailingAddress");
-					this.OnMailingAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingCity", DbType="NVarChar(20)")]
-		public string MailingCity
-		{
-			get
-			{
-				return this._MailingCity;
-			}
-			set
-			{
-				if ((this._MailingCity != value))
-				{
-					this.OnMailingCityChanging(value);
-					this.SendPropertyChanging();
-					this._MailingCity = value;
-					this.SendPropertyChanged("MailingCity");
-					this.OnMailingCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingProvince", DbType="NVarChar(20)")]
-		public string MailingProvince
-		{
-			get
-			{
-				return this._MailingProvince;
-			}
-			set
-			{
-				if ((this._MailingProvince != value))
-				{
-					this.OnMailingProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._MailingProvince = value;
-					this.SendPropertyChanged("MailingProvince");
-					this.OnMailingProvinceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingCountry", DbType="NVarChar(20)")]
-		public string MailingCountry
-		{
-			get
-			{
-				return this._MailingCountry;
-			}
-			set
-			{
-				if ((this._MailingCountry != value))
-				{
-					this.OnMailingCountryChanging(value);
-					this.SendPropertyChanging();
-					this._MailingCountry = value;
-					this.SendPropertyChanged("MailingCountry");
-					this.OnMailingCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingPostalCode", DbType="NVarChar(10)")]
-		public string MailingPostalCode
-		{
-			get
-			{
-				return this._MailingPostalCode;
-			}
-			set
-			{
-				if ((this._MailingPostalCode != value))
-				{
-					this.OnMailingPostalCodeChanging(value);
-					this.SendPropertyChanging();
-					this._MailingPostalCode = value;
-					this.SendPropertyChanged("MailingPostalCode");
-					this.OnMailingPostalCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizAddress", DbType="NVarChar(50)")]
-		public string BizAddress
-		{
-			get
-			{
-				return this._BizAddress;
-			}
-			set
-			{
-				if ((this._BizAddress != value))
-				{
-					this.OnBizAddressChanging(value);
-					this.SendPropertyChanging();
-					this._BizAddress = value;
-					this.SendPropertyChanged("BizAddress");
-					this.OnBizAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizCity", DbType="NVarChar(20)")]
-		public string BizCity
-		{
-			get
-			{
-				return this._BizCity;
-			}
-			set
-			{
-				if ((this._BizCity != value))
-				{
-					this.OnBizCityChanging(value);
-					this.SendPropertyChanging();
-					this._BizCity = value;
-					this.SendPropertyChanged("BizCity");
-					this.OnBizCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizProvince", DbType="NVarChar(20)")]
-		public string BizProvince
-		{
-			get
-			{
-				return this._BizProvince;
-			}
-			set
-			{
-				if ((this._BizProvince != value))
-				{
-					this.OnBizProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._BizProvince = value;
-					this.SendPropertyChanged("BizProvince");
-					this.OnBizProvinceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizCountry", DbType="NVarChar(20)")]
-		public string BizCountry
-		{
-			get
-			{
-				return this._BizCountry;
-			}
-			set
-			{
-				if ((this._BizCountry != value))
-				{
-					this.OnBizCountryChanging(value);
-					this.SendPropertyChanging();
-					this._BizCountry = value;
-					this.SendPropertyChanged("BizCountry");
-					this.OnBizCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizPostalCode", DbType="NVarChar(10)")]
-		public string BizPostalCode
-		{
-			get
-			{
-				return this._BizPostalCode;
-			}
-			set
-			{
-				if ((this._BizPostalCode != value))
-				{
-					this.OnBizPostalCodeChanging(value);
-					this.SendPropertyChanging();
-					this._BizPostalCode = value;
-					this.SendPropertyChanged("BizPostalCode");
-					this.OnBizPostalCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizTelephone", DbType="NVarChar(20)")]
-		public string BizTelephone
-		{
-			get
-			{
-				return this._BizTelephone;
-			}
-			set
-			{
-				if ((this._BizTelephone != value))
-				{
-					this.OnBizTelephoneChanging(value);
-					this.SendPropertyChanging();
-					this._BizTelephone = value;
-					this.SendPropertyChanged("BizTelephone");
-					this.OnBizTelephoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Website", DbType="NVarChar(100)")]
-		public string Website
-		{
-			get
-			{
-				return this._Website;
-			}
-			set
-			{
-				if ((this._Website != value))
-				{
-					this.OnWebsiteChanging(value);
-					this.SendPropertyChanging();
-					this._Website = value;
-					this.SendPropertyChanged("Website");
-					this.OnWebsiteChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizStartDate", DbType="Date")]
-		public System.Nullable<System.DateTime> BizStartDate
-		{
-			get
-			{
-				return this._BizStartDate;
-			}
-			set
-			{
-				if ((this._BizStartDate != value))
-				{
-					this.OnBizStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._BizStartDate = value;
-					this.SendPropertyChanged("BizStartDate");
-					this.OnBizStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizActivity", DbType="NVarChar(100)")]
-		public string BizActivity
-		{
-			get
-			{
-				return this._BizActivity;
-			}
-			set
-			{
-				if ((this._BizActivity != value))
-				{
-					this.OnBizActivityChanging(value);
-					this.SendPropertyChanging();
-					this._BizActivity = value;
-					this.SendPropertyChanged("BizActivity");
-					this.OnBizActivityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactFirstName", DbType="NVarChar(20)")]
-		public string ContactFirstName
-		{
-			get
-			{
-				return this._ContactFirstName;
-			}
-			set
-			{
-				if ((this._ContactFirstName != value))
-				{
-					this.OnContactFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._ContactFirstName = value;
-					this.SendPropertyChanged("ContactFirstName");
-					this.OnContactFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactMiddleName", DbType="NVarChar(20)")]
-		public string ContactMiddleName
-		{
-			get
-			{
-				return this._ContactMiddleName;
-			}
-			set
-			{
-				if ((this._ContactMiddleName != value))
-				{
-					this.OnContactMiddleNameChanging(value);
-					this.SendPropertyChanging();
-					this._ContactMiddleName = value;
-					this.SendPropertyChanged("ContactMiddleName");
-					this.OnContactMiddleNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactLastName", DbType="NVarChar(20)")]
-		public string ContactLastName
-		{
-			get
-			{
-				return this._ContactLastName;
-			}
-			set
-			{
-				if ((this._ContactLastName != value))
-				{
-					this.OnContactLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._ContactLastName = value;
-					this.SendPropertyChanged("ContactLastName");
-					this.OnContactLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactJobTitle", DbType="NVarChar(20)")]
-		public string ContactJobTitle
-		{
-			get
-			{
-				return this._ContactJobTitle;
-			}
-			set
-			{
-				if ((this._ContactJobTitle != value))
-				{
-					this.OnContactJobTitleChanging(value);
-					this.SendPropertyChanging();
-					this._ContactJobTitle = value;
-					this.SendPropertyChanged("ContactJobTitle");
-					this.OnContactJobTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactPhone", DbType="NVarChar(20)")]
-		public string ContactPhone
-		{
-			get
-			{
-				return this._ContactPhone;
-			}
-			set
-			{
-				if ((this._ContactPhone != value))
-				{
-					this.OnContactPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._ContactPhone = value;
-					this.SendPropertyChanged("ContactPhone");
-					this.OnContactPhoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactFax", DbType="NVarChar(20)")]
-		public string ContactFax
-		{
-			get
-			{
-				return this._ContactFax;
-			}
-			set
-			{
-				if ((this._ContactFax != value))
-				{
-					this.OnContactFaxChanging(value);
-					this.SendPropertyChanging();
-					this._ContactFax = value;
-					this.SendPropertyChanged("ContactFax");
-					this.OnContactFaxChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactEmail", DbType="NVarChar(50)")]
-		public string ContactEmail
-		{
-			get
-			{
-				return this._ContactEmail;
-			}
-			set
-			{
-				if ((this._ContactEmail != value))
-				{
-					this.OnContactEmailChanging(value);
-					this.SendPropertyChanging();
-					this._ContactEmail = value;
-					this.SendPropertyChanged("ContactEmail");
-					this.OnContactEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Witness", DbType="NVarChar(20)")]
-		public string Witness
-		{
-			get
-			{
-				return this._Witness;
-			}
-			set
-			{
-				if ((this._Witness != value))
-				{
-					this.OnWitnessChanging(value);
-					this.SendPropertyChanging();
-					this._Witness = value;
-					this.SendPropertyChanged("Witness");
-					this.OnWitnessChanged();
 				}
 			}
 		}
@@ -10266,6 +9508,764 @@ namespace CA.Immigration.Data
 					this._AnotherEmployerName = value;
 					this.SendPropertyChanged("AnotherEmployerName");
 					this.OnAnotherEmployerNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblEmployer")]
+	public partial class tblEmployer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _ESDCId;
+		
+		private string _CRA_BN;
+		
+		private string _LegalName;
+		
+		private string _OperatingName;
+		
+		private string _FranchiseName;
+		
+		private System.Nullable<int> _FranchiseAware;
+		
+		private System.Nullable<int> _CompanyType;
+		
+		private string _MailingAddress;
+		
+		private string _MailingCity;
+		
+		private string _MailingProvince;
+		
+		private string _MailingCountry;
+		
+		private string _MailingPostalCode;
+		
+		private string _BizAddress;
+		
+		private string _BizCity;
+		
+		private string _BizProvince;
+		
+		private string _BizCountry;
+		
+		private string _BizPostalCode;
+		
+		private string _BizTelephone;
+		
+		private string _Website;
+		
+		private System.Nullable<System.DateTime> _BizStartDate;
+		
+		private string _BizActivity;
+		
+		private string _ContactFirstName;
+		
+		private string _ContactMiddleName;
+		
+		private string _ContactLastName;
+		
+		private string _ContactJobTitle;
+		
+		private string _ContactPhone;
+		
+		private string _ContactFax;
+		
+		private string _ContactEmail;
+		
+		private string _theWitness;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnESDCIdChanging(string value);
+    partial void OnESDCIdChanged();
+    partial void OnCRA_BNChanging(string value);
+    partial void OnCRA_BNChanged();
+    partial void OnLegalNameChanging(string value);
+    partial void OnLegalNameChanged();
+    partial void OnOperatingNameChanging(string value);
+    partial void OnOperatingNameChanged();
+    partial void OnFranchiseNameChanging(string value);
+    partial void OnFranchiseNameChanged();
+    partial void OnFranchiseAwareChanging(System.Nullable<int> value);
+    partial void OnFranchiseAwareChanged();
+    partial void OnCompanyTypeChanging(System.Nullable<int> value);
+    partial void OnCompanyTypeChanged();
+    partial void OnMailingAddressChanging(string value);
+    partial void OnMailingAddressChanged();
+    partial void OnMailingCityChanging(string value);
+    partial void OnMailingCityChanged();
+    partial void OnMailingProvinceChanging(string value);
+    partial void OnMailingProvinceChanged();
+    partial void OnMailingCountryChanging(string value);
+    partial void OnMailingCountryChanged();
+    partial void OnMailingPostalCodeChanging(string value);
+    partial void OnMailingPostalCodeChanged();
+    partial void OnBizAddressChanging(string value);
+    partial void OnBizAddressChanged();
+    partial void OnBizCityChanging(string value);
+    partial void OnBizCityChanged();
+    partial void OnBizProvinceChanging(string value);
+    partial void OnBizProvinceChanged();
+    partial void OnBizCountryChanging(string value);
+    partial void OnBizCountryChanged();
+    partial void OnBizPostalCodeChanging(string value);
+    partial void OnBizPostalCodeChanged();
+    partial void OnBizTelephoneChanging(string value);
+    partial void OnBizTelephoneChanged();
+    partial void OnWebsiteChanging(string value);
+    partial void OnWebsiteChanged();
+    partial void OnBizStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnBizStartDateChanged();
+    partial void OnBizActivityChanging(string value);
+    partial void OnBizActivityChanged();
+    partial void OnContactFirstNameChanging(string value);
+    partial void OnContactFirstNameChanged();
+    partial void OnContactMiddleNameChanging(string value);
+    partial void OnContactMiddleNameChanged();
+    partial void OnContactLastNameChanging(string value);
+    partial void OnContactLastNameChanged();
+    partial void OnContactJobTitleChanging(string value);
+    partial void OnContactJobTitleChanged();
+    partial void OnContactPhoneChanging(string value);
+    partial void OnContactPhoneChanged();
+    partial void OnContactFaxChanging(string value);
+    partial void OnContactFaxChanged();
+    partial void OnContactEmailChanging(string value);
+    partial void OnContactEmailChanged();
+    partial void OntheWitnessChanging(string value);
+    partial void OntheWitnessChanged();
+    #endregion
+		
+		public tblEmployer()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ESDCId", DbType="Char(6)")]
+		public string ESDCId
+		{
+			get
+			{
+				return this._ESDCId;
+			}
+			set
+			{
+				if ((this._ESDCId != value))
+				{
+					this.OnESDCIdChanging(value);
+					this.SendPropertyChanging();
+					this._ESDCId = value;
+					this.SendPropertyChanged("ESDCId");
+					this.OnESDCIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRA_BN", DbType="NVarChar(15)")]
+		public string CRA_BN
+		{
+			get
+			{
+				return this._CRA_BN;
+			}
+			set
+			{
+				if ((this._CRA_BN != value))
+				{
+					this.OnCRA_BNChanging(value);
+					this.SendPropertyChanging();
+					this._CRA_BN = value;
+					this.SendPropertyChanged("CRA_BN");
+					this.OnCRA_BNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LegalName", DbType="NVarChar(50)")]
+		public string LegalName
+		{
+			get
+			{
+				return this._LegalName;
+			}
+			set
+			{
+				if ((this._LegalName != value))
+				{
+					this.OnLegalNameChanging(value);
+					this.SendPropertyChanging();
+					this._LegalName = value;
+					this.SendPropertyChanged("LegalName");
+					this.OnLegalNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OperatingName", DbType="NVarChar(50)")]
+		public string OperatingName
+		{
+			get
+			{
+				return this._OperatingName;
+			}
+			set
+			{
+				if ((this._OperatingName != value))
+				{
+					this.OnOperatingNameChanging(value);
+					this.SendPropertyChanging();
+					this._OperatingName = value;
+					this.SendPropertyChanged("OperatingName");
+					this.OnOperatingNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FranchiseName", DbType="NVarChar(50)")]
+		public string FranchiseName
+		{
+			get
+			{
+				return this._FranchiseName;
+			}
+			set
+			{
+				if ((this._FranchiseName != value))
+				{
+					this.OnFranchiseNameChanging(value);
+					this.SendPropertyChanging();
+					this._FranchiseName = value;
+					this.SendPropertyChanged("FranchiseName");
+					this.OnFranchiseNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FranchiseAware", DbType="Int")]
+		public System.Nullable<int> FranchiseAware
+		{
+			get
+			{
+				return this._FranchiseAware;
+			}
+			set
+			{
+				if ((this._FranchiseAware != value))
+				{
+					this.OnFranchiseAwareChanging(value);
+					this.SendPropertyChanging();
+					this._FranchiseAware = value;
+					this.SendPropertyChanged("FranchiseAware");
+					this.OnFranchiseAwareChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyType", DbType="Int")]
+		public System.Nullable<int> CompanyType
+		{
+			get
+			{
+				return this._CompanyType;
+			}
+			set
+			{
+				if ((this._CompanyType != value))
+				{
+					this.OnCompanyTypeChanging(value);
+					this.SendPropertyChanging();
+					this._CompanyType = value;
+					this.SendPropertyChanged("CompanyType");
+					this.OnCompanyTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingAddress", DbType="NVarChar(50)")]
+		public string MailingAddress
+		{
+			get
+			{
+				return this._MailingAddress;
+			}
+			set
+			{
+				if ((this._MailingAddress != value))
+				{
+					this.OnMailingAddressChanging(value);
+					this.SendPropertyChanging();
+					this._MailingAddress = value;
+					this.SendPropertyChanged("MailingAddress");
+					this.OnMailingAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingCity", DbType="NVarChar(20)")]
+		public string MailingCity
+		{
+			get
+			{
+				return this._MailingCity;
+			}
+			set
+			{
+				if ((this._MailingCity != value))
+				{
+					this.OnMailingCityChanging(value);
+					this.SendPropertyChanging();
+					this._MailingCity = value;
+					this.SendPropertyChanged("MailingCity");
+					this.OnMailingCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingProvince", DbType="NVarChar(20)")]
+		public string MailingProvince
+		{
+			get
+			{
+				return this._MailingProvince;
+			}
+			set
+			{
+				if ((this._MailingProvince != value))
+				{
+					this.OnMailingProvinceChanging(value);
+					this.SendPropertyChanging();
+					this._MailingProvince = value;
+					this.SendPropertyChanged("MailingProvince");
+					this.OnMailingProvinceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingCountry", DbType="NVarChar(20)")]
+		public string MailingCountry
+		{
+			get
+			{
+				return this._MailingCountry;
+			}
+			set
+			{
+				if ((this._MailingCountry != value))
+				{
+					this.OnMailingCountryChanging(value);
+					this.SendPropertyChanging();
+					this._MailingCountry = value;
+					this.SendPropertyChanged("MailingCountry");
+					this.OnMailingCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingPostalCode", DbType="NVarChar(10)")]
+		public string MailingPostalCode
+		{
+			get
+			{
+				return this._MailingPostalCode;
+			}
+			set
+			{
+				if ((this._MailingPostalCode != value))
+				{
+					this.OnMailingPostalCodeChanging(value);
+					this.SendPropertyChanging();
+					this._MailingPostalCode = value;
+					this.SendPropertyChanged("MailingPostalCode");
+					this.OnMailingPostalCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizAddress", DbType="NVarChar(50)")]
+		public string BizAddress
+		{
+			get
+			{
+				return this._BizAddress;
+			}
+			set
+			{
+				if ((this._BizAddress != value))
+				{
+					this.OnBizAddressChanging(value);
+					this.SendPropertyChanging();
+					this._BizAddress = value;
+					this.SendPropertyChanged("BizAddress");
+					this.OnBizAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizCity", DbType="NVarChar(20)")]
+		public string BizCity
+		{
+			get
+			{
+				return this._BizCity;
+			}
+			set
+			{
+				if ((this._BizCity != value))
+				{
+					this.OnBizCityChanging(value);
+					this.SendPropertyChanging();
+					this._BizCity = value;
+					this.SendPropertyChanged("BizCity");
+					this.OnBizCityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizProvince", DbType="NVarChar(20)")]
+		public string BizProvince
+		{
+			get
+			{
+				return this._BizProvince;
+			}
+			set
+			{
+				if ((this._BizProvince != value))
+				{
+					this.OnBizProvinceChanging(value);
+					this.SendPropertyChanging();
+					this._BizProvince = value;
+					this.SendPropertyChanged("BizProvince");
+					this.OnBizProvinceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizCountry", DbType="NVarChar(20)")]
+		public string BizCountry
+		{
+			get
+			{
+				return this._BizCountry;
+			}
+			set
+			{
+				if ((this._BizCountry != value))
+				{
+					this.OnBizCountryChanging(value);
+					this.SendPropertyChanging();
+					this._BizCountry = value;
+					this.SendPropertyChanged("BizCountry");
+					this.OnBizCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizPostalCode", DbType="NVarChar(10)")]
+		public string BizPostalCode
+		{
+			get
+			{
+				return this._BizPostalCode;
+			}
+			set
+			{
+				if ((this._BizPostalCode != value))
+				{
+					this.OnBizPostalCodeChanging(value);
+					this.SendPropertyChanging();
+					this._BizPostalCode = value;
+					this.SendPropertyChanged("BizPostalCode");
+					this.OnBizPostalCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizTelephone", DbType="NVarChar(20)")]
+		public string BizTelephone
+		{
+			get
+			{
+				return this._BizTelephone;
+			}
+			set
+			{
+				if ((this._BizTelephone != value))
+				{
+					this.OnBizTelephoneChanging(value);
+					this.SendPropertyChanging();
+					this._BizTelephone = value;
+					this.SendPropertyChanged("BizTelephone");
+					this.OnBizTelephoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Website", DbType="NVarChar(100)")]
+		public string Website
+		{
+			get
+			{
+				return this._Website;
+			}
+			set
+			{
+				if ((this._Website != value))
+				{
+					this.OnWebsiteChanging(value);
+					this.SendPropertyChanging();
+					this._Website = value;
+					this.SendPropertyChanged("Website");
+					this.OnWebsiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizStartDate", DbType="Date")]
+		public System.Nullable<System.DateTime> BizStartDate
+		{
+			get
+			{
+				return this._BizStartDate;
+			}
+			set
+			{
+				if ((this._BizStartDate != value))
+				{
+					this.OnBizStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._BizStartDate = value;
+					this.SendPropertyChanged("BizStartDate");
+					this.OnBizStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BizActivity", DbType="NVarChar(100)")]
+		public string BizActivity
+		{
+			get
+			{
+				return this._BizActivity;
+			}
+			set
+			{
+				if ((this._BizActivity != value))
+				{
+					this.OnBizActivityChanging(value);
+					this.SendPropertyChanging();
+					this._BizActivity = value;
+					this.SendPropertyChanged("BizActivity");
+					this.OnBizActivityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactFirstName", DbType="NVarChar(20)")]
+		public string ContactFirstName
+		{
+			get
+			{
+				return this._ContactFirstName;
+			}
+			set
+			{
+				if ((this._ContactFirstName != value))
+				{
+					this.OnContactFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._ContactFirstName = value;
+					this.SendPropertyChanged("ContactFirstName");
+					this.OnContactFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactMiddleName", DbType="NVarChar(20)")]
+		public string ContactMiddleName
+		{
+			get
+			{
+				return this._ContactMiddleName;
+			}
+			set
+			{
+				if ((this._ContactMiddleName != value))
+				{
+					this.OnContactMiddleNameChanging(value);
+					this.SendPropertyChanging();
+					this._ContactMiddleName = value;
+					this.SendPropertyChanged("ContactMiddleName");
+					this.OnContactMiddleNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactLastName", DbType="NVarChar(20)")]
+		public string ContactLastName
+		{
+			get
+			{
+				return this._ContactLastName;
+			}
+			set
+			{
+				if ((this._ContactLastName != value))
+				{
+					this.OnContactLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._ContactLastName = value;
+					this.SendPropertyChanged("ContactLastName");
+					this.OnContactLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactJobTitle", DbType="NVarChar(20)")]
+		public string ContactJobTitle
+		{
+			get
+			{
+				return this._ContactJobTitle;
+			}
+			set
+			{
+				if ((this._ContactJobTitle != value))
+				{
+					this.OnContactJobTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ContactJobTitle = value;
+					this.SendPropertyChanged("ContactJobTitle");
+					this.OnContactJobTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactPhone", DbType="NVarChar(20)")]
+		public string ContactPhone
+		{
+			get
+			{
+				return this._ContactPhone;
+			}
+			set
+			{
+				if ((this._ContactPhone != value))
+				{
+					this.OnContactPhoneChanging(value);
+					this.SendPropertyChanging();
+					this._ContactPhone = value;
+					this.SendPropertyChanged("ContactPhone");
+					this.OnContactPhoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactFax", DbType="NVarChar(20)")]
+		public string ContactFax
+		{
+			get
+			{
+				return this._ContactFax;
+			}
+			set
+			{
+				if ((this._ContactFax != value))
+				{
+					this.OnContactFaxChanging(value);
+					this.SendPropertyChanging();
+					this._ContactFax = value;
+					this.SendPropertyChanged("ContactFax");
+					this.OnContactFaxChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactEmail", DbType="NVarChar(50)")]
+		public string ContactEmail
+		{
+			get
+			{
+				return this._ContactEmail;
+			}
+			set
+			{
+				if ((this._ContactEmail != value))
+				{
+					this.OnContactEmailChanging(value);
+					this.SendPropertyChanging();
+					this._ContactEmail = value;
+					this.SendPropertyChanged("ContactEmail");
+					this.OnContactEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_theWitness", DbType="NVarChar(20)")]
+		public string theWitness
+		{
+			get
+			{
+				return this._theWitness;
+			}
+			set
+			{
+				if ((this._theWitness != value))
+				{
+					this.OntheWitnessChanging(value);
+					this.SendPropertyChanging();
+					this._theWitness = value;
+					this.SendPropertyChanged("theWitness");
+					this.OntheWitnessChanged();
 				}
 			}
 		}

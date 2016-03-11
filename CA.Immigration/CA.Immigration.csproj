@@ -105,12 +105,25 @@
     <Compile Include="App\App.cs" />
     <Compile Include="CICDict\LMIADict.cs" />
     <Compile Include="CICDict\SPDict.cs" />
+    <Compile Include="Data\CanadaProvinces.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\CanadaProvinces.Designer.cs">
+      <DependentUpon>CanadaProvinces.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\Common.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Common.dbml</DependentUpon>
     </Compile>
     <Compile Include="CICDict\RepDict.cs" />
+    <Compile Include="Data\CompanyType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\CompanyType.Designer.cs">
+      <DependentUpon>CompanyType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Definition.cs" />
     <Compile Include="GlobalData.cs" />
     <Compile Include="PDF\FormOPs.cs" />
     <Compile Include="PDF\PDFTools.cs" />
@@ -147,6 +160,12 @@
     <Folder Include="Word\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Data\CanadaProvinces.resx">
+      <DependentUpon>CanadaProvinces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\CompanyType.resx">
+      <DependentUpon>CompanyType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Top100.resx">
       <DependentUpon>Top100.cs</DependentUpon>
     </EmbeddedResource>
