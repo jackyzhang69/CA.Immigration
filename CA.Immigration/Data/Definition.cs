@@ -30,5 +30,19 @@ namespace CA.Immigration.Data
         {"SK","Saskatchewan" },
         {"YT","Yukon" }
         };
+        public static string[,] LMIA11Factors = new string[,]
+        {
+            {"0","Job Creation / Job Retention of Canadians" },
+            {"0","Development or Transfer of Skills and Knowledge" },
+            {"0","Filling a Labour Shortage" },
+            {"0","prevailing Wage Rate Offered"},
+            {"0","Reasonable Efforts to Hire or Train Canadians"},
+            {"0","Labour Dispute Settlements Unaffected" },
+            {"0","Employer’s Commitments Fulfilled" },
+            {"0","Employer is Actively Engaged in Business of Offered Position" },
+            {"0","Offer is Consistent with Reasonable Employment Need" },
+            {"0","Reasonably Able to Fulfill Terms of Offer" },
+            {"0","Past Compliance" }
+        };
     }
 }

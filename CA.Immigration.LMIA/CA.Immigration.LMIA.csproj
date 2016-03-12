@@ -109,12 +109,6 @@
     <Compile Include="financial.designer.cs">
       <DependentUpon>financial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Indicators.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Indicators.designer.cs">
-      <DependentUpon>Indicators.cs</DependentUpon>
-    </Compile>
     <Compile Include="JobPosition.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,6 +141,9 @@
     <Compile Include="UCAddress.designer.cs">
       <DependentUpon>UCAddress.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ApplicationStream.resx">
+      <DependentUpon>ApplicationStream.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="financial.resx">
       <DependentUpon>financial.cs</DependentUpon>
     </EmbeddedResource>

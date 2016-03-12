@@ -27,7 +27,7 @@ namespace CA.Immigration.LMIA
             int ? employerId = (int)cd.tblApplications.Where(x => x.Id == AppId).Select(x => x.ApplicantId).FirstOrDefault();
             int? employeeId = (int)cd.tblLMIAApplications.Where(x => x.Id == AppId).Select(x => x.EmployeeId).FirstOrDefault();
             int? rcicId = (int)cd.tblApplications.Where(x => x.Id == AppId).Select(x => x.RCICId).FirstOrDefault();
-            int? bizDetailId = (int)cd.tblBusinessDetails.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
+            int? bizDetailId = (int)cd.tblBusinessDetails.Where(x => x.ApplicationId == AppId).Select(x => x.Id).FirstOrDefault();
             int? joboffer1Id = (int)cd.tblJobOffer1s.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
             int? joboffer2Id = (int)cd.tblJobOffer2s.Where(x => x.ApplicationID == AppId).Select(x => x.Id).FirstOrDefault();
             int? recruitsumId = (int)cd.tblRecruitSummaries.Where(x => x.ApplicationId == AppId).Select(x => x.Id).FirstOrDefault();

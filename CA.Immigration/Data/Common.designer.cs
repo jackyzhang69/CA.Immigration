@@ -36,9 +36,6 @@ namespace CA.Immigration.Data
     partial void InserttblApplication(tblApplication instance);
     partial void UpdatetblApplication(tblApplication instance);
     partial void DeletetblApplication(tblApplication instance);
-    partial void InserttblBusinessDetail(tblBusinessDetail instance);
-    partial void UpdatetblBusinessDetail(tblBusinessDetail instance);
-    partial void DeletetblBusinessDetail(tblBusinessDetail instance);
     partial void InserttblCategory(tblCategory instance);
     partial void UpdatetblCategory(tblCategory instance);
     partial void DeletetblCategory(tblCategory instance);
@@ -114,6 +111,15 @@ namespace CA.Immigration.Data
     partial void InserttblLMIAPosition(tblLMIAPosition instance);
     partial void UpdatetblLMIAPosition(tblLMIAPosition instance);
     partial void DeletetblLMIAPosition(tblLMIAPosition instance);
+    partial void InserttblFinance(tblFinance instance);
+    partial void UpdatetblFinance(tblFinance instance);
+    partial void DeletetblFinance(tblFinance instance);
+    partial void InserttblLMIA11Factor(tblLMIA11Factor instance);
+    partial void UpdatetblLMIA11Factor(tblLMIA11Factor instance);
+    partial void DeletetblLMIA11Factor(tblLMIA11Factor instance);
+    partial void InserttblBusinessDetail(tblBusinessDetail instance);
+    partial void UpdatetblBusinessDetail(tblBusinessDetail instance);
+    partial void DeletetblBusinessDetail(tblBusinessDetail instance);
     #endregion
 		
 		public CommonDataContext() : 
@@ -159,14 +165,6 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblApplication>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblBusinessDetail> tblBusinessDetails
-		{
-			get
-			{
-				return this.GetTable<tblBusinessDetail>();
 			}
 		}
 		
@@ -367,6 +365,30 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblLMIAPosition>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblFinance> tblFinances
+		{
+			get
+			{
+				return this.GetTable<tblFinance>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblLMIA11Factor> tblLMIA11Factors
+		{
+			get
+			{
+				return this.GetTable<tblLMIA11Factor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblBusinessDetail> tblBusinessDetails
+		{
+			get
+			{
+				return this.GetTable<tblBusinessDetail>();
 			}
 		}
 	}
@@ -950,572 +972,6 @@ namespace CA.Immigration.Data
 					this._Stage = value;
 					this.SendPropertyChanged("Stage");
 					this.OnStageChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblBusinessDetail")]
-	public partial class tblBusinessDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _ApplicationID;
-		
-		private System.Nullable<int> _TotalEmployeeUnderCRA;
-		
-		private System.Nullable<int> _TotalEmployeeThisLocation;
-		
-		private System.Nullable<int> _TotalCndThisLocation;
-		
-		private System.Nullable<int> _TotalEmployeeThisOccupationLocation;
-		
-		private System.Nullable<int> _TotalTFWAfterPositive;
-		
-		private System.Nullable<int> _Q6;
-		
-		private System.Nullable<int> _Q6_1;
-		
-		private System.Nullable<int> _Q7;
-		
-		private System.Nullable<int> _Q7_1;
-		
-		private System.Nullable<int> _Q8;
-		
-		private System.Nullable<int> _Q8_1;
-		
-		private System.Nullable<System.DateTime> _Q8_2;
-		
-		private string _Q8_3;
-		
-		private string _Q8_4;
-		
-		private System.Nullable<int> _Q9;
-		
-		private System.Nullable<int> _Q9_1;
-		
-		private System.Nullable<int> _Q9_2;
-		
-		private string _Q9_3;
-		
-		private System.Nullable<int> _Q10;
-		
-		private string _Q10_1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnApplicationIDChanging(System.Nullable<int> value);
-    partial void OnApplicationIDChanged();
-    partial void OnTotalEmployeeUnderCRAChanging(System.Nullable<int> value);
-    partial void OnTotalEmployeeUnderCRAChanged();
-    partial void OnTotalEmployeeThisLocationChanging(System.Nullable<int> value);
-    partial void OnTotalEmployeeThisLocationChanged();
-    partial void OnTotalCndThisLocationChanging(System.Nullable<int> value);
-    partial void OnTotalCndThisLocationChanged();
-    partial void OnTotalEmployeeThisOccupationLocationChanging(System.Nullable<int> value);
-    partial void OnTotalEmployeeThisOccupationLocationChanged();
-    partial void OnTotalTFWAfterPositiveChanging(System.Nullable<int> value);
-    partial void OnTotalTFWAfterPositiveChanged();
-    partial void OnQ6Changing(System.Nullable<int> value);
-    partial void OnQ6Changed();
-    partial void OnQ6_1Changing(System.Nullable<int> value);
-    partial void OnQ6_1Changed();
-    partial void OnQ7Changing(System.Nullable<int> value);
-    partial void OnQ7Changed();
-    partial void OnQ7_1Changing(System.Nullable<int> value);
-    partial void OnQ7_1Changed();
-    partial void OnQ8Changing(System.Nullable<int> value);
-    partial void OnQ8Changed();
-    partial void OnQ8_1Changing(System.Nullable<int> value);
-    partial void OnQ8_1Changed();
-    partial void OnQ8_2Changing(System.Nullable<System.DateTime> value);
-    partial void OnQ8_2Changed();
-    partial void OnQ8_3Changing(string value);
-    partial void OnQ8_3Changed();
-    partial void OnQ8_4Changing(string value);
-    partial void OnQ8_4Changed();
-    partial void OnQ9Changing(System.Nullable<int> value);
-    partial void OnQ9Changed();
-    partial void OnQ9_1Changing(System.Nullable<int> value);
-    partial void OnQ9_1Changed();
-    partial void OnQ9_2Changing(System.Nullable<int> value);
-    partial void OnQ9_2Changed();
-    partial void OnQ9_3Changing(string value);
-    partial void OnQ9_3Changed();
-    partial void OnQ10Changing(System.Nullable<int> value);
-    partial void OnQ10Changed();
-    partial void OnQ10_1Changing(string value);
-    partial void OnQ10_1Changed();
-    #endregion
-		
-		public tblBusinessDetail()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationID", DbType="Int")]
-		public System.Nullable<int> ApplicationID
-		{
-			get
-			{
-				return this._ApplicationID;
-			}
-			set
-			{
-				if ((this._ApplicationID != value))
-				{
-					this.OnApplicationIDChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationID = value;
-					this.SendPropertyChanged("ApplicationID");
-					this.OnApplicationIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployeeUnderCRA", DbType="Int")]
-		public System.Nullable<int> TotalEmployeeUnderCRA
-		{
-			get
-			{
-				return this._TotalEmployeeUnderCRA;
-			}
-			set
-			{
-				if ((this._TotalEmployeeUnderCRA != value))
-				{
-					this.OnTotalEmployeeUnderCRAChanging(value);
-					this.SendPropertyChanging();
-					this._TotalEmployeeUnderCRA = value;
-					this.SendPropertyChanged("TotalEmployeeUnderCRA");
-					this.OnTotalEmployeeUnderCRAChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployeeThisLocation", DbType="Int")]
-		public System.Nullable<int> TotalEmployeeThisLocation
-		{
-			get
-			{
-				return this._TotalEmployeeThisLocation;
-			}
-			set
-			{
-				if ((this._TotalEmployeeThisLocation != value))
-				{
-					this.OnTotalEmployeeThisLocationChanging(value);
-					this.SendPropertyChanging();
-					this._TotalEmployeeThisLocation = value;
-					this.SendPropertyChanged("TotalEmployeeThisLocation");
-					this.OnTotalEmployeeThisLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalCndThisLocation", DbType="Int")]
-		public System.Nullable<int> TotalCndThisLocation
-		{
-			get
-			{
-				return this._TotalCndThisLocation;
-			}
-			set
-			{
-				if ((this._TotalCndThisLocation != value))
-				{
-					this.OnTotalCndThisLocationChanging(value);
-					this.SendPropertyChanging();
-					this._TotalCndThisLocation = value;
-					this.SendPropertyChanged("TotalCndThisLocation");
-					this.OnTotalCndThisLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployeeThisOccupationLocation", DbType="Int")]
-		public System.Nullable<int> TotalEmployeeThisOccupationLocation
-		{
-			get
-			{
-				return this._TotalEmployeeThisOccupationLocation;
-			}
-			set
-			{
-				if ((this._TotalEmployeeThisOccupationLocation != value))
-				{
-					this.OnTotalEmployeeThisOccupationLocationChanging(value);
-					this.SendPropertyChanging();
-					this._TotalEmployeeThisOccupationLocation = value;
-					this.SendPropertyChanged("TotalEmployeeThisOccupationLocation");
-					this.OnTotalEmployeeThisOccupationLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalTFWAfterPositive", DbType="Int")]
-		public System.Nullable<int> TotalTFWAfterPositive
-		{
-			get
-			{
-				return this._TotalTFWAfterPositive;
-			}
-			set
-			{
-				if ((this._TotalTFWAfterPositive != value))
-				{
-					this.OnTotalTFWAfterPositiveChanging(value);
-					this.SendPropertyChanging();
-					this._TotalTFWAfterPositive = value;
-					this.SendPropertyChanged("TotalTFWAfterPositive");
-					this.OnTotalTFWAfterPositiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6", DbType="Int")]
-		public System.Nullable<int> Q6
-		{
-			get
-			{
-				return this._Q6;
-			}
-			set
-			{
-				if ((this._Q6 != value))
-				{
-					this.OnQ6Changing(value);
-					this.SendPropertyChanging();
-					this._Q6 = value;
-					this.SendPropertyChanged("Q6");
-					this.OnQ6Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6_1", DbType="Int")]
-		public System.Nullable<int> Q6_1
-		{
-			get
-			{
-				return this._Q6_1;
-			}
-			set
-			{
-				if ((this._Q6_1 != value))
-				{
-					this.OnQ6_1Changing(value);
-					this.SendPropertyChanging();
-					this._Q6_1 = value;
-					this.SendPropertyChanged("Q6_1");
-					this.OnQ6_1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7", DbType="Int")]
-		public System.Nullable<int> Q7
-		{
-			get
-			{
-				return this._Q7;
-			}
-			set
-			{
-				if ((this._Q7 != value))
-				{
-					this.OnQ7Changing(value);
-					this.SendPropertyChanging();
-					this._Q7 = value;
-					this.SendPropertyChanged("Q7");
-					this.OnQ7Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7_1", DbType="Int")]
-		public System.Nullable<int> Q7_1
-		{
-			get
-			{
-				return this._Q7_1;
-			}
-			set
-			{
-				if ((this._Q7_1 != value))
-				{
-					this.OnQ7_1Changing(value);
-					this.SendPropertyChanging();
-					this._Q7_1 = value;
-					this.SendPropertyChanged("Q7_1");
-					this.OnQ7_1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8", DbType="Int")]
-		public System.Nullable<int> Q8
-		{
-			get
-			{
-				return this._Q8;
-			}
-			set
-			{
-				if ((this._Q8 != value))
-				{
-					this.OnQ8Changing(value);
-					this.SendPropertyChanging();
-					this._Q8 = value;
-					this.SendPropertyChanged("Q8");
-					this.OnQ8Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_1", DbType="Int")]
-		public System.Nullable<int> Q8_1
-		{
-			get
-			{
-				return this._Q8_1;
-			}
-			set
-			{
-				if ((this._Q8_1 != value))
-				{
-					this.OnQ8_1Changing(value);
-					this.SendPropertyChanging();
-					this._Q8_1 = value;
-					this.SendPropertyChanged("Q8_1");
-					this.OnQ8_1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_2", DbType="Date")]
-		public System.Nullable<System.DateTime> Q8_2
-		{
-			get
-			{
-				return this._Q8_2;
-			}
-			set
-			{
-				if ((this._Q8_2 != value))
-				{
-					this.OnQ8_2Changing(value);
-					this.SendPropertyChanging();
-					this._Q8_2 = value;
-					this.SendPropertyChanged("Q8_2");
-					this.OnQ8_2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_3", DbType="NVarChar(20)")]
-		public string Q8_3
-		{
-			get
-			{
-				return this._Q8_3;
-			}
-			set
-			{
-				if ((this._Q8_3 != value))
-				{
-					this.OnQ8_3Changing(value);
-					this.SendPropertyChanging();
-					this._Q8_3 = value;
-					this.SendPropertyChanged("Q8_3");
-					this.OnQ8_3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_4", DbType="NVarChar(100)")]
-		public string Q8_4
-		{
-			get
-			{
-				return this._Q8_4;
-			}
-			set
-			{
-				if ((this._Q8_4 != value))
-				{
-					this.OnQ8_4Changing(value);
-					this.SendPropertyChanging();
-					this._Q8_4 = value;
-					this.SendPropertyChanged("Q8_4");
-					this.OnQ8_4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9", DbType="Int")]
-		public System.Nullable<int> Q9
-		{
-			get
-			{
-				return this._Q9;
-			}
-			set
-			{
-				if ((this._Q9 != value))
-				{
-					this.OnQ9Changing(value);
-					this.SendPropertyChanging();
-					this._Q9 = value;
-					this.SendPropertyChanged("Q9");
-					this.OnQ9Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_1", DbType="Int")]
-		public System.Nullable<int> Q9_1
-		{
-			get
-			{
-				return this._Q9_1;
-			}
-			set
-			{
-				if ((this._Q9_1 != value))
-				{
-					this.OnQ9_1Changing(value);
-					this.SendPropertyChanging();
-					this._Q9_1 = value;
-					this.SendPropertyChanged("Q9_1");
-					this.OnQ9_1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_2", DbType="Int")]
-		public System.Nullable<int> Q9_2
-		{
-			get
-			{
-				return this._Q9_2;
-			}
-			set
-			{
-				if ((this._Q9_2 != value))
-				{
-					this.OnQ9_2Changing(value);
-					this.SendPropertyChanging();
-					this._Q9_2 = value;
-					this.SendPropertyChanged("Q9_2");
-					this.OnQ9_2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_3", DbType="NVarChar(100)")]
-		public string Q9_3
-		{
-			get
-			{
-				return this._Q9_3;
-			}
-			set
-			{
-				if ((this._Q9_3 != value))
-				{
-					this.OnQ9_3Changing(value);
-					this.SendPropertyChanging();
-					this._Q9_3 = value;
-					this.SendPropertyChanged("Q9_3");
-					this.OnQ9_3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10", DbType="Int")]
-		public System.Nullable<int> Q10
-		{
-			get
-			{
-				return this._Q10;
-			}
-			set
-			{
-				if ((this._Q10 != value))
-				{
-					this.OnQ10Changing(value);
-					this.SendPropertyChanging();
-					this._Q10 = value;
-					this.SendPropertyChanged("Q10");
-					this.OnQ10Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10_1", DbType="NVarChar(50)")]
-		public string Q10_1
-		{
-			get
-			{
-				return this._Q10_1;
-			}
-			set
-			{
-				if ((this._Q10_1 != value))
-				{
-					this.OnQ10_1Changing(value);
-					this.SendPropertyChanging();
-					this._Q10_1 = value;
-					this.SendPropertyChanged("Q10_1");
-					this.OnQ10_1Changed();
 				}
 			}
 		}
@@ -10266,6 +9722,1224 @@ namespace CA.Immigration.Data
 					this._EmployerImact = value;
 					this.SendPropertyChanged("EmployerImact");
 					this.OnEmployerImactChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblFinance")]
+	public partial class tblFinance : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _ApplicationId;
+		
+		private System.Nullable<int> _FiscalYear;
+		
+		private System.Nullable<decimal> _TotalRevenue;
+		
+		private System.Nullable<decimal> _Cash;
+		
+		private System.Nullable<decimal> _NetIncome;
+		
+		private System.Nullable<decimal> _RetainedEarning;
+		
+		private System.Nullable<decimal> _GrossPayroll;
+		
+		private System.Nullable<int> _T4SlipsIssued;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnApplicationIdChanging(System.Nullable<int> value);
+    partial void OnApplicationIdChanged();
+    partial void OnFiscalYearChanging(System.Nullable<int> value);
+    partial void OnFiscalYearChanged();
+    partial void OnTotalRevenueChanging(System.Nullable<decimal> value);
+    partial void OnTotalRevenueChanged();
+    partial void OnCashChanging(System.Nullable<decimal> value);
+    partial void OnCashChanged();
+    partial void OnNetIncomeChanging(System.Nullable<decimal> value);
+    partial void OnNetIncomeChanged();
+    partial void OnRetainedEarningChanging(System.Nullable<decimal> value);
+    partial void OnRetainedEarningChanged();
+    partial void OnGrossPayrollChanging(System.Nullable<decimal> value);
+    partial void OnGrossPayrollChanged();
+    partial void OnT4SlipsIssuedChanging(System.Nullable<int> value);
+    partial void OnT4SlipsIssuedChanged();
+    #endregion
+		
+		public tblFinance()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationId", DbType="Int")]
+		public System.Nullable<int> ApplicationId
+		{
+			get
+			{
+				return this._ApplicationId;
+			}
+			set
+			{
+				if ((this._ApplicationId != value))
+				{
+					this.OnApplicationIdChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationId = value;
+					this.SendPropertyChanged("ApplicationId");
+					this.OnApplicationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FiscalYear", DbType="Int")]
+		public System.Nullable<int> FiscalYear
+		{
+			get
+			{
+				return this._FiscalYear;
+			}
+			set
+			{
+				if ((this._FiscalYear != value))
+				{
+					this.OnFiscalYearChanging(value);
+					this.SendPropertyChanging();
+					this._FiscalYear = value;
+					this.SendPropertyChanged("FiscalYear");
+					this.OnFiscalYearChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRevenue", DbType="Money")]
+		public System.Nullable<decimal> TotalRevenue
+		{
+			get
+			{
+				return this._TotalRevenue;
+			}
+			set
+			{
+				if ((this._TotalRevenue != value))
+				{
+					this.OnTotalRevenueChanging(value);
+					this.SendPropertyChanging();
+					this._TotalRevenue = value;
+					this.SendPropertyChanged("TotalRevenue");
+					this.OnTotalRevenueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cash", DbType="Money")]
+		public System.Nullable<decimal> Cash
+		{
+			get
+			{
+				return this._Cash;
+			}
+			set
+			{
+				if ((this._Cash != value))
+				{
+					this.OnCashChanging(value);
+					this.SendPropertyChanging();
+					this._Cash = value;
+					this.SendPropertyChanged("Cash");
+					this.OnCashChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NetIncome", DbType="Money")]
+		public System.Nullable<decimal> NetIncome
+		{
+			get
+			{
+				return this._NetIncome;
+			}
+			set
+			{
+				if ((this._NetIncome != value))
+				{
+					this.OnNetIncomeChanging(value);
+					this.SendPropertyChanging();
+					this._NetIncome = value;
+					this.SendPropertyChanged("NetIncome");
+					this.OnNetIncomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RetainedEarning", DbType="Money")]
+		public System.Nullable<decimal> RetainedEarning
+		{
+			get
+			{
+				return this._RetainedEarning;
+			}
+			set
+			{
+				if ((this._RetainedEarning != value))
+				{
+					this.OnRetainedEarningChanging(value);
+					this.SendPropertyChanging();
+					this._RetainedEarning = value;
+					this.SendPropertyChanged("RetainedEarning");
+					this.OnRetainedEarningChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrossPayroll", DbType="Money")]
+		public System.Nullable<decimal> GrossPayroll
+		{
+			get
+			{
+				return this._GrossPayroll;
+			}
+			set
+			{
+				if ((this._GrossPayroll != value))
+				{
+					this.OnGrossPayrollChanging(value);
+					this.SendPropertyChanging();
+					this._GrossPayroll = value;
+					this.SendPropertyChanged("GrossPayroll");
+					this.OnGrossPayrollChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_T4SlipsIssued", DbType="Int")]
+		public System.Nullable<int> T4SlipsIssued
+		{
+			get
+			{
+				return this._T4SlipsIssued;
+			}
+			set
+			{
+				if ((this._T4SlipsIssued != value))
+				{
+					this.OnT4SlipsIssuedChanging(value);
+					this.SendPropertyChanging();
+					this._T4SlipsIssued = value;
+					this.SendPropertyChanged("T4SlipsIssued");
+					this.OnT4SlipsIssuedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLMIA11Factors")]
+	public partial class tblLMIA11Factor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _ApplicationId;
+		
+		private System.Nullable<bool> _JobCreation;
+		
+		private System.Nullable<bool> _SkillTransfer;
+		
+		private System.Nullable<bool> _FillLabourShortage;
+		
+		private System.Nullable<bool> _PrevailingWageOffered;
+		
+		private System.Nullable<bool> _HireCanadianEffort;
+		
+		private System.Nullable<bool> _LabourDisputUnaffected;
+		
+		private System.Nullable<bool> _CommitmentFulfilled;
+		
+		private System.Nullable<bool> _BusinessEngagement;
+		
+		private System.Nullable<bool> _OfferConsistentwithDemand;
+		
+		private System.Nullable<bool> _AbletoFulfillTermofOffer;
+		
+		private System.Nullable<bool> _PastCompliance;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnApplicationIdChanging(System.Nullable<int> value);
+    partial void OnApplicationIdChanged();
+    partial void OnJobCreationChanging(System.Nullable<bool> value);
+    partial void OnJobCreationChanged();
+    partial void OnSkillTransferChanging(System.Nullable<bool> value);
+    partial void OnSkillTransferChanged();
+    partial void OnFillLabourShortageChanging(System.Nullable<bool> value);
+    partial void OnFillLabourShortageChanged();
+    partial void OnPrevailingWageOfferedChanging(System.Nullable<bool> value);
+    partial void OnPrevailingWageOfferedChanged();
+    partial void OnHireCanadianEffortChanging(System.Nullable<bool> value);
+    partial void OnHireCanadianEffortChanged();
+    partial void OnLabourDisputUnaffectedChanging(System.Nullable<bool> value);
+    partial void OnLabourDisputUnaffectedChanged();
+    partial void OnCommitmentFulfilledChanging(System.Nullable<bool> value);
+    partial void OnCommitmentFulfilledChanged();
+    partial void OnBusinessEngagementChanging(System.Nullable<bool> value);
+    partial void OnBusinessEngagementChanged();
+    partial void OnOfferConsistentwithDemandChanging(System.Nullable<bool> value);
+    partial void OnOfferConsistentwithDemandChanged();
+    partial void OnAbletoFulfillTermofOfferChanging(System.Nullable<bool> value);
+    partial void OnAbletoFulfillTermofOfferChanged();
+    partial void OnPastComplianceChanging(System.Nullable<bool> value);
+    partial void OnPastComplianceChanged();
+    #endregion
+		
+		public tblLMIA11Factor()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationId", DbType="Int")]
+		public System.Nullable<int> ApplicationId
+		{
+			get
+			{
+				return this._ApplicationId;
+			}
+			set
+			{
+				if ((this._ApplicationId != value))
+				{
+					this.OnApplicationIdChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationId = value;
+					this.SendPropertyChanged("ApplicationId");
+					this.OnApplicationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobCreation", DbType="Bit")]
+		public System.Nullable<bool> JobCreation
+		{
+			get
+			{
+				return this._JobCreation;
+			}
+			set
+			{
+				if ((this._JobCreation != value))
+				{
+					this.OnJobCreationChanging(value);
+					this.SendPropertyChanging();
+					this._JobCreation = value;
+					this.SendPropertyChanged("JobCreation");
+					this.OnJobCreationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillTransfer", DbType="Bit")]
+		public System.Nullable<bool> SkillTransfer
+		{
+			get
+			{
+				return this._SkillTransfer;
+			}
+			set
+			{
+				if ((this._SkillTransfer != value))
+				{
+					this.OnSkillTransferChanging(value);
+					this.SendPropertyChanging();
+					this._SkillTransfer = value;
+					this.SendPropertyChanged("SkillTransfer");
+					this.OnSkillTransferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillLabourShortage", DbType="Bit")]
+		public System.Nullable<bool> FillLabourShortage
+		{
+			get
+			{
+				return this._FillLabourShortage;
+			}
+			set
+			{
+				if ((this._FillLabourShortage != value))
+				{
+					this.OnFillLabourShortageChanging(value);
+					this.SendPropertyChanging();
+					this._FillLabourShortage = value;
+					this.SendPropertyChanged("FillLabourShortage");
+					this.OnFillLabourShortageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrevailingWageOffered", DbType="Bit")]
+		public System.Nullable<bool> PrevailingWageOffered
+		{
+			get
+			{
+				return this._PrevailingWageOffered;
+			}
+			set
+			{
+				if ((this._PrevailingWageOffered != value))
+				{
+					this.OnPrevailingWageOfferedChanging(value);
+					this.SendPropertyChanging();
+					this._PrevailingWageOffered = value;
+					this.SendPropertyChanged("PrevailingWageOffered");
+					this.OnPrevailingWageOfferedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HireCanadianEffort", DbType="Bit")]
+		public System.Nullable<bool> HireCanadianEffort
+		{
+			get
+			{
+				return this._HireCanadianEffort;
+			}
+			set
+			{
+				if ((this._HireCanadianEffort != value))
+				{
+					this.OnHireCanadianEffortChanging(value);
+					this.SendPropertyChanging();
+					this._HireCanadianEffort = value;
+					this.SendPropertyChanged("HireCanadianEffort");
+					this.OnHireCanadianEffortChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LabourDisputUnaffected", DbType="Bit")]
+		public System.Nullable<bool> LabourDisputUnaffected
+		{
+			get
+			{
+				return this._LabourDisputUnaffected;
+			}
+			set
+			{
+				if ((this._LabourDisputUnaffected != value))
+				{
+					this.OnLabourDisputUnaffectedChanging(value);
+					this.SendPropertyChanging();
+					this._LabourDisputUnaffected = value;
+					this.SendPropertyChanged("LabourDisputUnaffected");
+					this.OnLabourDisputUnaffectedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CommitmentFulfilled", DbType="Bit")]
+		public System.Nullable<bool> CommitmentFulfilled
+		{
+			get
+			{
+				return this._CommitmentFulfilled;
+			}
+			set
+			{
+				if ((this._CommitmentFulfilled != value))
+				{
+					this.OnCommitmentFulfilledChanging(value);
+					this.SendPropertyChanging();
+					this._CommitmentFulfilled = value;
+					this.SendPropertyChanged("CommitmentFulfilled");
+					this.OnCommitmentFulfilledChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BusinessEngagement", DbType="Bit")]
+		public System.Nullable<bool> BusinessEngagement
+		{
+			get
+			{
+				return this._BusinessEngagement;
+			}
+			set
+			{
+				if ((this._BusinessEngagement != value))
+				{
+					this.OnBusinessEngagementChanging(value);
+					this.SendPropertyChanging();
+					this._BusinessEngagement = value;
+					this.SendPropertyChanged("BusinessEngagement");
+					this.OnBusinessEngagementChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfferConsistentwithDemand", DbType="Bit")]
+		public System.Nullable<bool> OfferConsistentwithDemand
+		{
+			get
+			{
+				return this._OfferConsistentwithDemand;
+			}
+			set
+			{
+				if ((this._OfferConsistentwithDemand != value))
+				{
+					this.OnOfferConsistentwithDemandChanging(value);
+					this.SendPropertyChanging();
+					this._OfferConsistentwithDemand = value;
+					this.SendPropertyChanged("OfferConsistentwithDemand");
+					this.OnOfferConsistentwithDemandChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AbletoFulfillTermofOffer", DbType="Bit")]
+		public System.Nullable<bool> AbletoFulfillTermofOffer
+		{
+			get
+			{
+				return this._AbletoFulfillTermofOffer;
+			}
+			set
+			{
+				if ((this._AbletoFulfillTermofOffer != value))
+				{
+					this.OnAbletoFulfillTermofOfferChanging(value);
+					this.SendPropertyChanging();
+					this._AbletoFulfillTermofOffer = value;
+					this.SendPropertyChanged("AbletoFulfillTermofOffer");
+					this.OnAbletoFulfillTermofOfferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PastCompliance", DbType="Bit")]
+		public System.Nullable<bool> PastCompliance
+		{
+			get
+			{
+				return this._PastCompliance;
+			}
+			set
+			{
+				if ((this._PastCompliance != value))
+				{
+					this.OnPastComplianceChanging(value);
+					this.SendPropertyChanging();
+					this._PastCompliance = value;
+					this.SendPropertyChanged("PastCompliance");
+					this.OnPastComplianceChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblBusinessDetail")]
+	public partial class tblBusinessDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _ApplicationId;
+		
+		private string _EmployerSituation;
+		
+		private string _SituationImpact;
+		
+		private System.Nullable<int> _TotalEmployeeUnderCRA;
+		
+		private System.Nullable<int> _TotalEmployeeThisLocation;
+		
+		private System.Nullable<int> _TotalCndThisLocation;
+		
+		private System.Nullable<int> _TotalEmployeeThisOccupationLocation;
+		
+		private System.Nullable<int> _TotalTFWAfterPositive;
+		
+		private System.Nullable<int> _Q6;
+		
+		private System.Nullable<int> _Q6_1;
+		
+		private System.Nullable<int> _Q7;
+		
+		private System.Nullable<int> _Q7_1;
+		
+		private System.Nullable<int> _Q8;
+		
+		private System.Nullable<int> _Q8_1;
+		
+		private System.Nullable<System.DateTime> _Q8_2;
+		
+		private string _Q8_3;
+		
+		private string _Q8_4;
+		
+		private System.Nullable<int> _Q9;
+		
+		private System.Nullable<int> _Q9_1;
+		
+		private System.Nullable<int> _Q9_2;
+		
+		private string _Q9_3;
+		
+		private System.Nullable<int> _Q10;
+		
+		private string _Q10_1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnApplicationIdChanging(System.Nullable<int> value);
+    partial void OnApplicationIdChanged();
+    partial void OnEmployerSituationChanging(string value);
+    partial void OnEmployerSituationChanged();
+    partial void OnSituationImpactChanging(string value);
+    partial void OnSituationImpactChanged();
+    partial void OnTotalEmployeeUnderCRAChanging(System.Nullable<int> value);
+    partial void OnTotalEmployeeUnderCRAChanged();
+    partial void OnTotalEmployeeThisLocationChanging(System.Nullable<int> value);
+    partial void OnTotalEmployeeThisLocationChanged();
+    partial void OnTotalCndThisLocationChanging(System.Nullable<int> value);
+    partial void OnTotalCndThisLocationChanged();
+    partial void OnTotalEmployeeThisOccupationLocationChanging(System.Nullable<int> value);
+    partial void OnTotalEmployeeThisOccupationLocationChanged();
+    partial void OnTotalTFWAfterPositiveChanging(System.Nullable<int> value);
+    partial void OnTotalTFWAfterPositiveChanged();
+    partial void OnQ6Changing(System.Nullable<int> value);
+    partial void OnQ6Changed();
+    partial void OnQ6_1Changing(System.Nullable<int> value);
+    partial void OnQ6_1Changed();
+    partial void OnQ7Changing(System.Nullable<int> value);
+    partial void OnQ7Changed();
+    partial void OnQ7_1Changing(System.Nullable<int> value);
+    partial void OnQ7_1Changed();
+    partial void OnQ8Changing(System.Nullable<int> value);
+    partial void OnQ8Changed();
+    partial void OnQ8_1Changing(System.Nullable<int> value);
+    partial void OnQ8_1Changed();
+    partial void OnQ8_2Changing(System.Nullable<System.DateTime> value);
+    partial void OnQ8_2Changed();
+    partial void OnQ8_3Changing(string value);
+    partial void OnQ8_3Changed();
+    partial void OnQ8_4Changing(string value);
+    partial void OnQ8_4Changed();
+    partial void OnQ9Changing(System.Nullable<int> value);
+    partial void OnQ9Changed();
+    partial void OnQ9_1Changing(System.Nullable<int> value);
+    partial void OnQ9_1Changed();
+    partial void OnQ9_2Changing(System.Nullable<int> value);
+    partial void OnQ9_2Changed();
+    partial void OnQ9_3Changing(string value);
+    partial void OnQ9_3Changed();
+    partial void OnQ10Changing(System.Nullable<int> value);
+    partial void OnQ10Changed();
+    partial void OnQ10_1Changing(string value);
+    partial void OnQ10_1Changed();
+    #endregion
+		
+		public tblBusinessDetail()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationId", DbType="Int")]
+		public System.Nullable<int> ApplicationId
+		{
+			get
+			{
+				return this._ApplicationId;
+			}
+			set
+			{
+				if ((this._ApplicationId != value))
+				{
+					this.OnApplicationIdChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationId = value;
+					this.SendPropertyChanged("ApplicationId");
+					this.OnApplicationIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployerSituation", DbType="NVarChar(500)")]
+		public string EmployerSituation
+		{
+			get
+			{
+				return this._EmployerSituation;
+			}
+			set
+			{
+				if ((this._EmployerSituation != value))
+				{
+					this.OnEmployerSituationChanging(value);
+					this.SendPropertyChanging();
+					this._EmployerSituation = value;
+					this.SendPropertyChanged("EmployerSituation");
+					this.OnEmployerSituationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SituationImpact", DbType="NVarChar(500)")]
+		public string SituationImpact
+		{
+			get
+			{
+				return this._SituationImpact;
+			}
+			set
+			{
+				if ((this._SituationImpact != value))
+				{
+					this.OnSituationImpactChanging(value);
+					this.SendPropertyChanging();
+					this._SituationImpact = value;
+					this.SendPropertyChanged("SituationImpact");
+					this.OnSituationImpactChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployeeUnderCRA", DbType="Int")]
+		public System.Nullable<int> TotalEmployeeUnderCRA
+		{
+			get
+			{
+				return this._TotalEmployeeUnderCRA;
+			}
+			set
+			{
+				if ((this._TotalEmployeeUnderCRA != value))
+				{
+					this.OnTotalEmployeeUnderCRAChanging(value);
+					this.SendPropertyChanging();
+					this._TotalEmployeeUnderCRA = value;
+					this.SendPropertyChanged("TotalEmployeeUnderCRA");
+					this.OnTotalEmployeeUnderCRAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployeeThisLocation", DbType="Int")]
+		public System.Nullable<int> TotalEmployeeThisLocation
+		{
+			get
+			{
+				return this._TotalEmployeeThisLocation;
+			}
+			set
+			{
+				if ((this._TotalEmployeeThisLocation != value))
+				{
+					this.OnTotalEmployeeThisLocationChanging(value);
+					this.SendPropertyChanging();
+					this._TotalEmployeeThisLocation = value;
+					this.SendPropertyChanged("TotalEmployeeThisLocation");
+					this.OnTotalEmployeeThisLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalCndThisLocation", DbType="Int")]
+		public System.Nullable<int> TotalCndThisLocation
+		{
+			get
+			{
+				return this._TotalCndThisLocation;
+			}
+			set
+			{
+				if ((this._TotalCndThisLocation != value))
+				{
+					this.OnTotalCndThisLocationChanging(value);
+					this.SendPropertyChanging();
+					this._TotalCndThisLocation = value;
+					this.SendPropertyChanged("TotalCndThisLocation");
+					this.OnTotalCndThisLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalEmployeeThisOccupationLocation", DbType="Int")]
+		public System.Nullable<int> TotalEmployeeThisOccupationLocation
+		{
+			get
+			{
+				return this._TotalEmployeeThisOccupationLocation;
+			}
+			set
+			{
+				if ((this._TotalEmployeeThisOccupationLocation != value))
+				{
+					this.OnTotalEmployeeThisOccupationLocationChanging(value);
+					this.SendPropertyChanging();
+					this._TotalEmployeeThisOccupationLocation = value;
+					this.SendPropertyChanged("TotalEmployeeThisOccupationLocation");
+					this.OnTotalEmployeeThisOccupationLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalTFWAfterPositive", DbType="Int")]
+		public System.Nullable<int> TotalTFWAfterPositive
+		{
+			get
+			{
+				return this._TotalTFWAfterPositive;
+			}
+			set
+			{
+				if ((this._TotalTFWAfterPositive != value))
+				{
+					this.OnTotalTFWAfterPositiveChanging(value);
+					this.SendPropertyChanging();
+					this._TotalTFWAfterPositive = value;
+					this.SendPropertyChanged("TotalTFWAfterPositive");
+					this.OnTotalTFWAfterPositiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6", DbType="Int")]
+		public System.Nullable<int> Q6
+		{
+			get
+			{
+				return this._Q6;
+			}
+			set
+			{
+				if ((this._Q6 != value))
+				{
+					this.OnQ6Changing(value);
+					this.SendPropertyChanging();
+					this._Q6 = value;
+					this.SendPropertyChanged("Q6");
+					this.OnQ6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6_1", DbType="Int")]
+		public System.Nullable<int> Q6_1
+		{
+			get
+			{
+				return this._Q6_1;
+			}
+			set
+			{
+				if ((this._Q6_1 != value))
+				{
+					this.OnQ6_1Changing(value);
+					this.SendPropertyChanging();
+					this._Q6_1 = value;
+					this.SendPropertyChanged("Q6_1");
+					this.OnQ6_1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7", DbType="Int")]
+		public System.Nullable<int> Q7
+		{
+			get
+			{
+				return this._Q7;
+			}
+			set
+			{
+				if ((this._Q7 != value))
+				{
+					this.OnQ7Changing(value);
+					this.SendPropertyChanging();
+					this._Q7 = value;
+					this.SendPropertyChanged("Q7");
+					this.OnQ7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7_1", DbType="Int")]
+		public System.Nullable<int> Q7_1
+		{
+			get
+			{
+				return this._Q7_1;
+			}
+			set
+			{
+				if ((this._Q7_1 != value))
+				{
+					this.OnQ7_1Changing(value);
+					this.SendPropertyChanging();
+					this._Q7_1 = value;
+					this.SendPropertyChanged("Q7_1");
+					this.OnQ7_1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8", DbType="Int")]
+		public System.Nullable<int> Q8
+		{
+			get
+			{
+				return this._Q8;
+			}
+			set
+			{
+				if ((this._Q8 != value))
+				{
+					this.OnQ8Changing(value);
+					this.SendPropertyChanging();
+					this._Q8 = value;
+					this.SendPropertyChanged("Q8");
+					this.OnQ8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_1", DbType="Int")]
+		public System.Nullable<int> Q8_1
+		{
+			get
+			{
+				return this._Q8_1;
+			}
+			set
+			{
+				if ((this._Q8_1 != value))
+				{
+					this.OnQ8_1Changing(value);
+					this.SendPropertyChanging();
+					this._Q8_1 = value;
+					this.SendPropertyChanged("Q8_1");
+					this.OnQ8_1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_2", DbType="Date")]
+		public System.Nullable<System.DateTime> Q8_2
+		{
+			get
+			{
+				return this._Q8_2;
+			}
+			set
+			{
+				if ((this._Q8_2 != value))
+				{
+					this.OnQ8_2Changing(value);
+					this.SendPropertyChanging();
+					this._Q8_2 = value;
+					this.SendPropertyChanged("Q8_2");
+					this.OnQ8_2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_3", DbType="NVarChar(20)")]
+		public string Q8_3
+		{
+			get
+			{
+				return this._Q8_3;
+			}
+			set
+			{
+				if ((this._Q8_3 != value))
+				{
+					this.OnQ8_3Changing(value);
+					this.SendPropertyChanging();
+					this._Q8_3 = value;
+					this.SendPropertyChanged("Q8_3");
+					this.OnQ8_3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_4", DbType="NVarChar(100)")]
+		public string Q8_4
+		{
+			get
+			{
+				return this._Q8_4;
+			}
+			set
+			{
+				if ((this._Q8_4 != value))
+				{
+					this.OnQ8_4Changing(value);
+					this.SendPropertyChanging();
+					this._Q8_4 = value;
+					this.SendPropertyChanged("Q8_4");
+					this.OnQ8_4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9", DbType="Int")]
+		public System.Nullable<int> Q9
+		{
+			get
+			{
+				return this._Q9;
+			}
+			set
+			{
+				if ((this._Q9 != value))
+				{
+					this.OnQ9Changing(value);
+					this.SendPropertyChanging();
+					this._Q9 = value;
+					this.SendPropertyChanged("Q9");
+					this.OnQ9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_1", DbType="Int")]
+		public System.Nullable<int> Q9_1
+		{
+			get
+			{
+				return this._Q9_1;
+			}
+			set
+			{
+				if ((this._Q9_1 != value))
+				{
+					this.OnQ9_1Changing(value);
+					this.SendPropertyChanging();
+					this._Q9_1 = value;
+					this.SendPropertyChanged("Q9_1");
+					this.OnQ9_1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_2", DbType="Int")]
+		public System.Nullable<int> Q9_2
+		{
+			get
+			{
+				return this._Q9_2;
+			}
+			set
+			{
+				if ((this._Q9_2 != value))
+				{
+					this.OnQ9_2Changing(value);
+					this.SendPropertyChanging();
+					this._Q9_2 = value;
+					this.SendPropertyChanged("Q9_2");
+					this.OnQ9_2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_3", DbType="NVarChar(100)")]
+		public string Q9_3
+		{
+			get
+			{
+				return this._Q9_3;
+			}
+			set
+			{
+				if ((this._Q9_3 != value))
+				{
+					this.OnQ9_3Changing(value);
+					this.SendPropertyChanging();
+					this._Q9_3 = value;
+					this.SendPropertyChanged("Q9_3");
+					this.OnQ9_3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10", DbType="Int")]
+		public System.Nullable<int> Q10
+		{
+			get
+			{
+				return this._Q10;
+			}
+			set
+			{
+				if ((this._Q10 != value))
+				{
+					this.OnQ10Changing(value);
+					this.SendPropertyChanging();
+					this._Q10 = value;
+					this.SendPropertyChanged("Q10");
+					this.OnQ10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10_1", DbType="NVarChar(50)")]
+		public string Q10_1
+		{
+			get
+			{
+				return this._Q10_1;
+			}
+			set
+			{
+				if ((this._Q10_1 != value))
+				{
+					this.OnQ10_1Changing(value);
+					this.SendPropertyChanging();
+					this._Q10_1 = value;
+					this.SendPropertyChanged("Q10_1");
+					this.OnQ10_1Changed();
 				}
 			}
 		}

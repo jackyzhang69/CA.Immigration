@@ -89,6 +89,8 @@ ResponseDate date
 create table tblBusinessDetail (
 Id int not null primary key identity(1,1),
 ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
+EmployerSituation nvarchar(500),
+SituationImpact nvarchar(500),
 TotalEmployeeUnderCRA int, --"1. Number of employees currently employed nationally under this Canada Revenue Agency Business number (e.g. 5 franchises are covered by the business
                                            -- number and there are a total of 100 employees):"
 

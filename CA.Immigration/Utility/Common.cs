@@ -42,7 +42,7 @@ namespace CA.Immigration.Utility
 
         }
 
-       
+
     }
     public class ContactInfo
     {
@@ -168,7 +168,7 @@ namespace CA.Immigration.Utility
         {
             using (CommonDataContext cdc = new CommonDataContext())
             {
-                return cdc.tblPersons.Where(x => x.Id == id).Select(x => x.FirstName+" "+x.LastName).Single();
+                return cdc.tblPersons.Where(x => x.Id == id).Select(x => x.FirstName + " " + x.LastName).Single();
             }
 
         }
@@ -283,7 +283,35 @@ namespace CA.Immigration.Utility
         { new byte[]{ 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A }, ImageFormat.Png },
         { new byte[]{ 0xff, 0xd8 }, ImageFormat.Jpeg },
     };
+
+
     }
 
+    public static class Validation
+    {
+        public static bool IsInt(string value)
+        {
+            int intValue;
+            return Int32.TryParse(value, out intValue);
+        }
+        public static bool IsIntInRange(string value,int low, int high)
+        {
+            int intValue;
+            if (Int32.TryParse(value, out intValue) && intValue >= low && intValue <= high) return true;
+            else return false;
+            
+        }
+        public static bool IsFloat(string value)
+        {
+            float floatValue;
+            return float.TryParse(value, out floatValue);
+        }
+        public static bool IsFloatInRange(string value, float low, float high)
+        {
+            float floatValue;
+            if (float.TryParse(value, out floatValue) && floatValue >= low && floatValue <= high) return true;
+            else return false;
+        }
+    }
 
 }

@@ -70,26 +70,6 @@ CountryCode int not null,  -- Match with CIC country code defenition
 Country varchar(30) not null
 )
 
--- Create Canada province PK table
-create table tblCNDProvince
-(
-Id int not null primary key Identity(1,1),
-ProvinceCode int not null,  -- Match with CIC country code defenition
-Province varchar(2) not null
-)
-insert into tblCNDProvince values(1,'AB')
-insert into tblCNDProvince values(2,'BC')
-insert into tblCNDProvince values(3,'MB')
-insert into tblCNDProvince values(4,'NB')
-insert into tblCNDProvince values(5,'NL')
-insert into tblCNDProvince values(6,'NS')
-insert into tblCNDProvince values(7,'NT')
-insert into tblCNDProvince values(8,'NU')
-insert into tblCNDProvince values(9,'ON')
-insert into tblCNDProvince values(10,'PE')
-insert into tblCNDProvince values(11,'QC')
-insert into tblCNDProvince values(12,'SK')
-insert into tblCNDProvince values(13,'YT')
 
 -- PK Table indicates education level
 create table tblEducationLevel
@@ -117,18 +97,6 @@ insert into tblEducationLevel values(16,'ESL/FSL and University')
 insert into tblEducationLevel values(17,'Other Studies')
 insert into tblEducationLevel values(18,'Not Applicable')
 
-
--- Creat Gender type PK table 
-create table tblGender
-(
-Id int not null primary key Identity(1,1),
-GenderCode int, -- 1 Male 2 Female 3 Unknow
-Gender varchar(7) not null
-)
-
-insert into tblGender values(1, 'Male')
-insert into tblGender values(2, 'Female')
-insert into tblGender values(3, 'Unknown')
 
 -- Create Canada visit purpose PK table
 create table tblCNDVisitPurpose
@@ -464,4 +432,20 @@ OccupationProfile int, -- 1 poor 2 moderate 3 good
 EmployerSituation nvarchar(500),
 EmployerImact nvarchar(500)
 
+)
+create table tblLMIA11Factors
+(
+Id int not null primary key identity(1,1),
+ApplicationId int,
+JobCreation bit,
+SkillTransfer bit,
+FillLabourShortage bit,
+PrevailingWageOffered bit,
+HireCanadianEffort bit,
+LabourDisputUnaffected bit,
+CommitmentFulfilled bit,
+BusinessEngagement bit,
+OfferConsistentwithDemand bit,
+AbletoFulfillTermofOffer bit,
+PastCompliance bit
 )

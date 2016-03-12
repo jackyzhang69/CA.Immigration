@@ -16,8 +16,10 @@ namespace CA.Immigration
         public static bool CurrentCategoryReadOnly = false;
         public static int? CurrentProgramId;
         public static bool CurrentProgramIdReadOnly = false;
+        public static int? CurrentStreamId;
+        public static bool CurrentStreamIdReadOnly = false;
         public static int? CurrentApplicationId;
-        public static bool CurrentApplicationReadOnly = false;
+        public static bool CurrentApplicationIdReadOnly = false;
         public static string CurrentNOC;
         public static int? CurrentRCICId;
 

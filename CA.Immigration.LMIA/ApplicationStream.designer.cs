@@ -84,6 +84,7 @@
             this.cmbStream.Name = "cmbStream";
             this.cmbStream.Size = new System.Drawing.Size(198, 28);
             this.cmbStream.TabIndex = 1;
+            this.cmbStream.SelectionChangeCommitted += new System.EventHandler(this.cmbStream_SelectionChangeCommitted);
             // 
             // ckbOtherEmployer
             // 
@@ -131,13 +132,13 @@
             this.lblProgram.TabIndex = 2;
             this.lblProgram.Text = "Application Program";
             // 
-            // ApplicationSteam
+            // ApplicationStream
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grbApplicationType);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "ApplicationSteam";
+            this.Name = "ApplicationStream";
             this.Size = new System.Drawing.Size(1455, 106);
             this.grbApplicationType.ResumeLayout(false);
             this.grbApplicationType.PerformLayout();

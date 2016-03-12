@@ -30,32 +30,6 @@
       <Column Name="Stage" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblBusinessDetail" Member="tblBusinessDetails">
-    <Type Name="tblBusinessDetail">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ApplicationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalEmployeeUnderCRA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalEmployeeThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalCndThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalEmployeeThisOccupationLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TotalTFWAfterPositive" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q6" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q6_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q7" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q7_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q8" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q8_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q8_2" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Q8_3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Q8_4" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Q9" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q9_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q9_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q9_3" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Q10" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q10_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblCategory" Member="tblCategories">
     <Type Name="tblCategory">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -479,6 +453,64 @@
       <Column Name="OccupationProfile" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="EmployerImact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblFinance" Member="tblFinances">
+    <Type Name="tblFinance">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FiscalYear" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalRevenue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Cash" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NetIncome" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="RetainedEarning" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="GrossPayroll" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="T4SlipsIssued" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLMIA11Factors" Member="tblLMIA11Factors">
+    <Type Name="tblLMIA11Factor">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JobCreation" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SkillTransfer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FillLabourShortage" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrevailingWageOffered" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HireCanadianEffort" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LabourDisputUnaffected" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CommitmentFulfilled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BusinessEngagement" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OfferConsistentwithDemand" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AbletoFulfillTermofOffer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PastCompliance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblBusinessDetail" Member="tblBusinessDetails">
+    <Type Name="tblBusinessDetail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SituationImpact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="TotalEmployeeUnderCRA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalEmployeeThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalCndThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalEmployeeThisOccupationLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalTFWAfterPositive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q6_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q7_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q8_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q8_2" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Q8_3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Q8_4" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Q9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q9_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q9_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q9_3" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Q10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q10_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
