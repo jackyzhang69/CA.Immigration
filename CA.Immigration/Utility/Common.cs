@@ -141,7 +141,8 @@ namespace CA.Immigration.Utility
             }
         }
 
-        public static string MarriageStatusIdtoString(this string MarriageId) {
+        public static string MarriageStatusIdtoString(this string MarriageId)
+        {
             using (CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblMarriageStatusTypes.Where(x => x.TypeCode == MarriageId).Select(x => x.MarriageStatusType).FirstOrDefault();
@@ -154,6 +155,25 @@ namespace CA.Immigration.Utility
                 return cd.tblMarriageStatusTypes.Where(x => x.MarriageStatusType == marriagestatus).Select(x => x.TypeCode).FirstOrDefault();
             }
         }
+
+        public static string getEmployerFromId(this int id)
+        {
+            using (CommonDataContext cdc = new CommonDataContext())
+            {
+                return cdc.tblEmployers.Where(x => x.Id == id).Select(x => x.LegalName).Single();
+            }
+
+        }
+        public static string getEmployeeFromId(this int id)
+        {
+            using (CommonDataContext cdc = new CommonDataContext())
+            {
+                return cdc.tblPersons.Where(x => x.Id == id).Select(x => x.FirstName+" "+x.LastName).Single();
+            }
+
+        }
+
+
     }
     public class ImageWork
     {

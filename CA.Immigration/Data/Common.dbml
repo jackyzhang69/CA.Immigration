@@ -274,35 +274,6 @@
       <Column Name="CategoryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblRCIC" Member="tblRCICs">
-    <Type Name="tblRCIC">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="LastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="JobTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Telephone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="FaxNumber" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="MembershipID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="BusinessOperatingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="CRABN" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="BusinessLegalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ESDCThirdPartyID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="BusinessAddress" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="City" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Province" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="MainBizActivities" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Signature" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MailPO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="MailAptUnit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MailStreetNo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MailStreetName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblRecruitSummary" Member="tblRecruitSummaries">
     <Type Name="tblRecruitSummary">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -404,29 +375,6 @@
       <Column Name="Gender" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tblLMIAPosition" Member="tblLMIAPositions">
-    <Type Name="tblLMIAPosition">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="JobTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NOC" Type="System.String" DbType="Char(4)" CanBeNull="true" />
-      <Column Name="Province" Type="System.String" DbType="Char(2)" CanBeNull="true" />
-      <Column Name="WorkingHours" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HourlyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="ProvincialMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LocalNOCMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LocalNOCLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LocalNOCHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="SamePlaceSamePositionLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="SamePlaceSamePositionHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="NoSamePosition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="UmemploymentRate" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="COPSRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="OccupationProfile" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="EmployerImact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblLMIAApplication" Member="tblLMIAApplications">
     <Type Name="tblLMIAApplication">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -459,12 +407,12 @@
       <Column Name="CompanyType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="MailingCity" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="MailingProvince" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailingProvince" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MailingCountry" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="MailingPostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="BizAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="BizCity" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="BizProvince" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="BizProvince" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="BizCountry" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BizPostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="BizTelephone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
@@ -479,6 +427,58 @@
       <Column Name="ContactFax" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="ContactEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="theWitness" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblRCIC" Member="tblRCICs">
+    <Type Name="tblRCIC">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="JobTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="FaxNumber" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MembershipID" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="BusinessOperatingName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CRABN" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="BusinessLegalName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ESDCThirdPartyID" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="BusinessAddress" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Province" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MainBizActivities" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="theSignature" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MailPO" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MailAptUnit" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MailStreetNo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MailStreetName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLMIAPosition" Member="tblLMIAPositions">
+    <Type Name="tblLMIAPosition">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NOC" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="Province" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkingHours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProvincialMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LocalNOCMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LocalNOCLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LocalNOCHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SamePlaceSamePositionLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SamePlaceSamePositionHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NoSamePosition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UmemploymentRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="COPSRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OccupationProfile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EmployerImact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

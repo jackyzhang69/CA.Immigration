@@ -10,6 +10,8 @@ using System.Data;
 using System.Drawing;
 using CA.Immigration.App;
 using System.Drawing.Imaging;
+using System.Collections.Generic;
+
 
 namespace CA.Immigration.Startup
 {
@@ -86,37 +88,24 @@ namespace CA.Immigration.Startup
 
         private void getAllApplications()
         {
-
             // if no person or/and employer selected, display all applications
-
-
-
-
-        }
-        private void getAllApplications(int personId, int employerId)
-        {
-
-
-
-            // if person or/employer selected, display all selected person/employer's applications
-
-
-        }
-
-
-        private void getThePersons()
-        {
-            using (CommonDataContext cdc = new CommonDataContext())
+            // Get LMIA application 
+            using (CommonDataContext cdc=new CommonDataContext())
             {
-                //IQueryable<tblPerson> queryableData = cdc.tblPersons.AsQueryable<tblPerson>();
-                //string query = "cd.tblPersons";
-
-
-                //dgvPerson.DataSource = cdc.tblPersons
-                //    .Where(sqr)
-                //    .Select(x => new { Id = x.Id, Name = x.FirstName + " " + x.LastName, Gender = x.Gender, DOB = x.DOB, Phone = x.Phone, Email = x.Email }); 
+                dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new {ID=x.Id,Employer=((int)x.EmployerId).getEmployerFromId(),Employee= ((int)x.EmployeeId).getEmployeeFromId(), CreateDate=x.CreatedDate });
+                
             }
+
+            // Get ... application
+            
+
+
+
+
         }
+
+
+
 
         private void btnCreatePerson_Click(object sender, EventArgs e)
         {
@@ -290,12 +279,11 @@ namespace CA.Immigration.Startup
         private void btnApplication_Click(object sender, EventArgs e)
         {
             // call functions based on program selected 
-            GlobalData.CurrentStreamIdReadOnly = true;  // disable changing application id
-            switch (GlobalData.CurrentStreamId)
+            GlobalData.CurrentProgramIdReadOnly = true;  // disable changing application id
+            switch (GlobalData.CurrentProgramId)
             {
                 case (int)GlobalData.AppStream.LMIAPRandWP:
-                    LMIAForm lmiaform = new LMIAForm((int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentEmployerId, (int)GlobalData.CurrentStreamId);  //int appId,int employerId, int personId
-                    lmiaform.Show();
+                   
                     break;
                 default:
                     break;
@@ -305,7 +293,7 @@ namespace CA.Immigration.Startup
 
         private void cmbProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentStreamId = int.Parse(cmbProgram.SelectedValue.ToString());
+            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedValue;
         }
 
         private void btnPhoto_Click(object sender, EventArgs e)
@@ -457,16 +445,16 @@ namespace CA.Immigration.Startup
                     CompanyType = BEIcompanyType.cmbCompanyType.SelectedIndex != -1 ? BEIcompanyType.cmbCompanyType.SelectedIndex + 1 : -1, //index 0 is corporate
                     MailingAddress = txtMailAddress.Text,
                     MailingCity = txtMailCity.Text,
-                    MailingProvince = canadaProvincesMail.cmbProvince.SelectedIndex != -1 ? canadaProvincesMail.cmbProvince.SelectedText : null,
+                    MailingProvince = canadaProvincesMail.cmbProvince.SelectedIndex != -1 ? canadaProvincesMail.cmbProvince.SelectedIndex : -1,
                     MailingCountry = txtCountryMail.Text,
                     MailingPostalCode = txtPostalMail.Text,
                     BizAddress = txtBusinessAddress.Text,
-                    BizProvince = canadaProvincesBusiness.cmbProvince.SelectedIndex != -1 ? canadaProvincesBusiness.cmbProvince.SelectedText : null,
+                    BizProvince = canadaProvincesBusiness.cmbProvince.SelectedIndex != -1 ? canadaProvincesBusiness.cmbProvince.SelectedIndex : -1,
                     BizCountry = txtBusinessCountry.Text,
                     BizPostalCode = txtPostalBusiness.Text,
                     BizTelephone = txtEBIPhone.Text,
                     Website = txtEBIWebsite.Text,
-                    // BizStartDate= dtpBusinessStartDate.Value,
+                    BizStartDate= dtpBusinessStartDate.Value,
                     BizActivity = txtEBIBusinessActivities.Text,
                     ContactFirstName = txtEBIFirstName.Text,
                     ContactMiddleName = txtEBIMiddleName.Text,
@@ -493,6 +481,62 @@ namespace CA.Immigration.Startup
                 // set up global data
                 GlobalData.CurrentEmployerId = emp.Id;
             }
+        }
+
+        private void tabEmployer_Paint(object sender, PaintEventArgs e)
+        {
+            if(GlobalData.CurrentEmployerId!=null)
+            {
+                btnEBIInsert.Visible = false;  // disable insert 
+                using(CommonDataContext cdc=new CommonDataContext())
+                {
+
+                    tblEmployer emp = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).Single();
+                    txtESDCId.Text = emp.ESDCId.ToString();
+                    txtCRABN.Text = emp.CRA_BN.ToString();
+                    txtLegalName.Text = emp.LegalName;
+                    txtOperatingName.Text = emp.OperatingName;
+                    txtFranchise.Text = emp.FranchiseName;
+                    BEIcompanyType.cmbCompanyType.SelectedIndex = (int)emp.CompanyType; //
+                    txtMailAddress.Text = emp.MailingAddress;
+                    txtMailCity.Text = emp.MailingCity;
+                    canadaProvincesMail.cmbProvince.SelectedIndex =(int)emp.MailingProvince;
+                    txtCountryMail.Text = emp.MailingCountry;
+                    txtPostalMail.Text = emp.MailingPostalCode;
+                    txtBusinessAddress.Text = emp.BizAddress;
+                    canadaProvincesBusiness.cmbProvince.SelectedIndex = (int)emp.BizProvince;
+                    txtBusinessCountry.Text = emp.BizCountry;
+                    txtPostalBusiness.Text = emp.BizPostalCode;
+                    txtEBIPhone.Text = emp.BizTelephone;
+                    txtEBIWebsite.Text = emp.Website;
+                    dtpBusinessStartDate.Value = (DateTime)emp.BizStartDate;
+                    txtEBIBusinessActivities.Text = emp.BizActivity;
+                    txtEBIFirstName.Text = emp.ContactFirstName;
+                    txtEBIMiddleName.Text = emp.ContactMiddleName;
+                    txtEBILastName.Text = emp.ContactLastName;
+                    txtEBIJobTitle.Text = emp.ContactJobTitle;
+                    txtEBIPrimaryContactPhone.Text = emp.ContactPhone;
+                    txtEBIPrimaryContactEmail.Text = emp.ContactEmail;
+                    txteBIPrimaryContactFax.Text = emp.ContactFax;
+                }
+
+            }
+        }
+
+        private void btnEMP5575_Click(object sender, EventArgs e)
+        {
+           Dictionary<string,string> emp5575= RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
+           FormOPs.fillForm(@"c:\data\emp5575.pdf",emp5575);
+        }
+
+        private void dgvLMIAApplication_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (dgvLMIAApplication.SelectedRows != null) {
+                GlobalData.CurrentApplicationId = (int)dgvLMIAApplication.SelectedRows[0].Cells[0].Value;
+                LMIAForm lf = new LMIAForm((int)GlobalData.CurrentApplicationId);
+                lf.Show();
+            }
+
         }
     }
 }

@@ -52,13 +52,19 @@
             this.tabAdvisor = new System.Windows.Forms.TabPage();
             this.tbcSubAdvisor = new System.Windows.Forms.TabControl();
             this.tabAnalysis = new System.Windows.Forms.TabPage();
-            this.jobPosition1 = new CA.Immigration.LMIA.JobPosition();
+            this.selectRCICAdvisor = new CA.Immigration.Data.SelectRCIC();
+            this.btnEMP5575 = new System.Windows.Forms.Button();
+            this.btnAnalysisNew = new System.Windows.Forms.Button();
+            this.btnAnalysisDelete = new System.Windows.Forms.Button();
+            this.btnAnalysisUpdate = new System.Windows.Forms.Button();
+            this.btnAnalysisInsert = new System.Windows.Forms.Button();
+            this.jobPositionAdvisor = new CA.Immigration.LMIA.JobPosition();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSituationImpact = new System.Windows.Forms.TextBox();
             this.txtEmployerSituation = new System.Windows.Forms.TextBox();
-            this.lmFactors1 = new CA.Immigration.LMIA.LMFactors();
+            this.lmFactorsAnalysis = new CA.Immigration.LMIA.LMFactors();
             this.indicators1 = new CA.Immigration.LMIA.Indicators();
             this.financial1 = new CA.Immigration.LMIA.financial();
             this.applicationStream = new CA.Immigration.LMIA.ApplicationStream();
@@ -201,10 +207,6 @@
             this.financial2 = new CA.Immigration.LMIA.financial();
             this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationStream();
-            this.btnAnalysisInsert = new System.Windows.Forms.Button();
-            this.btnAnalysisUpdate = new System.Windows.Forms.Button();
-            this.btnAnalysisDelete = new System.Windows.Forms.Button();
-            this.btnAnalysisNew = new System.Windows.Forms.Button();
             this.tabBase.SuspendLayout();
             this.tabAdvisor.SuspendLayout();
             this.tbcSubAdvisor.SuspendLayout();
@@ -253,7 +255,7 @@
             this.tabAdvisor.Controls.Add(this.tbcSubAdvisor);
             this.tabAdvisor.Location = new System.Drawing.Point(4, 22);
             this.tabAdvisor.Name = "tabAdvisor";
-            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3);
             this.tabAdvisor.Size = new System.Drawing.Size(991, 772);
             this.tabAdvisor.TabIndex = 0;
             this.tabAdvisor.Text = "Advisor";
@@ -272,31 +274,89 @@
             // 
             // tabAnalysis
             // 
+            this.tabAnalysis.Controls.Add(this.selectRCICAdvisor);
+            this.tabAnalysis.Controls.Add(this.btnEMP5575);
             this.tabAnalysis.Controls.Add(this.btnAnalysisNew);
             this.tabAnalysis.Controls.Add(this.btnAnalysisDelete);
             this.tabAnalysis.Controls.Add(this.btnAnalysisUpdate);
             this.tabAnalysis.Controls.Add(this.btnAnalysisInsert);
-            this.tabAnalysis.Controls.Add(this.jobPosition1);
+            this.tabAnalysis.Controls.Add(this.jobPositionAdvisor);
             this.tabAnalysis.Controls.Add(this.groupBox1);
-            this.tabAnalysis.Controls.Add(this.lmFactors1);
+            this.tabAnalysis.Controls.Add(this.lmFactorsAnalysis);
             this.tabAnalysis.Controls.Add(this.indicators1);
             this.tabAnalysis.Controls.Add(this.financial1);
             this.tabAnalysis.Controls.Add(this.applicationStream);
             this.tabAnalysis.Location = new System.Drawing.Point(4, 22);
             this.tabAnalysis.Name = "tabAnalysis";
-            this.tabAnalysis.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAnalysis.Padding = new System.Windows.Forms.Padding(3);
             this.tabAnalysis.Size = new System.Drawing.Size(977, 740);
             this.tabAnalysis.TabIndex = 0;
             this.tabAnalysis.Text = "Analysis";
             this.tabAnalysis.UseVisualStyleBackColor = true;
+            this.tabAnalysis.Paint += new System.Windows.Forms.PaintEventHandler(this.tabAnalysis_Paint);
             // 
-            // jobPosition1
+            // selectRCICAdvisor
             // 
-            this.jobPosition1.Location = new System.Drawing.Point(4, 86);
-            this.jobPosition1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.jobPosition1.Name = "jobPosition1";
-            this.jobPosition1.Size = new System.Drawing.Size(722, 156);
-            this.jobPosition1.TabIndex = 19;
+            this.selectRCICAdvisor.Location = new System.Drawing.Point(559, 705);
+            this.selectRCICAdvisor.Name = "selectRCICAdvisor";
+            this.selectRCICAdvisor.Size = new System.Drawing.Size(285, 35);
+            this.selectRCICAdvisor.TabIndex = 27;
+            // 
+            // btnEMP5575
+            // 
+            this.btnEMP5575.Cursor = System.Windows.Forms.Cursors.Default;
+            this.btnEMP5575.Location = new System.Drawing.Point(876, 709);
+            this.btnEMP5575.Name = "btnEMP5575";
+            this.btnEMP5575.Size = new System.Drawing.Size(75, 23);
+            this.btnEMP5575.TabIndex = 26;
+            this.btnEMP5575.Text = "EMP5575";
+            this.btnEMP5575.UseVisualStyleBackColor = true;
+            this.btnEMP5575.Click += new System.EventHandler(this.btnEMP5575_Click);
+            // 
+            // btnAnalysisNew
+            // 
+            this.btnAnalysisNew.Location = new System.Drawing.Point(288, 711);
+            this.btnAnalysisNew.Name = "btnAnalysisNew";
+            this.btnAnalysisNew.Size = new System.Drawing.Size(75, 23);
+            this.btnAnalysisNew.TabIndex = 20;
+            this.btnAnalysisNew.Text = "New";
+            this.btnAnalysisNew.UseVisualStyleBackColor = true;
+            // 
+            // btnAnalysisDelete
+            // 
+            this.btnAnalysisDelete.Location = new System.Drawing.Point(195, 711);
+            this.btnAnalysisDelete.Name = "btnAnalysisDelete";
+            this.btnAnalysisDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnAnalysisDelete.TabIndex = 20;
+            this.btnAnalysisDelete.Text = "Delete";
+            this.btnAnalysisDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnAnalysisUpdate
+            // 
+            this.btnAnalysisUpdate.Location = new System.Drawing.Point(101, 711);
+            this.btnAnalysisUpdate.Name = "btnAnalysisUpdate";
+            this.btnAnalysisUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnAnalysisUpdate.TabIndex = 20;
+            this.btnAnalysisUpdate.Text = "Update";
+            this.btnAnalysisUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnAnalysisInsert
+            // 
+            this.btnAnalysisInsert.Location = new System.Drawing.Point(7, 711);
+            this.btnAnalysisInsert.Name = "btnAnalysisInsert";
+            this.btnAnalysisInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnAnalysisInsert.TabIndex = 20;
+            this.btnAnalysisInsert.Text = "Insert";
+            this.btnAnalysisInsert.UseVisualStyleBackColor = true;
+            this.btnAnalysisInsert.Click += new System.EventHandler(this.btnAnalysisInsert_Click);
+            // 
+            // jobPositionAdvisor
+            // 
+            this.jobPositionAdvisor.Location = new System.Drawing.Point(4, 86);
+            this.jobPositionAdvisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jobPositionAdvisor.Name = "jobPositionAdvisor";
+            this.jobPositionAdvisor.Size = new System.Drawing.Size(722, 156);
+            this.jobPositionAdvisor.TabIndex = 19;
             // 
             // groupBox1
             // 
@@ -354,13 +414,13 @@
             this.txtEmployerSituation.Size = new System.Drawing.Size(613, 121);
             this.txtEmployerSituation.TabIndex = 0;
             // 
-            // lmFactors1
+            // lmFactorsAnalysis
             // 
-            this.lmFactors1.Location = new System.Drawing.Point(7, 352);
-            this.lmFactors1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.lmFactors1.Name = "lmFactors1";
-            this.lmFactors1.Size = new System.Drawing.Size(333, 355);
-            this.lmFactors1.TabIndex = 17;
+            this.lmFactorsAnalysis.Location = new System.Drawing.Point(7, 352);
+            this.lmFactorsAnalysis.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lmFactorsAnalysis.Name = "lmFactorsAnalysis";
+            this.lmFactorsAnalysis.Size = new System.Drawing.Size(333, 355);
+            this.lmFactorsAnalysis.TabIndex = 17;
             // 
             // indicators1
             // 
@@ -398,7 +458,7 @@
             this.tabBusinessDetails.Controls.Add(this.grpEmployeeStructure);
             this.tabBusinessDetails.Location = new System.Drawing.Point(4, 22);
             this.tabBusinessDetails.Name = "tabBusinessDetails";
-            this.tabBusinessDetails.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabBusinessDetails.Padding = new System.Windows.Forms.Padding(3);
             this.tabBusinessDetails.Size = new System.Drawing.Size(977, 740);
             this.tabBusinessDetails.TabIndex = 1;
             this.tabBusinessDetails.Text = "Business Details";
@@ -839,7 +899,7 @@
             this.tabApplication.Controls.Add(this.tabLMIAApplication);
             this.tabApplication.Location = new System.Drawing.Point(4, 22);
             this.tabApplication.Name = "tabApplication";
-            this.tabApplication.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabApplication.Padding = new System.Windows.Forms.Padding(3);
             this.tabApplication.Size = new System.Drawing.Size(991, 772);
             this.tabApplication.TabIndex = 1;
             this.tabApplication.Text = "Application";
@@ -855,7 +915,7 @@
             this.tabLMIAApplication.Controls.Add(this.tabJobOffer);
             this.tabLMIAApplication.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabLMIAApplication.Location = new System.Drawing.Point(3, 3);
-            this.tabLMIAApplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabLMIAApplication.Margin = new System.Windows.Forms.Padding(2);
             this.tabLMIAApplication.Name = "tabLMIAApplication";
             this.tabLMIAApplication.SelectedIndex = 0;
             this.tabLMIAApplication.Size = new System.Drawing.Size(985, 766);
@@ -878,9 +938,9 @@
             this.tabAD.Controls.Add(this.textBox6);
             this.tabAD.Controls.Add(this.label16);
             this.tabAD.Location = new System.Drawing.Point(4, 22);
-            this.tabAD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabAD.Margin = new System.Windows.Forms.Padding(2);
             this.tabAD.Name = "tabAD";
-            this.tabAD.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabAD.Padding = new System.Windows.Forms.Padding(2);
             this.tabAD.Size = new System.Drawing.Size(977, 740);
             this.tabAD.TabIndex = 0;
             this.tabAD.Text = "Job AD";
@@ -938,9 +998,9 @@
             this.grpSelectEmployer.Controls.Add(this.textBox7);
             this.grpSelectEmployer.Controls.Add(this.lblEmployer);
             this.grpSelectEmployer.Location = new System.Drawing.Point(263, 244);
-            this.grpSelectEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectEmployer.Name = "grpSelectEmployer";
-            this.grpSelectEmployer.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectEmployer.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelectEmployer.Size = new System.Drawing.Size(624, 289);
             this.grpSelectEmployer.TabIndex = 4;
             this.grpSelectEmployer.TabStop = false;
@@ -952,7 +1012,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployer.Location = new System.Drawing.Point(4, 51);
-            this.dgvEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployer.Name = "dgvEmployer";
             this.dgvEmployer.RowTemplate.Height = 28;
             this.dgvEmployer.Size = new System.Drawing.Size(616, 234);
@@ -961,7 +1021,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(107, 23);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(155, 20);
             this.textBox7.TabIndex = 3;
@@ -992,7 +1052,7 @@
             "Vocational school diploma/certificate",
             "No formal education requirement"});
             this.chkEducation.Location = new System.Drawing.Point(19, 381);
-            this.chkEducation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkEducation.Margin = new System.Windows.Forms.Padding(2);
             this.chkEducation.Name = "chkEducation";
             this.chkEducation.Size = new System.Drawing.Size(199, 154);
             this.chkEducation.TabIndex = 3;
@@ -1007,7 +1067,7 @@
             "Pension",
             "Extended medical insurance"});
             this.chkBenefit.Location = new System.Drawing.Point(19, 267);
-            this.chkBenefit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkBenefit.Margin = new System.Windows.Forms.Padding(2);
             this.chkBenefit.Name = "chkBenefit";
             this.chkBenefit.Size = new System.Drawing.Size(199, 34);
             this.chkBenefit.TabIndex = 3;
@@ -1015,7 +1075,7 @@
             // txtEmploymentTerm
             // 
             this.txtEmploymentTerm.Location = new System.Drawing.Point(393, 24);
-            this.txtEmploymentTerm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmploymentTerm.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmploymentTerm.Name = "txtEmploymentTerm";
             this.txtEmploymentTerm.Size = new System.Drawing.Size(155, 20);
             this.txtEmploymentTerm.TabIndex = 1;
@@ -1053,7 +1113,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(114, 25);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(155, 20);
             this.textBox6.TabIndex = 1;
@@ -1073,10 +1133,10 @@
             this.tabMainDuties.Controls.Add(this.dbOpsMainDuties);
             this.tabMainDuties.Controls.Add(this.dgvMainDuties);
             this.tabMainDuties.Location = new System.Drawing.Point(4, 22);
-            this.tabMainDuties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabMainDuties.Margin = new System.Windows.Forms.Padding(2);
             this.tabMainDuties.Name = "tabMainDuties";
-            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabMainDuties.Size = new System.Drawing.Size(980, 712);
+            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(2);
+            this.tabMainDuties.Size = new System.Drawing.Size(977, 740);
             this.tabMainDuties.TabIndex = 1;
             this.tabMainDuties.Text = "Main Duties";
             this.tabMainDuties.UseVisualStyleBackColor = true;
@@ -1122,9 +1182,9 @@
             this.tabQualifications.Controls.Add(this.dbOpsQualification);
             this.tabQualifications.Controls.Add(this.dgvQualifications);
             this.tabQualifications.Location = new System.Drawing.Point(4, 22);
-            this.tabQualifications.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabQualifications.Margin = new System.Windows.Forms.Padding(2);
             this.tabQualifications.Name = "tabQualifications";
-            this.tabQualifications.Size = new System.Drawing.Size(980, 712);
+            this.tabQualifications.Size = new System.Drawing.Size(977, 740);
             this.tabQualifications.TabIndex = 3;
             this.tabQualifications.Text = "Qualifications";
             this.tabQualifications.UseVisualStyleBackColor = true;
@@ -1149,7 +1209,7 @@
             this.dgvQualifications.Location = new System.Drawing.Point(0, 0);
             this.dgvQualifications.Name = "dgvQualifications";
             this.dgvQualifications.RowHeadersVisible = false;
-            this.dgvQualifications.Size = new System.Drawing.Size(981, 499);
+            this.dgvQualifications.Size = new System.Drawing.Size(978, 499);
             this.dgvQualifications.TabIndex = 1;
             // 
             // isReasonable
@@ -1192,9 +1252,9 @@
             this.tabJobAdPreview.Controls.Add(this.btnPDF);
             this.tabJobAdPreview.Controls.Add(this.txtJobAdPreview);
             this.tabJobAdPreview.Location = new System.Drawing.Point(4, 22);
-            this.tabJobAdPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
             this.tabJobAdPreview.Name = "tabJobAdPreview";
-            this.tabJobAdPreview.Size = new System.Drawing.Size(980, 712);
+            this.tabJobAdPreview.Size = new System.Drawing.Size(977, 740);
             this.tabJobAdPreview.TabIndex = 6;
             this.tabJobAdPreview.Text = "Job Ad Preview";
             this.tabJobAdPreview.UseVisualStyleBackColor = true;
@@ -1223,11 +1283,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtJobAdPreview.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtJobAdPreview.Location = new System.Drawing.Point(0, 0);
-            this.txtJobAdPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
             this.txtJobAdPreview.Multiline = true;
             this.txtJobAdPreview.Name = "txtJobAdPreview";
             this.txtJobAdPreview.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtJobAdPreview.Size = new System.Drawing.Size(980, 569);
+            this.txtJobAdPreview.Size = new System.Drawing.Size(977, 569);
             this.txtJobAdPreview.TabIndex = 0;
             // 
             // tabMedia
@@ -1241,9 +1301,9 @@
             this.tabMedia.Controls.Add(this.lblGeneral);
             this.tabMedia.Controls.Add(this.lblOfficial);
             this.tabMedia.Location = new System.Drawing.Point(4, 22);
-            this.tabMedia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabMedia.Margin = new System.Windows.Forms.Padding(2);
             this.tabMedia.Name = "tabMedia";
-            this.tabMedia.Size = new System.Drawing.Size(980, 712);
+            this.tabMedia.Size = new System.Drawing.Size(977, 740);
             this.tabMedia.TabIndex = 5;
             this.tabMedia.Text = "Media Selection";
             this.tabMedia.UseVisualStyleBackColor = true;
@@ -1251,7 +1311,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(850, 586);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 25);
             this.button1.TabIndex = 5;
@@ -1293,7 +1353,7 @@
             dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(976, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(973, 227);
             this.dataGridView1.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -1385,7 +1445,7 @@
             // btnGoForPosting
             // 
             this.btnGoForPosting.Location = new System.Drawing.Point(2, 307);
-            this.btnGoForPosting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGoForPosting.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoForPosting.Name = "btnGoForPosting";
             this.btnGoForPosting.Size = new System.Drawing.Size(114, 25);
             this.btnGoForPosting.TabIndex = 3;
@@ -1417,11 +1477,11 @@
             this.MediaLink});
             this.dgvMedia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvMedia.Location = new System.Drawing.Point(2, 2);
-            this.dgvMedia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMedia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMedia.Name = "dgvMedia";
             this.dgvMedia.RowHeadersVisible = false;
             this.dgvMedia.RowTemplate.Height = 28;
-            this.dgvMedia.Size = new System.Drawing.Size(976, 301);
+            this.dgvMedia.Size = new System.Drawing.Size(973, 301);
             this.dgvMedia.TabIndex = 2;
             // 
             // MediaSelect
@@ -1544,7 +1604,7 @@
             this.tabJobOffer.Controls.Add(this.textBox13);
             this.tabJobOffer.Controls.Add(this.label21);
             this.tabJobOffer.Location = new System.Drawing.Point(4, 22);
-            this.tabJobOffer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabJobOffer.Margin = new System.Windows.Forms.Padding(2);
             this.tabJobOffer.Name = "tabJobOffer";
             this.tabJobOffer.Size = new System.Drawing.Size(977, 740);
             this.tabJobOffer.TabIndex = 8;
@@ -1782,8 +1842,8 @@
             this.tabPage1.Controls.Add(this.applicationSteam1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(991, 740);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(991, 772);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1879,43 +1939,6 @@
             this.applicationSteam1.Name = "applicationSteam1";
             this.applicationSteam1.Size = new System.Drawing.Size(970, 69);
             this.applicationSteam1.TabIndex = 7;
-            // 
-            // btnAnalysisInsert
-            // 
-            this.btnAnalysisInsert.Location = new System.Drawing.Point(430, 713);
-            this.btnAnalysisInsert.Name = "btnAnalysisInsert";
-            this.btnAnalysisInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnAnalysisInsert.TabIndex = 20;
-            this.btnAnalysisInsert.Text = "Insert";
-            this.btnAnalysisInsert.UseVisualStyleBackColor = true;
-            this.btnAnalysisInsert.Click += new System.EventHandler(this.btnAnalysisInsert_Click);
-            // 
-            // btnAnalysisUpdate
-            // 
-            this.btnAnalysisUpdate.Location = new System.Drawing.Point(524, 713);
-            this.btnAnalysisUpdate.Name = "btnAnalysisUpdate";
-            this.btnAnalysisUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnAnalysisUpdate.TabIndex = 20;
-            this.btnAnalysisUpdate.Text = "Update";
-            this.btnAnalysisUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnAnalysisDelete
-            // 
-            this.btnAnalysisDelete.Location = new System.Drawing.Point(618, 713);
-            this.btnAnalysisDelete.Name = "btnAnalysisDelete";
-            this.btnAnalysisDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnAnalysisDelete.TabIndex = 20;
-            this.btnAnalysisDelete.Text = "Delete";
-            this.btnAnalysisDelete.UseVisualStyleBackColor = true;
-            // 
-            // btnAnalysisNew
-            // 
-            this.btnAnalysisNew.Location = new System.Drawing.Point(711, 713);
-            this.btnAnalysisNew.Name = "btnAnalysisNew";
-            this.btnAnalysisNew.Size = new System.Drawing.Size(75, 23);
-            this.btnAnalysisNew.TabIndex = 20;
-            this.btnAnalysisNew.Text = "New";
-            this.btnAnalysisNew.UseVisualStyleBackColor = true;
             // 
             // LMIAForm
             // 
@@ -2054,7 +2077,7 @@
         private ApplicationStream applicationSteam1;
         private financial financial1;
         private Indicators indicators1;
-        private LMFactors lmFactors1;
+        private LMFactors lmFactorsAnalysis;
         private System.Windows.Forms.TextBox txtEmployerSituation;
         private System.Windows.Forms.TextBox txtSituationImpact;
         private System.Windows.Forms.Label label2;
@@ -2124,11 +2147,13 @@
         private System.Windows.Forms.CheckBox chkLIMAOral;
         private System.Windows.Forms.CheckBox chkLMIAOtherLanguage;
         private System.Windows.Forms.TextBox txtLMIAOtherLanguage;
-        private JobPosition jobPosition1;
+        private JobPosition jobPositionAdvisor;
         private System.Windows.Forms.Button btnAnalysisNew;
         private System.Windows.Forms.Button btnAnalysisDelete;
         private System.Windows.Forms.Button btnAnalysisUpdate;
         private System.Windows.Forms.Button btnAnalysisInsert;
         public ApplicationStream applicationStream;
+        private Data.SelectRCIC selectRCICAdvisor;
+        private System.Windows.Forms.Button btnEMP5575;
     }
 }

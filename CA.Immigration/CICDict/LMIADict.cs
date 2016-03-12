@@ -68,13 +68,13 @@ namespace CA.Immigration.LMIA
                 ["EMP5593_E[0].Page1[0].txtF_Emp_Legal[0]"] = employer.OperatingName, // it's strange, but the form is like this
                 ["EMP5593_E[0].Page1[0].txtF_Mail_Adress[0]"] = employer.MailingAddress,
                 ["EMP5593_E[0].Page1[0].txtF_City[0]"] = employer.BizCity,
-                ["EMP5593_E[0].Page1[0].txtF_Province[0]"] = employer.BizProvince,
+                ["EMP5593_E[0].Page1[0].txtF_Province[0]"] = Definition.CndProvince[(int)employer.BizProvince,0],
                 ["EMP5593_E[0].Page1[0].txtF_Postal_Code[0]"] = employer.BizCountry,
                 ["EMP5593_E[0].Page1[0].txtF_Country[0]"] = employer.BizPostalCode,
                 ["EMP5593_E[0].Page1[0].txtF_City[1]"] = employer.BizTelephone,
                 ["EMP5593_E[0].Page1[0].txtF_City[2]"] = employer.BizAddress,
                 ["EMP5593_E[0].Page2[0].txtF_City[0]"] = employer.BizCity,
-                ["EMP5593_E[0].Page2[0].txtF_Province[0]"] = employer.BizProvince,
+                ["EMP5593_E[0].Page2[0].txtF_Province[0]"] = Definition.CndProvince[(int)employer.BizProvince, 0],
                 ["EMP5593_E[0].Page2[0].txtF_Postal_Code[0]"] = employer.BizCountry, // ESDC form error, this refers to a country
                 ["EMP5593_E[0].Page2[0].txtF_Country[0]"] = employer.BizPostalCode,
                 //// P2 16 name is ridiculous

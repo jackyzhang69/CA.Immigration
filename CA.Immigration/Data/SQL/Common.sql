@@ -19,11 +19,11 @@ ESDCThirdPartyID nvarchar(20),
 MailingAddress nvarchar(30),
 BusinessAddress nvarchar(30),
 City nvarchar(20),
-Province nvarchar(10),
+Province int,
 Country nvarchar(20),
 PostalCode nvarchar(10),
 MainBizActivities nvarchar(100),
-Signature image,
+theSignature image,
 MailPO nvarchar(10),
 MailAptUnit nvarchar(20),
 MailStreetNo nvarchar(100),
@@ -414,12 +414,20 @@ Id int not null primary key identity(1,1),
 Name varchar(150),
 CategoryId int
 )
+insert into tblProgram values('LMIAPRSupportOnly',1)
+insert into tblProgram values('LMIAPRandWP',1)
+insert into tblProgram values('LMIAWPOnly',1)
+insert into tblProgram values('BCPNPSW',1)
+insert into tblProgram values('BCPNPEI',1)
+insert into tblProgram values('BCPNPInternationalGraduate',1)
 
 create table tblCategory
 (
   Id int not null primary key identity(1,1),
 Name varchar(100),
 )
+insert into tblCategory values ('LMIA')
+insert into tblCategory values ('BCPNP')
 
 create table tblFinance
 (
@@ -440,7 +448,7 @@ Id int not null primary key identity(1,1),
 ApplicationId int,
 JobTitle varchar(100),
 NOC char(4),
-Province char(2),
+Province int,
 WorkingHours float,
 HourlyRate money,
 ProvincialMedian money,

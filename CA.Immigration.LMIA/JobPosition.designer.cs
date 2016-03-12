@@ -89,14 +89,13 @@
             this.grbPosition.Controls.Add(this.lblJobTitle);
             this.grbPosition.Dock = System.Windows.Forms.DockStyle.Top;
             this.grbPosition.Location = new System.Drawing.Point(0, 0);
-            this.grbPosition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPosition.Margin = new System.Windows.Forms.Padding(2);
             this.grbPosition.Name = "grbPosition";
-            this.grbPosition.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbPosition.Padding = new System.Windows.Forms.Padding(2);
             this.grbPosition.Size = new System.Drawing.Size(676, 154);
             this.grbPosition.TabIndex = 1;
             this.grbPosition.TabStop = false;
             this.grbPosition.Text = "Position Information";
-            this.grbPosition.Paint += new System.Windows.Forms.PaintEventHandler(this.grbPosition_Paint);
             // 
             // chkNoSame
             // 
@@ -112,7 +111,7 @@
             // btnCheckNOC
             // 
             this.btnCheckNOC.Location = new System.Drawing.Point(226, 119);
-            this.btnCheckNOC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCheckNOC.Margin = new System.Windows.Forms.Padding(2);
             this.btnCheckNOC.Name = "btnCheckNOC";
             this.btnCheckNOC.Size = new System.Drawing.Size(198, 22);
             this.btnCheckNOC.TabIndex = 3;
@@ -123,7 +122,7 @@
             // btnJobBank
             // 
             this.btnJobBank.Location = new System.Drawing.Point(473, 119);
-            this.btnJobBank.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJobBank.Margin = new System.Windows.Forms.Padding(2);
             this.btnJobBank.Name = "btnJobBank";
             this.btnJobBank.Size = new System.Drawing.Size(192, 22);
             this.btnJobBank.TabIndex = 9;
@@ -134,7 +133,7 @@
             // btnTop100
             // 
             this.btnTop100.Location = new System.Drawing.Point(15, 119);
-            this.btnTop100.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTop100.Margin = new System.Windows.Forms.Padding(2);
             this.btnTop100.Name = "btnTop100";
             this.btnTop100.Size = new System.Drawing.Size(139, 22);
             this.btnTop100.TabIndex = 8;
@@ -161,7 +160,7 @@
             "SK",
             "YT"});
             this.cmbProvince.Location = new System.Drawing.Point(344, 20);
-            this.cmbProvince.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbProvince.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(45, 21);
             this.cmbProvince.TabIndex = 2;
@@ -180,7 +179,7 @@
             // 
             this.txtWorkingHours.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtWorkingHours.Location = new System.Drawing.Point(492, 21);
-            this.txtWorkingHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWorkingHours.Margin = new System.Windows.Forms.Padding(2);
             this.txtWorkingHours.Name = "txtWorkingHours";
             this.txtWorkingHours.Size = new System.Drawing.Size(43, 20);
             this.txtWorkingHours.TabIndex = 4;
@@ -199,7 +198,7 @@
             // 
             this.txtLocalNocHighest.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtLocalNocHighest.Location = new System.Drawing.Point(622, 60);
-            this.txtLocalNocHighest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocalNocHighest.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalNocHighest.Name = "txtLocalNocHighest";
             this.txtLocalNocHighest.Size = new System.Drawing.Size(45, 20);
             this.txtLocalNocHighest.TabIndex = 3;
@@ -218,7 +217,7 @@
             // 
             this.txtLocalNocLowest.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtLocalNocLowest.Location = new System.Drawing.Point(452, 58);
-            this.txtLocalNocLowest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocalNocLowest.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalNocLowest.Name = "txtLocalNocLowest";
             this.txtLocalNocLowest.Size = new System.Drawing.Size(45, 20);
             this.txtLocalNocLowest.TabIndex = 3;
@@ -237,7 +236,7 @@
             // 
             this.txtSameHighest.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtSameHighest.Location = new System.Drawing.Point(480, 86);
-            this.txtSameHighest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSameHighest.Margin = new System.Windows.Forms.Padding(2);
             this.txtSameHighest.Name = "txtSameHighest";
             this.txtSameHighest.Size = new System.Drawing.Size(45, 20);
             this.txtSameHighest.TabIndex = 3;
@@ -246,7 +245,7 @@
             // 
             this.txtLocalNOCMedian.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtLocalNOCMedian.Location = new System.Drawing.Point(278, 56);
-            this.txtLocalNOCMedian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocalNOCMedian.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocalNOCMedian.Name = "txtLocalNOCMedian";
             this.txtLocalNOCMedian.Size = new System.Drawing.Size(45, 20);
             this.txtLocalNOCMedian.TabIndex = 3;
@@ -275,7 +274,7 @@
             // 
             this.txtSameLowest.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtSameLowest.Location = new System.Drawing.Point(215, 86);
-            this.txtSameLowest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSameLowest.Margin = new System.Windows.Forms.Padding(2);
             this.txtSameLowest.Name = "txtSameLowest";
             this.txtSameLowest.Size = new System.Drawing.Size(54, 20);
             this.txtSameLowest.TabIndex = 6;
@@ -284,7 +283,7 @@
             // 
             this.txtProvincialMedian.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtProvincialMedian.Location = new System.Drawing.Point(126, 54);
-            this.txtProvincialMedian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProvincialMedian.Margin = new System.Windows.Forms.Padding(2);
             this.txtProvincialMedian.Name = "txtProvincialMedian";
             this.txtProvincialMedian.Size = new System.Drawing.Size(45, 20);
             this.txtProvincialMedian.TabIndex = 6;
@@ -313,7 +312,7 @@
             // 
             this.txtHourlyRate.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtHourlyRate.Location = new System.Drawing.Point(622, 20);
-            this.txtHourlyRate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHourlyRate.Margin = new System.Windows.Forms.Padding(2);
             this.txtHourlyRate.Name = "txtHourlyRate";
             this.txtHourlyRate.Size = new System.Drawing.Size(45, 20);
             this.txtHourlyRate.TabIndex = 5;
@@ -332,7 +331,7 @@
             // 
             this.txtNoc.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtNoc.Location = new System.Drawing.Point(226, 21);
-            this.txtNoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNoc.Margin = new System.Windows.Forms.Padding(2);
             this.txtNoc.Name = "txtNoc";
             this.txtNoc.Size = new System.Drawing.Size(43, 20);
             this.txtNoc.TabIndex = 1;
@@ -351,7 +350,7 @@
             // 
             this.txtJobTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtJobTitle.Location = new System.Drawing.Point(61, 22);
-            this.txtJobTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtJobTitle.Margin = new System.Windows.Forms.Padding(2);
             this.txtJobTitle.Name = "txtJobTitle";
             this.txtJobTitle.Size = new System.Drawing.Size(110, 20);
             this.txtJobTitle.TabIndex = 0;

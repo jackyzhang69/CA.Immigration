@@ -85,7 +85,7 @@ namespace CA.Immigration.SP
                 ["form1[0].Page2[0].contact[0].AddressRow1[0].Streetname[0].Streetname[0]"] = rcic.MailStreetName,
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].CityTow[0].CityTown[0]"] = rcic.City,
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].Country[0].Country[0]"] = rcic.Country.countryToCode().ToString(),
-                ["form1[0].Page2[0].contact[0].AddressRow2[0].ProvinceState[0].ProvinceState[0]"] = rcic.Province,
+                ["form1[0].Page2[0].contact[0].AddressRow2[0].ProvinceState[0].ProvinceState[0]"] = Definition.CndProvince[(int)rcic.Province,0],
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].PostalCode[0].PostalCode[0]"] = rcic.PostalCode,
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].District[0]"] = "",
 

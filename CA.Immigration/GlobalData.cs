@@ -14,12 +14,12 @@ namespace CA.Immigration
         public static bool CurrentEmployerIdReadOnly = false;
         public static int? CurrentCategoryId;
         public static bool CurrentCategoryReadOnly = false;
-        public static int? CurrentStreamId;
-        public static bool CurrentStreamIdReadOnly = false;
+        public static int? CurrentProgramId;
+        public static bool CurrentProgramIdReadOnly = false;
         public static int? CurrentApplicationId;
         public static bool CurrentApplicationReadOnly = false;
         public static string CurrentNOC;
-        public static int? RCICId=1;
+        public static int? CurrentRCICId;
 
         public enum AppStream
         {

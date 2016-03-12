@@ -124,6 +124,12 @@
       <DependentUpon>CompanyType.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Definition.cs" />
+    <Compile Include="Data\SelectRCIC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Data\SelectRCIC.Designer.cs">
+      <DependentUpon>SelectRCIC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalData.cs" />
     <Compile Include="PDF\FormOPs.cs" />
     <Compile Include="PDF\PDFTools.cs" />
@@ -165,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Data\CompanyType.resx">
       <DependentUpon>CompanyType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Data\SelectRCIC.resx">
+      <DependentUpon>SelectRCIC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Top100.resx">
       <DependentUpon>Top100.cs</DependentUpon>
