@@ -101,7 +101,7 @@ namespace CA.Immigration
                 {"EMP5575_E[0].Page2[0].Page2[0].txtF_Email[0]",rcic.Email },
                 {"EMP5575_E[0].Page2[0].Page2[0].rb_language[0]","1"},
                 {"EMP5575_E[0].Page2[0].Page2[0].txtF_Third_Party_Print_Name[0]",rcic.FirstName+" "+rcic.LastName },
-                {"EMP5575_E[0].Page2[0].Page2[0].txtF_Today_Date_2[0]", String.Format("{ 0:yyyy - MM - dd}", DateTime.Today)},
+                {"EMP5575_E[0].Page2[0].Page2[0].txtF_Today_Date_2[0]", String.Format("{0:yyyy-MM-dd}", DateTime.Today)},
                 {"EMP5575_E[0].Page2[0].Page2[0].cb_1[0]","1" },  // Paid RCIC
                 {"EMP5575_E[0].Page2[0].Page2[0].txtF_membership_ID1[0]",rcic.MembershipID},
                 // Employer Information
@@ -111,9 +111,9 @@ namespace CA.Immigration
                 {"EMP5575_E[0].Page3[0].txtF_Employer_Name[1]","N/A" },  // secondary contact
                 {"EMP5575_E[0].Page3[0].txtF_foreign_worker[0]",employee!=null?employee.FirstName+" "+employee.LastName:""},  // Foreign worker
                 {"EMP5575_E[0].Page3[0].txtF_Print_Name[0]",employer.ContactFirstName+" "+employer.ContactLastName },
-                {"EMP5575_E[0].Page3[0].txtF_Today_Date_2[0]",String.Format("{ 0:yyyy - MM - dd}", DateTime.Today)},
+                {"EMP5575_E[0].Page3[0].txtF_Today_Date_2[0]",String.Format("{0:yyyy-MM-dd}", DateTime.Today)},
                 {"EMP5575_E[0].Page3[0].txtF_Print_Name[2]",employer.theWitness },
-                {"EMP5575_E[0].Page3[0].txtF_Today_Date_2[2]",String.Format("{ 0:yyyy - MM - dd}", DateTime.Today)}
+                {"EMP5575_E[0].Page3[0].txtF_Today_Date_2[2]",String.Format("{0:yyyy-MM-dd}", DateTime.Today)}
 
               };
 

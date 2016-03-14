@@ -538,6 +538,11 @@ namespace CA.Immigration.Startup
             }
 
         }
+
+        private void btnAnalysisUpdate_Click(object sender, EventArgs e)
+        {
+             
+        }
     }
 }
 

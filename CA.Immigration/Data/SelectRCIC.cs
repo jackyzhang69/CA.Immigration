@@ -24,5 +24,10 @@ namespace CA.Immigration.Data
                 GlobalData.CurrentRCICId = cdc.tblRCICs.Select(x => x.Id).First();
             }
         }
+
+        private void cmbSelectRCIC_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex;
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace CA.Immigration
 {
     public static class GlobalData
     {
+        // Global scope data
         public static int? CurrentPersonId;
         public static bool CurrentPersonIdReadOnly = false;
         public static int? CurrentEmployerId;
@@ -22,6 +23,10 @@ namespace CA.Immigration
         public static bool CurrentApplicationIdReadOnly = false;
         public static string CurrentNOC;
         public static int? CurrentRCICId;
+
+        // For LMIA application data
+        public static int? CurrentBusinessDetailId;
+        public static int? CurrentJobOfferId;
 
         public enum AppStream
         {

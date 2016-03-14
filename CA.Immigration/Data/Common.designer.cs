@@ -10361,10 +10361,6 @@ namespace CA.Immigration.Data
 		
 		private System.Nullable<int> _ApplicationId;
 		
-		private string _EmployerSituation;
-		
-		private string _SituationImpact;
-		
 		private System.Nullable<int> _TotalEmployeeUnderCRA;
 		
 		private System.Nullable<int> _TotalEmployeeThisLocation;
@@ -10413,10 +10409,6 @@ namespace CA.Immigration.Data
     partial void OnIdChanged();
     partial void OnApplicationIdChanging(System.Nullable<int> value);
     partial void OnApplicationIdChanged();
-    partial void OnEmployerSituationChanging(string value);
-    partial void OnEmployerSituationChanged();
-    partial void OnSituationImpactChanging(string value);
-    partial void OnSituationImpactChanged();
     partial void OnTotalEmployeeUnderCRAChanging(System.Nullable<int> value);
     partial void OnTotalEmployeeUnderCRAChanged();
     partial void OnTotalEmployeeThisLocationChanging(System.Nullable<int> value);
@@ -10500,46 +10492,6 @@ namespace CA.Immigration.Data
 					this._ApplicationId = value;
 					this.SendPropertyChanged("ApplicationId");
 					this.OnApplicationIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployerSituation", DbType="NVarChar(500)")]
-		public string EmployerSituation
-		{
-			get
-			{
-				return this._EmployerSituation;
-			}
-			set
-			{
-				if ((this._EmployerSituation != value))
-				{
-					this.OnEmployerSituationChanging(value);
-					this.SendPropertyChanging();
-					this._EmployerSituation = value;
-					this.SendPropertyChanged("EmployerSituation");
-					this.OnEmployerSituationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SituationImpact", DbType="NVarChar(500)")]
-		public string SituationImpact
-		{
-			get
-			{
-				return this._SituationImpact;
-			}
-			set
-			{
-				if ((this._SituationImpact != value))
-				{
-					this.OnSituationImpactChanging(value);
-					this.SendPropertyChanging();
-					this._SituationImpact = value;
-					this.SendPropertyChanged("SituationImpact");
-					this.OnSituationImpactChanged();
 				}
 			}
 		}

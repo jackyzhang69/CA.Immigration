@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CA.Immigration.Data;
 using System.Windows.Forms;
 
 namespace CA.Immigration.LMIA
@@ -15,6 +9,8 @@ namespace CA.Immigration.LMIA
         public ApplicationStream()
         {
             InitializeComponent();
+            
+           
             lblAnotherEmployer.Visible = false;
             txtAnotherEmployer.Visible = false;
             if (ckbOtherEmployer.Checked == true) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
@@ -37,5 +33,7 @@ namespace CA.Immigration.LMIA
             }
             if (cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
         }
+
+
     }
 }

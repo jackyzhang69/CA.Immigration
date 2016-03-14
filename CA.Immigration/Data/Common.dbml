@@ -489,8 +489,6 @@
     <Type Name="tblBusinessDetail">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="SituationImpact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="TotalEmployeeUnderCRA" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalEmployeeThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalCndThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />

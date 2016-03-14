@@ -88,12 +88,9 @@ ResponseDate date
 --Business detail table
 create table tblBusinessDetail (
 Id int not null primary key identity(1,1),
-ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
-EmployerSituation nvarchar(500),
-SituationImpact nvarchar(500),
+ApplicationId int,  -- Business information could be changed, so it only directly related to application, instead of Employer
 TotalEmployeeUnderCRA int, --"1. Number of employees currently employed nationally under this Canada Revenue Agency Business number (e.g. 5 franchises are covered by the business
                                            -- number and there are a total of 100 employees):"
-
 TotalEmployeeThisLocation int, --2. Total number of employees currently employed at the work location specified on this form:
 
 TotalCndThisLocation int, --3. Total number of Canadian/permanent resident employees at the work location specified on this form:
