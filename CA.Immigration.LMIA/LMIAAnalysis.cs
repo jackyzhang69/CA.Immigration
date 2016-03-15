@@ -10,6 +10,85 @@ namespace CA.Immigration.LMIA
 {
     public class LMIAAnalysis
     {
+        private static string _otherEmployerName { get; set; }
+        private static string _jobTitle { get; set; }
+        private static string _NOC { get; set; }
+        private static int? _province { get; set; }
+        private static decimal? _workingHours { get; set; }
+        private static decimal? _hourlyRate { get; set; }
+        private static decimal? _provincialMedian { get; set; }
+        private static decimal? _localNOCMedian { get; set; }
+        private static decimal? _localNOCLowest { get; set; }
+        private static decimal? _localNOCHighest { get; set; }
+        private static decimal? _samePlaceSamePositionLowest { get; set; }
+        private static decimal? _samePlaceSamePositionHighest { get; set; }
+        private static bool? _noSamePosition { get; set; }
+        private static int? _year1 { get; set; }
+        private static decimal? _totalRevenue1 { get; set; }
+        private static decimal? _cash1 { get; set; }
+        private static decimal? _netIncome1 { get; set; }
+        private static decimal? _retianedEarning1 { get; set; }
+        private static decimal? _grossPayroll { get; set; }
+        private static int? _t4Slips1 { get; set; }
+        private static decimal? _Average1 { get; set; }
+
+        private static int? _year2 { get; set; }
+        private static decimal? _totalRevenue2 { get; set; }
+        private static decimal? _cash2 { get; set; }
+        private static decimal? _netIncome2 { get; set; }
+        private static decimal? _retianedEarning2 { get; set; }
+        private static decimal? _grossPayrol2 { get; set; }
+        private static int? _t4Slips2 { get; set; }
+        private static decimal? _Average2 { get; set; }
+
+        private static int? _unemploymentRate { get; set; }
+        private static int? _COPSRating { get; set; }
+        private static int? _occupationProfile { get; set; }
+        private static string _employerSituation { get; set; }
+        private static string _situationImpact { get; set; }
+        private static List<int> _lmFactors { get; set; }
+        private static int? _rcicId { get; set; }
+
+        public static void getInput(LMIAForm lf)
+        {
+            _otherEmployerName = lf.txtAnotherEmployer.Text;
+            _jobTitle = lf.jobPositionAdvisor.txtJobTitle.Text==string.Empty? null : lf.jobPositionAdvisor.txtJobTitle.Text;
+            _NOC = lf.jobPositionAdvisor.txtNoc.Text;
+            _province = lf.jobPositionAdvisor.cmbProvince.SelectedIndex;
+            _workingHours = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtWorkingHours.Text);
+            _hourlyRate = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtHourlyRate.Text);
+                _provincialMedian = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtProvincialMedian.Text);
+            _localNOCMedian = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtLocalNOCMedian.Text);
+            _localNOCLowest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtLocalNocLowest.Text);
+            _localNOCHighest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtLocalNocHighest.Text);
+            _samePlaceSamePositionLowest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtSameLowest.Text);
+            _samePlaceSamePositionHighest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtSameHighest.Text);
+            _noSamePosition = lf.jobPositionAdvisor.chkNoSame.Checked == true ? true : false;
+            _year1 =LMIATools.getIntValue(lf.financialAdvisor.txtLast1Year.Text);
+            _totalRevenue1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRevenue1.Text);
+            _cash1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtCash1.Text);
+            _netIncome1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtNetImcome1.Text);
+            _retianedEarning1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRetainedEarning1.Text);
+            _grossPayroll = LMIATools.getDecimalValue(lf.financialAdvisor.txtGrossPayroll1.Text);
+            _t4Slips1 = LMIATools.getIntValue(lf.financialAdvisor.txtSlips1.Text);
+            _Average1 = (_grossPayroll!=null && _t4Slips1!=null && _t4Slips1!=0) ? _grossPayroll / _t4Slips1 : null;
+            _year2 = LMIATools.getIntValue(lf.financialAdvisor.txtLast2Year.Text);
+            _totalRevenue2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRevenue2.Text);
+            _cash2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtCash2.Text);
+            _netIncome2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtNetImcome2.Text);
+            _retianedEarning2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRetainedEarning2.Text);
+            _grossPayrol2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtGrossPayroll2.Text);
+            _t4Slips2 = LMIATools.getIntValue(lf.financialAdvisor.txtSlips2.Text);
+            _Average2 = (_grossPayrol2 != null && _t4Slips2 != null && _t4Slips2 != 0) ? _grossPayrol2 / _t4Slips2 : null;
+            _unemploymentRate = LMIATools.getIntValue(lf.txtUnemployRate.Text);
+            _COPSRating = LMIATools.getIntValue(lf.txtCOPSRating.Text);
+            _occupationProfile= LMIATools.getIntValue(lf.txtOccupationProfile.Text);
+            _employerSituation = lf.txtEmployerSituation.Text;
+            _situationImpact = lf.txtSituationImpact.Text;
+            _lmFactors = lf.ckbLmFactor.SelectedIndices.OfType<int>().ToList();
+            _rcicId = lf.selectRCICAdvisor.cmbSelectRCIC.SelectedIndex;
+
+        }
         public static void analysisLoadInitialization(LMIAForm lf)
         {
             //Load Tab Analysis data
@@ -90,12 +169,12 @@ namespace CA.Immigration.LMIA
         public static void getIndicators(LMIAForm lf)
         {
 
-            float wage, provincialmedian, localnocmedian, lowestsameposition, highestsameposition;
-            wage = (lf.jobPositionAdvisor.txtHourlyRate.Text != null && lf.jobPositionAdvisor.txtHourlyRate.Text != string.Empty) ? float.Parse(lf.jobPositionAdvisor.txtHourlyRate.Text) : 0f;
-            provincialmedian = (lf.jobPositionAdvisor.txtProvincialMedian.Text != null && lf.jobPositionAdvisor.txtProvincialMedian.Text != string.Empty) ? float.Parse(lf.jobPositionAdvisor.txtProvincialMedian.Text) : 0f;
-            localnocmedian = (lf.jobPositionAdvisor.txtLocalNOCMedian.Text != null && lf.jobPositionAdvisor.txtLocalNOCMedian.Text != string.Empty) ? float.Parse(lf.jobPositionAdvisor.txtLocalNOCMedian.Text) : 0f;
-            lowestsameposition = (lf.jobPositionAdvisor.txtSameLowest.Text != null && lf.jobPositionAdvisor.txtSameLowest.Text != string.Empty) ? float.Parse(lf.jobPositionAdvisor.txtSameLowest.Text) : 0f;
-            highestsameposition = (lf.jobPositionAdvisor.txtSameHighest.Text != null && lf.jobPositionAdvisor.txtSameHighest.Text != string.Empty) ? float.Parse(lf.jobPositionAdvisor.txtSameHighest.Text) : 0f;
+            //decimal wage, provincialmedian, localnocmedian, lowestsameposition, highestsameposition;
+            //wage = (lf.jobPositionAdvisor.txtHourlyRate.Text != null && lf.jobPositionAdvisor.txtHourlyRate.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtHourlyRate.Text) : 0f;
+            //provincialmedian = (lf.jobPositionAdvisor.txtProvincialMedian.Text != null && lf.jobPositionAdvisor.txtProvincialMedian.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtProvincialMedian.Text) : 0f;
+            //localnocmedian = (lf.jobPositionAdvisor.txtLocalNOCMedian.Text != null && lf.jobPositionAdvisor.txtLocalNOCMedian.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtLocalNOCMedian.Text) : 0f;
+            //lowestsameposition = (lf.jobPositionAdvisor.txtSameLowest.Text != null && lf.jobPositionAdvisor.txtSameLowest.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtSameLowest.Text) : 0f;
+            //highestsameposition = (lf.jobPositionAdvisor.txtSameHighest.Text != null && lf.jobPositionAdvisor.txtSameHighest.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtSameHighest.Text) : 0f;
 
 
 
@@ -105,11 +184,11 @@ namespace CA.Immigration.LMIA
 
                 case 0: // High wage stream
                         // 1. Check if the position wage bigger than provincial median wage
-                    if(wage != 0f && provincialmedian != 0)
+                    if(_hourlyRate != 0 && _provincialMedian != 0)
                     {
-                        lf.dgvQualificationIndicator.Rows[0].Cells[0].Value = (wage >= provincialmedian) ? "Wage >= Provincial Median " : "Wage < Provincial Median ";
-                        lf.dgvQualificationIndicator.Rows[0].Cells[1].Value = (wage >= provincialmedian) ? "Eligible" : "Ineligible";
-                        lf.dgvQualificationIndicator.Rows[0].DefaultCellStyle.ForeColor = (wage >= provincialmedian) ? Color.Green : Color.Red;
+                        lf.dgvQualificationIndicator.Rows[0].Cells[0].Value = (_hourlyRate >= _provincialMedian) ? "Wage >= Provincial Median " : "Wage < Provincial Median ";
+                        lf.dgvQualificationIndicator.Rows[0].Cells[1].Value = (_hourlyRate >= _provincialMedian) ? "Eligible" : "Ineligible";
+                        lf.dgvQualificationIndicator.Rows[0].DefaultCellStyle.ForeColor = (_hourlyRate >= _provincialMedian) ? Color.Green : Color.Red;
 
                     }
                     else {
@@ -117,11 +196,11 @@ namespace CA.Immigration.LMIA
                         lf.dgvQualificationIndicator.Rows[0].Cells[1].Value = "N/A";
                     }
                     //2. Check if the position wage bigger than local NOC median wage
-                    if(wage != 0f && localnocmedian != 0)
+                    if(_hourlyRate != 0 && _localNOCMedian != 0)
                     {
-                        lf.dgvQualificationIndicator.Rows[1].Cells[0].Value = (wage >= localnocmedian) ? "Wage >= Local NOC Median " : "Wage < Local NOC Median ";
-                        lf.dgvQualificationIndicator.Rows[1].Cells[1].Value = (wage >= localnocmedian) ? "Eligible" : "Ineligible";
-                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = (wage >= localnocmedian) ? Color.Green : Color.Red;
+                        lf.dgvQualificationIndicator.Rows[1].Cells[0].Value = (_hourlyRate >= _localNOCMedian) ? "Wage >= Local NOC Median " : "Wage < Local NOC Median ";
+                        lf.dgvQualificationIndicator.Rows[1].Cells[1].Value = (_hourlyRate >= _localNOCMedian) ? "Eligible" : "Ineligible";
+                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = (_hourlyRate >= _localNOCMedian) ? Color.Green : Color.Red;
 
                     }
                     else {
@@ -129,11 +208,11 @@ namespace CA.Immigration.LMIA
                         lf.dgvQualificationIndicator.Rows[1].Cells[1].Value = "N/A";
                     }
                     //3. check if the position wage between same place same position wage range
-                    if(wage != 0 && lowestsameposition != 0 && highestsameposition != 0)
+                    if(_hourlyRate != 0 && _localNOCLowest != 0 && _localNOCHighest != 0)
                     {
-                        lf.dgvQualificationIndicator.Rows[2].Cells[0].Value = (wage >= lowestsameposition && wage <= highestsameposition) ? "Wage in same position range " : "Wage not in same position range ";
-                        lf.dgvQualificationIndicator.Rows[2].Cells[1].Value = (wage >= lowestsameposition && wage <= highestsameposition) ? "Eligible" : "Ineligible";
-                        lf.dgvQualificationIndicator.Rows[2].DefaultCellStyle.ForeColor = (wage >= lowestsameposition && wage <= highestsameposition) ? Color.Green : Color.Red;
+                        lf.dgvQualificationIndicator.Rows[2].Cells[0].Value = (_hourlyRate >= _localNOCLowest && _hourlyRate <= _localNOCHighest) ? "Wage in same position range " : "Wage not in same position range ";
+                        lf.dgvQualificationIndicator.Rows[2].Cells[1].Value = (_hourlyRate >= _localNOCLowest && _hourlyRate <= _localNOCHighest) ? "Eligible" : "Ineligible";
+                        lf.dgvQualificationIndicator.Rows[2].DefaultCellStyle.ForeColor = (_hourlyRate >= _localNOCLowest && _hourlyRate <= _localNOCHighest) ? Color.Green : Color.Red;
                     }
                     else
                     {
@@ -141,13 +220,12 @@ namespace CA.Immigration.LMIA
                         lf.dgvQualificationIndicator.Rows[2].Cells[1].Value = "N/A";
                     }
                     //4. Check if the position wage reasonable comparing to T4 summary (total paid divides by total pay slips)
-                    if(wage != 0 && lf.financialAdvisor.txtAverageWage1.Text != string.Empty && Validation.IsFloat(lf.financialAdvisor.txtAverageWage1.Text) && lf.jobPositionAdvisor.txtWorkingHours.Text != string.Empty && Validation.IsFloat(lf.jobPositionAdvisor.txtWorkingHours.Text))
+                    if(_hourlyRate != null && _Average1!=null && _workingHours!=null)
                     {
-                        float average1 = float.Parse(lf.jobPositionAdvisor.txtWorkingHours.Text);
-                        float annualwage = wage * average1 * 365 / 7;
-                        lf.dgvQualificationIndicator.Rows[3].Cells[0].Value = (annualwage >= average1) ? "Annual age >=Company Average" : "Annual age < Company Average ";
-                        lf.dgvQualificationIndicator.Rows[3].Cells[1].Value = (annualwage >= average1) ? "Perfect" : "Reasonable?";
-                        lf.dgvQualificationIndicator.Rows[3].DefaultCellStyle.ForeColor = (wage >= lowestsameposition && wage <= highestsameposition) ? Color.Green : Color.Red;
+                        var annualwage = _hourlyRate*_workingHours*365/7;
+                        lf.dgvQualificationIndicator.Rows[3].Cells[0].Value = (annualwage >= _Average1) ? "Annual age >=Company Average" : "Annual age < Company Average ";
+                        lf.dgvQualificationIndicator.Rows[3].Cells[1].Value = (annualwage >= _Average1) ? "Perfect" : "Reasonable?";
+                        lf.dgvQualificationIndicator.Rows[3].DefaultCellStyle.ForeColor = (annualwage>=_Average1) ? Color.Green : Color.Red;
                     }
                     else
                     {
@@ -185,8 +263,9 @@ namespace CA.Immigration.LMIA
         }
         public static void insertApplication(LMIAForm lf) // should check if global application id is existed
         {
+            getInput(lf);
             // Create a new Application 
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 // Validation check
 
@@ -194,12 +273,12 @@ namespace CA.Immigration.LMIA
                 tblLMIAApplication la = new tblLMIAApplication
                 {
                     LMIAType = GlobalData.CurrentProgramId,
-                    StreamType = lf.cmbStream.SelectedIndex,
+                    StreamType = GlobalData.CurrentStreamId,
                     EmployerId = GlobalData.CurrentEmployerId,
                     EmployeeId = GlobalData.CurrentPersonId,
                     RCICId = GlobalData.CurrentRCICId,
                     CreatedDate = DateTime.Now,
-                    SecondEmployer = (lf.ckbOtherEmployer.Checked == true) ? lf.txtAnotherEmployer.Text : null,
+                    SecondEmployer = _otherEmployerName!=null? _otherEmployerName : null,
 
                 };
                 try
@@ -216,23 +295,23 @@ namespace CA.Immigration.LMIA
                 tblLMIAPosition ps = new tblLMIAPosition
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
-                    JobTitle = lf.jobPositionAdvisor.txtJobTitle.Text,
-                    NOC = lf.jobPositionAdvisor.txtNoc.Text,
-                    Province = lf.jobPositionAdvisor.cmbProvince.SelectedIndex,
-                    WorkingHours = double.Parse(lf.jobPositionAdvisor.txtWorkingHours.Text),
-                    HourlyRate = decimal.Parse(lf.jobPositionAdvisor.txtHourlyRate.Text),
-                    ProvincialMedian = decimal.Parse(lf.jobPositionAdvisor.txtProvincialMedian.Text),
-                    LocalNOCMedian = decimal.Parse(lf.jobPositionAdvisor.txtLocalNOCMedian.Text),
-                    LocalNOCLowest = decimal.Parse(lf.jobPositionAdvisor.txtLocalNocLowest.Text),
-                    LocalNOCHighest = decimal.Parse(lf.jobPositionAdvisor.txtLocalNocHighest.Text),
-                    SamePlaceSamePositionLowest = decimal.Parse(lf.jobPositionAdvisor.txtSameLowest.Text),
-                    SamePlaceSamePositionHighest = decimal.Parse(lf.jobPositionAdvisor.txtSameHighest.Text),
-                    NoSamePosition = (lf.jobPositionAdvisor.chkNoSame.Checked == true) ? true : false,
-                    UmemploymentRate = float.Parse(lf.txtUnemployRate.Text),
-                    COPSRating = int.Parse(lf.txtCOPSRating.Text),
-                    OccupationProfile = int.Parse(lf.txtOccupationProfile.Text),
-                    EmployerSituation = lf.txtEmployerSituation.Text,
-                    EmployerImact = lf.txtSituationImpact.Text
+                    JobTitle = _jobTitle,
+                    NOC = _NOC,
+                    Province =_province,
+                    WorkingHours = (double)_workingHours,
+                    HourlyRate = _hourlyRate,
+                    ProvincialMedian = _provincialMedian,
+                    LocalNOCMedian = _localNOCMedian,
+                    LocalNOCLowest = _localNOCLowest,
+                    LocalNOCHighest =_localNOCHighest,
+                    SamePlaceSamePositionLowest = _samePlaceSamePositionLowest,
+                    SamePlaceSamePositionHighest = _samePlaceSamePositionHighest,
+                    NoSamePosition = (_otherEmployerName!=null) ? true : false,
+                    UmemploymentRate = _unemploymentRate,
+                    COPSRating = _COPSRating,
+                    OccupationProfile =_occupationProfile,
+                    EmployerSituation =_employerSituation,
+                    EmployerImact =_situationImpact 
                 };
                 try
                 {
@@ -248,24 +327,24 @@ namespace CA.Immigration.LMIA
                 tblFinance fn1 = new tblFinance
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
-                    FiscalYear = Validation.IsIntInRange(lf.financialAdvisor.txtLast1Year.Text, 2000, 2050) ? int.Parse(lf.financialAdvisor.txtLast1Year.Text) : (int?)null,
-                    TotalRevenue = Validation.IsFloat(lf.financialAdvisor.txtRevenue1.Text) ? decimal.Parse(lf.financialAdvisor.txtRevenue1.Text) : (decimal?)null,
-                    Cash = Validation.IsFloat(lf.financialAdvisor.txtCash1.Text) ? decimal.Parse(lf.financialAdvisor.txtCash1.Text) : (decimal?)null,
-                    NetIncome = Validation.IsFloat(lf.financialAdvisor.txtNetImcome1.Text) ? decimal.Parse(lf.financialAdvisor.txtNetImcome1.Text) : (decimal?)null,
-                    RetainedEarning = Validation.IsFloat(lf.financialAdvisor.txtRetainedEarning1.Text) ? decimal.Parse(lf.financialAdvisor.txtRetainedEarning1.Text) : (decimal?)null,
-                    GrossPayroll = Validation.IsFloat(lf.financialAdvisor.txtGrossPayroll1.Text) ? decimal.Parse(lf.financialAdvisor.txtGrossPayroll1.Text) : (decimal?)null,
-                    T4SlipsIssued = Validation.IsInt(lf.financialAdvisor.txtSlips1.Text) ? int.Parse(lf.financialAdvisor.txtSlips1.Text) : (int?)null
+                    FiscalYear = _year1,
+                    TotalRevenue =_totalRevenue1,
+                    Cash = _cash1,
+                    NetIncome =_netIncome1 ,
+                    RetainedEarning = _retianedEarning1,
+                    GrossPayroll = _grossPayroll,
+                    T4SlipsIssued =_t4Slips1 
                 };
                 tblFinance fn2 = new tblFinance
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
-                    FiscalYear = Validation.IsIntInRange(lf.financialAdvisor.txtLast2Year.Text, 2000, 2050) ? int.Parse(lf.financialAdvisor.txtLast2Year.Text) : (int?)null,
-                    TotalRevenue = Validation.IsFloat(lf.financialAdvisor.txtRevenue2.Text) ? decimal.Parse(lf.financialAdvisor.txtRevenue2.Text) : (decimal?)null,
-                    Cash = Validation.IsFloat(lf.financialAdvisor.txtCash2.Text) ? decimal.Parse(lf.financialAdvisor.txtCash2.Text) : (decimal?)null,
-                    NetIncome = Validation.IsFloat(lf.financialAdvisor.txtNetImcome2.Text) ? decimal.Parse(lf.financialAdvisor.txtNetImcome2.Text) : (decimal?)null,
-                    RetainedEarning = Validation.IsFloat(lf.financialAdvisor.txtRetainedEarning2.Text) ? decimal.Parse(lf.financialAdvisor.txtRetainedEarning2.Text) : (decimal?)null,
-                    GrossPayroll = Validation.IsFloat(lf.financialAdvisor.txtGrossPayroll2.Text) ? decimal.Parse(lf.financialAdvisor.txtGrossPayroll2.Text) : (decimal?)null,
-                    T4SlipsIssued = Validation.IsInt(lf.financialAdvisor.txtSlips2.Text) ? int.Parse(lf.financialAdvisor.txtSlips2.Text) : (int?)null
+                    FiscalYear = _year2,
+                    TotalRevenue = _totalRevenue2,
+                    Cash = _cash2,
+                    NetIncome = _netIncome2,
+                    RetainedEarning = _retianedEarning2,
+                    GrossPayroll = _grossPayrol2,
+                    T4SlipsIssued = _t4Slips2
                 };
                 try
                 {
@@ -312,19 +391,20 @@ namespace CA.Immigration.LMIA
                 }
             }
         }
-        public static void UpdateApplication(LMIAForm lf)
+        public static void updateApplication(LMIAForm lf)
         {
             //update application, finance, job position, labour market factors
             //1. update application record
+            getInput(lf);
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 tblLMIAApplication la = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
                 la.LMIAType = GlobalData.CurrentProgramId;
-                la.StreamType = lf.cmbStream.SelectedIndex;
+                la.StreamType = GlobalData.CurrentStreamId;
                 la.EmployeeId = GlobalData.CurrentPersonId;
                 la.EmployerId = GlobalData.CurrentEmployerId;
                 la.RCICId = GlobalData.CurrentRCICId;
-                la.AnotherEmployerName = lf.txtAnotherEmployer.Text;
+                la.AnotherEmployerName = _otherEmployerName;
                 try
                 {
                     cdc.SubmitChanges();
@@ -338,24 +418,24 @@ namespace CA.Immigration.LMIA
                 if(tf != null && tf.Count >= 1)
                 {
                     tf[0].ApplicationId = GlobalData.CurrentApplicationId;
-                    tf[0].FiscalYear = Validation.IsIntInRange(lf.financialAdvisor.txtLast1Year.Text, 2000, 2050) ? int.Parse(lf.financialAdvisor.txtLast1Year.Text) : (int?)null;
-                    tf[0].TotalRevenue = Validation.IsFloat(lf.financialAdvisor.txtRevenue1.Text) ? decimal.Parse(lf.financialAdvisor.txtRevenue1.Text) : (decimal?)null;
-                    tf[0].Cash = Validation.IsFloat(lf.financialAdvisor.txtCash1.Text) ? decimal.Parse(lf.financialAdvisor.txtCash1.Text) : (decimal?)null;
-                    tf[0].NetIncome = Validation.IsFloat(lf.financialAdvisor.txtNetImcome1.Text) ? decimal.Parse(lf.financialAdvisor.txtNetImcome1.Text) : (decimal?)null;
-                    tf[0].RetainedEarning = Validation.IsFloat(lf.financialAdvisor.txtRetainedEarning1.Text) ? decimal.Parse(lf.financialAdvisor.txtRetainedEarning1.Text) : (decimal?)null;
-                    tf[0].GrossPayroll = Validation.IsFloat(lf.financialAdvisor.txtGrossPayroll1.Text) ? decimal.Parse(lf.financialAdvisor.txtGrossPayroll1.Text) : (decimal?)null;
-                    tf[0].T4SlipsIssued = Validation.IsInt(lf.financialAdvisor.txtSlips1.Text) ? int.Parse(lf.financialAdvisor.txtSlips1.Text) : (int?)null;
+                    tf[0].FiscalYear = _year1;
+                    tf[0].TotalRevenue = _totalRevenue1;
+                    tf[0].Cash = _cash1;
+                    tf[0].NetIncome = _netIncome1;
+                    tf[0].RetainedEarning = _retianedEarning1;
+                    tf[0].GrossPayroll = _grossPayroll;
+                    tf[0].T4SlipsIssued = _t4Slips1;
                 }
                 if(tf != null && tf.Count == 2)
                 {
                     tf[1].ApplicationId = GlobalData.CurrentApplicationId;
-                    tf[1].FiscalYear = Validation.IsIntInRange(lf.financialAdvisor.txtLast2Year.Text, 2000, 2050) ? int.Parse(lf.financialAdvisor.txtLast2Year.Text) : (int?)null;
-                    tf[1].TotalRevenue = Validation.IsFloat(lf.financialAdvisor.txtRevenue2.Text) ? decimal.Parse(lf.financialAdvisor.txtRevenue2.Text) : (decimal?)null;
-                    tf[1].Cash = Validation.IsFloat(lf.financialAdvisor.txtCash2.Text) ? decimal.Parse(lf.financialAdvisor.txtCash2.Text) : (decimal?)null;
-                    tf[1].NetIncome = Validation.IsFloat(lf.financialAdvisor.txtNetImcome2.Text) ? decimal.Parse(lf.financialAdvisor.txtNetImcome2.Text) : (decimal?)null;
-                    tf[1].RetainedEarning = Validation.IsFloat(lf.financialAdvisor.txtRetainedEarning2.Text) ? decimal.Parse(lf.financialAdvisor.txtRetainedEarning2.Text) : (decimal?)null;
-                    tf[1].GrossPayroll = Validation.IsFloat(lf.financialAdvisor.txtGrossPayroll2.Text) ? decimal.Parse(lf.financialAdvisor.txtGrossPayroll2.Text) : (decimal?)null;
-                    tf[1].T4SlipsIssued = Validation.IsInt(lf.financialAdvisor.txtSlips2.Text) ? int.Parse(lf.financialAdvisor.txtSlips2.Text) : (int?)null;
+                    tf[0].FiscalYear = _year2;
+                    tf[0].TotalRevenue = _totalRevenue2;
+                    tf[0].Cash = _cash2;
+                    tf[0].NetIncome = _netIncome2;
+                    tf[0].RetainedEarning = _retianedEarning2;
+                    tf[0].GrossPayroll = _grossPayrol2;
+                    tf[0].T4SlipsIssued = _t4Slips2;
                 }
                 try
                 {
@@ -367,23 +447,23 @@ namespace CA.Immigration.LMIA
                 }
                 //3. update job position
                 tblLMIAPosition lp = cdc.tblLMIAPositions.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                lp.JobTitle = lf.jobPositionAdvisor.txtJobTitle.Text;
-                lp.NOC = lf.jobPositionAdvisor.txtNoc.Text;
-                lp.Province = lf.jobPositionAdvisor.cmbProvince.SelectedIndex;
-                lp.WorkingHours = double.Parse(lf.jobPositionAdvisor.txtWorkingHours.Text);
-                lp.HourlyRate = decimal.Parse(lf.jobPositionAdvisor.txtHourlyRate.Text);
-                lp.ProvincialMedian = decimal.Parse(lf.jobPositionAdvisor.txtProvincialMedian.Text);
-                lp.LocalNOCMedian = decimal.Parse(lf.jobPositionAdvisor.txtLocalNOCMedian.Text);
-                lp.LocalNOCLowest = decimal.Parse(lf.jobPositionAdvisor.txtLocalNocLowest.Text);
-                lp.LocalNOCHighest = decimal.Parse(lf.jobPositionAdvisor.txtLocalNocHighest.Text);
-                lp.SamePlaceSamePositionLowest = decimal.Parse(lf.jobPositionAdvisor.txtSameLowest.Text);
-                lp.SamePlaceSamePositionHighest = decimal.Parse(lf.jobPositionAdvisor.txtSameHighest.Text);
-                lp.NoSamePosition = lf.jobPositionAdvisor.chkNoSame.Checked == true ? true : false;
-                lp.UmemploymentRate = int.Parse(lf.txtUnemployRate.Text);
-                lp.COPSRating = int.Parse(lf.txtCOPSRating.Text);
-                lp.OccupationProfile = int.Parse(lf.txtOccupationProfile.Text);
-                lp.EmployerSituation = lf.txtEmployerSituation.Text;
-                lp.EmployerImact = lf.txtSituationImpact.Text;
+                lp.JobTitle = _jobTitle;
+                lp.NOC = _NOC;
+                lp.Province =_province;
+                lp.WorkingHours =(double) _workingHours;
+                lp.HourlyRate = _hourlyRate;
+                lp.ProvincialMedian =_provincialMedian;
+                lp.LocalNOCMedian = _localNOCMedian;
+                lp.LocalNOCLowest = _localNOCLowest;
+                lp.LocalNOCHighest = _localNOCHighest;
+                lp.SamePlaceSamePositionLowest = _samePlaceSamePositionLowest;
+                lp.SamePlaceSamePositionHighest =_samePlaceSamePositionHighest;
+                lp.NoSamePosition = _noSamePosition;
+                lp.UmemploymentRate=_unemploymentRate;
+                lp.COPSRating =_COPSRating;
+                lp.OccupationProfile =_occupationProfile;
+                lp.EmployerSituation =_employerSituation;
+                lp.EmployerImact = _situationImpact;
                 try
                 {
                     cdc.SubmitChanges();

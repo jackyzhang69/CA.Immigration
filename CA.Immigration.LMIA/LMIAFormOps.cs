@@ -18,9 +18,9 @@ namespace CA.Immigration.LMIA
             // set status in status strip : Application Id, employer id, employee id, Program id, maybe RCIC id
             //-- for Analysis table
             // set application program value and disable edit
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
 
                     GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
@@ -35,17 +35,17 @@ namespace CA.Immigration.LMIA
                     GlobalData.CurrentStreamId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.StreamType).FirstOrDefault();
                     lf.cmbStream.SelectedIndex = (int)GlobalData.CurrentStreamId;
                     // Get data from definition to fill LMIA 11 factors
-                    for(int i = 0; i < Definition.LMIA11Factors.Length / 2; i++)
+                    for (int i = 0; i < Definition.LMIA11Factors.Length / 2; i++)
                     {
                         lf.ckbLmFactor.Items.Add(Definition.LMIA11Factors[i, 1]);
                     }
                     //set another employer if in low wage stream
-                    if(GlobalData.CurrentStreamId == 0) lf.ckbOtherEmployer.Visible = false;
-                    if(GlobalData.CurrentStreamId == 1)
+                    if (GlobalData.CurrentStreamId == 0) lf.ckbOtherEmployer.Visible = false;
+                    if (GlobalData.CurrentStreamId == 1)
                     {
                         lf.ckbOtherEmployer.Visible = true;
                         tblLMIAApplication ap = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                        if(ap != null)
+                        if (ap != null)
                         {
                             lf.ckbOtherEmployer.Checked = true;
                             lf.txtAnotherEmployer.Visible = true;
@@ -58,13 +58,24 @@ namespace CA.Immigration.LMIA
                 GlobalData.CurrentPersonIdReadOnly = true;
                 GlobalData.CurrentProgramIdReadOnly = true;
             }
+            else {
+
+                using (CommonDataContext cdc=new CommonDataContext())
+                {
+                    lf.txtProgram.Text = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Name).FirstOrDefault();
+                    lf.txtProgram.ReadOnly = true; 
+                }
+            }
         }
         public static void formLoadInitialization(LMIAForm lf)
         {
             LMIAAnalysis.analysisLoadInitialization(lf);
 
-            //Load Business details data
-            LMIABusinessDetail.loadFromDB((int)GlobalData.CurrentApplicationId, lf);
+            if (GlobalData.CurrentApplicationId!=null)
+            {
+                //Load Business details data
+                LMIABusinessDetail.loadFromDB((int)GlobalData.CurrentApplicationId, lf); 
+            }
         }
 
     }

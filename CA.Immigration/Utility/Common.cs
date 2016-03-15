@@ -306,6 +306,11 @@ namespace CA.Immigration.Utility
             float floatValue;
             return float.TryParse(value, out floatValue);
         }
+        public static bool IsDecimal(string value)
+        {
+            decimal floatValue;
+            return decimal.TryParse(value, out floatValue);
+        }
         public static bool IsFloatInRange(string value, float low, float high)
         {
             float floatValue;

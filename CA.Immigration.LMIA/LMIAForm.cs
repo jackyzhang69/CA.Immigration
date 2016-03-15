@@ -46,7 +46,8 @@ namespace CA.Immigration.LMIA
         }
         private void btnAnalysisInsert_Click(object sender, EventArgs e)
         {
-            LMIAAnalysis.insertApplication(this);
+            LMIAAnalysis.getInput(this);
+          //  LMIAAnalysis.insertApplication(this);
 
 
         }
@@ -75,7 +76,7 @@ namespace CA.Immigration.LMIA
 
         private void btnAnalysisUpdate_Click(object sender, EventArgs e)
         {
-            LMIAAnalysis.UpdateApplication(this);
+            LMIAAnalysis.updateApplication(this);
 
         }
         private void btnAnalysisDelete_Click(object sender, EventArgs e)
@@ -95,8 +96,11 @@ namespace CA.Immigration.LMIA
 
         private void tabBusinessDetails_Layout(object sender, LayoutEventArgs e)
         {
-            LMIABusinessDetail.loadFromDB((int)GlobalData.CurrentApplicationId,this);
-            LMIABusinessDetail.paintForm(this);
+            if (GlobalData.CurrentApplicationId!=null)
+            {
+                LMIABusinessDetail.loadFromDB((int)GlobalData.CurrentApplicationId, this);
+                LMIABusinessDetail.paintForm(this); 
+            }
 
         }
 

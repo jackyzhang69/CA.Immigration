@@ -31,23 +31,21 @@ namespace CA.Immigration.LMIA
         private static bool? q10 { get; set; }
         private static string q10Explanation { get; set; }
 
-        private static int? getValue(LMIAForm lf, string input)
-        {
-            int? value = 0;
-            if(Validation.IsInt(lf.txtBizDetailQ1.Text)) value = int.Parse(lf.txtBizDetailQ1.Text);
-            if(lf.txtBizDetailQ1.Text == string.Empty) value = null;
-            return value;
-
-
-        }
+        //private static int? getValue(LMIAForm lf, string input)
+        //{
+        //    int? value = null;
+        //    if(Validation.IsInt(lf.txtBizDetailQ1.Text)) value = int.Parse(lf.txtBizDetailQ1.Text);
+        //    if(lf.txtBizDetailQ1.Text == string.Empty) value = null;
+        //    return value;
+        //}
 
         public static void getInput(LMIAForm lf)
         {
-            q1 = getValue(lf, lf.txtBizDetailQ1.Text);
-            q2 = getValue(lf, lf.txtBizDetailQ2.Text);
-            q3 = getValue(lf, lf.txtBizDetailQ3.Text);
-            q4 = getValue(lf, lf.txtBizDetailQ4.Text);
-            q5 = getValue(lf, lf.txtBizDetailQ5.Text);
+            q1 = LMIATools.getIntValue(lf.txtBizDetailQ1.Text);
+            q2 = LMIATools.getIntValue(lf.txtBizDetailQ2.Text);
+            q3 = LMIATools.getIntValue(lf.txtBizDetailQ3.Text);
+            q4 = LMIATools.getIntValue(lf.txtBizDetailQ4.Text);
+            q5 = LMIATools.getIntValue(lf.txtBizDetailQ5.Text);
             q6 = lf.chkLMIA1213.Checked == true ? true : false;
             q61 = lf.chkLMIACompliance1213.Checked == true ? true : false;
             q7 = lf.chkLMIA1415.Checked == true ? true : false;
@@ -58,8 +56,8 @@ namespace CA.Immigration.LMIA
             q81FileNumber = lf.txtLMIASFN.Text;
             q81Explanation = lf.txtLMIAPublicPolicy.Text;
             q9 = lf.chkBizDetailQ9.Checked == true ? true : false;
-            q91 = getValue(lf, lf.txtLayoffCanadians.Text);
-            q92 = getValue(lf, lf.txtTFWs.Text);
+            q91 = LMIATools.getIntValue(lf.txtLayoffCanadians.Text);
+            q92 = LMIATools.getIntValue(lf.txtTFWs.Text);
             q9Reason = lf.chkBizDetailQ9Explain.Text;
             q10 = lf.chkBizDetailQ10.Checked == true ? true : false;
             q10Explanation = lf.chkBizDetailQ10Explain.Text;

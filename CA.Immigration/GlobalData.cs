@@ -31,12 +31,12 @@ namespace CA.Immigration
         public enum AppStream
         {
 
-            LMIAPRSupportOnly = 1,
-            LMIAPRandWP = 2,
-            LMIAWPOnly = 3,
-            BCPNPSW = 4,
-            BCPNPEI = 5,
-            BCPNPInternationalGraduate = 6
+            LMIAPRSupportOnly = 0,
+            LMIAPRandWP = 1,
+            LMIAWPOnly = 2,
+            BCPNPSW = 3,
+            BCPNPEI = 4,
+            BCPNPInternationalGraduate = 5
         }
 
     }

@@ -92,8 +92,12 @@ namespace CA.Immigration.Startup
             // Get LMIA application 
             using (CommonDataContext cdc=new CommonDataContext())
             {
-                dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new {ID=x.Id,Employer=((int)x.EmployerId).getEmployerFromId(),Employee= ((int)x.EmployeeId).getEmployeeFromId(), CreateDate=x.CreatedDate });
-                
+                if (GlobalData.CurrentPersonId!=null)
+                {
+                    dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate }); 
+                }
+                else dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), CreateDate = x.CreatedDate });
+
             }
 
             // Get ... application
@@ -285,6 +289,15 @@ namespace CA.Immigration.Startup
                 case (int)GlobalData.AppStream.LMIAPRandWP:
                    
                     break;
+                case (int)GlobalData.AppStream.LMIAWPOnly:
+                    if (GlobalData.CurrentEmployerId != null)
+                    {
+                        LMIAForm lf = new LMIAForm();
+                        lf.Show();
+                    }
+
+                    else MessageBox.Show("You have to select an employer first");
+                    break;
                 default:
                     break;
             }
@@ -293,7 +306,7 @@ namespace CA.Immigration.Startup
 
         private void cmbProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedValue;
+            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedIndex;
         }
 
         private void btnPhoto_Click(object sender, EventArgs e)
