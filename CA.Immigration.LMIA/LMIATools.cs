@@ -26,5 +26,12 @@ namespace CA.Immigration.LMIA
             if (input == string.Empty) value = null;
             return value;
         }
+        public static double? getDoubleValue(string input)
+        {
+            double? value = null;
+            if(Validation.IsDouble(input)) value = double.Parse(input);
+            if(input == string.Empty) value = null;
+            return value;
+        }
     }
 }

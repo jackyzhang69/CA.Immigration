@@ -10371,17 +10371,17 @@ namespace CA.Immigration.Data
 		
 		private System.Nullable<int> _TotalTFWAfterPositive;
 		
-		private System.Nullable<int> _Q6;
+		private System.Nullable<bool> _Q6;
 		
-		private System.Nullable<int> _Q6_1;
+		private System.Nullable<bool> _Q6_1;
 		
-		private System.Nullable<int> _Q7;
+		private System.Nullable<bool> _Q7;
 		
-		private System.Nullable<int> _Q7_1;
+		private System.Nullable<bool> _Q7_1;
 		
-		private System.Nullable<int> _Q8;
+		private System.Nullable<bool> _Q8;
 		
-		private System.Nullable<int> _Q8_1;
+		private System.Nullable<bool> _Q8_1;
 		
 		private System.Nullable<System.DateTime> _Q8_2;
 		
@@ -10389,7 +10389,7 @@ namespace CA.Immigration.Data
 		
 		private string _Q8_4;
 		
-		private System.Nullable<int> _Q9;
+		private System.Nullable<bool> _Q9;
 		
 		private System.Nullable<int> _Q9_1;
 		
@@ -10397,7 +10397,7 @@ namespace CA.Immigration.Data
 		
 		private string _Q9_3;
 		
-		private System.Nullable<int> _Q10;
+		private System.Nullable<bool> _Q10;
 		
 		private string _Q10_1;
 		
@@ -10419,17 +10419,17 @@ namespace CA.Immigration.Data
     partial void OnTotalEmployeeThisOccupationLocationChanged();
     partial void OnTotalTFWAfterPositiveChanging(System.Nullable<int> value);
     partial void OnTotalTFWAfterPositiveChanged();
-    partial void OnQ6Changing(System.Nullable<int> value);
+    partial void OnQ6Changing(System.Nullable<bool> value);
     partial void OnQ6Changed();
-    partial void OnQ6_1Changing(System.Nullable<int> value);
+    partial void OnQ6_1Changing(System.Nullable<bool> value);
     partial void OnQ6_1Changed();
-    partial void OnQ7Changing(System.Nullable<int> value);
+    partial void OnQ7Changing(System.Nullable<bool> value);
     partial void OnQ7Changed();
-    partial void OnQ7_1Changing(System.Nullable<int> value);
+    partial void OnQ7_1Changing(System.Nullable<bool> value);
     partial void OnQ7_1Changed();
-    partial void OnQ8Changing(System.Nullable<int> value);
+    partial void OnQ8Changing(System.Nullable<bool> value);
     partial void OnQ8Changed();
-    partial void OnQ8_1Changing(System.Nullable<int> value);
+    partial void OnQ8_1Changing(System.Nullable<bool> value);
     partial void OnQ8_1Changed();
     partial void OnQ8_2Changing(System.Nullable<System.DateTime> value);
     partial void OnQ8_2Changed();
@@ -10437,7 +10437,7 @@ namespace CA.Immigration.Data
     partial void OnQ8_3Changed();
     partial void OnQ8_4Changing(string value);
     partial void OnQ8_4Changed();
-    partial void OnQ9Changing(System.Nullable<int> value);
+    partial void OnQ9Changing(System.Nullable<bool> value);
     partial void OnQ9Changed();
     partial void OnQ9_1Changing(System.Nullable<int> value);
     partial void OnQ9_1Changed();
@@ -10445,7 +10445,7 @@ namespace CA.Immigration.Data
     partial void OnQ9_2Changed();
     partial void OnQ9_3Changing(string value);
     partial void OnQ9_3Changed();
-    partial void OnQ10Changing(System.Nullable<int> value);
+    partial void OnQ10Changing(System.Nullable<bool> value);
     partial void OnQ10Changed();
     partial void OnQ10_1Changing(string value);
     partial void OnQ10_1Changed();
@@ -10596,8 +10596,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6", DbType="Int")]
-		public System.Nullable<int> Q6
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6", DbType="Bit")]
+		public System.Nullable<bool> Q6
 		{
 			get
 			{
@@ -10616,8 +10616,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6_1", DbType="Int")]
-		public System.Nullable<int> Q6_1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q6_1", DbType="Bit")]
+		public System.Nullable<bool> Q6_1
 		{
 			get
 			{
@@ -10636,8 +10636,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7", DbType="Int")]
-		public System.Nullable<int> Q7
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7", DbType="Bit")]
+		public System.Nullable<bool> Q7
 		{
 			get
 			{
@@ -10656,8 +10656,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7_1", DbType="Int")]
-		public System.Nullable<int> Q7_1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q7_1", DbType="Bit")]
+		public System.Nullable<bool> Q7_1
 		{
 			get
 			{
@@ -10676,8 +10676,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8", DbType="Int")]
-		public System.Nullable<int> Q8
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8", DbType="Bit")]
+		public System.Nullable<bool> Q8
 		{
 			get
 			{
@@ -10696,8 +10696,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_1", DbType="Int")]
-		public System.Nullable<int> Q8_1
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_1", DbType="Bit")]
+		public System.Nullable<bool> Q8_1
 		{
 			get
 			{
@@ -10736,7 +10736,7 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_3", DbType="NVarChar(20)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_3", DbType="VarChar(20)")]
 		public string Q8_3
 		{
 			get
@@ -10756,7 +10756,7 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_4", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q8_4", DbType="VarChar(100)")]
 		public string Q8_4
 		{
 			get
@@ -10776,8 +10776,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9", DbType="Int")]
-		public System.Nullable<int> Q9
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9", DbType="Bit")]
+		public System.Nullable<bool> Q9
 		{
 			get
 			{
@@ -10836,7 +10836,7 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_3", DbType="NVarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q9_3", DbType="VarChar(100)")]
 		public string Q9_3
 		{
 			get
@@ -10856,8 +10856,8 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10", DbType="Int")]
-		public System.Nullable<int> Q10
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10", DbType="Bit")]
+		public System.Nullable<bool> Q10
 		{
 			get
 			{
@@ -10876,7 +10876,7 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10_1", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Q10_1", DbType="VarChar(50)")]
 		public string Q10_1
 		{
 			get

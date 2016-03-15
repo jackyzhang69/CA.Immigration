@@ -97,7 +97,7 @@
             this.txtAverageWage2.Location = new System.Drawing.Point(940, 122);
             this.txtAverageWage2.Name = "txtAverageWage2";
             this.txtAverageWage2.Size = new System.Drawing.Size(109, 26);
-            this.txtAverageWage2.TabIndex = 1;
+            this.txtAverageWage2.TabIndex = 15;
             this.txtAverageWage2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSlips2
@@ -106,7 +106,7 @@
             this.txtSlips2.Location = new System.Drawing.Point(802, 122);
             this.txtSlips2.Name = "txtSlips2";
             this.txtSlips2.Size = new System.Drawing.Size(109, 26);
-            this.txtSlips2.TabIndex = 1;
+            this.txtSlips2.TabIndex = 14;
             this.txtSlips2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSlips2.Leave += new System.EventHandler(this.txtSlips2_Leave);
             // 
@@ -116,7 +116,7 @@
             this.txtGrossPayroll2.Location = new System.Drawing.Point(662, 122);
             this.txtGrossPayroll2.Name = "txtGrossPayroll2";
             this.txtGrossPayroll2.Size = new System.Drawing.Size(109, 26);
-            this.txtGrossPayroll2.TabIndex = 1;
+            this.txtGrossPayroll2.TabIndex = 13;
             this.txtGrossPayroll2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtGrossPayroll2.Leave += new System.EventHandler(this.txtGrossPayroll2_Leave);
             // 
@@ -126,7 +126,7 @@
             this.txtRetainedEarning2.Location = new System.Drawing.Point(519, 122);
             this.txtRetainedEarning2.Name = "txtRetainedEarning2";
             this.txtRetainedEarning2.Size = new System.Drawing.Size(109, 26);
-            this.txtRetainedEarning2.TabIndex = 1;
+            this.txtRetainedEarning2.TabIndex = 12;
             this.txtRetainedEarning2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRetainedEarning2.Leave += new System.EventHandler(this.txtRetainedEarning2_Leave);
             // 
@@ -136,7 +136,7 @@
             this.txtNetImcome2.Location = new System.Drawing.Point(393, 122);
             this.txtNetImcome2.Name = "txtNetImcome2";
             this.txtNetImcome2.Size = new System.Drawing.Size(109, 26);
-            this.txtNetImcome2.TabIndex = 1;
+            this.txtNetImcome2.TabIndex = 11;
             this.txtNetImcome2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNetImcome2.Leave += new System.EventHandler(this.txtNetImcome2_Leave);
             // 
@@ -146,7 +146,7 @@
             this.txtCash2.Location = new System.Drawing.Point(261, 122);
             this.txtCash2.Name = "txtCash2";
             this.txtCash2.Size = new System.Drawing.Size(109, 26);
-            this.txtCash2.TabIndex = 1;
+            this.txtCash2.TabIndex = 10;
             this.txtCash2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCash2.Leave += new System.EventHandler(this.txtCash2_Leave);
             // 
@@ -156,7 +156,7 @@
             this.txtRevenue2.Location = new System.Drawing.Point(117, 122);
             this.txtRevenue2.Name = "txtRevenue2";
             this.txtRevenue2.Size = new System.Drawing.Size(109, 26);
-            this.txtRevenue2.TabIndex = 1;
+            this.txtRevenue2.TabIndex = 9;
             this.txtRevenue2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRevenue2.Leave += new System.EventHandler(this.txtRevenue2_Leave);
             // 
@@ -166,7 +166,7 @@
             this.txtLast2Year.Location = new System.Drawing.Point(16, 122);
             this.txtLast2Year.Name = "txtLast2Year";
             this.txtLast2Year.Size = new System.Drawing.Size(79, 26);
-            this.txtLast2Year.TabIndex = 1;
+            this.txtLast2Year.TabIndex = 8;
             this.txtLast2Year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLast2Year.Leave += new System.EventHandler(this.txtLast2Year_Leave);
             // 
@@ -176,7 +176,7 @@
             this.txtAverageWage1.Location = new System.Drawing.Point(940, 85);
             this.txtAverageWage1.Name = "txtAverageWage1";
             this.txtAverageWage1.Size = new System.Drawing.Size(109, 26);
-            this.txtAverageWage1.TabIndex = 1;
+            this.txtAverageWage1.TabIndex = 7;
             this.txtAverageWage1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSlips1
@@ -185,7 +185,7 @@
             this.txtSlips1.Location = new System.Drawing.Point(802, 85);
             this.txtSlips1.Name = "txtSlips1";
             this.txtSlips1.Size = new System.Drawing.Size(109, 26);
-            this.txtSlips1.TabIndex = 1;
+            this.txtSlips1.TabIndex = 6;
             this.txtSlips1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSlips1.Leave += new System.EventHandler(this.txtSlips1_Leave);
             // 
@@ -195,7 +195,7 @@
             this.txtGrossPayroll1.Location = new System.Drawing.Point(662, 85);
             this.txtGrossPayroll1.Name = "txtGrossPayroll1";
             this.txtGrossPayroll1.Size = new System.Drawing.Size(109, 26);
-            this.txtGrossPayroll1.TabIndex = 1;
+            this.txtGrossPayroll1.TabIndex = 5;
             this.txtGrossPayroll1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtGrossPayroll1.Leave += new System.EventHandler(this.txtGrossPayroll1_Leave);
             // 
@@ -223,7 +223,7 @@
             this.txtRetainedEarning1.Location = new System.Drawing.Point(519, 85);
             this.txtRetainedEarning1.Name = "txtRetainedEarning1";
             this.txtRetainedEarning1.Size = new System.Drawing.Size(109, 26);
-            this.txtRetainedEarning1.TabIndex = 1;
+            this.txtRetainedEarning1.TabIndex = 4;
             this.txtRetainedEarning1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRetainedEarning1.Leave += new System.EventHandler(this.txtRetainedEarning1_Leave);
             // 
@@ -242,7 +242,7 @@
             this.txtNetImcome1.Location = new System.Drawing.Point(393, 85);
             this.txtNetImcome1.Name = "txtNetImcome1";
             this.txtNetImcome1.Size = new System.Drawing.Size(109, 26);
-            this.txtNetImcome1.TabIndex = 1;
+            this.txtNetImcome1.TabIndex = 3;
             this.txtNetImcome1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNetImcome1.Leave += new System.EventHandler(this.txtNetImcome1_Leave);
             // 
@@ -261,7 +261,7 @@
             this.txtCash1.Location = new System.Drawing.Point(261, 85);
             this.txtCash1.Name = "txtCash1";
             this.txtCash1.Size = new System.Drawing.Size(109, 26);
-            this.txtCash1.TabIndex = 1;
+            this.txtCash1.TabIndex = 2;
             this.txtCash1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCash1.Leave += new System.EventHandler(this.txtCash1_Leave);
             // 
@@ -299,7 +299,7 @@
             this.txtLast1Year.Location = new System.Drawing.Point(16, 85);
             this.txtLast1Year.Name = "txtLast1Year";
             this.txtLast1Year.Size = new System.Drawing.Size(79, 26);
-            this.txtLast1Year.TabIndex = 1;
+            this.txtLast1Year.TabIndex = 0;
             this.txtLast1Year.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLast1Year.Leave += new System.EventHandler(this.txtLast1Year_Leave);
             // 

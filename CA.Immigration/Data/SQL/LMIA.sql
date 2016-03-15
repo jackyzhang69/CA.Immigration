@@ -97,21 +97,21 @@ TotalCndThisLocation int, --3. Total number of Canadian/permanent resident emplo
 
 TotalEmployeeThisOccupationLocation int,  --4. Total number of employees (including Canadians/permanent residents and TFWs) working in this occupation at this work location:
 TotalTFWAfterPositive int,  --5. Total number of foreign workers (as a result of receiving a positive LMIA) at the work location specified on this form:
-Q6 int , --	1 N 2 Y, within two years before 12/31/2013, did you employ a foreign worker(as the result of receiving LMIA)
-Q6_1 int,  --  1N 2 Y,If YES ?did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that were substantially the same as those that were described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
-Q7 int , --	Have you applied for and received a positive LMIA on or after December 31, 2013, and employed a foreign worker in that position?
-Q7_1 int,  --	  If YES ?did you provide all foreign workers employed by you, on LMIAs received on or after December 31, 2013, with employment in the same occupation as described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s)) and with substantially the same wages and working conditions - but not less favourable than- those set out in that offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
-Q8 int ,  --	  Have you had an LMIA revoked, within the previous 2 years from the date you submitted this Application?
-Q8_1 int, 	--If YES ?was the LMIA revoked because you had provided false, misleading or inaccurate information in the context of a request for an opinion?
+Q6 bit , --	1 N 2 Y, within two years before 12/31/2013, did you employ a foreign worker(as the result of receiving LMIA)
+Q6_1 bit,  --  1N 2 Y,If YES ?did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that were substantially the same as those that were described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
+Q7 bit , --	Have you applied for and received a positive LMIA on or after December 31, 2013, and employed a foreign worker in that position?
+Q7_1 bit,  --	  If YES ?did you provide all foreign workers employed by you, on LMIAs received on or after December 31, 2013, with employment in the same occupation as described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s)) and with substantially the same wages and working conditions - but not less favourable than- those set out in that offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
+Q8 bit ,  --	  Have you had an LMIA revoked, within the previous 2 years from the date you submitted this Application?
+Q8_1 bit, 	--If YES ?was the LMIA revoked because you had provided false, misleading or inaccurate information in the context of a request for an opinion?
 Q8_2 date, -- If yes, please provide the following details regarding this revocation:	Date (yyyy-mm-dd):
-Q8_3 nvarchar(20),--System File Number:	  
-Q8_4 nvarchar(100),	 -- If the public policy considerations that justified the revocation are no longer relevant, please provide a detailed explanation:
-Q9 int, --   Were any employees laid off in the past 12 months?
+Q8_3 varchar(20),--System File Number:	  
+Q8_4 varchar(100),	 -- If the public policy considerations that justified the revocation are no longer relevant, please provide a detailed explanation:
+Q9 bit, --   Were any employees laid off in the past 12 months?
 Q9_1 int,  -- 	 If yes, how many Canadians/permanent residents?
 Q9_2 int,  --  How many foreign workers?
-Q9_3 nvarchar(100),	-- Reason(s) for layoff(s) and occupations affected:
-Q10 int, --  Does your business receive support through any Government of Canada program (e.g. Work-Sharing Program)?
-Q10_1 nvarchar(50)  -- If yes, name the program(s):
+Q9_3 varchar(100),	-- Reason(s) for layoff(s) and occupations affected:
+Q10 bit, --  Does your business receive support through any Government of Canada program (e.g. Work-Sharing Program)?
+Q10_1 varchar(50)  -- If yes, name the program(s):
 
 )
 

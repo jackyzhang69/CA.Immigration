@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CA.Immigration.Data;
+using System.Windows.Forms;
 
 namespace CA.Immigration.LMIA
 {
@@ -66,15 +67,29 @@ namespace CA.Immigration.LMIA
                     lf.txtProgram.ReadOnly = true; 
                 }
             }
+           
+            lf.DTPQ8.Format = DateTimePickerFormat.Custom;
+            lf.DTPQ8.CustomFormat = "yyyy-MM-dd";
         }
         public static void formLoadInitialization(LMIAForm lf)
         {
-            LMIAAnalysis.analysisLoadInitialization(lf);
-
-            if (GlobalData.CurrentApplicationId!=null)
+            if(GlobalData.CurrentApplicationId != null)
             {
-                //Load Business details data
-                LMIABusinessDetail.loadFromDB((int)GlobalData.CurrentApplicationId, lf); 
+                LMIAAnalysis.analysisLoadInitialization(lf);
+                lf.btnAnalysisInsert.Visible = false;
+                if(GlobalData.CurrentBusinessDetailId != null)
+                {
+                    lf.btnInsertBD.Visible = false;
+                    //Load Business details data
+                    LMIABusinessDetail.loadFromDB(lf);
+                    LMIABusinessDetail.fillForm(lf);
+                }
+                else lf.btnInsertBD.Visible = true;
+            }
+            else {
+                lf.btnAnalysisInsert.Visible = true;
+                if(GlobalData.CurrentBusinessDetailId != null) lf.btnInsertBD.Visible = false;
+                else lf.btnInsertBD.Visible = true;
             }
         }
 

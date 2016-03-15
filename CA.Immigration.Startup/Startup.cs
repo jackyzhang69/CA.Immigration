@@ -23,6 +23,12 @@ namespace CA.Immigration.Startup
         public StartupForm()
         {
             InitializeComponent();
+            dtpPBIDOB.Format = DateTimePickerFormat.Custom;
+            dtpPBIDOB.CustomFormat = "yyyy-MM-dd";
+            dtpBusinessStartDate.Format = DateTimePickerFormat.Custom;
+            dtpBusinessStartDate.CustomFormat = "yyyy-MM-dd";
+
+
         }
 
         private void lMIAToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -554,7 +560,7 @@ namespace CA.Immigration.Startup
 
         private void btnAnalysisUpdate_Click(object sender, EventArgs e)
         {
-             
+            MessageBox.Show("I haven't coded yet");
         }
     }
 }

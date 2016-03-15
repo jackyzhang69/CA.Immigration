@@ -494,21 +494,21 @@
       <Column Name="TotalCndThisLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalEmployeeThisOccupationLocation" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="TotalTFWAfterPositive" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q6" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q6_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q7" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q7_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q8" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q8_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q6" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Q6_1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Q7" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Q7_1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Q8" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Q8_1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Q8_2" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="Q8_3" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="Q8_4" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Q9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q8_3" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Q8_4" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Q9" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Q9_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Q9_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q9_3" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Q10" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q10_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Q9_3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Q10" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Q10_1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

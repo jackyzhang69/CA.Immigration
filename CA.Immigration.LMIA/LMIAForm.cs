@@ -16,6 +16,11 @@ namespace CA.Immigration.LMIA
         public LMIAForm()
         {
             InitializeComponent();
+            using(CommonDataContext cdc = new CommonDataContext())
+            {
+                txtProgram.Text = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Name).FirstOrDefault();
+                txtProgram.ReadOnly = true;
+            }
         }
         public LMIAForm(int applicationid)
         {
@@ -46,8 +51,7 @@ namespace CA.Immigration.LMIA
         }
         private void btnAnalysisInsert_Click(object sender, EventArgs e)
         {
-            LMIAAnalysis.getInput(this);
-          //  LMIAAnalysis.insertApplication(this);
+            LMIAAnalysis.insertApplication(this);
 
 
         }
@@ -81,37 +85,54 @@ namespace CA.Immigration.LMIA
         }
         private void btnAnalysisDelete_Click(object sender, EventArgs e)
         {
-            LMIAAnalysis.deleteApplication();
+            LMIAAnalysis.deleteApplication(this);
+            MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            resetGlobalData();
+            
         }
-        private void btnNewBD_Click(object sender, EventArgs e)
-        {
-            LMIABusinessDetail.clearForm(this);
-        }  // consider it?!
+
 
         private void btnInsertBD_Click(object sender, EventArgs e)
         {
             LMIABusinessDetail.getInput(this);
-            LMIABusinessDetail.Insert2DB((int)GlobalData.CurrentApplicationId, this);
+            LMIABusinessDetail.Insert2DB(this);
         }
 
         private void tabBusinessDetails_Layout(object sender, LayoutEventArgs e)
         {
             if (GlobalData.CurrentApplicationId!=null)
             {
-                LMIABusinessDetail.loadFromDB((int)GlobalData.CurrentApplicationId, this);
-                LMIABusinessDetail.paintForm(this); 
+                LMIABusinessDetail.loadFromDB(this);
+                LMIABusinessDetail.fillForm(this); 
             }
 
         }
 
         private void btnDeleteBD_Click(object sender, EventArgs e)
         {
-            LMIABusinessDetail.deleteRecord((int)GlobalData.CurrentApplicationId);
+            LMIABusinessDetail.deleteRecord(this);
+            LMIABusinessDetail.clearForm(this);
         }
 
         private void btnUpdateBD_Click(object sender, EventArgs e)
         {
+            LMIABusinessDetail.getInput(this);
             LMIABusinessDetail.updateRecord((int)GlobalData.CurrentApplicationId);
+        }
+        private void btnNewBD_Click(object sender, EventArgs e)
+        {
+            LMIABusinessDetail.clearForm(this);
+        }  // consider it?!
+
+        private void btnAnalysisNew_Click(object sender, EventArgs e)
+        {
+            LMIAAnalysis.clearForm(this);
+        }
+        private void resetGlobalData()
+        {
+            GlobalData.CurrentApplicationId = null;
+            GlobalData.CurrentApplicationIdReadOnly = false;
+            
         }
     }
 }

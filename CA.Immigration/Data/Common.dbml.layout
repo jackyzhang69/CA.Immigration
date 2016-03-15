@@ -176,10 +176,10 @@
         <elementListCompartment Id="f0b2826e-c896-41f4-a9fb-ef2b7e0b8ee8" absoluteBounds="12.765, 7.2100000000000009, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="94b6d2eb-6693-41ef-a3d4-0c2130199c24" isExpanded="false" absoluteBounds="6.875, 12.125, 2, 0.45">
+    <classShape Id="c3195033-adbd-4fea-8fe1-364789d2d100" isExpanded="false" absoluteBounds="7.625, 12.375, 2, 0.45">
       <DataClassMoniker Name="/CommonDataContext/tblBusinessDetail" />
       <nestedChildShapes>
-        <elementListCompartment Id="9e0fece0-068e-4258-80e4-558104b52672" absoluteBounds="6.89, 12.585, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4ff32671-2a27-4086-8d26-fb331a64e4fa" absoluteBounds="7.64, 12.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
