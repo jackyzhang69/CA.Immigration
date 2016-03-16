@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="App\App.cs" />
     <Compile Include="CICDict\LMIADict.cs" />
+    <Compile Include="CICDict\RCIC.cs" />
     <Compile Include="CICDict\SPDict.cs" />
     <Compile Include="Data\CanadaProvinces.cs">
       <SubType>UserControl</SubType>

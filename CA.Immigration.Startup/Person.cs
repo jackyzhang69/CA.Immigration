@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using CA.Immigration.Utility;
 using System.Windows.Forms;
+using System.Data;
 
 namespace CA.Immigration.Startup
 {
@@ -25,7 +26,7 @@ namespace CA.Immigration.Startup
         private static Image _Photo;
         private static Image _theSignature;
 
-        public static void loadFromDB(StartupForm sf)
+        public static void loadFromDB()
         {
             using (CommonDataContext cdc = new CommonDataContext())
             {
@@ -108,7 +109,6 @@ namespace CA.Immigration.Startup
                 }
         }
         }
-
         public static void personDelete(StartupForm sf)
         {
             using (CommonDataContext cdc = new CommonDataContext())
@@ -124,9 +124,8 @@ namespace CA.Immigration.Startup
                         cdc.SubmitChanges();
                         MessageBox.Show("The record has been deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GlobalData.CurrentPersonId = null;
-                        StartupOps.cleanPBI(sf);
-                        StartupOps.cleanSelector(sf);
-                        StartupOps.cleanPassport(sf);
+                        Person.clearForm(sf);
+                        StartupOps.clearSelectedPerson(sf);
                     }
                     catch (Exception exc)
                     {
@@ -210,6 +209,30 @@ namespace CA.Immigration.Startup
                 
                 else MessageBox.Show("There is no record to be updated");
             }
+        }
+        public static void passportInsert(StartupForm sf)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add(new DataColumn("PassportNumber"));
+            dt.Columns.Add(new DataColumn("Name"));
+            dt.Columns.Add(new DataColumn("GenderId"));
+            dt.Columns.Add(new DataColumn("BirthCountryId"));
+            dt.Columns.Add(new DataColumn("NationalityId"));
+            dt.Columns.Add(new DataColumn("DOB"));
+            dt.Columns.Add(new DataColumn("BrithPlace"));
+            dt.Columns.Add(new DataColumn("IssueDate"));
+            dt.Columns.Add(new DataColumn("IssuePlace"));
+            dt.Columns.Add(new DataColumn("ExpiryDate"));
+            dt.Columns.Add(new DataColumn("IssueCountryId"));
+            dt.Columns.Add(new DataColumn("IsValid"));
+            sf.dgvPassport.DataSource = dt;
+        }
+
+        //Build up emp5575 dictionary
+        public static void buildupDict5575(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+            dict.Add("EMP5575_E[0].Page3[0].txtF_foreign_worker[0]", GlobalData.CurrentPersonId != null ?_FirstName + " " + _LastName : "");  // Foreign worker
         }
     }
 }

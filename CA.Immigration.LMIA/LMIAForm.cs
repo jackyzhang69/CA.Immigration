@@ -26,7 +26,7 @@ namespace CA.Immigration.LMIA
         {
             InitializeComponent();
             LMIAFormOps.formConstruction(this);
-            
+
         }
         private void LMIAForm_Load(object sender, EventArgs e)
         {
@@ -34,18 +34,18 @@ namespace CA.Immigration.LMIA
         }
         private void ckbOtherEmployer_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckbOtherEmployer.Checked) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
+            if(ckbOtherEmployer.Checked) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
             else { lblAnotherEmployer.Visible = false; txtAnotherEmployer.Visible = false; }
         }
         private void cmbStream_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmbStream.SelectedIndex == 0)
+            if(cmbStream.SelectedIndex == 0)
             {
                 ckbOtherEmployer.Visible = false;// high wage stream has no second employer
                 lblAnotherEmployer.Visible = false;
                 txtAnotherEmployer.Visible = false;
             }
-            if (cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
+            if(cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
             GlobalData.CurrentStreamId = cmbStream.SelectedIndex;
             LMIAAnalysis.getIndicators(this);
         }
@@ -57,8 +57,12 @@ namespace CA.Immigration.LMIA
         }
         private void btnEMP5575_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
-            FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
+            if(GlobalData.CurrentApplicationId != null)
+            {
+                Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
+                FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
+            }
+            else MessageBox.Show("There is no current application existed");
         }
         private void jobPositionAdvisor_Leave(object sender, EventArgs e)
         {
@@ -72,7 +76,7 @@ namespace CA.Immigration.LMIA
         {
             LMIAAnalysis.getIndicators(this);
         }
-        
+
         private void tabAnalysis_Layout(object sender, LayoutEventArgs e)
         {
             LMIAAnalysis.getIndicators(this);
@@ -86,9 +90,9 @@ namespace CA.Immigration.LMIA
         private void btnAnalysisDelete_Click(object sender, EventArgs e)
         {
             LMIAAnalysis.deleteApplication(this);
-            MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             resetGlobalData();
-            
+
         }
 
 
@@ -100,10 +104,10 @@ namespace CA.Immigration.LMIA
 
         private void tabBusinessDetails_Layout(object sender, LayoutEventArgs e)
         {
-            if (GlobalData.CurrentApplicationId!=null)
+            if(GlobalData.CurrentApplicationId != null)
             {
                 LMIABusinessDetail.loadFromDB(this);
-                LMIABusinessDetail.fillForm(this); 
+                LMIABusinessDetail.fillForm(this);
             }
 
         }
@@ -132,7 +136,7 @@ namespace CA.Immigration.LMIA
         {
             GlobalData.CurrentApplicationId = null;
             GlobalData.CurrentApplicationIdReadOnly = false;
-            
+
         }
     }
 }

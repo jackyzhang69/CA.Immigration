@@ -49,7 +49,7 @@
             this.cmbSelectRCIC.Location = new System.Drawing.Point(141, 9);
             this.cmbSelectRCIC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbSelectRCIC.Name = "cmbSelectRCIC";
-            this.cmbSelectRCIC.Size = new System.Drawing.Size(265, 28);
+            this.cmbSelectRCIC.Size = new System.Drawing.Size(346, 28);
             this.cmbSelectRCIC.TabIndex = 1;
             this.cmbSelectRCIC.SelectionChangeCommitted += new System.EventHandler(this.cmbSelectRCIC_SelectionChangeCommitted);
             // 
@@ -61,7 +61,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SelectRCIC";
-            this.Size = new System.Drawing.Size(412, 54);
+            this.Size = new System.Drawing.Size(498, 50);
             this.ResumeLayout(false);
             this.PerformLayout();
 
