@@ -48,7 +48,7 @@ namespace CA.Immigration.Startup
             {
                 GlobalData.CurrentEmployerId = int.Parse(dgvEmployer.SelectedRows[0].Cells[0].Value.ToString());
               //  GlobalData.CurrentEmployerIdReadOnly = true; // could be used after application is create. after application closed, set it to false
-                _sf.RefreshMainForm();
+                StartupOps.RefreshMainForm(_sf);
                 this.Close();
             }
             else MessageBox.Show("Someone is working on this employer.\nPlease finish that task and then work on this", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);

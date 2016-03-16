@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using CA.Immigration.Utility;
 
 namespace CA.Immigration.LMIA
 {
@@ -56,6 +57,11 @@ namespace CA.Immigration.LMIA
         {
             String url = "http://www5.hrsdc.gc.ca/NOC/English/NOC/2011/QuickSearch.aspx?val65=" + txtJobTitle.Text + "&searchJobTitle=Search";
             Process.Start(url);
+        }
+
+        private void txtWorkingHours_Leave(object sender, EventArgs e)
+        {
+            GlobalData.CurrentWorkingHours = Validation.IsDouble(txtWorkingHours.Text) ? double.Parse(txtWorkingHours.Text) : 0;
         }
     }
 }

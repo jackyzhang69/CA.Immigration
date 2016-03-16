@@ -23,11 +23,12 @@ namespace CA.Immigration
         public static bool CurrentApplicationIdReadOnly = false;
         public static string CurrentNOC;
         public static int? CurrentRCICId;
+       
 
         // For LMIA application data
         public static int? CurrentBusinessDetailId;
         public static int? CurrentJobOfferId;
-
+        public static double CurrentWorkingHours;
         public enum AppStream
         {
 

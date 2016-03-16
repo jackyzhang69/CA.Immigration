@@ -33,11 +33,11 @@ namespace CA.Immigration.LMIA
         public string getAverage(string a, string b)
         {
 
-            if (Validation.IsFloat(a) && Validation.IsFloat(b))
+            if (Validation.IsFloat(a) && Validation.IsFloat(b) && GlobalData.CurrentWorkingHours!=0)
             {
                 float x = float.Parse(a);
                 float y = float.Parse(b);
-                if (y != 0) return (x / y).ToString();
+                if (y != 0) return ((x*7) / (365*y*GlobalData.CurrentWorkingHours)).ToString();
                 else return string.Empty;
             }
             else return string.Empty;
