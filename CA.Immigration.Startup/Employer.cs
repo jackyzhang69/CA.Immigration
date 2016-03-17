@@ -1,10 +1,11 @@
-﻿using CA.Immigration.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CA.Immigration.Data;
+using CA.Immigration.Utility;
 
 namespace CA.Immigration.Startup
 {
@@ -22,6 +23,7 @@ namespace CA.Immigration.Startup
         private static int _MailingProvince { get; set; }
         private static string _MailingCountry { get; set; }
         private static string _MailingPostalCode { get; set; }
+        private static bool _chkBizSameAsMail { get; set; }
         private static string _BizAddress { get; set; }
         private static string _BizCity { get; set; }
         private static int _BizProvince { get; set; }
@@ -54,10 +56,22 @@ namespace CA.Immigration.Startup
             _MailingProvince = sf.canadaProvincesMail.cmbProvince.SelectedIndex != -1 ? sf.canadaProvincesMail.cmbProvince.SelectedIndex : -1;
             _MailingCountry = sf.txtCountryMail.Text;
             _MailingPostalCode = sf.txtPostalMail.Text;
-            _BizAddress = sf.txtBusinessAddress.Text;
-            _BizProvince = sf.canadaProvincesBusiness.cmbProvince.SelectedIndex != -1 ? sf.canadaProvincesBusiness.cmbProvince.SelectedIndex : -1;
-            _BizCountry = sf.txtBusinessCountry.Text;
-            _BizPostalCode = sf.txtPostalBusiness.Text;
+            _chkBizSameAsMail = sf.chkBizSameAsMail.Checked;
+            if (_chkBizSameAsMail == false)
+            {
+                _BizAddress = sf.txtBusinessAddress.Text;
+                _BizCity = sf.txtEBIBusinessCity.Text;
+                _BizProvince = sf.canadaProvincesBusiness.cmbProvince.SelectedIndex != -1 ? sf.canadaProvincesBusiness.cmbProvince.SelectedIndex : -1;
+                _BizCountry = sf.txtEBIBusinessCountry.Text;
+                _BizPostalCode = sf.txtEBIPostalBusiness.Text;
+            }
+            else {
+                _BizAddress = _MailingAddress;
+                _BizCity = _MailingCity;
+                _BizProvince = _MailingProvince;
+                _BizCountry = _MailingCountry;
+                _BizPostalCode = _MailingPostalCode;
+            }
             _BizTelephone = sf.txtEBIPhone.Text;
             _Website = sf.txtEBIWebsite.Text;
             _BizStartDate = sf.dtpBusinessStartDate.Value;
@@ -106,6 +120,7 @@ namespace CA.Immigration.Startup
                     _ContactPhone = emp.ContactPhone;
                     _ContactFax = emp.ContactFax;
                     _ContactEmail = emp.ContactEmail;
+                    if (_MailingAddress==_BizAddress && _MailingCity==_BizCity && _MailingCountry==_BizCountry && _MailingPostalCode==_BizPostalCode && _MailingProvince==_BizProvince) _chkBizSameAsMail = true;
                 }
 
             }
@@ -125,6 +140,7 @@ namespace CA.Immigration.Startup
             _MailingProvince = -1;
             _MailingCountry = null;
             _MailingPostalCode = null;
+            _chkBizSameAsMail = false;
             _BizAddress = null;
             _BizCity = null;
             _BizProvince = -1;
@@ -159,10 +175,11 @@ namespace CA.Immigration.Startup
             sf.canadaProvincesMail.cmbProvince.SelectedIndex = _MailingProvince;
             sf.txtCountryMail.Text = _MailingCountry;
             sf.txtPostalMail.Text = _MailingPostalCode;
+            sf.chkBizSameAsMail.Checked = true;
             sf.txtBusinessAddress.Text = _BizAddress;
             sf.canadaProvincesBusiness.cmbProvince.SelectedIndex = _BizProvince;
-            sf.txtBusinessCountry.Text = _BizCountry;
-            sf.txtPostalBusiness.Text = _BizPostalCode;
+            sf.txtEBIBusinessCountry.Text = _BizCountry;
+            sf.txtEBIPostalBusiness.Text = _BizPostalCode;
             sf.txtEBIPhone.Text = _BizTelephone;
             sf.txtEBIWebsite.Text = _Website;
             if(_BizStartDate == null) sf.dtpBusinessStartDate.CustomFormat = "";
@@ -239,6 +256,7 @@ namespace CA.Immigration.Startup
             {
                 if(GlobalData.CurrentEmployerId != null)
                 {
+                    getInput(sf);
                     tblEmployer emp = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
                     emp.ESDCId = _ESDCId;
                     emp.CRA_BN = _CRA_BN;
@@ -267,7 +285,17 @@ namespace CA.Immigration.Startup
                     emp.ContactPhone = _ContactPhone;
                     emp.ContactFax = _ContactFax;
                     emp.ContactEmail = _ContactEmail;
+                    try
+                    {
+                        cdc.SubmitChanges();
+                        MessageBox.Show("Your record has been updated!","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
+                    }
+                    catch (Exception exc)
+                    {
+                        
+                        MessageBox.Show(exc.Message);
+                    }
                 }
 
             }
@@ -307,11 +335,57 @@ namespace CA.Immigration.Startup
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Name[0]", _ContactFirstName + " " + _ContactLastName);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Address[0]", _BizAddress + ", " + _BizCity + ", " + Definition.CndProvince[(int)_BizProvince, 0] + ", " + _BizPostalCode);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Telephone[0]", _BizTelephone);
+            dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Fax[0]",_ContactFax==string.Empty?"N/A":_ContactFax);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Name[1]", "N/A");  // secondary contact
+            dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Address[1]", "N/A");
+            dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Telephone[1]", "N/A");
+            dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Fax[1]","N/A");
             dict.Add("EMP5575_E[0].Page3[0].txtF_Print_Name[0]", _ContactFirstName + " " + _ContactLastName);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Today_Date_2[0]", String.Format("{0:yyyy-MM-dd}", DateTime.Today));
             dict.Add("EMP5575_E[0].Page3[0].txtF_Print_Name[2]", _theWitness);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Today_Date_2[2]", String.Format("{0:yyyy-MM-dd}", DateTime.Today));
+        }
+        public static void buildupDict5602(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+            //Business Information
+            //dict.Add("EMP5602_E[0].Page1[0].chkB_incorporated[0]");  // company type
+            //dict.Add("EMP5602_E[0].Page1[0].chkB_partnership[0]");
+            //dict.Add("EMP5602_E[0].Page1[0].chkB_sole_propietor[0]");
+            //dict.Add("EMP5602_E[0].Page1[0].chkB_other[0]");
+            //dict.Add("EMP5602_E[0].Page1[0].txtF_other[0]");
+            dict.Add("EMP5602_E[0].Page1[0].No[0]", _FranchiseName==string.Empty?"1":"0");
+            dict.Add("EMP5602_E[0].Page1[0].Yes[0]", _FranchiseName == string.Empty ? "0" : "1");
+            dict.Add("EMP5602_E[0].Page1[0].txtF_name_of_corporation[0]",_FranchiseName==string.Empty?"":_FranchiseName);
+            //dict.Add("EMP5602_E[0].Page1[0].Yes_E[0]");  // is franchise headquarter knows?
+            //dict.Add("EMP5602_E[0].Page1[0].No_E[0]");
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Employer_Web_Address[0]", _Website);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Employer_Date_Business[0]", String.Format("{0:yyyy-MM-dd }",_BizStartDate));
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Business_Activity[0]",_BizActivity);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Emp_ID[0]",_ESDCId);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Bus_Number1[0]",_CRA_BN);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Bus_Name[0]",_LegalName);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Emp_Legal[0]",_OperatingName);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Mail_Adress[0]",_MailingAddress);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_City[0]",_MailingCity);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_City[1]", _BizTelephone);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Country[0]",_MailingCountry);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Postal_Code[0]",_MailingPostalCode);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Province[0]", _MailingProvince != -1 ? Definition.CndProvince[_MailingProvince, 1] : "");
+            dict.Add("EMP5602_E[0].Page1[0].txtF_City[2]",_BizCity);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Province[1]",_BizProvince!=-1?Definition.CndProvince[_BizProvince,1]:"");
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Country[1]",_BizCountry);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Postal_Code[1]",_BizPostalCode);
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Emp_Buss_Adress[0]",_BizAddress);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Prim_Contact_Name[0]",_ContactFirstName);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Prim_Contact_Middle[0]",_ContactMiddleName);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Prim_Contact_last_Name[0]",_ContactLastName);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Job_Title[0]",_ContactJobTitle);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Contact_Tel[0]",_ContactPhone);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Fax[0]",_ContactFax==string.Empty?"N/A":_ContactFax);
+            dict.Add("EMP5602_E[0].Page2[0].txtF_Email[0]",_ContactEmail);
+            dict.Add("EMP5602_E[0].Page2[0].rb_language[0]", "1");
+
         }
     }
 }

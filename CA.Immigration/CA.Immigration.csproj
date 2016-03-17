@@ -60,7 +60,6 @@
   <ItemGroup>
     <Compile Include="App\App.cs" />
     <Compile Include="CICDict\LMIADict.cs" />
-    <Compile Include="CICDict\RCIC.cs" />
     <Compile Include="CICDict\SPDict.cs" />
     <Compile Include="Data\CanadaProvinces.cs">
       <SubType>UserControl</SubType>
@@ -81,6 +80,7 @@
       <DependentUpon>CompanyType.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Definition.cs" />
+    <Compile Include="Data\RCIC.cs" />
     <Compile Include="Data\SelectRCIC.cs">
       <SubType>UserControl</SubType>
     </Compile>

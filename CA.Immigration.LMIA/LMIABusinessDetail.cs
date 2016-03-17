@@ -5,6 +5,7 @@ using CA.Immigration.Data;
 using System.Data;
 using System.Linq;
 using System.Collections.Generic;
+using CA.Immigration.LMIA;
 
 namespace CA.Immigration.LMIA
 {
@@ -31,21 +32,13 @@ namespace CA.Immigration.LMIA
         private static bool? _q10 { get; set; }
         private static string _q10Explanation { get; set; }
 
-        //private static int? getValue(LMIAForm lf, string input)
-        //{
-        //    int? value = null;
-        //    if(Validation.IsInt(lf.txtBizDetailQ1.Text)) value = int.Parse(lf.txtBizDetailQ1.Text);
-        //    if(lf.txtBizDetailQ1.Text == string.Empty) value = null;
-        //    return value;
-        //}
-
         public static void getInput(LMIAForm lf)
         {
-            _q1 = LMIATools.getIntValue(lf.txtBizDetailQ1.Text);
-            _q2 = LMIATools.getIntValue(lf.txtBizDetailQ2.Text);
-            _q3 = LMIATools.getIntValue(lf.txtBizDetailQ3.Text);
-            _q4 = LMIATools.getIntValue(lf.txtBizDetailQ4.Text);
-            _q5 = LMIATools.getIntValue(lf.txtBizDetailQ5.Text);
+            _q1 = getValue.getIntValue(lf.txtBizDetailQ1.Text);
+            _q2 = getValue.getIntValue(lf.txtBizDetailQ2.Text);
+            _q3 = getValue.getIntValue(lf.txtBizDetailQ3.Text);
+            _q4 = getValue.getIntValue(lf.txtBizDetailQ4.Text);
+            _q5 = getValue.getIntValue(lf.txtBizDetailQ5.Text);
             _q6 = lf.chkLMIA1213.Checked == true ? true : false;
             _q61 = lf.chkLMIACompliance1213.Checked == true ? true : false;
             _q7 = lf.chkLMIA1415.Checked == true ? true : false;
@@ -56,8 +49,8 @@ namespace CA.Immigration.LMIA
             _q81FileNumber = lf.txtLMIASFN.Text;
             _q81Explanation = lf.txtLMIAPublicPolicy.Text;
             _q9 = lf.chkBizDetailQ9.Checked == true ? true : false;
-            _q91 = LMIATools.getIntValue(lf.txtLayoffCanadians.Text);
-            _q92 = LMIATools.getIntValue(lf.txtTFWs.Text);
+            _q91 = getValue.getIntValue(lf.txtLayoffCanadians.Text);
+            _q92 = getValue.getIntValue(lf.txtTFWs.Text);
             _q9Reason = lf.chkBizDetailQ9Explain.Text;
             _q10 = lf.chkBizDetailQ10.Checked == true ? true : false;
             _q10Explanation = lf.chkBizDetailQ10Explain.Text;
@@ -66,12 +59,12 @@ namespace CA.Immigration.LMIA
         // load data from database 
         public static void loadFromDB(LMIAForm lf)
         {
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if(bd != null)
+                if (bd != null)
                 {
-                    lf.btnInsertBD.Visible = false;  // business details data existed, so no more insert
+                    //lf.btnInsertBD.Visible = false;  // business details data existed, so no more insert
                     _q1 = bd.TotalEmployeeUnderCRA;
                     _q2 = bd.TotalEmployeeThisLocation;
                     _q3 = bd.TotalCndThisLocation;
@@ -94,6 +87,39 @@ namespace CA.Immigration.LMIA
                     _q10Explanation = bd.Q10_1;
                 }
                 else { clearForm(lf); }
+            }
+
+        }
+        public static void loadFromDB()
+        {
+            using (CommonDataContext cdc = new CommonDataContext())
+            {
+                tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
+                if (bd != null)
+                {
+                    //lf.btnInsertBD.Visible = false;  // business details data existed, so no more insert
+                    _q1 = bd.TotalEmployeeUnderCRA;
+                    _q2 = bd.TotalEmployeeThisLocation;
+                    _q3 = bd.TotalCndThisLocation;
+                    _q4 = bd.TotalEmployeeThisOccupationLocation;
+                    _q5 = bd.TotalTFWAfterPositive;
+                    _q6 = bd.Q6;
+                    _q61 = bd.Q6_1;
+                    _q7 = bd.Q7;
+                    _q71 = bd.Q7_1;
+                    _q8 = bd.Q8;
+                    _q81 = bd.Q8;
+                    _q81Date = bd.Q8_2;
+                    _q81FileNumber = bd.Q8_3;
+                    _q81Explanation = bd.Q8_4;
+                    _q9 = bd.Q9;
+                    _q91 = bd.Q9_1;
+                    _q92 = bd.Q9_2;
+                    _q9Reason = bd.Q9_3;
+                    _q10 = bd.Q10;
+                    _q10Explanation = bd.Q10_1;
+                }
+               
             }
 
         }
@@ -150,7 +176,7 @@ namespace CA.Immigration.LMIA
         }
         public static void Insert2DB(LMIAForm lf)
         {
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = new tblBusinessDetail
                 {
@@ -185,7 +211,7 @@ namespace CA.Immigration.LMIA
                     MessageBox.Show("Data has been inserted to database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-                catch(Exception exc)
+                catch (Exception exc)
                 {
 
                     MessageBox.Show(exc.Message);
@@ -194,14 +220,14 @@ namespace CA.Immigration.LMIA
         }
         public static void deleteRecord(LMIAForm lf)
         {
-            if(MessageBox.Show("Are you sure to delete the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure to delete the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
                     List<tblBusinessDetail> bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).ToList();
-                    if(bd.Count != 0)
+                    if (bd.Count != 0)
                     {
-                        foreach(tblBusinessDetail b in bd)
+                        foreach (tblBusinessDetail b in bd)
                         {
                             cdc.tblBusinessDetails.DeleteOnSubmit(b);
                         }
@@ -213,23 +239,23 @@ namespace CA.Immigration.LMIA
                             MessageBox.Show("Business details record has been deleted from database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
-                        catch(Exception exc)
+                        catch (Exception exc)
                         {
 
                             MessageBox.Show(exc.Message);
                         }
                     }
-                    else MessageBox.Show("There is no record to delete!","Null operation",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    else MessageBox.Show("There is no record to delete!", "Null operation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
         public static void updateRecord(int applicationid)
         {
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == applicationid).Select(x => x).FirstOrDefault();
 
-                if(bd != null)
+                if (bd != null)
                 {
                     bd.ApplicationId = applicationid;
                     bd.TotalEmployeeUnderCRA = _q1;
@@ -260,17 +286,54 @@ namespace CA.Immigration.LMIA
                         MessageBox.Show("Business details data has been updated to database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
-                    catch(Exception exc)
+                    catch (Exception exc)
                     {
 
                         MessageBox.Show(exc.Message);
                     }
                 }
-                else MessageBox.Show("There is no business detail record. You should insert one first","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                else MessageBox.Show("There is no business detail record. You should insert one first", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             }
         }
+        public static void buildupDict5602(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+            dict.Add("EMP5602_E[0].Page2[0].txtF_number_employess_CRA[0]",_q1==null?"":_q1.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].txtF_total_number[0]", _q2 == null ? "" : _q2.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_location[0]",_q3 == null ? "" : _q3.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_lmo[0]", _q4 == null ? "" : _q4.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_Emp[0]", _q4 == null ? "" : _q4.ToString());
 
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            if (_q81==true)
+            {
+                dict.Add("EMP5602_E[0].Page2[0].txtF_Date_E[0]", String.Format("{0:yyyy-MM-dd}", _q81Date.ToString()));
+                dict.Add("EMP5602_E[0].Page2[0].txtF_File_Number[0]", _q81FileNumber);
+                dict.Add("EMP5602_E[0].Page2[0].txtF_Reasons_for_Layoffs[0]", _q81Explanation); 
+            }
+            
+
+
+
+
+
+
+        }
     }
 }
+
 

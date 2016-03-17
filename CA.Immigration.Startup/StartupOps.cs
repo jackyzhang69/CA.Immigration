@@ -8,6 +8,7 @@ using System.Drawing;
 using CA.Immigration.Utility;
 using CA.Immigration.PDF;
 using CA.Immigration.CICDict;
+using CA.Immigration.LMIA;
 
 namespace CA.Immigration.Startup
 {
@@ -110,9 +111,6 @@ namespace CA.Immigration.Startup
                 sf.btnEBIInsert.Visible = false;
             }
             else { Employer.clearForm(sf); clearSelectedEmployer(sf); sf.btnEBIInsert.Visible = false; }
-
-
-
         }
         
         public static void clearSelectedPerson(StartupForm sf)
@@ -141,6 +139,28 @@ namespace CA.Immigration.Startup
             
             FormOPs.fillForm(@"c:\data\emp5575.pdf", dict5575);
         }
+        public static void buildupEMP5602()
+        {
+            //if(GlobalData.CurrentApplicationId != null) { LMIAOps.buildupEMP5602(); }
+            //else MessageBox.Show("There is no active application");
+            GlobalData.CurrentApplicationId = 7;
+            //LMIAOps.buildupEMP5602();
+            Dictionary<string, string> dict5602 = new Dictionary<string, string>();
+            // below is for debug purpose only
+            GlobalData.CurrentApplicationId = 7;
+            GlobalData.CurrentEmployerId = 1;
+            GlobalData.CurrentPersonId = 1;
 
+            //Employer Information
+            Employer.buildupDict5602(ref dict5602);
+            //3rd party information
+            RCIC.buildupDict5602(ref dict5602);
+            // Business detail Information
+            LMIABusinessDetail.buildupDict5602(ref dict5602);
+            // Job offer information
+            //buildupDict5575(ref dict5602);
+
+            FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5602);
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace CA.Immigration.LMIA
         private static string _employerSituation { get; set; }
         private static string _situationImpact { get; set; }
         private static List<int> _lmFactors { get; set; }
-        private static int? _rcicId { get; set; }
+        
         // Labour market factors
         private static bool _JobCreation { get; set; }
         private static bool _SkillTransfer { get; set; }
@@ -70,38 +70,37 @@ namespace CA.Immigration.LMIA
             _jobTitle = lf.jobPositionAdvisor.txtJobTitle.Text == string.Empty ? null : lf.jobPositionAdvisor.txtJobTitle.Text;
             _NOC = lf.jobPositionAdvisor.txtNoc.Text;
             _province = lf.jobPositionAdvisor.cmbProvince.SelectedIndex;
-            _workingHours = LMIATools.getDoubleValue(lf.jobPositionAdvisor.txtWorkingHours.Text);
-            _hourlyRate = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtHourlyRate.Text);
-            _provincialMedian = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtProvincialMedian.Text);
-            _localNOCMedian = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtLocalNOCMedian.Text);
-            _localNOCLowest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtLocalNocLowest.Text);
-            _localNOCHighest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtLocalNocHighest.Text);
-            _samePlaceSamePositionLowest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtSameLowest.Text);
-            _samePlaceSamePositionHighest = LMIATools.getDecimalValue(lf.jobPositionAdvisor.txtSameHighest.Text);
+            _workingHours = getValue.getDoubleValue(lf.jobPositionAdvisor.txtWorkingHours.Text);
+            _hourlyRate = getValue.getDecimalValue(lf.jobPositionAdvisor.txtHourlyRate.Text);
+            _provincialMedian = getValue.getDecimalValue(lf.jobPositionAdvisor.txtProvincialMedian.Text);
+            _localNOCMedian = getValue.getDecimalValue(lf.jobPositionAdvisor.txtLocalNOCMedian.Text);
+            _localNOCLowest = getValue.getDecimalValue(lf.jobPositionAdvisor.txtLocalNocLowest.Text);
+            _localNOCHighest = getValue.getDecimalValue(lf.jobPositionAdvisor.txtLocalNocHighest.Text);
+            _samePlaceSamePositionLowest = getValue.getDecimalValue(lf.jobPositionAdvisor.txtSameLowest.Text);
+            _samePlaceSamePositionHighest = getValue.getDecimalValue(lf.jobPositionAdvisor.txtSameHighest.Text);
             _noSamePosition = lf.jobPositionAdvisor.chkNoSame.Checked == true ? true : false;
-            _year1 = LMIATools.getIntValue(lf.financialAdvisor.txtLast1Year.Text);
-            _totalRevenue1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRevenue1.Text);
-            _cash1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtCash1.Text);
-            _netIncome1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtNetImcome1.Text);
-            _retianedEarning1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRetainedEarning1.Text);
-            _grossPayrol1 = LMIATools.getDecimalValue(lf.financialAdvisor.txtGrossPayroll1.Text);
-            _t4Slips1 = LMIATools.getIntValue(lf.financialAdvisor.txtSlips1.Text);
+            _year1 = getValue.getIntValue(lf.financialAdvisor.txtLast1Year.Text);
+            _totalRevenue1 = getValue.getDecimalValue(lf.financialAdvisor.txtRevenue1.Text);
+            _cash1 = getValue.getDecimalValue(lf.financialAdvisor.txtCash1.Text);
+            _netIncome1 = getValue.getDecimalValue(lf.financialAdvisor.txtNetImcome1.Text);
+            _retianedEarning1 = getValue.getDecimalValue(lf.financialAdvisor.txtRetainedEarning1.Text);
+            _grossPayrol1 = getValue.getDecimalValue(lf.financialAdvisor.txtGrossPayroll1.Text);
+            _t4Slips1 = getValue.getIntValue(lf.financialAdvisor.txtSlips1.Text);
             _Average1 = (_grossPayrol1 != null && _t4Slips1 != null && _t4Slips1 != 0) ? _grossPayrol1 / _t4Slips1 : null;
-            _year2 = LMIATools.getIntValue(lf.financialAdvisor.txtLast2Year.Text);
-            _totalRevenue2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRevenue2.Text);
-            _cash2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtCash2.Text);
-            _netIncome2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtNetImcome2.Text);
-            _retianedEarning2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtRetainedEarning2.Text);
-            _grossPayrol2 = LMIATools.getDecimalValue(lf.financialAdvisor.txtGrossPayroll2.Text);
-            _t4Slips2 = LMIATools.getIntValue(lf.financialAdvisor.txtSlips2.Text);
+            _year2 = getValue.getIntValue(lf.financialAdvisor.txtLast2Year.Text);
+            _totalRevenue2 = getValue.getDecimalValue(lf.financialAdvisor.txtRevenue2.Text);
+            _cash2 = getValue.getDecimalValue(lf.financialAdvisor.txtCash2.Text);
+            _netIncome2 = getValue.getDecimalValue(lf.financialAdvisor.txtNetImcome2.Text);
+            _retianedEarning2 = getValue.getDecimalValue(lf.financialAdvisor.txtRetainedEarning2.Text);
+            _grossPayrol2 = getValue.getDecimalValue(lf.financialAdvisor.txtGrossPayroll2.Text);
+            _t4Slips2 = getValue.getIntValue(lf.financialAdvisor.txtSlips2.Text);
             _Average2 = (_grossPayrol2 != null && _t4Slips2 != null && _t4Slips2 != 0) ? _grossPayrol2 / _t4Slips2 : null;
-            _unemploymentRate = LMIATools.getIntValue(lf.txtUnemployRate.Text);
-            _COPSRating = LMIATools.getIntValue(lf.txtCOPSRating.Text);
-            _occupationProfile = LMIATools.getIntValue(lf.txtOccupationProfile.Text);
+            _unemploymentRate = getValue.getIntValue(lf.txtUnemployRate.Text);
+            _COPSRating = getValue.getIntValue(lf.txtCOPSRating.Text);
+            _occupationProfile = getValue.getIntValue(lf.txtOccupationProfile.Text);
             _employerSituation = lf.txtEmployerSituation.Text;
             _situationImpact = lf.txtSituationImpact.Text;
             _lmFactors = lf.ckbLmFactor.SelectedIndices.OfType<int>().ToList();
-            _rcicId = lf.selectRCICAdvisor.cmbSelectRCIC.SelectedIndex;
             _JobCreation = lf.ckbLmFactor.SelectedIndices.Contains(0);
             _SkillTransfer = lf.ckbLmFactor.SelectedIndices.Contains(1);
             _FillLabourShortage = lf.ckbLmFactor.SelectedIndices.Contains(2);
@@ -228,7 +227,6 @@ namespace CA.Immigration.LMIA
             _employerSituation = string.Empty;
             _situationImpact = string.Empty;
             _lmFactors = null;
-            _rcicId = -1;
             fillForm(lf);
             getIndicators(lf);
 
@@ -270,7 +268,6 @@ namespace CA.Immigration.LMIA
             lf.txtEmployerSituation.Text = _employerSituation.ToString();
             lf.txtSituationImpact.Text = _situationImpact.ToString();
             //lf.ckbLmFactor.SelectedIndices= _lmFactors;
-            lf.selectRCICAdvisor.cmbSelectRCIC.SelectedIndex = (int)_rcicId;
 
         }
         public static void analysisLoadInitialization(LMIAForm lf)

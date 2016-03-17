@@ -74,8 +74,6 @@
             this.dgvQualificationIndicator = new System.Windows.Forms.DataGridView();
             this.CheckPoint = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.selectRCICAdvisor = new CA.Immigration.Data.SelectRCIC();
-            this.btnEMP5575 = new System.Windows.Forms.Button();
             this.btnAnalysisClear = new System.Windows.Forms.Button();
             this.btnAnalysisDelete = new System.Windows.Forms.Button();
             this.btnAnalysisUpdate = new System.Windows.Forms.Button();
@@ -268,7 +266,7 @@
             this.tabBase.Location = new System.Drawing.Point(0, 0);
             this.tabBase.Name = "tabBase";
             this.tabBase.SelectedIndex = 0;
-            this.tabBase.Size = new System.Drawing.Size(999, 684);
+            this.tabBase.Size = new System.Drawing.Size(999, 806);
             this.tabBase.TabIndex = 0;
             // 
             // tabAdvisor
@@ -277,8 +275,8 @@
             this.tabAdvisor.Controls.Add(this.tbcSubAdvisor);
             this.tabAdvisor.Location = new System.Drawing.Point(4, 22);
             this.tabAdvisor.Name = "tabAdvisor";
-            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabAdvisor.Size = new System.Drawing.Size(991, 658);
+            this.tabAdvisor.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAdvisor.Size = new System.Drawing.Size(991, 780);
             this.tabAdvisor.TabIndex = 0;
             this.tabAdvisor.Text = "Advisor";
             this.tabAdvisor.UseVisualStyleBackColor = true;
@@ -291,7 +289,7 @@
             this.tbcSubAdvisor.Location = new System.Drawing.Point(3, 3);
             this.tbcSubAdvisor.Name = "tbcSubAdvisor";
             this.tbcSubAdvisor.SelectedIndex = 0;
-            this.tbcSubAdvisor.Size = new System.Drawing.Size(985, 652);
+            this.tbcSubAdvisor.Size = new System.Drawing.Size(985, 774);
             this.tbcSubAdvisor.TabIndex = 0;
             // 
             // tabAnalysis
@@ -299,8 +297,6 @@
             this.tabAnalysis.Controls.Add(this.grpApplicationStream);
             this.tabAnalysis.Controls.Add(this.grpLabourMarketFactors);
             this.tabAnalysis.Controls.Add(this.grpIndicator);
-            this.tabAnalysis.Controls.Add(this.selectRCICAdvisor);
-            this.tabAnalysis.Controls.Add(this.btnEMP5575);
             this.tabAnalysis.Controls.Add(this.btnAnalysisClear);
             this.tabAnalysis.Controls.Add(this.btnAnalysisDelete);
             this.tabAnalysis.Controls.Add(this.btnAnalysisUpdate);
@@ -310,8 +306,8 @@
             this.tabAnalysis.Controls.Add(this.financialAdvisor);
             this.tabAnalysis.Location = new System.Drawing.Point(4, 22);
             this.tabAnalysis.Name = "tabAnalysis";
-            this.tabAnalysis.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabAnalysis.Size = new System.Drawing.Size(977, 626);
+            this.tabAnalysis.Padding = new System.Windows.Forms.Padding(3);
+            this.tabAnalysis.Size = new System.Drawing.Size(977, 748);
             this.tabAnalysis.TabIndex = 0;
             this.tabAnalysis.Text = "Analysis";
             this.tabAnalysis.UseVisualStyleBackColor = true;
@@ -326,9 +322,9 @@
             this.grpApplicationStream.Controls.Add(this.lblAnotherEmployer);
             this.grpApplicationStream.Controls.Add(this.lblProgram);
             this.grpApplicationStream.Location = new System.Drawing.Point(5, 5);
-            this.grpApplicationStream.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpApplicationStream.Margin = new System.Windows.Forms.Padding(2);
             this.grpApplicationStream.Name = "grpApplicationStream";
-            this.grpApplicationStream.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpApplicationStream.Padding = new System.Windows.Forms.Padding(2);
             this.grpApplicationStream.Size = new System.Drawing.Size(969, 77);
             this.grpApplicationStream.TabIndex = 30;
             this.grpApplicationStream.TabStop = false;
@@ -337,7 +333,7 @@
             // txtProgram
             // 
             this.txtProgram.Location = new System.Drawing.Point(162, 29);
-            this.txtProgram.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProgram.Margin = new System.Windows.Forms.Padding(2);
             this.txtProgram.Name = "txtProgram";
             this.txtProgram.Size = new System.Drawing.Size(157, 20);
             this.txtProgram.TabIndex = 0;
@@ -347,7 +343,7 @@
             this.txtAnotherEmployer.BackColor = System.Drawing.SystemColors.Window;
             this.txtAnotherEmployer.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtAnotherEmployer.Location = new System.Drawing.Point(865, 29);
-            this.txtAnotherEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAnotherEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.txtAnotherEmployer.Name = "txtAnotherEmployer";
             this.txtAnotherEmployer.Size = new System.Drawing.Size(81, 20);
             this.txtAnotherEmployer.TabIndex = 3;
@@ -360,7 +356,7 @@
             "High Wage Stream",
             "Low Wage Stream"});
             this.cmbStream.Location = new System.Drawing.Point(433, 31);
-            this.cmbStream.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbStream.Margin = new System.Windows.Forms.Padding(2);
             this.cmbStream.Name = "cmbStream";
             this.cmbStream.Size = new System.Drawing.Size(133, 21);
             this.cmbStream.TabIndex = 1;
@@ -372,7 +368,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ckbOtherEmployer.AutoSize = true;
             this.ckbOtherEmployer.Location = new System.Drawing.Point(593, 31);
-            this.ckbOtherEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ckbOtherEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.ckbOtherEmployer.Name = "ckbOtherEmployer";
             this.ckbOtherEmployer.Size = new System.Drawing.Size(139, 17);
             this.ckbOtherEmployer.TabIndex = 2;
@@ -427,9 +423,9 @@
             this.grpLabourMarketFactors.Controls.Add(this.txtUnemployRate);
             this.grpLabourMarketFactors.Controls.Add(this.button4);
             this.grpLabourMarketFactors.Location = new System.Drawing.Point(7, 354);
-            this.grpLabourMarketFactors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpLabourMarketFactors.Margin = new System.Windows.Forms.Padding(2);
             this.grpLabourMarketFactors.Name = "grpLabourMarketFactors";
-            this.grpLabourMarketFactors.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpLabourMarketFactors.Padding = new System.Windows.Forms.Padding(2);
             this.grpLabourMarketFactors.Size = new System.Drawing.Size(343, 348);
             this.grpLabourMarketFactors.TabIndex = 29;
             this.grpLabourMarketFactors.TabStop = false;
@@ -458,7 +454,7 @@
             // 
             this.txtOccupationProfile.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtOccupationProfile.Location = new System.Drawing.Point(145, 88);
-            this.txtOccupationProfile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOccupationProfile.Margin = new System.Windows.Forms.Padding(2);
             this.txtOccupationProfile.Name = "txtOccupationProfile";
             this.txtOccupationProfile.Size = new System.Drawing.Size(184, 20);
             this.txtOccupationProfile.TabIndex = 2;
@@ -467,7 +463,7 @@
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(15, 85);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(115, 23);
             this.button3.TabIndex = 9;
@@ -478,7 +474,7 @@
             // 
             this.txtCOPSRating.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtCOPSRating.Location = new System.Drawing.Point(145, 55);
-            this.txtCOPSRating.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCOPSRating.Margin = new System.Windows.Forms.Padding(2);
             this.txtCOPSRating.Name = "txtCOPSRating";
             this.txtCOPSRating.Size = new System.Drawing.Size(184, 20);
             this.txtCOPSRating.TabIndex = 1;
@@ -487,7 +483,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(15, 53);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 22);
             this.button2.TabIndex = 7;
@@ -498,7 +494,7 @@
             // 
             this.txtUnemployRate.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtUnemployRate.Location = new System.Drawing.Point(145, 20);
-            this.txtUnemployRate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUnemployRate.Margin = new System.Windows.Forms.Padding(2);
             this.txtUnemployRate.Name = "txtUnemployRate";
             this.txtUnemployRate.Size = new System.Drawing.Size(184, 20);
             this.txtUnemployRate.TabIndex = 0;
@@ -507,7 +503,7 @@
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(15, 18);
-            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 22);
             this.button4.TabIndex = 6;
@@ -518,9 +514,9 @@
             // 
             this.grpIndicator.Controls.Add(this.dgvQualificationIndicator);
             this.grpIndicator.Location = new System.Drawing.Point(728, 86);
-            this.grpIndicator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpIndicator.Margin = new System.Windows.Forms.Padding(2);
             this.grpIndicator.Name = "grpIndicator";
-            this.grpIndicator.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpIndicator.Padding = new System.Windows.Forms.Padding(2);
             this.grpIndicator.Size = new System.Drawing.Size(243, 260);
             this.grpIndicator.TabIndex = 28;
             this.grpIndicator.TabStop = false;
@@ -544,7 +540,7 @@
             this.dgvQualificationIndicator.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvQualificationIndicator.EnableHeadersVisualStyles = false;
             this.dgvQualificationIndicator.Location = new System.Drawing.Point(2, 15);
-            this.dgvQualificationIndicator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvQualificationIndicator.Margin = new System.Windows.Forms.Padding(2);
             this.dgvQualificationIndicator.Name = "dgvQualificationIndicator";
             this.dgvQualificationIndicator.RowHeadersVisible = false;
             this.dgvQualificationIndicator.RowTemplate.Height = 28;
@@ -566,25 +562,6 @@
             this.Result.HeaderText = "Result";
             this.Result.Name = "Result";
             this.Result.Width = 65;
-            // 
-            // selectRCICAdvisor
-            // 
-            this.selectRCICAdvisor.Location = new System.Drawing.Point(559, 705);
-            this.selectRCICAdvisor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.selectRCICAdvisor.Name = "selectRCICAdvisor";
-            this.selectRCICAdvisor.Size = new System.Drawing.Size(285, 35);
-            this.selectRCICAdvisor.TabIndex = 27;
-            // 
-            // btnEMP5575
-            // 
-            this.btnEMP5575.Cursor = System.Windows.Forms.Cursors.Default;
-            this.btnEMP5575.Location = new System.Drawing.Point(876, 709);
-            this.btnEMP5575.Name = "btnEMP5575";
-            this.btnEMP5575.Size = new System.Drawing.Size(75, 23);
-            this.btnEMP5575.TabIndex = 6;
-            this.btnEMP5575.Text = "EMP5575";
-            this.btnEMP5575.UseVisualStyleBackColor = true;
-            this.btnEMP5575.Click += new System.EventHandler(this.btnEMP5575_Click);
             // 
             // btnAnalysisClear
             // 
@@ -712,8 +689,8 @@
             this.tabBusinessDetails.Controls.Add(this.grpEmployeeStructure);
             this.tabBusinessDetails.Location = new System.Drawing.Point(4, 22);
             this.tabBusinessDetails.Name = "tabBusinessDetails";
-            this.tabBusinessDetails.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabBusinessDetails.Size = new System.Drawing.Size(980, 750);
+            this.tabBusinessDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBusinessDetails.Size = new System.Drawing.Size(977, 748);
             this.tabBusinessDetails.TabIndex = 1;
             this.tabBusinessDetails.Text = "Business Details";
             this.tabBusinessDetails.UseVisualStyleBackColor = true;
@@ -910,7 +887,7 @@
             this.grpLMIARecord.Controls.Add(this.txtLMIAPublicPolicy);
             this.grpLMIARecord.Location = new System.Drawing.Point(3, 173);
             this.grpLMIARecord.Name = "grpLMIARecord";
-            this.grpLMIARecord.Size = new System.Drawing.Size(969, 182);
+            this.grpLMIARecord.Size = new System.Drawing.Size(966, 182);
             this.grpLMIARecord.TabIndex = 1;
             this.grpLMIARecord.TabStop = false;
             this.grpLMIARecord.Text = "LMIA Record";
@@ -919,7 +896,7 @@
             // 
             this.DTPQ8.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DTPQ8.Location = new System.Drawing.Point(377, 94);
-            this.DTPQ8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DTPQ8.Margin = new System.Windows.Forms.Padding(2);
             this.DTPQ8.Name = "DTPQ8";
             this.DTPQ8.Size = new System.Drawing.Size(144, 20);
             this.DTPQ8.TabIndex = 6;
@@ -1166,8 +1143,8 @@
             this.tabApplication.Controls.Add(this.tabLMIAApplication);
             this.tabApplication.Location = new System.Drawing.Point(4, 22);
             this.tabApplication.Name = "tabApplication";
-            this.tabApplication.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabApplication.Size = new System.Drawing.Size(991, 658);
+            this.tabApplication.Padding = new System.Windows.Forms.Padding(3);
+            this.tabApplication.Size = new System.Drawing.Size(991, 780);
             this.tabApplication.TabIndex = 1;
             this.tabApplication.Text = "Application";
             this.tabApplication.UseVisualStyleBackColor = true;
@@ -1182,10 +1159,10 @@
             this.tabLMIAApplication.Controls.Add(this.tabJobOffer);
             this.tabLMIAApplication.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabLMIAApplication.Location = new System.Drawing.Point(3, 3);
-            this.tabLMIAApplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabLMIAApplication.Margin = new System.Windows.Forms.Padding(2);
             this.tabLMIAApplication.Name = "tabLMIAApplication";
             this.tabLMIAApplication.SelectedIndex = 0;
-            this.tabLMIAApplication.Size = new System.Drawing.Size(985, 652);
+            this.tabLMIAApplication.Size = new System.Drawing.Size(985, 774);
             this.tabLMIAApplication.TabIndex = 5;
             // 
             // tabAD
@@ -1205,10 +1182,10 @@
             this.tabAD.Controls.Add(this.textBox6);
             this.tabAD.Controls.Add(this.label16);
             this.tabAD.Location = new System.Drawing.Point(4, 22);
-            this.tabAD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabAD.Margin = new System.Windows.Forms.Padding(2);
             this.tabAD.Name = "tabAD";
-            this.tabAD.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabAD.Size = new System.Drawing.Size(977, 626);
+            this.tabAD.Padding = new System.Windows.Forms.Padding(2);
+            this.tabAD.Size = new System.Drawing.Size(977, 748);
             this.tabAD.TabIndex = 0;
             this.tabAD.Text = "Job AD";
             // 
@@ -1237,7 +1214,7 @@
             this.stsEmployer,
             this.stsEmployee,
             this.stsAppId});
-            this.stsStatus.Location = new System.Drawing.Point(2, 602);
+            this.stsStatus.Location = new System.Drawing.Point(2, 724);
             this.stsStatus.Name = "stsStatus";
             this.stsStatus.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
             this.stsStatus.Size = new System.Drawing.Size(973, 22);
@@ -1265,9 +1242,9 @@
             this.grpSelectEmployer.Controls.Add(this.textBox7);
             this.grpSelectEmployer.Controls.Add(this.lblEmployer);
             this.grpSelectEmployer.Location = new System.Drawing.Point(263, 244);
-            this.grpSelectEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelectEmployer.Name = "grpSelectEmployer";
-            this.grpSelectEmployer.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelectEmployer.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelectEmployer.Size = new System.Drawing.Size(624, 289);
             this.grpSelectEmployer.TabIndex = 4;
             this.grpSelectEmployer.TabStop = false;
@@ -1279,7 +1256,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEmployer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployer.Location = new System.Drawing.Point(4, 51);
-            this.dgvEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.dgvEmployer.Name = "dgvEmployer";
             this.dgvEmployer.RowTemplate.Height = 28;
             this.dgvEmployer.Size = new System.Drawing.Size(616, 234);
@@ -1288,7 +1265,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(107, 23);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(155, 20);
             this.textBox7.TabIndex = 3;
@@ -1319,7 +1296,7 @@
             "Vocational school diploma/certificate",
             "No formal education requirement"});
             this.chkEducation.Location = new System.Drawing.Point(19, 381);
-            this.chkEducation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkEducation.Margin = new System.Windows.Forms.Padding(2);
             this.chkEducation.Name = "chkEducation";
             this.chkEducation.Size = new System.Drawing.Size(199, 154);
             this.chkEducation.TabIndex = 3;
@@ -1334,7 +1311,7 @@
             "Pension",
             "Extended medical insurance"});
             this.chkBenefit.Location = new System.Drawing.Point(19, 267);
-            this.chkBenefit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkBenefit.Margin = new System.Windows.Forms.Padding(2);
             this.chkBenefit.Name = "chkBenefit";
             this.chkBenefit.Size = new System.Drawing.Size(199, 4);
             this.chkBenefit.TabIndex = 3;
@@ -1342,7 +1319,7 @@
             // txtEmploymentTerm
             // 
             this.txtEmploymentTerm.Location = new System.Drawing.Point(393, 24);
-            this.txtEmploymentTerm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEmploymentTerm.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmploymentTerm.Name = "txtEmploymentTerm";
             this.txtEmploymentTerm.Size = new System.Drawing.Size(155, 20);
             this.txtEmploymentTerm.TabIndex = 1;
@@ -1380,7 +1357,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(114, 25);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(155, 20);
             this.textBox6.TabIndex = 1;
@@ -1400,10 +1377,10 @@
             this.tabMainDuties.Controls.Add(this.dbOpsMainDuties);
             this.tabMainDuties.Controls.Add(this.dgvMainDuties);
             this.tabMainDuties.Location = new System.Drawing.Point(4, 22);
-            this.tabMainDuties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabMainDuties.Margin = new System.Windows.Forms.Padding(2);
             this.tabMainDuties.Name = "tabMainDuties";
-            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabMainDuties.Size = new System.Drawing.Size(980, 750);
+            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(2);
+            this.tabMainDuties.Size = new System.Drawing.Size(977, 748);
             this.tabMainDuties.TabIndex = 1;
             this.tabMainDuties.Text = "Main Duties";
             this.tabMainDuties.UseVisualStyleBackColor = true;
@@ -1449,9 +1426,9 @@
             this.tabQualifications.Controls.Add(this.dbOpsQualification);
             this.tabQualifications.Controls.Add(this.dgvQualifications);
             this.tabQualifications.Location = new System.Drawing.Point(4, 22);
-            this.tabQualifications.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabQualifications.Margin = new System.Windows.Forms.Padding(2);
             this.tabQualifications.Name = "tabQualifications";
-            this.tabQualifications.Size = new System.Drawing.Size(980, 750);
+            this.tabQualifications.Size = new System.Drawing.Size(977, 748);
             this.tabQualifications.TabIndex = 3;
             this.tabQualifications.Text = "Qualifications";
             this.tabQualifications.UseVisualStyleBackColor = true;
@@ -1476,7 +1453,7 @@
             this.dgvQualifications.Location = new System.Drawing.Point(0, 0);
             this.dgvQualifications.Name = "dgvQualifications";
             this.dgvQualifications.RowHeadersVisible = false;
-            this.dgvQualifications.Size = new System.Drawing.Size(981, 499);
+            this.dgvQualifications.Size = new System.Drawing.Size(978, 499);
             this.dgvQualifications.TabIndex = 1;
             // 
             // isReasonable
@@ -1519,9 +1496,9 @@
             this.tabJobAdPreview.Controls.Add(this.btnPDF);
             this.tabJobAdPreview.Controls.Add(this.txtJobAdPreview);
             this.tabJobAdPreview.Location = new System.Drawing.Point(4, 22);
-            this.tabJobAdPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
             this.tabJobAdPreview.Name = "tabJobAdPreview";
-            this.tabJobAdPreview.Size = new System.Drawing.Size(980, 750);
+            this.tabJobAdPreview.Size = new System.Drawing.Size(977, 748);
             this.tabJobAdPreview.TabIndex = 6;
             this.tabJobAdPreview.Text = "Job Ad Preview";
             this.tabJobAdPreview.UseVisualStyleBackColor = true;
@@ -1550,11 +1527,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtJobAdPreview.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtJobAdPreview.Location = new System.Drawing.Point(0, 0);
-            this.txtJobAdPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtJobAdPreview.Margin = new System.Windows.Forms.Padding(2);
             this.txtJobAdPreview.Multiline = true;
             this.txtJobAdPreview.Name = "txtJobAdPreview";
             this.txtJobAdPreview.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtJobAdPreview.Size = new System.Drawing.Size(980, 569);
+            this.txtJobAdPreview.Size = new System.Drawing.Size(977, 569);
             this.txtJobAdPreview.TabIndex = 0;
             // 
             // tabMedia
@@ -1568,9 +1545,9 @@
             this.tabMedia.Controls.Add(this.lblGeneral);
             this.tabMedia.Controls.Add(this.lblOfficial);
             this.tabMedia.Location = new System.Drawing.Point(4, 22);
-            this.tabMedia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabMedia.Margin = new System.Windows.Forms.Padding(2);
             this.tabMedia.Name = "tabMedia";
-            this.tabMedia.Size = new System.Drawing.Size(980, 750);
+            this.tabMedia.Size = new System.Drawing.Size(977, 748);
             this.tabMedia.TabIndex = 5;
             this.tabMedia.Text = "Media Selection";
             this.tabMedia.UseVisualStyleBackColor = true;
@@ -1578,7 +1555,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(850, 586);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 25);
             this.button1.TabIndex = 5;
@@ -1620,7 +1597,7 @@
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(976, 227);
+            this.dataGridView1.Size = new System.Drawing.Size(973, 227);
             this.dataGridView1.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -1712,7 +1689,7 @@
             // btnGoForPosting
             // 
             this.btnGoForPosting.Location = new System.Drawing.Point(2, 307);
-            this.btnGoForPosting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGoForPosting.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoForPosting.Name = "btnGoForPosting";
             this.btnGoForPosting.Size = new System.Drawing.Size(114, 25);
             this.btnGoForPosting.TabIndex = 3;
@@ -1744,11 +1721,11 @@
             this.MediaLink});
             this.dgvMedia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
             this.dgvMedia.Location = new System.Drawing.Point(2, 2);
-            this.dgvMedia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMedia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMedia.Name = "dgvMedia";
             this.dgvMedia.RowHeadersVisible = false;
             this.dgvMedia.RowTemplate.Height = 28;
-            this.dgvMedia.Size = new System.Drawing.Size(976, 301);
+            this.dgvMedia.Size = new System.Drawing.Size(973, 301);
             this.dgvMedia.TabIndex = 2;
             // 
             // MediaSelect
@@ -1871,9 +1848,9 @@
             this.tabJobOffer.Controls.Add(this.textBox13);
             this.tabJobOffer.Controls.Add(this.label21);
             this.tabJobOffer.Location = new System.Drawing.Point(4, 22);
-            this.tabJobOffer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabJobOffer.Margin = new System.Windows.Forms.Padding(2);
             this.tabJobOffer.Name = "tabJobOffer";
-            this.tabJobOffer.Size = new System.Drawing.Size(980, 750);
+            this.tabJobOffer.Size = new System.Drawing.Size(977, 748);
             this.tabJobOffer.TabIndex = 8;
             this.tabJobOffer.Text = "Job Offer";
             this.tabJobOffer.UseVisualStyleBackColor = true;
@@ -2108,8 +2085,8 @@
             this.tabPage1.Controls.Add(this.applicationSteam1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(991, 778);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(991, 780);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -2204,7 +2181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(999, 684);
+            this.ClientSize = new System.Drawing.Size(999, 806);
             this.Controls.Add(this.tabBase);
             this.Name = "LMIAForm";
             this.Text = "LMIA adviser and Application ";
@@ -2390,7 +2367,6 @@
         private System.Windows.Forms.Button btnAnalysisClear;
         private System.Windows.Forms.Button btnAnalysisDelete;
         private System.Windows.Forms.Button btnAnalysisUpdate;
-        private System.Windows.Forms.Button btnEMP5575;
         private System.Windows.Forms.GroupBox grpIndicator;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckPoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;
@@ -2410,24 +2386,6 @@
         private System.Windows.Forms.Label lblSubCategory;
         public System.Windows.Forms.Label lblAnotherEmployer;
         private System.Windows.Forms.Label lblProgram;
-        internal System.Windows.Forms.TextBox txtBizDetailQ5;
-        internal System.Windows.Forms.TextBox txtBizDetailQ4;
-        internal System.Windows.Forms.TextBox txtBizDetailQ3;
-        internal System.Windows.Forms.TextBox txtBizDetailQ2;
-        internal System.Windows.Forms.CheckBox chkLMIACompliance1213;
-        internal System.Windows.Forms.CheckBox chkLMIA1213;
-        internal System.Windows.Forms.CheckBox chkLMIACompliance1415;
-        internal System.Windows.Forms.CheckBox chkLMIA1415;
-        internal System.Windows.Forms.CheckBox chkBizDetailQ9;
-        internal System.Windows.Forms.TextBox txtLayoffCanadians;
-        internal System.Windows.Forms.TextBox txtTFWs;
-        internal System.Windows.Forms.TextBox chkBizDetailQ9Explain;
-        internal System.Windows.Forms.CheckBox chkLMIAMisRep;
-        internal System.Windows.Forms.CheckBox chkBizDetailQ8;
-        internal System.Windows.Forms.TextBox txtLMIASFN;
-        internal System.Windows.Forms.TextBox txtLMIAPublicPolicy;
-        internal System.Windows.Forms.CheckBox chkBizDetailQ10;
-        internal System.Windows.Forms.TextBox chkBizDetailQ10Explain;
         public System.Windows.Forms.TextBox txtBizDetailQ1;
         public System.Windows.Forms.DateTimePicker DTPQ8;
         public JobPosition jobPositionAdvisor;
@@ -2436,8 +2394,25 @@
         public System.Windows.Forms.Button btnAnalysisInsert;
         public financial financialAdvisor;
         public System.Windows.Forms.DataGridView dgvQualificationIndicator;
-        public Data.SelectRCIC selectRCICAdvisor;
         public System.Windows.Forms.TextBox txtProgram;
         public System.Windows.Forms.GroupBox grpApplicationStream;
+        public System.Windows.Forms.TextBox chkBizDetailQ10Explain;
+        public System.Windows.Forms.CheckBox chkBizDetailQ10;
+        public System.Windows.Forms.TextBox txtLMIAPublicPolicy;
+        public System.Windows.Forms.TextBox txtLMIASFN;
+        public System.Windows.Forms.CheckBox chkBizDetailQ8;
+        public System.Windows.Forms.CheckBox chkLMIAMisRep;
+        public System.Windows.Forms.TextBox chkBizDetailQ9Explain;
+        public System.Windows.Forms.TextBox txtTFWs;
+        public System.Windows.Forms.TextBox txtLayoffCanadians;
+        public System.Windows.Forms.CheckBox chkBizDetailQ9;
+        public System.Windows.Forms.CheckBox chkLMIA1415;
+        public System.Windows.Forms.CheckBox chkLMIACompliance1415;
+        public System.Windows.Forms.CheckBox chkLMIA1213;
+        public System.Windows.Forms.CheckBox chkLMIACompliance1213;
+        public System.Windows.Forms.TextBox txtBizDetailQ2;
+        public System.Windows.Forms.TextBox txtBizDetailQ3;
+        public System.Windows.Forms.TextBox txtBizDetailQ4;
+        public System.Windows.Forms.TextBox txtBizDetailQ5;
     }
 }

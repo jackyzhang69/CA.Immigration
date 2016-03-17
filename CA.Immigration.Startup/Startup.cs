@@ -8,10 +8,8 @@ using System.Linq;
 using CA.Immigration.Data;
 using System.Data;
 using System.Drawing;
-using CA.Immigration.App;
-using System.Drawing.Imaging;
 using System.Collections.Generic;
-
+using CA.Immigration.CICDict;
 
 namespace CA.Immigration.Startup
 {
@@ -164,10 +162,7 @@ namespace CA.Immigration.Startup
 
         private void btnEMP5575_Click(object sender, EventArgs e)
         {
-            //if(GlobalData.CurrentApplicationId != null) { StartupOps.buildupEMP5575(); }
-            //else MessageBox.Show("There is no active application");
-            GlobalData.CurrentApplicationId = 7;
-            StartupOps.buildupEMP5575();
+            
         }
 
         private void dgvLMIAApplication_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -228,6 +223,66 @@ namespace CA.Immigration.Startup
         {
             GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex;
         }
+
+        private void cbxAlias_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxAlias.Checked == true) {
+                lblPBIAliasFN.Visible = true;
+                txtPBIAFN.Visible = true;
+                lblPBIAliasLN.Visible = true;
+                txtPBIALN.Visible = true;
+            }
+            else 
+            {
+                lblPBIAliasFN.Visible = false;
+                txtPBIAFN.Visible = false;
+                lblPBIAliasLN.Visible = false;
+                txtPBIALN.Visible = false;
+            }
+        }
+
+        private void chkBizSameAsMail_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBizSameAsMail.Checked == true)
+            {
+                lblEBIBizAddress.Visible = false;
+                txtBusinessAddress.Visible = false;
+                lblEBIBizPost.Visible = false;
+                txtEBIPostalBusiness.Visible = false;
+                lblEBIBizCity.Visible = false;
+                txtEBIBusinessCity.Visible = false;
+                canadaProvincesBusiness.Visible = false;
+                lblEBICountry.Visible = false;
+                txtEBIBusinessCountry.Visible = false;
+            }
+            else {
+                lblEBIBizAddress.Visible = true;
+                txtBusinessAddress.Visible = true;
+                lblEBIBizPost.Visible = true;
+                txtEBIPostalBusiness.Visible = true;
+                lblEBIBizCity.Visible = true;
+                txtEBIBusinessCity.Visible = true;
+                canadaProvincesBusiness.Visible = true;
+                lblEBICountry.Visible = true;
+                txtEBIBusinessCountry.Visible = true;
+            }
+
+        }
+
+       
+        private void btnEMP5602_Click(object sender, EventArgs e)
+        {
+            StartupOps.buildupEMP5602();
+        }
+
+    private void btnEMP5575_Click_1(object sender, EventArgs e)
+        {
+            //if(GlobalData.CurrentApplicationId != null) { StartupOps.buildupEMP5575(); }
+            //else MessageBox.Show("There is no active application");
+            GlobalData.CurrentApplicationId = 7;
+            StartupOps.buildupEMP5575();
+        }
+       
     }
 }
 

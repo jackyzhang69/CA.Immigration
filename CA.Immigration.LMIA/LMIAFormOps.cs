@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CA.Immigration.Data;
 using System.Windows.Forms;
+using CA.Immigration.PDF;
 
 namespace CA.Immigration.LMIA
 {
@@ -28,7 +29,6 @@ namespace CA.Immigration.LMIA
                     GlobalData.CurrentPersonId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
                     GlobalData.CurrentRCICId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
                     GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.LMIAType).FirstOrDefault();
-                    lf.selectRCICAdvisor.cmbSelectRCIC.SelectedIndex = (int)GlobalData.CurrentRCICId;
                     lf.txtProgram.Text = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Name).FirstOrDefault();
                     lf.txtProgram.ReadOnly = true;
 
@@ -92,6 +92,7 @@ namespace CA.Immigration.LMIA
                 else lf.btnInsertBD.Visible = true;
             }
         }
+       
 
     }
 }

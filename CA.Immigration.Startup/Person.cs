@@ -60,8 +60,15 @@ namespace CA.Immigration.Startup
             _DOB = sf.dtpPBIDOB.Value;
             _Gender = (int)sf.cmbPBIGender.SelectedValue;
             _IsAliasName = sf.cbxAlias.Checked ? true : false;
-            _AliasLastName = sf.txtPBIAFN.Text;
-            _AliasFirstName = sf.txtPBIALN.Text;
+            if (_IsAliasName == true)
+            {
+                _AliasLastName = sf.txtPBIAFN.Text;
+                _AliasFirstName = sf.txtPBIALN.Text;
+            }
+            else {
+                _AliasLastName = null;
+                _AliasFirstName = null;
+            }
             _UCI = sf.txtPBIUCI.Text;
             _MarriageStatusId = (string)sf.cmbPBIMS.SelectedValue;
             _Phone = sf.txtPBIPhone.Text;

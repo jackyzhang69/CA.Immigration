@@ -73,7 +73,6 @@
     <Compile Include="EmployerSelector.Designer.cs">
       <DependentUpon>EmployerSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonSelector.cs">
       <SubType>Form</SubType>

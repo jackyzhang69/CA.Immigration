@@ -138,6 +138,8 @@ namespace CA.Immigration.LMIA
             GlobalData.CurrentApplicationIdReadOnly = false;
 
         }
+
+      
     }
 }
 
