@@ -55,14 +55,13 @@ namespace CA.Immigration.LMIA
             _q10 = lf.chkBizDetailQ10.Checked == true ? true : false;
             _q10Explanation = lf.chkBizDetailQ10Explain.Text;
         }
-
         // load data from database 
         public static void loadFromDB(LMIAForm lf)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if (bd != null)
+                if(bd != null)
                 {
                     //lf.btnInsertBD.Visible = false;  // business details data existed, so no more insert
                     _q1 = bd.TotalEmployeeUnderCRA;
@@ -92,10 +91,10 @@ namespace CA.Immigration.LMIA
         }
         public static void loadFromDB()
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if (bd != null)
+                if(bd != null)
                 {
                     //lf.btnInsertBD.Visible = false;  // business details data existed, so no more insert
                     _q1 = bd.TotalEmployeeUnderCRA;
@@ -119,11 +118,10 @@ namespace CA.Immigration.LMIA
                     _q10 = bd.Q10;
                     _q10Explanation = bd.Q10_1;
                 }
-               
+
             }
 
         }
-
         //fill current form with data
         public static void fillForm(LMIAForm lf)
         {
@@ -176,7 +174,7 @@ namespace CA.Immigration.LMIA
         }
         public static void Insert2DB(LMIAForm lf)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = new tblBusinessDetail
                 {
@@ -211,7 +209,7 @@ namespace CA.Immigration.LMIA
                     MessageBox.Show("Data has been inserted to database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-                catch (Exception exc)
+                catch(Exception exc)
                 {
 
                     MessageBox.Show(exc.Message);
@@ -220,14 +218,14 @@ namespace CA.Immigration.LMIA
         }
         public static void deleteRecord(LMIAForm lf)
         {
-            if (MessageBox.Show("Are you sure to delete the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if(MessageBox.Show("Are you sure to delete the record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                using (CommonDataContext cdc = new CommonDataContext())
+                using(CommonDataContext cdc = new CommonDataContext())
                 {
                     List<tblBusinessDetail> bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).ToList();
-                    if (bd.Count != 0)
+                    if(bd.Count != 0)
                     {
-                        foreach (tblBusinessDetail b in bd)
+                        foreach(tblBusinessDetail b in bd)
                         {
                             cdc.tblBusinessDetails.DeleteOnSubmit(b);
                         }
@@ -239,7 +237,7 @@ namespace CA.Immigration.LMIA
                             MessageBox.Show("Business details record has been deleted from database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
-                        catch (Exception exc)
+                        catch(Exception exc)
                         {
 
                             MessageBox.Show(exc.Message);
@@ -251,11 +249,11 @@ namespace CA.Immigration.LMIA
         }
         public static void updateRecord(int applicationid)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == applicationid).Select(x => x).FirstOrDefault();
 
-                if (bd != null)
+                if(bd != null)
                 {
                     bd.ApplicationId = applicationid;
                     bd.TotalEmployeeUnderCRA = _q1;
@@ -286,7 +284,7 @@ namespace CA.Immigration.LMIA
                         MessageBox.Show("Business details data has been updated to database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     }
-                    catch (Exception exc)
+                    catch(Exception exc)
                     {
 
                         MessageBox.Show(exc.Message);
@@ -299,39 +297,47 @@ namespace CA.Immigration.LMIA
         public static void buildupDict5602(ref Dictionary<string, string> dict)
         {
             loadFromDB();
-            dict.Add("EMP5602_E[0].Page2[0].txtF_number_employess_CRA[0]",_q1==null?"":_q1.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].txtF_number_employess_CRA[0]", _q1 == null ? "" : _q1.ToString());
             dict.Add("EMP5602_E[0].Page2[0].txtF_total_number[0]", _q2 == null ? "" : _q2.ToString());
-            dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_location[0]",_q3 == null ? "" : _q3.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_location[0]", _q3 == null ? "" : _q3.ToString());
             dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_lmo[0]", _q4 == null ? "" : _q4.ToString());
             dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_Emp[0]", _q4 == null ? "" : _q4.ToString());
+            dict.Add("EMP5602_E[0].Page2[0].Yes_E[1]", _q6 == true ? "" : "0");
+           // dict.Add("EMP5602_E[0].Page2[0].No[1]", _q6 == true ? "" : "0");
+            dict.Add("EMP5602_E[0].Page2[0].No_E[1]", _q6 == true ? "0" : "1"); //q6-No ?? q61 Yes?
 
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            if (_q81==true)
+          //  dict.Add("EMP5602_E[0].Page2[0].Yes_E[1]", (_q6 == true && _q61==false) ? "" : "0");//q61-no
+            //Question 7 is right now:2016-03-16
+            dict.Add("EMP5602_E[0].Page2[0].Yes_E[2]", _q7 == true ? "0" : "1");  //emp5602 wrong. this is 7-no
+            dict.Add("EMP5602_E[0].Page2[0].No_E[3]", _q7 == true ? "1" : "0"); //emp5602 wrong. this is 7-yes
+            dict.Add("EMP5602_E[0].Page2[0].Yes_E[3]", (_q71 == true && _q7==true)? "1" : "0");//7-1-yes
+             dict.Add("EMP5602_E[0].Page2[0].No_E[4]", (_q7 == true && _q71 == false) ? "1" : "0");// 7-1 no
+            //Question 8 ????
+            //dict.Add("EMP5602_E[0].Page2[0].Yes_E[5]",_q8 == true ? "1" : "0");  //emp5602 wrong 8-no// 81-no
+            dict.Add("EMP5602_E[0].Page2[0].No_E[5]", _q8 == true ? "0" : "1");//emp5602 wrong 8-yes
+            dict.Add("EMP5602_E[0].Page2[0].Yes_E[6]", _q81 == true ? "0" : "1"); //emp5602 wrong :yes is no. 8-1no
+            dict.Add("EMP5602_E[0].Page2[0].Yes_E[4]", _q81 == true ? "0" : "1");//emp5602 wrong :yes is no. 8-1yes
+            dict.Add("EMP5602_E[0].Page2[0].No_E[6]", _q81 == true ? "1" : "0");//81-yes
+            if(_q81 == true && _q8==true)
             {
                 dict.Add("EMP5602_E[0].Page2[0].txtF_Date_E[0]", String.Format("{0:yyyy-MM-dd}", _q81Date.ToString()));
                 dict.Add("EMP5602_E[0].Page2[0].txtF_File_Number[0]", _q81FileNumber);
-                dict.Add("EMP5602_E[0].Page2[0].txtF_Reasons_for_Layoffs[0]", _q81Explanation); 
+                dict.Add("EMP5602_E[0].Page2[0].txtF_Reasons_for_Layoffs[0]", _q81Explanation);
             }
+            //Question 9 miss 9-No
+            dict.Add("EMP5602_E[0].Page3[0].No_E[2]", _q9 == true ? "0" : "1");
+            dict.Add("EMP5602_E[0].Page3[0].Yes_E[2]", _q9 == true ? "1" : "0");
+            if(_q9 == true)
+            {
+                dict.Add("EMP5602_E[0].Page3[0].txtF_If_Yes[0]", _q91 == null ? null : _q91.ToString());
+                dict.Add("EMP5602_E[0].Page3[0].txtF_how_many_foreign[0]", _q92 == null ? null : _q92.ToString());
+                dict.Add("EMP5602_E[0].Page3[0].txtF_Reasons_for_Layoffs[0]", _q9Reason);
+            }
+           
+            dict.Add("EMP5602_E[0].Page3[0].No_E[0]", _q10 == true ? "0" : "1");
+            dict.Add("EMP5602_E[0].Page3[0].Yes_E[0]", _q10 == true ? "1" : "0");
+            if(_q10==true)dict.Add("EMP5602_E[0].Page3[0].txtF_If_Yes2[0]", _q10Explanation);
             
-
-
-
-
-
-
         }
     }
 }
