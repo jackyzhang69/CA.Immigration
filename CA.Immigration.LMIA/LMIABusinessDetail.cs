@@ -302,9 +302,12 @@ namespace CA.Immigration.LMIA
             dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_location[0]", _q3 == null ? "" : _q3.ToString());
             dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_lmo[0]", _q4 == null ? "" : _q4.ToString());
             dict.Add("EMP5602_E[0].Page2[0].txtF_total_number_Emp[0]", _q4 == null ? "" : _q4.ToString());
-            dict.Add("EMP5602_E[0].Page2[0].Yes_E[1]", _q6 == true ? "" : "0");
-           // dict.Add("EMP5602_E[0].Page2[0].No[1]", _q6 == true ? "" : "0");
-            dict.Add("EMP5602_E[0].Page2[0].No_E[1]", _q6 == true ? "0" : "1"); //q6-No ?? q61 Yes?
+            /*  unpredictable. do it someday
+            // q6
+            dict.Add("EMP5602_E[0].Page2[0].Yes_E[1]", _q6 == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page2[0].No_E[1]", _q6 == true ? "" : "0");
+
+            //dict.Add("EMP5602_E[0].Page2[0].No_E[1]", _q6 == true ? "0" : "1"); //q6-No ?? q61 Yes?
 
           //  dict.Add("EMP5602_E[0].Page2[0].Yes_E[1]", (_q6 == true && _q61==false) ? "" : "0");//q61-no
             //Question 7 is right now:2016-03-16
@@ -326,7 +329,7 @@ namespace CA.Immigration.LMIA
             }
             //Question 9 miss 9-No
             dict.Add("EMP5602_E[0].Page3[0].No_E[2]", _q9 == true ? "0" : "1");
-            dict.Add("EMP5602_E[0].Page3[0].Yes_E[2]", _q9 == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].Yes_E[2]", _q9 == true ? "1" : "0");*/  
             if(_q9 == true)
             {
                 dict.Add("EMP5602_E[0].Page3[0].txtF_If_Yes[0]", _q91 == null ? null : _q91.ToString());

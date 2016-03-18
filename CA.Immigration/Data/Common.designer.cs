@@ -54,12 +54,6 @@ namespace CA.Immigration.Data
     partial void InserttblImpactLM(tblImpactLM instance);
     partial void UpdatetblImpactLM(tblImpactLM instance);
     partial void DeletetblImpactLM(tblImpactLM instance);
-    partial void InserttblJobOffer1(tblJobOffer1 instance);
-    partial void UpdatetblJobOffer1(tblJobOffer1 instance);
-    partial void DeletetblJobOffer1(tblJobOffer1 instance);
-    partial void InserttblJobOffer2(tblJobOffer2 instance);
-    partial void UpdatetblJobOffer2(tblJobOffer2 instance);
-    partial void DeletetblJobOffer2(tblJobOffer2 instance);
     partial void InserttblMarriageHistory(tblMarriageHistory instance);
     partial void UpdatetblMarriageHistory(tblMarriageHistory instance);
     partial void DeletetblMarriageHistory(tblMarriageHistory instance);
@@ -120,6 +114,9 @@ namespace CA.Immigration.Data
     partial void InserttblBusinessDetail(tblBusinessDetail instance);
     partial void UpdatetblBusinessDetail(tblBusinessDetail instance);
     partial void DeletetblBusinessDetail(tblBusinessDetail instance);
+    partial void InserttblJobOffer(tblJobOffer instance);
+    partial void UpdatetblJobOffer(tblJobOffer instance);
+    partial void DeletetblJobOffer(tblJobOffer instance);
     #endregion
 		
 		public CommonDataContext() : 
@@ -213,22 +210,6 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblImpactLM>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblJobOffer1> tblJobOffer1s
-		{
-			get
-			{
-				return this.GetTable<tblJobOffer1>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblJobOffer2> tblJobOffer2s
-		{
-			get
-			{
-				return this.GetTable<tblJobOffer2>();
 			}
 		}
 		
@@ -389,6 +370,14 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblBusinessDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblJobOffer> tblJobOffers
+		{
+			get
+			{
+				return this.GetTable<tblJobOffer>();
 			}
 		}
 	}
@@ -2232,2194 +2221,6 @@ namespace CA.Immigration.Data
 					this._HiringImpactCanadian = value;
 					this.SendPropertyChanged("HiringImpactCanadian");
 					this.OnHiringImpactCanadianChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblJobOffer1")]
-	public partial class tblJobOffer1 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _ApplicationID;
-		
-		private string _JobTile;
-		
-		private System.Nullable<int> _Number;
-		
-		private System.Nullable<int> _WorkingDays;
-		
-		private System.Nullable<int> _WorkingWeeks;
-		
-		private System.Nullable<int> _WorkingMonths;
-		
-		private System.Nullable<int> _WorkingYears;
-		
-		private System.Nullable<int> _Permanent;
-		
-		private System.Nullable<System.DateTime> _StartDate;
-		
-		private string _WorkLocation;
-		
-		private string _City;
-		
-		private string _Province;
-		
-		private string _PostalCode;
-		
-		private string _Mainduties;
-		
-		private System.Nullable<int> _Doctorate_PHD;
-		
-		private System.Nullable<int> _DoctorOfMdeicine;
-		
-		private System.Nullable<int> _MasterDegree;
-		
-		private System.Nullable<int> _Bachelor;
-		
-		private System.Nullable<int> _College;
-		
-		private System.Nullable<int> _Apprentice;
-		
-		private System.Nullable<int> _Trade;
-		
-		private System.Nullable<int> _SecondarySchool;
-		
-		private System.Nullable<int> _Vocational;
-		
-		private System.Nullable<int> _NotRequired;
-		
-		private string _EduAdditionalInfo;
-		
-		private string _SkillRequirement;
-		
-		private System.Nullable<int> _Oral;
-		
-		private System.Nullable<int> _OralEnglish;
-		
-		private System.Nullable<int> _OralFrench;
-		
-		private System.Nullable<int> _OralEnglishorFrench;
-		
-		private System.Nullable<int> _oralEnglishandFrench;
-		
-		private System.Nullable<int> _Writing;
-		
-		private System.Nullable<int> _WritingEnglish;
-		
-		private System.Nullable<int> _WritingFrench;
-		
-		private System.Nullable<int> _WritingEnglishorFrench;
-		
-		private System.Nullable<int> _WritingEnglishandFrench;
-		
-		private System.Nullable<int> _OtherLanguage;
-		
-		private string _OtherLangugeExplanation;
-		
-		private System.Nullable<int> _FullTime;
-		
-		private string _FullTimeExplanation;
-		
-		private System.Nullable<decimal> _HourlyWage;
-		
-		private System.Nullable<decimal> _YearlyWage;
-		
-		private System.Nullable<double> _Dayhours;
-		
-		private System.Nullable<double> _WeeklyHours;
-		
-		private System.Nullable<double> _MonthlyHours;
-		
-		private System.Nullable<decimal> _OverTimeRate;
-		
-		private System.Nullable<double> _OverTimeStart;
-		
-		private System.Nullable<decimal> _LowestWage;
-		
-		private System.Nullable<decimal> _HighestWage;
-		
-		private System.Nullable<int> _NoEmployeeInSamePosition;
-		
-		private System.Nullable<int> _Seasonal;
-		
-		private System.Nullable<int> _DisabilityInsurance;
-		
-		private System.Nullable<int> _DentalInsurance;
-		
-		private System.Nullable<int> _Pension;
-		
-		private System.Nullable<int> _ExtendedMedical;
-		
-		private System.Nullable<int> _VacationDays;
-		
-		private System.Nullable<int> _Remuneration;
-		
-		private string _OtherBenefits;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnApplicationIDChanging(System.Nullable<int> value);
-    partial void OnApplicationIDChanged();
-    partial void OnJobTileChanging(string value);
-    partial void OnJobTileChanged();
-    partial void OnNumberChanging(System.Nullable<int> value);
-    partial void OnNumberChanged();
-    partial void OnWorkingDaysChanging(System.Nullable<int> value);
-    partial void OnWorkingDaysChanged();
-    partial void OnWorkingWeeksChanging(System.Nullable<int> value);
-    partial void OnWorkingWeeksChanged();
-    partial void OnWorkingMonthsChanging(System.Nullable<int> value);
-    partial void OnWorkingMonthsChanged();
-    partial void OnWorkingYearsChanging(System.Nullable<int> value);
-    partial void OnWorkingYearsChanged();
-    partial void OnPermanentChanging(System.Nullable<int> value);
-    partial void OnPermanentChanged();
-    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnStartDateChanged();
-    partial void OnWorkLocationChanging(string value);
-    partial void OnWorkLocationChanged();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnProvinceChanging(string value);
-    partial void OnProvinceChanged();
-    partial void OnPostalCodeChanging(string value);
-    partial void OnPostalCodeChanged();
-    partial void OnMaindutiesChanging(string value);
-    partial void OnMaindutiesChanged();
-    partial void OnDoctorate_PHDChanging(System.Nullable<int> value);
-    partial void OnDoctorate_PHDChanged();
-    partial void OnDoctorOfMdeicineChanging(System.Nullable<int> value);
-    partial void OnDoctorOfMdeicineChanged();
-    partial void OnMasterDegreeChanging(System.Nullable<int> value);
-    partial void OnMasterDegreeChanged();
-    partial void OnBachelorChanging(System.Nullable<int> value);
-    partial void OnBachelorChanged();
-    partial void OnCollegeChanging(System.Nullable<int> value);
-    partial void OnCollegeChanged();
-    partial void OnApprenticeChanging(System.Nullable<int> value);
-    partial void OnApprenticeChanged();
-    partial void OnTradeChanging(System.Nullable<int> value);
-    partial void OnTradeChanged();
-    partial void OnSecondarySchoolChanging(System.Nullable<int> value);
-    partial void OnSecondarySchoolChanged();
-    partial void OnVocationalChanging(System.Nullable<int> value);
-    partial void OnVocationalChanged();
-    partial void OnNotRequiredChanging(System.Nullable<int> value);
-    partial void OnNotRequiredChanged();
-    partial void OnEduAdditionalInfoChanging(string value);
-    partial void OnEduAdditionalInfoChanged();
-    partial void OnSkillRequirementChanging(string value);
-    partial void OnSkillRequirementChanged();
-    partial void OnOralChanging(System.Nullable<int> value);
-    partial void OnOralChanged();
-    partial void OnOralEnglishChanging(System.Nullable<int> value);
-    partial void OnOralEnglishChanged();
-    partial void OnOralFrenchChanging(System.Nullable<int> value);
-    partial void OnOralFrenchChanged();
-    partial void OnOralEnglishorFrenchChanging(System.Nullable<int> value);
-    partial void OnOralEnglishorFrenchChanged();
-    partial void OnoralEnglishandFrenchChanging(System.Nullable<int> value);
-    partial void OnoralEnglishandFrenchChanged();
-    partial void OnWritingChanging(System.Nullable<int> value);
-    partial void OnWritingChanged();
-    partial void OnWritingEnglishChanging(System.Nullable<int> value);
-    partial void OnWritingEnglishChanged();
-    partial void OnWritingFrenchChanging(System.Nullable<int> value);
-    partial void OnWritingFrenchChanged();
-    partial void OnWritingEnglishorFrenchChanging(System.Nullable<int> value);
-    partial void OnWritingEnglishorFrenchChanged();
-    partial void OnWritingEnglishandFrenchChanging(System.Nullable<int> value);
-    partial void OnWritingEnglishandFrenchChanged();
-    partial void OnOtherLanguageChanging(System.Nullable<int> value);
-    partial void OnOtherLanguageChanged();
-    partial void OnOtherLangugeExplanationChanging(string value);
-    partial void OnOtherLangugeExplanationChanged();
-    partial void OnFullTimeChanging(System.Nullable<int> value);
-    partial void OnFullTimeChanged();
-    partial void OnFullTimeExplanationChanging(string value);
-    partial void OnFullTimeExplanationChanged();
-    partial void OnHourlyWageChanging(System.Nullable<decimal> value);
-    partial void OnHourlyWageChanged();
-    partial void OnYearlyWageChanging(System.Nullable<decimal> value);
-    partial void OnYearlyWageChanged();
-    partial void OnDayhoursChanging(System.Nullable<double> value);
-    partial void OnDayhoursChanged();
-    partial void OnWeeklyHoursChanging(System.Nullable<double> value);
-    partial void OnWeeklyHoursChanged();
-    partial void OnMonthlyHoursChanging(System.Nullable<double> value);
-    partial void OnMonthlyHoursChanged();
-    partial void OnOverTimeRateChanging(System.Nullable<decimal> value);
-    partial void OnOverTimeRateChanged();
-    partial void OnOverTimeStartChanging(System.Nullable<double> value);
-    partial void OnOverTimeStartChanged();
-    partial void OnLowestWageChanging(System.Nullable<decimal> value);
-    partial void OnLowestWageChanged();
-    partial void OnHighestWageChanging(System.Nullable<decimal> value);
-    partial void OnHighestWageChanged();
-    partial void OnNoEmployeeInSamePositionChanging(System.Nullable<int> value);
-    partial void OnNoEmployeeInSamePositionChanged();
-    partial void OnSeasonalChanging(System.Nullable<int> value);
-    partial void OnSeasonalChanged();
-    partial void OnDisabilityInsuranceChanging(System.Nullable<int> value);
-    partial void OnDisabilityInsuranceChanged();
-    partial void OnDentalInsuranceChanging(System.Nullable<int> value);
-    partial void OnDentalInsuranceChanged();
-    partial void OnPensionChanging(System.Nullable<int> value);
-    partial void OnPensionChanged();
-    partial void OnExtendedMedicalChanging(System.Nullable<int> value);
-    partial void OnExtendedMedicalChanged();
-    partial void OnVacationDaysChanging(System.Nullable<int> value);
-    partial void OnVacationDaysChanged();
-    partial void OnRemunerationChanging(System.Nullable<int> value);
-    partial void OnRemunerationChanged();
-    partial void OnOtherBenefitsChanging(string value);
-    partial void OnOtherBenefitsChanged();
-    #endregion
-		
-		public tblJobOffer1()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationID", DbType="Int")]
-		public System.Nullable<int> ApplicationID
-		{
-			get
-			{
-				return this._ApplicationID;
-			}
-			set
-			{
-				if ((this._ApplicationID != value))
-				{
-					this.OnApplicationIDChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationID = value;
-					this.SendPropertyChanged("ApplicationID");
-					this.OnApplicationIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobTile", DbType="NVarChar(30)")]
-		public string JobTile
-		{
-			get
-			{
-				return this._JobTile;
-			}
-			set
-			{
-				if ((this._JobTile != value))
-				{
-					this.OnJobTileChanging(value);
-					this.SendPropertyChanging();
-					this._JobTile = value;
-					this.SendPropertyChanged("JobTile");
-					this.OnJobTileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Int")]
-		public System.Nullable<int> Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this.OnNumberChanging(value);
-					this.SendPropertyChanging();
-					this._Number = value;
-					this.SendPropertyChanged("Number");
-					this.OnNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingDays", DbType="Int")]
-		public System.Nullable<int> WorkingDays
-		{
-			get
-			{
-				return this._WorkingDays;
-			}
-			set
-			{
-				if ((this._WorkingDays != value))
-				{
-					this.OnWorkingDaysChanging(value);
-					this.SendPropertyChanging();
-					this._WorkingDays = value;
-					this.SendPropertyChanged("WorkingDays");
-					this.OnWorkingDaysChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingWeeks", DbType="Int")]
-		public System.Nullable<int> WorkingWeeks
-		{
-			get
-			{
-				return this._WorkingWeeks;
-			}
-			set
-			{
-				if ((this._WorkingWeeks != value))
-				{
-					this.OnWorkingWeeksChanging(value);
-					this.SendPropertyChanging();
-					this._WorkingWeeks = value;
-					this.SendPropertyChanged("WorkingWeeks");
-					this.OnWorkingWeeksChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingMonths", DbType="Int")]
-		public System.Nullable<int> WorkingMonths
-		{
-			get
-			{
-				return this._WorkingMonths;
-			}
-			set
-			{
-				if ((this._WorkingMonths != value))
-				{
-					this.OnWorkingMonthsChanging(value);
-					this.SendPropertyChanging();
-					this._WorkingMonths = value;
-					this.SendPropertyChanged("WorkingMonths");
-					this.OnWorkingMonthsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkingYears", DbType="Int")]
-		public System.Nullable<int> WorkingYears
-		{
-			get
-			{
-				return this._WorkingYears;
-			}
-			set
-			{
-				if ((this._WorkingYears != value))
-				{
-					this.OnWorkingYearsChanging(value);
-					this.SendPropertyChanging();
-					this._WorkingYears = value;
-					this.SendPropertyChanged("WorkingYears");
-					this.OnWorkingYearsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Permanent]", Storage="_Permanent", DbType="Int")]
-		public System.Nullable<int> Permanent
-		{
-			get
-			{
-				return this._Permanent;
-			}
-			set
-			{
-				if ((this._Permanent != value))
-				{
-					this.OnPermanentChanging(value);
-					this.SendPropertyChanging();
-					this._Permanent = value;
-					this.SendPropertyChanged("Permanent");
-					this.OnPermanentChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
-		public System.Nullable<System.DateTime> StartDate
-		{
-			get
-			{
-				return this._StartDate;
-			}
-			set
-			{
-				if ((this._StartDate != value))
-				{
-					this.OnStartDateChanging(value);
-					this.SendPropertyChanging();
-					this._StartDate = value;
-					this.SendPropertyChanged("StartDate");
-					this.OnStartDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WorkLocation", DbType="NVarChar(50)")]
-		public string WorkLocation
-		{
-			get
-			{
-				return this._WorkLocation;
-			}
-			set
-			{
-				if ((this._WorkLocation != value))
-				{
-					this.OnWorkLocationChanging(value);
-					this.SendPropertyChanging();
-					this._WorkLocation = value;
-					this.SendPropertyChanged("WorkLocation");
-					this.OnWorkLocationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="NVarChar(20)")]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Province", DbType="NVarChar(20)")]
-		public string Province
-		{
-			get
-			{
-				return this._Province;
-			}
-			set
-			{
-				if ((this._Province != value))
-				{
-					this.OnProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._Province = value;
-					this.SendPropertyChanged("Province");
-					this.OnProvinceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(7)")]
-		public string PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this.OnPostalCodeChanging(value);
-					this.SendPropertyChanging();
-					this._PostalCode = value;
-					this.SendPropertyChanged("PostalCode");
-					this.OnPostalCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mainduties", DbType="NVarChar(1000)")]
-		public string Mainduties
-		{
-			get
-			{
-				return this._Mainduties;
-			}
-			set
-			{
-				if ((this._Mainduties != value))
-				{
-					this.OnMaindutiesChanging(value);
-					this.SendPropertyChanging();
-					this._Mainduties = value;
-					this.SendPropertyChanged("Mainduties");
-					this.OnMaindutiesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Doctorate_PHD", DbType="Int")]
-		public System.Nullable<int> Doctorate_PHD
-		{
-			get
-			{
-				return this._Doctorate_PHD;
-			}
-			set
-			{
-				if ((this._Doctorate_PHD != value))
-				{
-					this.OnDoctorate_PHDChanging(value);
-					this.SendPropertyChanging();
-					this._Doctorate_PHD = value;
-					this.SendPropertyChanged("Doctorate_PHD");
-					this.OnDoctorate_PHDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorOfMdeicine", DbType="Int")]
-		public System.Nullable<int> DoctorOfMdeicine
-		{
-			get
-			{
-				return this._DoctorOfMdeicine;
-			}
-			set
-			{
-				if ((this._DoctorOfMdeicine != value))
-				{
-					this.OnDoctorOfMdeicineChanging(value);
-					this.SendPropertyChanging();
-					this._DoctorOfMdeicine = value;
-					this.SendPropertyChanged("DoctorOfMdeicine");
-					this.OnDoctorOfMdeicineChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MasterDegree", DbType="Int")]
-		public System.Nullable<int> MasterDegree
-		{
-			get
-			{
-				return this._MasterDegree;
-			}
-			set
-			{
-				if ((this._MasterDegree != value))
-				{
-					this.OnMasterDegreeChanging(value);
-					this.SendPropertyChanging();
-					this._MasterDegree = value;
-					this.SendPropertyChanged("MasterDegree");
-					this.OnMasterDegreeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bachelor", DbType="Int")]
-		public System.Nullable<int> Bachelor
-		{
-			get
-			{
-				return this._Bachelor;
-			}
-			set
-			{
-				if ((this._Bachelor != value))
-				{
-					this.OnBachelorChanging(value);
-					this.SendPropertyChanging();
-					this._Bachelor = value;
-					this.SendPropertyChanged("Bachelor");
-					this.OnBachelorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_College", DbType="Int")]
-		public System.Nullable<int> College
-		{
-			get
-			{
-				return this._College;
-			}
-			set
-			{
-				if ((this._College != value))
-				{
-					this.OnCollegeChanging(value);
-					this.SendPropertyChanging();
-					this._College = value;
-					this.SendPropertyChanged("College");
-					this.OnCollegeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Apprentice", DbType="Int")]
-		public System.Nullable<int> Apprentice
-		{
-			get
-			{
-				return this._Apprentice;
-			}
-			set
-			{
-				if ((this._Apprentice != value))
-				{
-					this.OnApprenticeChanging(value);
-					this.SendPropertyChanging();
-					this._Apprentice = value;
-					this.SendPropertyChanged("Apprentice");
-					this.OnApprenticeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Trade", DbType="Int")]
-		public System.Nullable<int> Trade
-		{
-			get
-			{
-				return this._Trade;
-			}
-			set
-			{
-				if ((this._Trade != value))
-				{
-					this.OnTradeChanging(value);
-					this.SendPropertyChanging();
-					this._Trade = value;
-					this.SendPropertyChanged("Trade");
-					this.OnTradeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecondarySchool", DbType="Int")]
-		public System.Nullable<int> SecondarySchool
-		{
-			get
-			{
-				return this._SecondarySchool;
-			}
-			set
-			{
-				if ((this._SecondarySchool != value))
-				{
-					this.OnSecondarySchoolChanging(value);
-					this.SendPropertyChanging();
-					this._SecondarySchool = value;
-					this.SendPropertyChanged("SecondarySchool");
-					this.OnSecondarySchoolChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vocational", DbType="Int")]
-		public System.Nullable<int> Vocational
-		{
-			get
-			{
-				return this._Vocational;
-			}
-			set
-			{
-				if ((this._Vocational != value))
-				{
-					this.OnVocationalChanging(value);
-					this.SendPropertyChanging();
-					this._Vocational = value;
-					this.SendPropertyChanged("Vocational");
-					this.OnVocationalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NotRequired", DbType="Int")]
-		public System.Nullable<int> NotRequired
-		{
-			get
-			{
-				return this._NotRequired;
-			}
-			set
-			{
-				if ((this._NotRequired != value))
-				{
-					this.OnNotRequiredChanging(value);
-					this.SendPropertyChanging();
-					this._NotRequired = value;
-					this.SendPropertyChanged("NotRequired");
-					this.OnNotRequiredChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EduAdditionalInfo", DbType="NVarChar(100)")]
-		public string EduAdditionalInfo
-		{
-			get
-			{
-				return this._EduAdditionalInfo;
-			}
-			set
-			{
-				if ((this._EduAdditionalInfo != value))
-				{
-					this.OnEduAdditionalInfoChanging(value);
-					this.SendPropertyChanging();
-					this._EduAdditionalInfo = value;
-					this.SendPropertyChanged("EduAdditionalInfo");
-					this.OnEduAdditionalInfoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillRequirement", DbType="NVarChar(500)")]
-		public string SkillRequirement
-		{
-			get
-			{
-				return this._SkillRequirement;
-			}
-			set
-			{
-				if ((this._SkillRequirement != value))
-				{
-					this.OnSkillRequirementChanging(value);
-					this.SendPropertyChanging();
-					this._SkillRequirement = value;
-					this.SendPropertyChanged("SkillRequirement");
-					this.OnSkillRequirementChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Oral", DbType="Int")]
-		public System.Nullable<int> Oral
-		{
-			get
-			{
-				return this._Oral;
-			}
-			set
-			{
-				if ((this._Oral != value))
-				{
-					this.OnOralChanging(value);
-					this.SendPropertyChanging();
-					this._Oral = value;
-					this.SendPropertyChanged("Oral");
-					this.OnOralChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OralEnglish", DbType="Int")]
-		public System.Nullable<int> OralEnglish
-		{
-			get
-			{
-				return this._OralEnglish;
-			}
-			set
-			{
-				if ((this._OralEnglish != value))
-				{
-					this.OnOralEnglishChanging(value);
-					this.SendPropertyChanging();
-					this._OralEnglish = value;
-					this.SendPropertyChanged("OralEnglish");
-					this.OnOralEnglishChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OralFrench", DbType="Int")]
-		public System.Nullable<int> OralFrench
-		{
-			get
-			{
-				return this._OralFrench;
-			}
-			set
-			{
-				if ((this._OralFrench != value))
-				{
-					this.OnOralFrenchChanging(value);
-					this.SendPropertyChanging();
-					this._OralFrench = value;
-					this.SendPropertyChanged("OralFrench");
-					this.OnOralFrenchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OralEnglishorFrench", DbType="Int")]
-		public System.Nullable<int> OralEnglishorFrench
-		{
-			get
-			{
-				return this._OralEnglishorFrench;
-			}
-			set
-			{
-				if ((this._OralEnglishorFrench != value))
-				{
-					this.OnOralEnglishorFrenchChanging(value);
-					this.SendPropertyChanging();
-					this._OralEnglishorFrench = value;
-					this.SendPropertyChanged("OralEnglishorFrench");
-					this.OnOralEnglishorFrenchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_oralEnglishandFrench", DbType="Int")]
-		public System.Nullable<int> oralEnglishandFrench
-		{
-			get
-			{
-				return this._oralEnglishandFrench;
-			}
-			set
-			{
-				if ((this._oralEnglishandFrench != value))
-				{
-					this.OnoralEnglishandFrenchChanging(value);
-					this.SendPropertyChanging();
-					this._oralEnglishandFrench = value;
-					this.SendPropertyChanged("oralEnglishandFrench");
-					this.OnoralEnglishandFrenchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Writing", DbType="Int")]
-		public System.Nullable<int> Writing
-		{
-			get
-			{
-				return this._Writing;
-			}
-			set
-			{
-				if ((this._Writing != value))
-				{
-					this.OnWritingChanging(value);
-					this.SendPropertyChanging();
-					this._Writing = value;
-					this.SendPropertyChanged("Writing");
-					this.OnWritingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WritingEnglish", DbType="Int")]
-		public System.Nullable<int> WritingEnglish
-		{
-			get
-			{
-				return this._WritingEnglish;
-			}
-			set
-			{
-				if ((this._WritingEnglish != value))
-				{
-					this.OnWritingEnglishChanging(value);
-					this.SendPropertyChanging();
-					this._WritingEnglish = value;
-					this.SendPropertyChanged("WritingEnglish");
-					this.OnWritingEnglishChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WritingFrench", DbType="Int")]
-		public System.Nullable<int> WritingFrench
-		{
-			get
-			{
-				return this._WritingFrench;
-			}
-			set
-			{
-				if ((this._WritingFrench != value))
-				{
-					this.OnWritingFrenchChanging(value);
-					this.SendPropertyChanging();
-					this._WritingFrench = value;
-					this.SendPropertyChanged("WritingFrench");
-					this.OnWritingFrenchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WritingEnglishorFrench", DbType="Int")]
-		public System.Nullable<int> WritingEnglishorFrench
-		{
-			get
-			{
-				return this._WritingEnglishorFrench;
-			}
-			set
-			{
-				if ((this._WritingEnglishorFrench != value))
-				{
-					this.OnWritingEnglishorFrenchChanging(value);
-					this.SendPropertyChanging();
-					this._WritingEnglishorFrench = value;
-					this.SendPropertyChanged("WritingEnglishorFrench");
-					this.OnWritingEnglishorFrenchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WritingEnglishandFrench", DbType="Int")]
-		public System.Nullable<int> WritingEnglishandFrench
-		{
-			get
-			{
-				return this._WritingEnglishandFrench;
-			}
-			set
-			{
-				if ((this._WritingEnglishandFrench != value))
-				{
-					this.OnWritingEnglishandFrenchChanging(value);
-					this.SendPropertyChanging();
-					this._WritingEnglishandFrench = value;
-					this.SendPropertyChanged("WritingEnglishandFrench");
-					this.OnWritingEnglishandFrenchChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherLanguage", DbType="Int")]
-		public System.Nullable<int> OtherLanguage
-		{
-			get
-			{
-				return this._OtherLanguage;
-			}
-			set
-			{
-				if ((this._OtherLanguage != value))
-				{
-					this.OnOtherLanguageChanging(value);
-					this.SendPropertyChanging();
-					this._OtherLanguage = value;
-					this.SendPropertyChanged("OtherLanguage");
-					this.OnOtherLanguageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherLangugeExplanation", DbType="NVarChar(500)")]
-		public string OtherLangugeExplanation
-		{
-			get
-			{
-				return this._OtherLangugeExplanation;
-			}
-			set
-			{
-				if ((this._OtherLangugeExplanation != value))
-				{
-					this.OnOtherLangugeExplanationChanging(value);
-					this.SendPropertyChanging();
-					this._OtherLangugeExplanation = value;
-					this.SendPropertyChanged("OtherLangugeExplanation");
-					this.OnOtherLangugeExplanationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullTime", DbType="Int")]
-		public System.Nullable<int> FullTime
-		{
-			get
-			{
-				return this._FullTime;
-			}
-			set
-			{
-				if ((this._FullTime != value))
-				{
-					this.OnFullTimeChanging(value);
-					this.SendPropertyChanging();
-					this._FullTime = value;
-					this.SendPropertyChanged("FullTime");
-					this.OnFullTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullTimeExplanation", DbType="NVarChar(100)")]
-		public string FullTimeExplanation
-		{
-			get
-			{
-				return this._FullTimeExplanation;
-			}
-			set
-			{
-				if ((this._FullTimeExplanation != value))
-				{
-					this.OnFullTimeExplanationChanging(value);
-					this.SendPropertyChanging();
-					this._FullTimeExplanation = value;
-					this.SendPropertyChanged("FullTimeExplanation");
-					this.OnFullTimeExplanationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HourlyWage", DbType="Money")]
-		public System.Nullable<decimal> HourlyWage
-		{
-			get
-			{
-				return this._HourlyWage;
-			}
-			set
-			{
-				if ((this._HourlyWage != value))
-				{
-					this.OnHourlyWageChanging(value);
-					this.SendPropertyChanging();
-					this._HourlyWage = value;
-					this.SendPropertyChanged("HourlyWage");
-					this.OnHourlyWageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearlyWage", DbType="Money")]
-		public System.Nullable<decimal> YearlyWage
-		{
-			get
-			{
-				return this._YearlyWage;
-			}
-			set
-			{
-				if ((this._YearlyWage != value))
-				{
-					this.OnYearlyWageChanging(value);
-					this.SendPropertyChanging();
-					this._YearlyWage = value;
-					this.SendPropertyChanged("YearlyWage");
-					this.OnYearlyWageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dayhours", DbType="Float")]
-		public System.Nullable<double> Dayhours
-		{
-			get
-			{
-				return this._Dayhours;
-			}
-			set
-			{
-				if ((this._Dayhours != value))
-				{
-					this.OnDayhoursChanging(value);
-					this.SendPropertyChanging();
-					this._Dayhours = value;
-					this.SendPropertyChanged("Dayhours");
-					this.OnDayhoursChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WeeklyHours", DbType="Float")]
-		public System.Nullable<double> WeeklyHours
-		{
-			get
-			{
-				return this._WeeklyHours;
-			}
-			set
-			{
-				if ((this._WeeklyHours != value))
-				{
-					this.OnWeeklyHoursChanging(value);
-					this.SendPropertyChanging();
-					this._WeeklyHours = value;
-					this.SendPropertyChanged("WeeklyHours");
-					this.OnWeeklyHoursChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthlyHours", DbType="Float")]
-		public System.Nullable<double> MonthlyHours
-		{
-			get
-			{
-				return this._MonthlyHours;
-			}
-			set
-			{
-				if ((this._MonthlyHours != value))
-				{
-					this.OnMonthlyHoursChanging(value);
-					this.SendPropertyChanging();
-					this._MonthlyHours = value;
-					this.SendPropertyChanged("MonthlyHours");
-					this.OnMonthlyHoursChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OverTimeRate", DbType="Money")]
-		public System.Nullable<decimal> OverTimeRate
-		{
-			get
-			{
-				return this._OverTimeRate;
-			}
-			set
-			{
-				if ((this._OverTimeRate != value))
-				{
-					this.OnOverTimeRateChanging(value);
-					this.SendPropertyChanging();
-					this._OverTimeRate = value;
-					this.SendPropertyChanged("OverTimeRate");
-					this.OnOverTimeRateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OverTimeStart", DbType="Float")]
-		public System.Nullable<double> OverTimeStart
-		{
-			get
-			{
-				return this._OverTimeStart;
-			}
-			set
-			{
-				if ((this._OverTimeStart != value))
-				{
-					this.OnOverTimeStartChanging(value);
-					this.SendPropertyChanging();
-					this._OverTimeStart = value;
-					this.SendPropertyChanged("OverTimeStart");
-					this.OnOverTimeStartChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LowestWage", DbType="Money")]
-		public System.Nullable<decimal> LowestWage
-		{
-			get
-			{
-				return this._LowestWage;
-			}
-			set
-			{
-				if ((this._LowestWage != value))
-				{
-					this.OnLowestWageChanging(value);
-					this.SendPropertyChanging();
-					this._LowestWage = value;
-					this.SendPropertyChanged("LowestWage");
-					this.OnLowestWageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HighestWage", DbType="Money")]
-		public System.Nullable<decimal> HighestWage
-		{
-			get
-			{
-				return this._HighestWage;
-			}
-			set
-			{
-				if ((this._HighestWage != value))
-				{
-					this.OnHighestWageChanging(value);
-					this.SendPropertyChanging();
-					this._HighestWage = value;
-					this.SendPropertyChanged("HighestWage");
-					this.OnHighestWageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoEmployeeInSamePosition", DbType="Int")]
-		public System.Nullable<int> NoEmployeeInSamePosition
-		{
-			get
-			{
-				return this._NoEmployeeInSamePosition;
-			}
-			set
-			{
-				if ((this._NoEmployeeInSamePosition != value))
-				{
-					this.OnNoEmployeeInSamePositionChanging(value);
-					this.SendPropertyChanging();
-					this._NoEmployeeInSamePosition = value;
-					this.SendPropertyChanged("NoEmployeeInSamePosition");
-					this.OnNoEmployeeInSamePositionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Seasonal", DbType="Int")]
-		public System.Nullable<int> Seasonal
-		{
-			get
-			{
-				return this._Seasonal;
-			}
-			set
-			{
-				if ((this._Seasonal != value))
-				{
-					this.OnSeasonalChanging(value);
-					this.SendPropertyChanging();
-					this._Seasonal = value;
-					this.SendPropertyChanged("Seasonal");
-					this.OnSeasonalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DisabilityInsurance", DbType="Int")]
-		public System.Nullable<int> DisabilityInsurance
-		{
-			get
-			{
-				return this._DisabilityInsurance;
-			}
-			set
-			{
-				if ((this._DisabilityInsurance != value))
-				{
-					this.OnDisabilityInsuranceChanging(value);
-					this.SendPropertyChanging();
-					this._DisabilityInsurance = value;
-					this.SendPropertyChanged("DisabilityInsurance");
-					this.OnDisabilityInsuranceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DentalInsurance", DbType="Int")]
-		public System.Nullable<int> DentalInsurance
-		{
-			get
-			{
-				return this._DentalInsurance;
-			}
-			set
-			{
-				if ((this._DentalInsurance != value))
-				{
-					this.OnDentalInsuranceChanging(value);
-					this.SendPropertyChanging();
-					this._DentalInsurance = value;
-					this.SendPropertyChanged("DentalInsurance");
-					this.OnDentalInsuranceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pension", DbType="Int")]
-		public System.Nullable<int> Pension
-		{
-			get
-			{
-				return this._Pension;
-			}
-			set
-			{
-				if ((this._Pension != value))
-				{
-					this.OnPensionChanging(value);
-					this.SendPropertyChanging();
-					this._Pension = value;
-					this.SendPropertyChanged("Pension");
-					this.OnPensionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExtendedMedical", DbType="Int")]
-		public System.Nullable<int> ExtendedMedical
-		{
-			get
-			{
-				return this._ExtendedMedical;
-			}
-			set
-			{
-				if ((this._ExtendedMedical != value))
-				{
-					this.OnExtendedMedicalChanging(value);
-					this.SendPropertyChanging();
-					this._ExtendedMedical = value;
-					this.SendPropertyChanged("ExtendedMedical");
-					this.OnExtendedMedicalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
-		public System.Nullable<int> VacationDays
-		{
-			get
-			{
-				return this._VacationDays;
-			}
-			set
-			{
-				if ((this._VacationDays != value))
-				{
-					this.OnVacationDaysChanging(value);
-					this.SendPropertyChanging();
-					this._VacationDays = value;
-					this.SendPropertyChanged("VacationDays");
-					this.OnVacationDaysChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remuneration", DbType="Int")]
-		public System.Nullable<int> Remuneration
-		{
-			get
-			{
-				return this._Remuneration;
-			}
-			set
-			{
-				if ((this._Remuneration != value))
-				{
-					this.OnRemunerationChanging(value);
-					this.SendPropertyChanging();
-					this._Remuneration = value;
-					this.SendPropertyChanged("Remuneration");
-					this.OnRemunerationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherBenefits", DbType="NVarChar(100)")]
-		public string OtherBenefits
-		{
-			get
-			{
-				return this._OtherBenefits;
-			}
-			set
-			{
-				if ((this._OtherBenefits != value))
-				{
-					this.OnOtherBenefitsChanging(value);
-					this.SendPropertyChanging();
-					this._OtherBenefits = value;
-					this.SendPropertyChanged("OtherBenefits");
-					this.OnOtherBenefitsChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblJobOffer2")]
-	public partial class tblJobOffer2 : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _ApplicationID;
-		
-		private System.Nullable<int> _IsUnionized;
-		
-		private string _UnionName;
-		
-		private System.Nullable<int> _UnionKnows;
-		
-		private string _UnionDoesnotKnow;
-		
-		private string _UnionOpinion;
-		
-		private System.Nullable<int> _licenseRequired;
-		
-		private string _NameOfLicense;
-		
-		private System.Nullable<int> _HaveLicense;
-		
-		private System.Nullable<int> _WhenCanHaveDay;
-		
-		private System.Nullable<int> _WhenCanHaveWeek;
-		
-		private System.Nullable<int> _WhenCanHaveMonth;
-		
-		private System.Nullable<int> _AttemptedtoRecruitCnd;
-		
-		private string _ExplainifNo;
-		
-		private string _ProveYes;
-		
-		private System.Nullable<int> _FillLabourShort;
-		
-		private System.Nullable<int> _SkillTransfer;
-		
-		private System.Nullable<int> _JobCreation;
-		
-		private System.Nullable<int> _Other;
-		
-		private string _Details;
-		
-		private string _JobOfferRationale;
-		
-		private string _WhoElse;
-		
-		private string _HowToFindTheTFW;
-		
-		private string _WhyTFWQualified;
-		
-		private string _HowAndWhen;
-		
-		private System.Nullable<int> _NoTraining;
-		
-		private string _ExplainNoTraining;
-		
-		private string _DescriptionTrainingPlan;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnApplicationIDChanging(System.Nullable<int> value);
-    partial void OnApplicationIDChanged();
-    partial void OnIsUnionizedChanging(System.Nullable<int> value);
-    partial void OnIsUnionizedChanged();
-    partial void OnUnionNameChanging(string value);
-    partial void OnUnionNameChanged();
-    partial void OnUnionKnowsChanging(System.Nullable<int> value);
-    partial void OnUnionKnowsChanged();
-    partial void OnUnionDoesnotKnowChanging(string value);
-    partial void OnUnionDoesnotKnowChanged();
-    partial void OnUnionOpinionChanging(string value);
-    partial void OnUnionOpinionChanged();
-    partial void OnlicenseRequiredChanging(System.Nullable<int> value);
-    partial void OnlicenseRequiredChanged();
-    partial void OnNameOfLicenseChanging(string value);
-    partial void OnNameOfLicenseChanged();
-    partial void OnHaveLicenseChanging(System.Nullable<int> value);
-    partial void OnHaveLicenseChanged();
-    partial void OnWhenCanHaveDayChanging(System.Nullable<int> value);
-    partial void OnWhenCanHaveDayChanged();
-    partial void OnWhenCanHaveWeekChanging(System.Nullable<int> value);
-    partial void OnWhenCanHaveWeekChanged();
-    partial void OnWhenCanHaveMonthChanging(System.Nullable<int> value);
-    partial void OnWhenCanHaveMonthChanged();
-    partial void OnAttemptedtoRecruitCndChanging(System.Nullable<int> value);
-    partial void OnAttemptedtoRecruitCndChanged();
-    partial void OnExplainifNoChanging(string value);
-    partial void OnExplainifNoChanged();
-    partial void OnProveYesChanging(string value);
-    partial void OnProveYesChanged();
-    partial void OnFillLabourShortChanging(System.Nullable<int> value);
-    partial void OnFillLabourShortChanged();
-    partial void OnSkillTransferChanging(System.Nullable<int> value);
-    partial void OnSkillTransferChanged();
-    partial void OnJobCreationChanging(System.Nullable<int> value);
-    partial void OnJobCreationChanged();
-    partial void OnOtherChanging(System.Nullable<int> value);
-    partial void OnOtherChanged();
-    partial void OnDetailsChanging(string value);
-    partial void OnDetailsChanged();
-    partial void OnJobOfferRationaleChanging(string value);
-    partial void OnJobOfferRationaleChanged();
-    partial void OnWhoElseChanging(string value);
-    partial void OnWhoElseChanged();
-    partial void OnHowToFindTheTFWChanging(string value);
-    partial void OnHowToFindTheTFWChanged();
-    partial void OnWhyTFWQualifiedChanging(string value);
-    partial void OnWhyTFWQualifiedChanged();
-    partial void OnHowAndWhenChanging(string value);
-    partial void OnHowAndWhenChanged();
-    partial void OnNoTrainingChanging(System.Nullable<int> value);
-    partial void OnNoTrainingChanged();
-    partial void OnExplainNoTrainingChanging(string value);
-    partial void OnExplainNoTrainingChanged();
-    partial void OnDescriptionTrainingPlanChanging(string value);
-    partial void OnDescriptionTrainingPlanChanged();
-    #endregion
-		
-		public tblJobOffer2()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationID", DbType="Int")]
-		public System.Nullable<int> ApplicationID
-		{
-			get
-			{
-				return this._ApplicationID;
-			}
-			set
-			{
-				if ((this._ApplicationID != value))
-				{
-					this.OnApplicationIDChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationID = value;
-					this.SendPropertyChanged("ApplicationID");
-					this.OnApplicationIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsUnionized", DbType="Int")]
-		public System.Nullable<int> IsUnionized
-		{
-			get
-			{
-				return this._IsUnionized;
-			}
-			set
-			{
-				if ((this._IsUnionized != value))
-				{
-					this.OnIsUnionizedChanging(value);
-					this.SendPropertyChanging();
-					this._IsUnionized = value;
-					this.SendPropertyChanged("IsUnionized");
-					this.OnIsUnionizedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnionName", DbType="NVarChar(50)")]
-		public string UnionName
-		{
-			get
-			{
-				return this._UnionName;
-			}
-			set
-			{
-				if ((this._UnionName != value))
-				{
-					this.OnUnionNameChanging(value);
-					this.SendPropertyChanging();
-					this._UnionName = value;
-					this.SendPropertyChanged("UnionName");
-					this.OnUnionNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnionKnows", DbType="Int")]
-		public System.Nullable<int> UnionKnows
-		{
-			get
-			{
-				return this._UnionKnows;
-			}
-			set
-			{
-				if ((this._UnionKnows != value))
-				{
-					this.OnUnionKnowsChanging(value);
-					this.SendPropertyChanging();
-					this._UnionKnows = value;
-					this.SendPropertyChanged("UnionKnows");
-					this.OnUnionKnowsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnionDoesnotKnow", DbType="NVarChar(100)")]
-		public string UnionDoesnotKnow
-		{
-			get
-			{
-				return this._UnionDoesnotKnow;
-			}
-			set
-			{
-				if ((this._UnionDoesnotKnow != value))
-				{
-					this.OnUnionDoesnotKnowChanging(value);
-					this.SendPropertyChanging();
-					this._UnionDoesnotKnow = value;
-					this.SendPropertyChanged("UnionDoesnotKnow");
-					this.OnUnionDoesnotKnowChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnionOpinion", DbType="NVarChar(100)")]
-		public string UnionOpinion
-		{
-			get
-			{
-				return this._UnionOpinion;
-			}
-			set
-			{
-				if ((this._UnionOpinion != value))
-				{
-					this.OnUnionOpinionChanging(value);
-					this.SendPropertyChanging();
-					this._UnionOpinion = value;
-					this.SendPropertyChanged("UnionOpinion");
-					this.OnUnionOpinionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_licenseRequired", DbType="Int")]
-		public System.Nullable<int> licenseRequired
-		{
-			get
-			{
-				return this._licenseRequired;
-			}
-			set
-			{
-				if ((this._licenseRequired != value))
-				{
-					this.OnlicenseRequiredChanging(value);
-					this.SendPropertyChanging();
-					this._licenseRequired = value;
-					this.SendPropertyChanged("licenseRequired");
-					this.OnlicenseRequiredChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameOfLicense", DbType="NVarChar(50)")]
-		public string NameOfLicense
-		{
-			get
-			{
-				return this._NameOfLicense;
-			}
-			set
-			{
-				if ((this._NameOfLicense != value))
-				{
-					this.OnNameOfLicenseChanging(value);
-					this.SendPropertyChanging();
-					this._NameOfLicense = value;
-					this.SendPropertyChanged("NameOfLicense");
-					this.OnNameOfLicenseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HaveLicense", DbType="Int")]
-		public System.Nullable<int> HaveLicense
-		{
-			get
-			{
-				return this._HaveLicense;
-			}
-			set
-			{
-				if ((this._HaveLicense != value))
-				{
-					this.OnHaveLicenseChanging(value);
-					this.SendPropertyChanging();
-					this._HaveLicense = value;
-					this.SendPropertyChanged("HaveLicense");
-					this.OnHaveLicenseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhenCanHaveDay", DbType="Int")]
-		public System.Nullable<int> WhenCanHaveDay
-		{
-			get
-			{
-				return this._WhenCanHaveDay;
-			}
-			set
-			{
-				if ((this._WhenCanHaveDay != value))
-				{
-					this.OnWhenCanHaveDayChanging(value);
-					this.SendPropertyChanging();
-					this._WhenCanHaveDay = value;
-					this.SendPropertyChanged("WhenCanHaveDay");
-					this.OnWhenCanHaveDayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhenCanHaveWeek", DbType="Int")]
-		public System.Nullable<int> WhenCanHaveWeek
-		{
-			get
-			{
-				return this._WhenCanHaveWeek;
-			}
-			set
-			{
-				if ((this._WhenCanHaveWeek != value))
-				{
-					this.OnWhenCanHaveWeekChanging(value);
-					this.SendPropertyChanging();
-					this._WhenCanHaveWeek = value;
-					this.SendPropertyChanged("WhenCanHaveWeek");
-					this.OnWhenCanHaveWeekChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhenCanHaveMonth", DbType="Int")]
-		public System.Nullable<int> WhenCanHaveMonth
-		{
-			get
-			{
-				return this._WhenCanHaveMonth;
-			}
-			set
-			{
-				if ((this._WhenCanHaveMonth != value))
-				{
-					this.OnWhenCanHaveMonthChanging(value);
-					this.SendPropertyChanging();
-					this._WhenCanHaveMonth = value;
-					this.SendPropertyChanged("WhenCanHaveMonth");
-					this.OnWhenCanHaveMonthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AttemptedtoRecruitCnd", DbType="Int")]
-		public System.Nullable<int> AttemptedtoRecruitCnd
-		{
-			get
-			{
-				return this._AttemptedtoRecruitCnd;
-			}
-			set
-			{
-				if ((this._AttemptedtoRecruitCnd != value))
-				{
-					this.OnAttemptedtoRecruitCndChanging(value);
-					this.SendPropertyChanging();
-					this._AttemptedtoRecruitCnd = value;
-					this.SendPropertyChanged("AttemptedtoRecruitCnd");
-					this.OnAttemptedtoRecruitCndChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExplainifNo", DbType="NVarChar(100)")]
-		public string ExplainifNo
-		{
-			get
-			{
-				return this._ExplainifNo;
-			}
-			set
-			{
-				if ((this._ExplainifNo != value))
-				{
-					this.OnExplainifNoChanging(value);
-					this.SendPropertyChanging();
-					this._ExplainifNo = value;
-					this.SendPropertyChanged("ExplainifNo");
-					this.OnExplainifNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProveYes", DbType="NVarChar(100)")]
-		public string ProveYes
-		{
-			get
-			{
-				return this._ProveYes;
-			}
-			set
-			{
-				if ((this._ProveYes != value))
-				{
-					this.OnProveYesChanging(value);
-					this.SendPropertyChanging();
-					this._ProveYes = value;
-					this.SendPropertyChanged("ProveYes");
-					this.OnProveYesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillLabourShort", DbType="Int")]
-		public System.Nullable<int> FillLabourShort
-		{
-			get
-			{
-				return this._FillLabourShort;
-			}
-			set
-			{
-				if ((this._FillLabourShort != value))
-				{
-					this.OnFillLabourShortChanging(value);
-					this.SendPropertyChanging();
-					this._FillLabourShort = value;
-					this.SendPropertyChanged("FillLabourShort");
-					this.OnFillLabourShortChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillTransfer", DbType="Int")]
-		public System.Nullable<int> SkillTransfer
-		{
-			get
-			{
-				return this._SkillTransfer;
-			}
-			set
-			{
-				if ((this._SkillTransfer != value))
-				{
-					this.OnSkillTransferChanging(value);
-					this.SendPropertyChanging();
-					this._SkillTransfer = value;
-					this.SendPropertyChanged("SkillTransfer");
-					this.OnSkillTransferChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobCreation", DbType="Int")]
-		public System.Nullable<int> JobCreation
-		{
-			get
-			{
-				return this._JobCreation;
-			}
-			set
-			{
-				if ((this._JobCreation != value))
-				{
-					this.OnJobCreationChanging(value);
-					this.SendPropertyChanging();
-					this._JobCreation = value;
-					this.SendPropertyChanged("JobCreation");
-					this.OnJobCreationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Other", DbType="Int")]
-		public System.Nullable<int> Other
-		{
-			get
-			{
-				return this._Other;
-			}
-			set
-			{
-				if ((this._Other != value))
-				{
-					this.OnOtherChanging(value);
-					this.SendPropertyChanging();
-					this._Other = value;
-					this.SendPropertyChanged("Other");
-					this.OnOtherChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Details", DbType="NVarChar(500)")]
-		public string Details
-		{
-			get
-			{
-				return this._Details;
-			}
-			set
-			{
-				if ((this._Details != value))
-				{
-					this.OnDetailsChanging(value);
-					this.SendPropertyChanging();
-					this._Details = value;
-					this.SendPropertyChanged("Details");
-					this.OnDetailsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JobOfferRationale", DbType="NVarChar(500)")]
-		public string JobOfferRationale
-		{
-			get
-			{
-				return this._JobOfferRationale;
-			}
-			set
-			{
-				if ((this._JobOfferRationale != value))
-				{
-					this.OnJobOfferRationaleChanging(value);
-					this.SendPropertyChanging();
-					this._JobOfferRationale = value;
-					this.SendPropertyChanged("JobOfferRationale");
-					this.OnJobOfferRationaleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhoElse", DbType="NVarChar(100)")]
-		public string WhoElse
-		{
-			get
-			{
-				return this._WhoElse;
-			}
-			set
-			{
-				if ((this._WhoElse != value))
-				{
-					this.OnWhoElseChanging(value);
-					this.SendPropertyChanging();
-					this._WhoElse = value;
-					this.SendPropertyChanged("WhoElse");
-					this.OnWhoElseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HowToFindTheTFW", DbType="NVarChar(500)")]
-		public string HowToFindTheTFW
-		{
-			get
-			{
-				return this._HowToFindTheTFW;
-			}
-			set
-			{
-				if ((this._HowToFindTheTFW != value))
-				{
-					this.OnHowToFindTheTFWChanging(value);
-					this.SendPropertyChanging();
-					this._HowToFindTheTFW = value;
-					this.SendPropertyChanged("HowToFindTheTFW");
-					this.OnHowToFindTheTFWChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhyTFWQualified", DbType="NVarChar(500)")]
-		public string WhyTFWQualified
-		{
-			get
-			{
-				return this._WhyTFWQualified;
-			}
-			set
-			{
-				if ((this._WhyTFWQualified != value))
-				{
-					this.OnWhyTFWQualifiedChanging(value);
-					this.SendPropertyChanging();
-					this._WhyTFWQualified = value;
-					this.SendPropertyChanged("WhyTFWQualified");
-					this.OnWhyTFWQualifiedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HowAndWhen", DbType="NVarChar(300)")]
-		public string HowAndWhen
-		{
-			get
-			{
-				return this._HowAndWhen;
-			}
-			set
-			{
-				if ((this._HowAndWhen != value))
-				{
-					this.OnHowAndWhenChanging(value);
-					this.SendPropertyChanging();
-					this._HowAndWhen = value;
-					this.SendPropertyChanged("HowAndWhen");
-					this.OnHowAndWhenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoTraining", DbType="Int")]
-		public System.Nullable<int> NoTraining
-		{
-			get
-			{
-				return this._NoTraining;
-			}
-			set
-			{
-				if ((this._NoTraining != value))
-				{
-					this.OnNoTrainingChanging(value);
-					this.SendPropertyChanging();
-					this._NoTraining = value;
-					this.SendPropertyChanged("NoTraining");
-					this.OnNoTrainingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExplainNoTraining", DbType="NVarChar(100)")]
-		public string ExplainNoTraining
-		{
-			get
-			{
-				return this._ExplainNoTraining;
-			}
-			set
-			{
-				if ((this._ExplainNoTraining != value))
-				{
-					this.OnExplainNoTrainingChanging(value);
-					this.SendPropertyChanging();
-					this._ExplainNoTraining = value;
-					this.SendPropertyChanged("ExplainNoTraining");
-					this.OnExplainNoTrainingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescriptionTrainingPlan", DbType="NVarChar(100)")]
-		public string DescriptionTrainingPlan
-		{
-			get
-			{
-				return this._DescriptionTrainingPlan;
-			}
-			set
-			{
-				if ((this._DescriptionTrainingPlan != value))
-				{
-					this.OnDescriptionTrainingPlanChanging(value);
-					this.SendPropertyChanging();
-					this._DescriptionTrainingPlan = value;
-					this.SendPropertyChanged("DescriptionTrainingPlan");
-					this.OnDescriptionTrainingPlanChanged();
 				}
 			}
 		}
@@ -10892,6 +8693,1460 @@ namespace CA.Immigration.Data
 					this._Q10_1 = value;
 					this.SendPropertyChanged("Q10_1");
 					this.OnQ10_1Changed();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblJobOffer")]
+	public partial class tblJobOffer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _applicationID;
+		
+		private string _jobTile;
+		
+		private System.Nullable<int> _numOfTFWs;
+		
+		private System.Nullable<int> _duration;
+		
+		private string _durationUnit;
+		
+		private string _durationRationale;
+		
+		private System.Nullable<System.DateTime> _startDate;
+		
+		private System.Nullable<bool> _readingEnglishFrenchRequied;
+		
+		private System.Nullable<bool> _readingEnglishRequired;
+		
+		private System.Nullable<bool> _readingFrenchRequired;
+		
+		private System.Nullable<bool> _readingEnglishOrFrenchRequired;
+		
+		private System.Nullable<bool> _readingEnglishAndFrenchRequired;
+		
+		private System.Nullable<bool> _writingEnglishFrenchRequired;
+		
+		private System.Nullable<bool> _writingEnglishRequired;
+		
+		private System.Nullable<bool> _writingFrenchRequired;
+		
+		private System.Nullable<bool> _writingEnglishOrFrenchRequired;
+		
+		private System.Nullable<bool> _writingEnglishAndFrenchRequired;
+		
+		private System.Nullable<bool> _otherLanguageRequired;
+		
+		private string _otherLanguageExplanation;
+		
+		private System.Nullable<int> _vacationDays;
+		
+		private System.Nullable<int> _remuneration;
+		
+		private System.Nullable<bool> _isSeasonal;
+		
+		private System.Nullable<bool> _isFullyCoveredLMIA;
+		
+		private string _notFullyCoveredReason;
+		
+		private System.Nullable<bool> _isJobLicensed;
+		
+		private string _licenseAuthority;
+		
+		private System.Nullable<bool> _licenseReady;
+		
+		private System.Nullable<int> _licenseReadyTime;
+		
+		private string _licenseReadyUnit;
+		
+		private System.Nullable<bool> _isJobUnion;
+		
+		private string _unionNameLocation;
+		
+		private System.Nullable<bool> _isUnionConsulted;
+		
+		private string _unionNotExplanation;
+		
+		private string _unionOpinion;
+		
+		private System.Nullable<bool> _attemptedRecruitCanadian;
+		
+		private string _notAttemptedReason;
+		
+		private string _OfficialAdNumber;
+		
+		private string _briefBenefit;
+		
+		private string _detailedBenefit;
+		
+		private string _briefRationaleOfferingJob;
+		
+		private string _detailedRationaleOfferingJob;
+		
+		private System.Nullable<bool> _trainCanadian;
+		
+		private string _noTrainReason;
+		
+		private string _trainPlanBrief;
+		
+		private string _trainPlanDetails;
+		
+		private System.Nullable<bool> _willProvideAccomadation;
+		
+		private string _notProvideButOffer;
+		
+		private System.Nullable<int> _provideRent;
+		
+		private string _provideUnit;
+		
+		private System.Nullable<bool> _accomadationNotApplicalbe;
+		
+		private string _whoIsFillingBrief;
+		
+		private string _whoIsFillingDetail;
+		
+		private string _howDidYouFindBrief;
+		
+		private string _howDidYouFindDetail;
+		
+		private string _howDidYouDetermineBrief;
+		
+		private string _howDidYouDetermineDetail;
+		
+		private string _howAndWhenOfferBrief;
+		
+		private string _howAndWhenOfferDetail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnapplicationIDChanging(System.Nullable<int> value);
+    partial void OnapplicationIDChanged();
+    partial void OnjobTileChanging(string value);
+    partial void OnjobTileChanged();
+    partial void OnnumOfTFWsChanging(System.Nullable<int> value);
+    partial void OnnumOfTFWsChanged();
+    partial void OndurationChanging(System.Nullable<int> value);
+    partial void OndurationChanged();
+    partial void OndurationUnitChanging(string value);
+    partial void OndurationUnitChanged();
+    partial void OndurationRationaleChanging(string value);
+    partial void OndurationRationaleChanged();
+    partial void OnstartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnstartDateChanged();
+    partial void OnreadingEnglishFrenchRequiedChanging(System.Nullable<bool> value);
+    partial void OnreadingEnglishFrenchRequiedChanged();
+    partial void OnreadingEnglishRequiredChanging(System.Nullable<bool> value);
+    partial void OnreadingEnglishRequiredChanged();
+    partial void OnreadingFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnreadingFrenchRequiredChanged();
+    partial void OnreadingEnglishOrFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnreadingEnglishOrFrenchRequiredChanged();
+    partial void OnreadingEnglishAndFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnreadingEnglishAndFrenchRequiredChanged();
+    partial void OnwritingEnglishFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnwritingEnglishFrenchRequiredChanged();
+    partial void OnwritingEnglishRequiredChanging(System.Nullable<bool> value);
+    partial void OnwritingEnglishRequiredChanged();
+    partial void OnwritingFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnwritingFrenchRequiredChanged();
+    partial void OnwritingEnglishOrFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnwritingEnglishOrFrenchRequiredChanged();
+    partial void OnwritingEnglishAndFrenchRequiredChanging(System.Nullable<bool> value);
+    partial void OnwritingEnglishAndFrenchRequiredChanged();
+    partial void OnotherLanguageRequiredChanging(System.Nullable<bool> value);
+    partial void OnotherLanguageRequiredChanged();
+    partial void OnotherLanguageExplanationChanging(string value);
+    partial void OnotherLanguageExplanationChanged();
+    partial void OnvacationDaysChanging(System.Nullable<int> value);
+    partial void OnvacationDaysChanged();
+    partial void OnremunerationChanging(System.Nullable<int> value);
+    partial void OnremunerationChanged();
+    partial void OnisSeasonalChanging(System.Nullable<bool> value);
+    partial void OnisSeasonalChanged();
+    partial void OnisFullyCoveredLMIAChanging(System.Nullable<bool> value);
+    partial void OnisFullyCoveredLMIAChanged();
+    partial void OnnotFullyCoveredReasonChanging(string value);
+    partial void OnnotFullyCoveredReasonChanged();
+    partial void OnisJobLicensedChanging(System.Nullable<bool> value);
+    partial void OnisJobLicensedChanged();
+    partial void OnlicenseAuthorityChanging(string value);
+    partial void OnlicenseAuthorityChanged();
+    partial void OnlicenseReadyChanging(System.Nullable<bool> value);
+    partial void OnlicenseReadyChanged();
+    partial void OnlicenseReadyTimeChanging(System.Nullable<int> value);
+    partial void OnlicenseReadyTimeChanged();
+    partial void OnlicenseReadyUnitChanging(string value);
+    partial void OnlicenseReadyUnitChanged();
+    partial void OnisJobUnionChanging(System.Nullable<bool> value);
+    partial void OnisJobUnionChanged();
+    partial void OnunionNameLocationChanging(string value);
+    partial void OnunionNameLocationChanged();
+    partial void OnisUnionConsultedChanging(System.Nullable<bool> value);
+    partial void OnisUnionConsultedChanged();
+    partial void OnunionNotExplanationChanging(string value);
+    partial void OnunionNotExplanationChanged();
+    partial void OnunionOpinionChanging(string value);
+    partial void OnunionOpinionChanged();
+    partial void OnattemptedRecruitCanadianChanging(System.Nullable<bool> value);
+    partial void OnattemptedRecruitCanadianChanged();
+    partial void OnnotAttemptedReasonChanging(string value);
+    partial void OnnotAttemptedReasonChanged();
+    partial void OnOfficialAdNumberChanging(string value);
+    partial void OnOfficialAdNumberChanged();
+    partial void OnbriefBenefitChanging(string value);
+    partial void OnbriefBenefitChanged();
+    partial void OndetailedBenefitChanging(string value);
+    partial void OndetailedBenefitChanged();
+    partial void OnbriefRationaleOfferingJobChanging(string value);
+    partial void OnbriefRationaleOfferingJobChanged();
+    partial void OndetailedRationaleOfferingJobChanging(string value);
+    partial void OndetailedRationaleOfferingJobChanged();
+    partial void OntrainCanadianChanging(System.Nullable<bool> value);
+    partial void OntrainCanadianChanged();
+    partial void OnnoTrainReasonChanging(string value);
+    partial void OnnoTrainReasonChanged();
+    partial void OntrainPlanBriefChanging(string value);
+    partial void OntrainPlanBriefChanged();
+    partial void OntrainPlanDetailsChanging(string value);
+    partial void OntrainPlanDetailsChanged();
+    partial void OnwillProvideAccomadationChanging(System.Nullable<bool> value);
+    partial void OnwillProvideAccomadationChanged();
+    partial void OnnotProvideButOfferChanging(string value);
+    partial void OnnotProvideButOfferChanged();
+    partial void OnprovideRentChanging(System.Nullable<int> value);
+    partial void OnprovideRentChanged();
+    partial void OnprovideUnitChanging(string value);
+    partial void OnprovideUnitChanged();
+    partial void OnaccomadationNotApplicalbeChanging(System.Nullable<bool> value);
+    partial void OnaccomadationNotApplicalbeChanged();
+    partial void OnwhoIsFillingBriefChanging(string value);
+    partial void OnwhoIsFillingBriefChanged();
+    partial void OnwhoIsFillingDetailChanging(string value);
+    partial void OnwhoIsFillingDetailChanged();
+    partial void OnhowDidYouFindBriefChanging(string value);
+    partial void OnhowDidYouFindBriefChanged();
+    partial void OnhowDidYouFindDetailChanging(string value);
+    partial void OnhowDidYouFindDetailChanged();
+    partial void OnhowDidYouDetermineBriefChanging(string value);
+    partial void OnhowDidYouDetermineBriefChanged();
+    partial void OnhowDidYouDetermineDetailChanging(string value);
+    partial void OnhowDidYouDetermineDetailChanged();
+    partial void OnhowAndWhenOfferBriefChanging(string value);
+    partial void OnhowAndWhenOfferBriefChanged();
+    partial void OnhowAndWhenOfferDetailChanging(string value);
+    partial void OnhowAndWhenOfferDetailChanged();
+    #endregion
+		
+		public tblJobOffer()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_applicationID", DbType="Int")]
+		public System.Nullable<int> applicationID
+		{
+			get
+			{
+				return this._applicationID;
+			}
+			set
+			{
+				if ((this._applicationID != value))
+				{
+					this.OnapplicationIDChanging(value);
+					this.SendPropertyChanging();
+					this._applicationID = value;
+					this.SendPropertyChanged("applicationID");
+					this.OnapplicationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_jobTile", DbType="VarChar(30)")]
+		public string jobTile
+		{
+			get
+			{
+				return this._jobTile;
+			}
+			set
+			{
+				if ((this._jobTile != value))
+				{
+					this.OnjobTileChanging(value);
+					this.SendPropertyChanging();
+					this._jobTile = value;
+					this.SendPropertyChanged("jobTile");
+					this.OnjobTileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_numOfTFWs", DbType="Int")]
+		public System.Nullable<int> numOfTFWs
+		{
+			get
+			{
+				return this._numOfTFWs;
+			}
+			set
+			{
+				if ((this._numOfTFWs != value))
+				{
+					this.OnnumOfTFWsChanging(value);
+					this.SendPropertyChanging();
+					this._numOfTFWs = value;
+					this.SendPropertyChanged("numOfTFWs");
+					this.OnnumOfTFWsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_duration", DbType="Int")]
+		public System.Nullable<int> duration
+		{
+			get
+			{
+				return this._duration;
+			}
+			set
+			{
+				if ((this._duration != value))
+				{
+					this.OndurationChanging(value);
+					this.SendPropertyChanging();
+					this._duration = value;
+					this.SendPropertyChanged("duration");
+					this.OndurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_durationUnit", DbType="VarChar(30)")]
+		public string durationUnit
+		{
+			get
+			{
+				return this._durationUnit;
+			}
+			set
+			{
+				if ((this._durationUnit != value))
+				{
+					this.OndurationUnitChanging(value);
+					this.SendPropertyChanging();
+					this._durationUnit = value;
+					this.SendPropertyChanged("durationUnit");
+					this.OndurationUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_durationRationale", DbType="VarChar(150)")]
+		public string durationRationale
+		{
+			get
+			{
+				return this._durationRationale;
+			}
+			set
+			{
+				if ((this._durationRationale != value))
+				{
+					this.OndurationRationaleChanging(value);
+					this.SendPropertyChanging();
+					this._durationRationale = value;
+					this.SendPropertyChanged("durationRationale");
+					this.OndurationRationaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_startDate", DbType="Date")]
+		public System.Nullable<System.DateTime> startDate
+		{
+			get
+			{
+				return this._startDate;
+			}
+			set
+			{
+				if ((this._startDate != value))
+				{
+					this.OnstartDateChanging(value);
+					this.SendPropertyChanging();
+					this._startDate = value;
+					this.SendPropertyChanged("startDate");
+					this.OnstartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_readingEnglishFrenchRequied", DbType="Bit")]
+		public System.Nullable<bool> readingEnglishFrenchRequied
+		{
+			get
+			{
+				return this._readingEnglishFrenchRequied;
+			}
+			set
+			{
+				if ((this._readingEnglishFrenchRequied != value))
+				{
+					this.OnreadingEnglishFrenchRequiedChanging(value);
+					this.SendPropertyChanging();
+					this._readingEnglishFrenchRequied = value;
+					this.SendPropertyChanged("readingEnglishFrenchRequied");
+					this.OnreadingEnglishFrenchRequiedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_readingEnglishRequired", DbType="Bit")]
+		public System.Nullable<bool> readingEnglishRequired
+		{
+			get
+			{
+				return this._readingEnglishRequired;
+			}
+			set
+			{
+				if ((this._readingEnglishRequired != value))
+				{
+					this.OnreadingEnglishRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._readingEnglishRequired = value;
+					this.SendPropertyChanged("readingEnglishRequired");
+					this.OnreadingEnglishRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_readingFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> readingFrenchRequired
+		{
+			get
+			{
+				return this._readingFrenchRequired;
+			}
+			set
+			{
+				if ((this._readingFrenchRequired != value))
+				{
+					this.OnreadingFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._readingFrenchRequired = value;
+					this.SendPropertyChanged("readingFrenchRequired");
+					this.OnreadingFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_readingEnglishOrFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> readingEnglishOrFrenchRequired
+		{
+			get
+			{
+				return this._readingEnglishOrFrenchRequired;
+			}
+			set
+			{
+				if ((this._readingEnglishOrFrenchRequired != value))
+				{
+					this.OnreadingEnglishOrFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._readingEnglishOrFrenchRequired = value;
+					this.SendPropertyChanged("readingEnglishOrFrenchRequired");
+					this.OnreadingEnglishOrFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_readingEnglishAndFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> readingEnglishAndFrenchRequired
+		{
+			get
+			{
+				return this._readingEnglishAndFrenchRequired;
+			}
+			set
+			{
+				if ((this._readingEnglishAndFrenchRequired != value))
+				{
+					this.OnreadingEnglishAndFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._readingEnglishAndFrenchRequired = value;
+					this.SendPropertyChanged("readingEnglishAndFrenchRequired");
+					this.OnreadingEnglishAndFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_writingEnglishFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> writingEnglishFrenchRequired
+		{
+			get
+			{
+				return this._writingEnglishFrenchRequired;
+			}
+			set
+			{
+				if ((this._writingEnglishFrenchRequired != value))
+				{
+					this.OnwritingEnglishFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._writingEnglishFrenchRequired = value;
+					this.SendPropertyChanged("writingEnglishFrenchRequired");
+					this.OnwritingEnglishFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_writingEnglishRequired", DbType="Bit")]
+		public System.Nullable<bool> writingEnglishRequired
+		{
+			get
+			{
+				return this._writingEnglishRequired;
+			}
+			set
+			{
+				if ((this._writingEnglishRequired != value))
+				{
+					this.OnwritingEnglishRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._writingEnglishRequired = value;
+					this.SendPropertyChanged("writingEnglishRequired");
+					this.OnwritingEnglishRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_writingFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> writingFrenchRequired
+		{
+			get
+			{
+				return this._writingFrenchRequired;
+			}
+			set
+			{
+				if ((this._writingFrenchRequired != value))
+				{
+					this.OnwritingFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._writingFrenchRequired = value;
+					this.SendPropertyChanged("writingFrenchRequired");
+					this.OnwritingFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_writingEnglishOrFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> writingEnglishOrFrenchRequired
+		{
+			get
+			{
+				return this._writingEnglishOrFrenchRequired;
+			}
+			set
+			{
+				if ((this._writingEnglishOrFrenchRequired != value))
+				{
+					this.OnwritingEnglishOrFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._writingEnglishOrFrenchRequired = value;
+					this.SendPropertyChanged("writingEnglishOrFrenchRequired");
+					this.OnwritingEnglishOrFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_writingEnglishAndFrenchRequired", DbType="Bit")]
+		public System.Nullable<bool> writingEnglishAndFrenchRequired
+		{
+			get
+			{
+				return this._writingEnglishAndFrenchRequired;
+			}
+			set
+			{
+				if ((this._writingEnglishAndFrenchRequired != value))
+				{
+					this.OnwritingEnglishAndFrenchRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._writingEnglishAndFrenchRequired = value;
+					this.SendPropertyChanged("writingEnglishAndFrenchRequired");
+					this.OnwritingEnglishAndFrenchRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_otherLanguageRequired", DbType="Bit")]
+		public System.Nullable<bool> otherLanguageRequired
+		{
+			get
+			{
+				return this._otherLanguageRequired;
+			}
+			set
+			{
+				if ((this._otherLanguageRequired != value))
+				{
+					this.OnotherLanguageRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._otherLanguageRequired = value;
+					this.SendPropertyChanged("otherLanguageRequired");
+					this.OnotherLanguageRequiredChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_otherLanguageExplanation", DbType="VarChar(150)")]
+		public string otherLanguageExplanation
+		{
+			get
+			{
+				return this._otherLanguageExplanation;
+			}
+			set
+			{
+				if ((this._otherLanguageExplanation != value))
+				{
+					this.OnotherLanguageExplanationChanging(value);
+					this.SendPropertyChanging();
+					this._otherLanguageExplanation = value;
+					this.SendPropertyChanged("otherLanguageExplanation");
+					this.OnotherLanguageExplanationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vacationDays", DbType="Int")]
+		public System.Nullable<int> vacationDays
+		{
+			get
+			{
+				return this._vacationDays;
+			}
+			set
+			{
+				if ((this._vacationDays != value))
+				{
+					this.OnvacationDaysChanging(value);
+					this.SendPropertyChanging();
+					this._vacationDays = value;
+					this.SendPropertyChanged("vacationDays");
+					this.OnvacationDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_remuneration", DbType="Int")]
+		public System.Nullable<int> remuneration
+		{
+			get
+			{
+				return this._remuneration;
+			}
+			set
+			{
+				if ((this._remuneration != value))
+				{
+					this.OnremunerationChanging(value);
+					this.SendPropertyChanging();
+					this._remuneration = value;
+					this.SendPropertyChanged("remuneration");
+					this.OnremunerationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isSeasonal", DbType="Bit")]
+		public System.Nullable<bool> isSeasonal
+		{
+			get
+			{
+				return this._isSeasonal;
+			}
+			set
+			{
+				if ((this._isSeasonal != value))
+				{
+					this.OnisSeasonalChanging(value);
+					this.SendPropertyChanging();
+					this._isSeasonal = value;
+					this.SendPropertyChanged("isSeasonal");
+					this.OnisSeasonalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isFullyCoveredLMIA", DbType="Bit")]
+		public System.Nullable<bool> isFullyCoveredLMIA
+		{
+			get
+			{
+				return this._isFullyCoveredLMIA;
+			}
+			set
+			{
+				if ((this._isFullyCoveredLMIA != value))
+				{
+					this.OnisFullyCoveredLMIAChanging(value);
+					this.SendPropertyChanging();
+					this._isFullyCoveredLMIA = value;
+					this.SendPropertyChanged("isFullyCoveredLMIA");
+					this.OnisFullyCoveredLMIAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notFullyCoveredReason", DbType="VarChar(150)")]
+		public string notFullyCoveredReason
+		{
+			get
+			{
+				return this._notFullyCoveredReason;
+			}
+			set
+			{
+				if ((this._notFullyCoveredReason != value))
+				{
+					this.OnnotFullyCoveredReasonChanging(value);
+					this.SendPropertyChanging();
+					this._notFullyCoveredReason = value;
+					this.SendPropertyChanged("notFullyCoveredReason");
+					this.OnnotFullyCoveredReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isJobLicensed", DbType="Bit")]
+		public System.Nullable<bool> isJobLicensed
+		{
+			get
+			{
+				return this._isJobLicensed;
+			}
+			set
+			{
+				if ((this._isJobLicensed != value))
+				{
+					this.OnisJobLicensedChanging(value);
+					this.SendPropertyChanging();
+					this._isJobLicensed = value;
+					this.SendPropertyChanged("isJobLicensed");
+					this.OnisJobLicensedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_licenseAuthority", DbType="VarChar(150)")]
+		public string licenseAuthority
+		{
+			get
+			{
+				return this._licenseAuthority;
+			}
+			set
+			{
+				if ((this._licenseAuthority != value))
+				{
+					this.OnlicenseAuthorityChanging(value);
+					this.SendPropertyChanging();
+					this._licenseAuthority = value;
+					this.SendPropertyChanged("licenseAuthority");
+					this.OnlicenseAuthorityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_licenseReady", DbType="Bit")]
+		public System.Nullable<bool> licenseReady
+		{
+			get
+			{
+				return this._licenseReady;
+			}
+			set
+			{
+				if ((this._licenseReady != value))
+				{
+					this.OnlicenseReadyChanging(value);
+					this.SendPropertyChanging();
+					this._licenseReady = value;
+					this.SendPropertyChanged("licenseReady");
+					this.OnlicenseReadyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_licenseReadyTime", DbType="Int")]
+		public System.Nullable<int> licenseReadyTime
+		{
+			get
+			{
+				return this._licenseReadyTime;
+			}
+			set
+			{
+				if ((this._licenseReadyTime != value))
+				{
+					this.OnlicenseReadyTimeChanging(value);
+					this.SendPropertyChanging();
+					this._licenseReadyTime = value;
+					this.SendPropertyChanged("licenseReadyTime");
+					this.OnlicenseReadyTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_licenseReadyUnit", DbType="VarChar(30)")]
+		public string licenseReadyUnit
+		{
+			get
+			{
+				return this._licenseReadyUnit;
+			}
+			set
+			{
+				if ((this._licenseReadyUnit != value))
+				{
+					this.OnlicenseReadyUnitChanging(value);
+					this.SendPropertyChanging();
+					this._licenseReadyUnit = value;
+					this.SendPropertyChanged("licenseReadyUnit");
+					this.OnlicenseReadyUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isJobUnion", DbType="Bit")]
+		public System.Nullable<bool> isJobUnion
+		{
+			get
+			{
+				return this._isJobUnion;
+			}
+			set
+			{
+				if ((this._isJobUnion != value))
+				{
+					this.OnisJobUnionChanging(value);
+					this.SendPropertyChanging();
+					this._isJobUnion = value;
+					this.SendPropertyChanged("isJobUnion");
+					this.OnisJobUnionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unionNameLocation", DbType="VarChar(150)")]
+		public string unionNameLocation
+		{
+			get
+			{
+				return this._unionNameLocation;
+			}
+			set
+			{
+				if ((this._unionNameLocation != value))
+				{
+					this.OnunionNameLocationChanging(value);
+					this.SendPropertyChanging();
+					this._unionNameLocation = value;
+					this.SendPropertyChanged("unionNameLocation");
+					this.OnunionNameLocationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isUnionConsulted", DbType="Bit")]
+		public System.Nullable<bool> isUnionConsulted
+		{
+			get
+			{
+				return this._isUnionConsulted;
+			}
+			set
+			{
+				if ((this._isUnionConsulted != value))
+				{
+					this.OnisUnionConsultedChanging(value);
+					this.SendPropertyChanging();
+					this._isUnionConsulted = value;
+					this.SendPropertyChanged("isUnionConsulted");
+					this.OnisUnionConsultedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unionNotExplanation", DbType="VarChar(150)")]
+		public string unionNotExplanation
+		{
+			get
+			{
+				return this._unionNotExplanation;
+			}
+			set
+			{
+				if ((this._unionNotExplanation != value))
+				{
+					this.OnunionNotExplanationChanging(value);
+					this.SendPropertyChanging();
+					this._unionNotExplanation = value;
+					this.SendPropertyChanged("unionNotExplanation");
+					this.OnunionNotExplanationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unionOpinion", DbType="VarChar(150)")]
+		public string unionOpinion
+		{
+			get
+			{
+				return this._unionOpinion;
+			}
+			set
+			{
+				if ((this._unionOpinion != value))
+				{
+					this.OnunionOpinionChanging(value);
+					this.SendPropertyChanging();
+					this._unionOpinion = value;
+					this.SendPropertyChanged("unionOpinion");
+					this.OnunionOpinionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_attemptedRecruitCanadian", DbType="Bit")]
+		public System.Nullable<bool> attemptedRecruitCanadian
+		{
+			get
+			{
+				return this._attemptedRecruitCanadian;
+			}
+			set
+			{
+				if ((this._attemptedRecruitCanadian != value))
+				{
+					this.OnattemptedRecruitCanadianChanging(value);
+					this.SendPropertyChanging();
+					this._attemptedRecruitCanadian = value;
+					this.SendPropertyChanged("attemptedRecruitCanadian");
+					this.OnattemptedRecruitCanadianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notAttemptedReason", DbType="VarChar(150)")]
+		public string notAttemptedReason
+		{
+			get
+			{
+				return this._notAttemptedReason;
+			}
+			set
+			{
+				if ((this._notAttemptedReason != value))
+				{
+					this.OnnotAttemptedReasonChanging(value);
+					this.SendPropertyChanging();
+					this._notAttemptedReason = value;
+					this.SendPropertyChanged("notAttemptedReason");
+					this.OnnotAttemptedReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OfficialAdNumber", DbType="VarChar(20)")]
+		public string OfficialAdNumber
+		{
+			get
+			{
+				return this._OfficialAdNumber;
+			}
+			set
+			{
+				if ((this._OfficialAdNumber != value))
+				{
+					this.OnOfficialAdNumberChanging(value);
+					this.SendPropertyChanging();
+					this._OfficialAdNumber = value;
+					this.SendPropertyChanged("OfficialAdNumber");
+					this.OnOfficialAdNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_briefBenefit", DbType="VarChar(150)")]
+		public string briefBenefit
+		{
+			get
+			{
+				return this._briefBenefit;
+			}
+			set
+			{
+				if ((this._briefBenefit != value))
+				{
+					this.OnbriefBenefitChanging(value);
+					this.SendPropertyChanging();
+					this._briefBenefit = value;
+					this.SendPropertyChanged("briefBenefit");
+					this.OnbriefBenefitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detailedBenefit", DbType="VarChar(4000)")]
+		public string detailedBenefit
+		{
+			get
+			{
+				return this._detailedBenefit;
+			}
+			set
+			{
+				if ((this._detailedBenefit != value))
+				{
+					this.OndetailedBenefitChanging(value);
+					this.SendPropertyChanging();
+					this._detailedBenefit = value;
+					this.SendPropertyChanged("detailedBenefit");
+					this.OndetailedBenefitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_briefRationaleOfferingJob", DbType="VarChar(150)")]
+		public string briefRationaleOfferingJob
+		{
+			get
+			{
+				return this._briefRationaleOfferingJob;
+			}
+			set
+			{
+				if ((this._briefRationaleOfferingJob != value))
+				{
+					this.OnbriefRationaleOfferingJobChanging(value);
+					this.SendPropertyChanging();
+					this._briefRationaleOfferingJob = value;
+					this.SendPropertyChanged("briefRationaleOfferingJob");
+					this.OnbriefRationaleOfferingJobChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_detailedRationaleOfferingJob", DbType="VarChar(4000)")]
+		public string detailedRationaleOfferingJob
+		{
+			get
+			{
+				return this._detailedRationaleOfferingJob;
+			}
+			set
+			{
+				if ((this._detailedRationaleOfferingJob != value))
+				{
+					this.OndetailedRationaleOfferingJobChanging(value);
+					this.SendPropertyChanging();
+					this._detailedRationaleOfferingJob = value;
+					this.SendPropertyChanged("detailedRationaleOfferingJob");
+					this.OndetailedRationaleOfferingJobChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_trainCanadian", DbType="Bit")]
+		public System.Nullable<bool> trainCanadian
+		{
+			get
+			{
+				return this._trainCanadian;
+			}
+			set
+			{
+				if ((this._trainCanadian != value))
+				{
+					this.OntrainCanadianChanging(value);
+					this.SendPropertyChanging();
+					this._trainCanadian = value;
+					this.SendPropertyChanged("trainCanadian");
+					this.OntrainCanadianChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_noTrainReason", DbType="VarChar(150)")]
+		public string noTrainReason
+		{
+			get
+			{
+				return this._noTrainReason;
+			}
+			set
+			{
+				if ((this._noTrainReason != value))
+				{
+					this.OnnoTrainReasonChanging(value);
+					this.SendPropertyChanging();
+					this._noTrainReason = value;
+					this.SendPropertyChanged("noTrainReason");
+					this.OnnoTrainReasonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_trainPlanBrief", DbType="VarChar(150)")]
+		public string trainPlanBrief
+		{
+			get
+			{
+				return this._trainPlanBrief;
+			}
+			set
+			{
+				if ((this._trainPlanBrief != value))
+				{
+					this.OntrainPlanBriefChanging(value);
+					this.SendPropertyChanging();
+					this._trainPlanBrief = value;
+					this.SendPropertyChanged("trainPlanBrief");
+					this.OntrainPlanBriefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_trainPlanDetails", DbType="VarChar(4000)")]
+		public string trainPlanDetails
+		{
+			get
+			{
+				return this._trainPlanDetails;
+			}
+			set
+			{
+				if ((this._trainPlanDetails != value))
+				{
+					this.OntrainPlanDetailsChanging(value);
+					this.SendPropertyChanging();
+					this._trainPlanDetails = value;
+					this.SendPropertyChanged("trainPlanDetails");
+					this.OntrainPlanDetailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_willProvideAccomadation", DbType="Bit")]
+		public System.Nullable<bool> willProvideAccomadation
+		{
+			get
+			{
+				return this._willProvideAccomadation;
+			}
+			set
+			{
+				if ((this._willProvideAccomadation != value))
+				{
+					this.OnwillProvideAccomadationChanging(value);
+					this.SendPropertyChanging();
+					this._willProvideAccomadation = value;
+					this.SendPropertyChanged("willProvideAccomadation");
+					this.OnwillProvideAccomadationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_notProvideButOffer", DbType="VarChar(150)")]
+		public string notProvideButOffer
+		{
+			get
+			{
+				return this._notProvideButOffer;
+			}
+			set
+			{
+				if ((this._notProvideButOffer != value))
+				{
+					this.OnnotProvideButOfferChanging(value);
+					this.SendPropertyChanging();
+					this._notProvideButOffer = value;
+					this.SendPropertyChanged("notProvideButOffer");
+					this.OnnotProvideButOfferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_provideRent", DbType="Int")]
+		public System.Nullable<int> provideRent
+		{
+			get
+			{
+				return this._provideRent;
+			}
+			set
+			{
+				if ((this._provideRent != value))
+				{
+					this.OnprovideRentChanging(value);
+					this.SendPropertyChanging();
+					this._provideRent = value;
+					this.SendPropertyChanged("provideRent");
+					this.OnprovideRentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_provideUnit", DbType="VarChar(30)")]
+		public string provideUnit
+		{
+			get
+			{
+				return this._provideUnit;
+			}
+			set
+			{
+				if ((this._provideUnit != value))
+				{
+					this.OnprovideUnitChanging(value);
+					this.SendPropertyChanging();
+					this._provideUnit = value;
+					this.SendPropertyChanged("provideUnit");
+					this.OnprovideUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accomadationNotApplicalbe", DbType="Bit")]
+		public System.Nullable<bool> accomadationNotApplicalbe
+		{
+			get
+			{
+				return this._accomadationNotApplicalbe;
+			}
+			set
+			{
+				if ((this._accomadationNotApplicalbe != value))
+				{
+					this.OnaccomadationNotApplicalbeChanging(value);
+					this.SendPropertyChanging();
+					this._accomadationNotApplicalbe = value;
+					this.SendPropertyChanged("accomadationNotApplicalbe");
+					this.OnaccomadationNotApplicalbeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_whoIsFillingBrief", DbType="VarChar(150)")]
+		public string whoIsFillingBrief
+		{
+			get
+			{
+				return this._whoIsFillingBrief;
+			}
+			set
+			{
+				if ((this._whoIsFillingBrief != value))
+				{
+					this.OnwhoIsFillingBriefChanging(value);
+					this.SendPropertyChanging();
+					this._whoIsFillingBrief = value;
+					this.SendPropertyChanged("whoIsFillingBrief");
+					this.OnwhoIsFillingBriefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_whoIsFillingDetail", DbType="VarChar(4000)")]
+		public string whoIsFillingDetail
+		{
+			get
+			{
+				return this._whoIsFillingDetail;
+			}
+			set
+			{
+				if ((this._whoIsFillingDetail != value))
+				{
+					this.OnwhoIsFillingDetailChanging(value);
+					this.SendPropertyChanging();
+					this._whoIsFillingDetail = value;
+					this.SendPropertyChanged("whoIsFillingDetail");
+					this.OnwhoIsFillingDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_howDidYouFindBrief", DbType="VarChar(150)")]
+		public string howDidYouFindBrief
+		{
+			get
+			{
+				return this._howDidYouFindBrief;
+			}
+			set
+			{
+				if ((this._howDidYouFindBrief != value))
+				{
+					this.OnhowDidYouFindBriefChanging(value);
+					this.SendPropertyChanging();
+					this._howDidYouFindBrief = value;
+					this.SendPropertyChanged("howDidYouFindBrief");
+					this.OnhowDidYouFindBriefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_howDidYouFindDetail", DbType="VarChar(4000)")]
+		public string howDidYouFindDetail
+		{
+			get
+			{
+				return this._howDidYouFindDetail;
+			}
+			set
+			{
+				if ((this._howDidYouFindDetail != value))
+				{
+					this.OnhowDidYouFindDetailChanging(value);
+					this.SendPropertyChanging();
+					this._howDidYouFindDetail = value;
+					this.SendPropertyChanged("howDidYouFindDetail");
+					this.OnhowDidYouFindDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_howDidYouDetermineBrief", DbType="VarChar(150)")]
+		public string howDidYouDetermineBrief
+		{
+			get
+			{
+				return this._howDidYouDetermineBrief;
+			}
+			set
+			{
+				if ((this._howDidYouDetermineBrief != value))
+				{
+					this.OnhowDidYouDetermineBriefChanging(value);
+					this.SendPropertyChanging();
+					this._howDidYouDetermineBrief = value;
+					this.SendPropertyChanged("howDidYouDetermineBrief");
+					this.OnhowDidYouDetermineBriefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_howDidYouDetermineDetail", DbType="VarChar(4000)")]
+		public string howDidYouDetermineDetail
+		{
+			get
+			{
+				return this._howDidYouDetermineDetail;
+			}
+			set
+			{
+				if ((this._howDidYouDetermineDetail != value))
+				{
+					this.OnhowDidYouDetermineDetailChanging(value);
+					this.SendPropertyChanging();
+					this._howDidYouDetermineDetail = value;
+					this.SendPropertyChanged("howDidYouDetermineDetail");
+					this.OnhowDidYouDetermineDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_howAndWhenOfferBrief", DbType="VarChar(150)")]
+		public string howAndWhenOfferBrief
+		{
+			get
+			{
+				return this._howAndWhenOfferBrief;
+			}
+			set
+			{
+				if ((this._howAndWhenOfferBrief != value))
+				{
+					this.OnhowAndWhenOfferBriefChanging(value);
+					this.SendPropertyChanging();
+					this._howAndWhenOfferBrief = value;
+					this.SendPropertyChanged("howAndWhenOfferBrief");
+					this.OnhowAndWhenOfferBriefChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_howAndWhenOfferDetail", DbType="VarChar(4000)")]
+		public string howAndWhenOfferDetail
+		{
+			get
+			{
+				return this._howAndWhenOfferDetail;
+			}
+			set
+			{
+				if ((this._howAndWhenOfferDetail != value))
+				{
+					this.OnhowAndWhenOfferDetailChanging(value);
+					this.SendPropertyChanging();
+					this._howAndWhenOfferDetail = value;
+					this.SendPropertyChanged("howAndWhenOfferDetail");
+					this.OnhowAndWhenOfferDetailChanged();
 				}
 			}
 		}

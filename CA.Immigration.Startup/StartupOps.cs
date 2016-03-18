@@ -158,7 +158,7 @@ namespace CA.Immigration.Startup
             // Business detail Information
             LMIABusinessDetail.buildupDict5602(ref dict5602);
             // Job offer information
-            //buildupDict5575(ref dict5602);
+            //buildupDict5602(ref dict5602);
 
             FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5602);
         }

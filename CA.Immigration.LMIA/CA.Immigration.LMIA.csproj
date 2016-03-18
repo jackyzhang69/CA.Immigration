@@ -86,6 +86,7 @@
       <DependentUpon>LMIAForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LMIAFormOps.cs" />
+    <Compile Include="LMIAJobOffer.cs" />
     <Compile Include="LMIAOps.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

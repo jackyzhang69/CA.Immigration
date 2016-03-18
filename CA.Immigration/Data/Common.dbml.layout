@@ -50,18 +50,6 @@
         <elementListCompartment Id="10a6cb19-0e45-4cb0-8ce5-a6745c8172f8" absoluteBounds="6.7650000000000006, 3.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e635331d-6bfb-44e6-88d1-f533831cdf1f" isExpanded="false" absoluteBounds="3.75, 6.75, 2, 0.44999999999999929">
-      <DataClassMoniker Name="/CommonDataContext/tblJobOffer1" />
-      <nestedChildShapes>
-        <elementListCompartment Id="8996b006-a1fc-42eb-8b17-a70055464f82" absoluteBounds="3.7650000000000006, 7.2100000000000009, 1.9700000000000002, 11.595174153645832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="319f96c9-0b24-43aa-a2e0-797da20c1cc2" isExpanded="false" absoluteBounds="6.75, 4.75, 2, 0.44999999999999929">
-      <DataClassMoniker Name="/CommonDataContext/tblJobOffer2" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d71ec78a-194b-4d46-95e7-f15ed3b61b0a" absoluteBounds="6.7650000000000006, 5.21, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="02f87208-17aa-4957-b493-54a2cb82ebf5" isExpanded="false" absoluteBounds="6.75, 6.75, 2, 0.44999999999999929">
       <DataClassMoniker Name="/CommonDataContext/tblMarriageHistory" />
       <nestedChildShapes>
@@ -180,6 +168,12 @@
       <DataClassMoniker Name="/CommonDataContext/tblBusinessDetail" />
       <nestedChildShapes>
         <elementListCompartment Id="4ff32671-2a27-4086-8d26-fb331a64e4fa" absoluteBounds="7.64, 12.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0aa217e9-0eec-4b41-a945-c3d1afbfca4f" isExpanded="false" absoluteBounds="6.75, 4.375, 2, 0.45">
+      <DataClassMoniker Name="/CommonDataContext/tblJobOffer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c1766d84-f6a7-4e95-9b43-fdfb3aed6371" absoluteBounds="6.765, 4.835, 1.9700000000000002, 11.595174153645832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

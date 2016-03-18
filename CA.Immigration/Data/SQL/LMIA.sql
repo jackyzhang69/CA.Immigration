@@ -117,109 +117,66 @@ Q10_1 varchar(50)  -- If yes, name the program(s):
 
 
 -- Job offer tables, 1 for Job itself(5593:1-18), 2 for related info(5593:19-28)
-create table tblJobOffer1(
+create table tblJobOffer(
 Id int not null primary key identity(1,1),
-ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
-JobTile nvarchar(30),
-Number int, 
-WorkingDays int, 
-WorkingWeeks int,
-WorkingMonths int,
-WorkingYears int,
-Permanent int,
-StartDate date,
-WorkLocation nvarchar(50), -- street address
-City nvarchar(20),
-Province nvarchar(20),
-PostalCode nvarchar(7),
-Mainduties nvarchar(1000),
-Doctorate_PHD int, 
-DoctorOfMdeicine int,
-MasterDegree int,
-Bachelor int,
-College int,
-Apprentice int,
-Trade int,
-SecondarySchool int,
-Vocational int,
-NotRequired int,
-EduAdditionalInfo nvarchar(100),
-SkillRequirement nvarchar(500),
-Oral int,
-OralEnglish int, 
-OralFrench int,
-OralEnglishorFrench int,
-oralEnglishandFrench int,
-Writing int,
-WritingEnglish int, 
-WritingFrench int,
-WritingEnglishorFrench int,
-WritingEnglishandFrench int,
-OtherLanguage int,
-OtherLangugeExplanation nvarchar(500),  -- use seperate sheet 
-FullTime int,
-FullTimeExplanation nvarchar(100),
-HourlyWage money,  -- per hour
-YearlyWage money,
-Dayhours float,
-WeeklyHours float,
-MonthlyHours float,
-OverTimeRate money,
-OverTimeStart float,
-LowestWage money,
-HighestWage money,
-NoEmployeeInSamePosition int,
-Seasonal int,
-DisabilityInsurance int,   -- check
-DentalInsurance int,
-Pension int,
-ExtendedMedical int,
-VacationDays int,
-Remuneration int,
-OtherBenefits nvarchar(100)
-)
-
-create table tblJobOffer2(
-Id int not null primary key identity(1,1),
-ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
-IsUnionized int, 
-UnionName nvarchar(50), -- if it's null, then means no union
-UnionKnows int, 
-UnionDoesnotKnow nvarchar(100),
-UnionOpinion nvarchar(100),
--- 19(5593)	   Are there any federal/provincial/territorial certification, licensing or registration requirements for this job?
-licenseRequired int, 
-NameOfLicense nvarchar(50),
-HaveLicense int,	   -- Yes No use 
-WhenCanHaveDay int, -- how many days, weeks,months
-WhenCanHaveWeek int, -- how many days, weeks,months
-WhenCanHaveMonth int, -- how many days, weeks,months
-
-AttemptedtoRecruitCnd int,
-ExplainifNo nvarchar(100),
-ProveYes nvarchar(100),
--- 22(5593) What are the potential benefits to Canadian
-FillLabourShort int, 
-SkillTransfer int,
-JobCreation int,
-Other int,
-Details nvarchar(500),
---23(5593) Provide a rationale for the job offer you are making to the foreign worker(s) (e.g. what led to the vacancy of the position or creation of the position) and
---describe how this will meet your employment needs:
-JobOfferRationale nvarchar(500),
---24(5593) Who is currently filling the duties and responsibilities of the position?
-WhoElse nvarchar(100),
--- 25(5593)  How did you find or identify the foreign worker for this position?
-HowToFindTheTFW nvarchar(500),
--- 26(5593)How did you determine that the foreign worker was qualified for the job?
-WhyTFWQualified nvarchar(500),
---27(5593) How and when did you offer this job to the foreign worker?
-HowAndWhen nvarchar(300),
--- 28(5593) Do you plan to hire or train Canadians/permanent residents for the position(s) for which you are requesting an LMIA?
-NoTraining int,
-ExplainNoTraining nvarchar(100),
-DescriptionTrainingPlan nvarchar(100)
-
+applicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
+jobTile varchar(30),
+numOfTFWs int,
+duration int,
+durationUnit varchar(30),
+durationRationale varchar(150),
+startDate date,
+readingEnglishFrenchRequied bit,
+readingEnglishRequired bit,
+readingFrenchRequired bit,
+readingEnglishOrFrenchRequired bit,
+readingEnglishAndFrenchRequired bit,
+writingEnglishFrenchRequired bit,
+writingEnglishRequired bit,
+writingFrenchRequired bit,
+writingEnglishOrFrenchRequired bit,
+writingEnglishAndFrenchRequired bit,
+otherLanguageRequired bit,
+otherLanguageExplanation varchar(150),
+vacationDays int,
+remuneration int,
+isSeasonal  bit,
+isFullyCoveredLMIA bit,
+notFullyCoveredReason varchar(150),
+isJobLicensed  bit,
+licenseAuthority varchar(150),
+licenseReady  bit,
+licenseReadyTime int,
+licenseReadyUnit  varchar(30),
+isJobUnion bit,
+unionNameLocation varchar(150),
+isUnionConsulted  bit,
+unionNotExplanation varchar(150),
+unionOpinion varchar(150),
+attemptedRecruitCanadian  bit,
+notAttemptedReason varchar(150),
+OfficialAdNumber varchar(20),
+briefBenefit varchar(150),
+detailedBenefit varchar(4000),
+briefRationaleOfferingJob varchar(150),
+detailedRationaleOfferingJob varchar(4000),
+trainCanadian  bit,
+noTrainReason varchar(150),
+trainPlanBrief varchar(150),
+trainPlanDetails varchar(4000),
+willProvideAccomadation  bit,
+notProvideButOffer  varchar(150),
+provideRent int,
+provideUnit varchar(30),
+accomadationNotApplicalbe  bit,
+whoIsFillingBrief varchar(150),
+whoIsFillingDetail varchar(4000),
+howDidYouFindBrief varchar(150),
+howDidYouFindDetail  varchar(4000),
+howDidYouDetermineBrief  varchar(150),
+howDidYouDetermineDetail varchar(4000),
+howAndWhenOfferBrief  varchar(150),
+howAndWhenOfferDetail varchar(4000),
 )
 
 create table tblImpactLM(

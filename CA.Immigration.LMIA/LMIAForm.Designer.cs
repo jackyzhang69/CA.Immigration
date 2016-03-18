@@ -192,6 +192,68 @@
             this.lblGeneral = new System.Windows.Forms.Label();
             this.lblOfficial = new System.Windows.Forms.Label();
             this.tabJobOffer = new System.Windows.Forms.TabPage();
+            this.btnJobOfferClear = new System.Windows.Forms.Button();
+            this.btnJobOfferDelete = new System.Windows.Forms.Button();
+            this.btnJobOfferUpdate = new System.Windows.Forms.Button();
+            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnJobOfferWhentoOffer = new System.Windows.Forms.Button();
+            this.txtJobOfferWhentoOffer = new System.Windows.Forms.TextBox();
+            this.lblJobOfferWhentoOffer = new System.Windows.Forms.Label();
+            this.btnJobOfferHowtoDetermine = new System.Windows.Forms.Button();
+            this.txtJobOfferHowtoDetermine = new System.Windows.Forms.TextBox();
+            this.lblJobOfferHowtoQualify = new System.Windows.Forms.Label();
+            this.btnJobOfferHowDidYouFind = new System.Windows.Forms.Button();
+            this.lblJobOfferHowDidYouFind = new System.Windows.Forms.Label();
+            this.txtJobOfferHowDidYouFind = new System.Windows.Forms.TextBox();
+            this.btnJobOfferWhoFillInTheJob = new System.Windows.Forms.Button();
+            this.lblJobOfferWhoCurrentInThePosition = new System.Windows.Forms.Label();
+            this.txtJobOfferWhoFillInThisJob = new System.Windows.Forms.TextBox();
+            this.lblJobOfferProvideAssistant = new System.Windows.Forms.Label();
+            this.txtJobOfferProvideAssistant = new System.Windows.Forms.TextBox();
+            this.chkJobOfferProvideRentNA = new System.Windows.Forms.CheckBox();
+            this.cmbJobOfferProvideRent = new System.Windows.Forms.ComboBox();
+            this.lblJobOfferProvideRent = new System.Windows.Forms.Label();
+            this.txtJobOfferProvideRent = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label30 = new System.Windows.Forms.Label();
+            this.txtJobOfferTrainCanadian = new System.Windows.Forms.TextBox();
+            this.chkJobOfferTrainCanadian = new System.Windows.Forms.CheckBox();
+            this.btnJobOfferRationale = new System.Windows.Forms.Button();
+            this.txtJobOfferOfferRationale = new System.Windows.Forms.TextBox();
+            this.lblJobOfferOfferRational = new System.Windows.Forms.Label();
+            this.btnJobOfferBenefitDetails = new System.Windows.Forms.Button();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.lblJobOfferJobCreation = new System.Windows.Forms.Label();
+            this.lblJobOfferSkillTransfer = new System.Windows.Forms.Label();
+            this.lblFillingLabourShortage = new System.Windows.Forms.Label();
+            this.lblJobOfferPotentialBenifit = new System.Windows.Forms.Label();
+            this.lblJobOfferRecruitCanadian = new System.Windows.Forms.Label();
+            this.txtJobOfferRecruitCanadian = new System.Windows.Forms.TextBox();
+            this.chkJobOfferRecruitCanadian = new System.Windows.Forms.CheckBox();
+            this.lblJobOfferUnionConsulted = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.chkJobOfferUnionConsulted = new System.Windows.Forms.CheckBox();
+            this.chkJobOfferIsUnion = new System.Windows.Forms.CheckBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cmbJobOfferDWM = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtJobOfferHowlongLicense = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.chkJobOfferLicenseNeeded = new System.Windows.Forms.CheckBox();
+            this.txtJobOfferOtherBenifits = new System.Windows.Forms.TextBox();
+            this.lblJobOfferOtherBenifits = new System.Windows.Forms.Label();
+            this.chkJobOfferFullDuration = new System.Windows.Forms.CheckBox();
+            this.chkJobOfferSeasonal = new System.Windows.Forms.CheckBox();
+            this.txtJobOfferRemuneraton = new System.Windows.Forms.TextBox();
+            this.txtJobOfferVacationDays = new System.Windows.Forms.TextBox();
+            this.txtJobOfferRemuneration = new System.Windows.Forms.TextBox();
+            this.rdbJobOfferRemuneration = new System.Windows.Forms.RadioButton();
+            this.rdbJobOfferVacationDays = new System.Windows.Forms.RadioButton();
             this.grpLMIALanguage = new System.Windows.Forms.GroupBox();
             this.chkLMIAOtherLanguage = new System.Windows.Forms.CheckBox();
             this.chkLMIAWritingEnglisAndFrench = new System.Windows.Forms.CheckBox();
@@ -211,7 +273,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtJobOfferNumberofTFW = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -223,6 +285,8 @@
             this.financial2 = new CA.Immigration.LMIA.financial();
             this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationStream();
+            this.lblJobOfferDurationRationale = new System.Windows.Forms.Label();
+            this.txtJobOfferDurationRationale = new System.Windows.Forms.TextBox();
             this.tabBase.SuspendLayout();
             this.tabAdvisor.SuspendLayout();
             this.tbcSubAdvisor.SuspendLayout();
@@ -1838,14 +1902,77 @@
             // tabJobOffer
             // 
             this.tabJobOffer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tabJobOffer.Controls.Add(this.btnJobOfferClear);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferDelete);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferUpdate);
+            this.tabJobOffer.Controls.Add(this.btnInsert);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferWhentoOffer);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferWhentoOffer);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferWhentoOffer);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferHowtoDetermine);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferHowtoDetermine);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferHowtoQualify);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferHowDidYouFind);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferHowDidYouFind);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferHowDidYouFind);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferWhoFillInTheJob);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferWhoCurrentInThePosition);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferWhoFillInThisJob);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferProvideAssistant);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferProvideAssistant);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferProvideRentNA);
+            this.tabJobOffer.Controls.Add(this.cmbJobOfferProvideRent);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferProvideRent);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferProvideRent);
+            this.tabJobOffer.Controls.Add(this.checkBox2);
+            this.tabJobOffer.Controls.Add(this.button5);
+            this.tabJobOffer.Controls.Add(this.label30);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferTrainCanadian);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferTrainCanadian);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferRationale);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferOfferRationale);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferOfferRational);
+            this.tabJobOffer.Controls.Add(this.btnJobOfferBenefitDetails);
+            this.tabJobOffer.Controls.Add(this.textBox8);
+            this.tabJobOffer.Controls.Add(this.label33);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferJobCreation);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferSkillTransfer);
+            this.tabJobOffer.Controls.Add(this.lblFillingLabourShortage);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferPotentialBenifit);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferRecruitCanadian);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferRecruitCanadian);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferRecruitCanadian);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferUnionConsulted);
+            this.tabJobOffer.Controls.Add(this.textBox5);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferUnionConsulted);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferIsUnion);
+            this.tabJobOffer.Controls.Add(this.label29);
+            this.tabJobOffer.Controls.Add(this.textBox2);
+            this.tabJobOffer.Controls.Add(this.cmbJobOfferDWM);
+            this.tabJobOffer.Controls.Add(this.label28);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferHowlongLicense);
+            this.tabJobOffer.Controls.Add(this.checkBox1);
+            this.tabJobOffer.Controls.Add(this.label27);
+            this.tabJobOffer.Controls.Add(this.textBox1);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferLicenseNeeded);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferOtherBenifits);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferOtherBenifits);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferFullDuration);
+            this.tabJobOffer.Controls.Add(this.chkJobOfferSeasonal);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferRemuneraton);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferVacationDays);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferRemuneration);
+            this.tabJobOffer.Controls.Add(this.rdbJobOfferRemuneration);
+            this.tabJobOffer.Controls.Add(this.rdbJobOfferVacationDays);
             this.tabJobOffer.Controls.Add(this.grpLMIALanguage);
-            this.tabJobOffer.Controls.Add(this.chkLanguageRequired);
             this.tabJobOffer.Controls.Add(this.cmbDurationUnit);
             this.tabJobOffer.Controls.Add(this.textBox14);
             this.tabJobOffer.Controls.Add(this.label24);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferDurationRationale);
             this.tabJobOffer.Controls.Add(this.textBox15);
+            this.tabJobOffer.Controls.Add(this.lblJobOfferDurationRationale);
             this.tabJobOffer.Controls.Add(this.label25);
-            this.tabJobOffer.Controls.Add(this.textBox13);
+            this.tabJobOffer.Controls.Add(this.txtJobOfferNumberofTFW);
             this.tabJobOffer.Controls.Add(this.label21);
             this.tabJobOffer.Location = new System.Drawing.Point(4, 22);
             this.tabJobOffer.Margin = new System.Windows.Forms.Padding(2);
@@ -1854,6 +1981,560 @@
             this.tabJobOffer.TabIndex = 8;
             this.tabJobOffer.Text = "Job Offer";
             this.tabJobOffer.UseVisualStyleBackColor = true;
+            // 
+            // btnJobOfferClear
+            // 
+            this.btnJobOfferClear.Location = new System.Drawing.Point(755, 676);
+            this.btnJobOfferClear.Name = "btnJobOfferClear";
+            this.btnJobOfferClear.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferClear.TabIndex = 61;
+            this.btnJobOfferClear.Text = "Clear";
+            this.btnJobOfferClear.UseVisualStyleBackColor = true;
+            // 
+            // btnJobOfferDelete
+            // 
+            this.btnJobOfferDelete.Location = new System.Drawing.Point(674, 676);
+            this.btnJobOfferDelete.Name = "btnJobOfferDelete";
+            this.btnJobOfferDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferDelete.TabIndex = 61;
+            this.btnJobOfferDelete.Text = "Delete";
+            this.btnJobOfferDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnJobOfferUpdate
+            // 
+            this.btnJobOfferUpdate.Location = new System.Drawing.Point(593, 676);
+            this.btnJobOfferUpdate.Name = "btnJobOfferUpdate";
+            this.btnJobOfferUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferUpdate.TabIndex = 61;
+            this.btnJobOfferUpdate.Text = "Update";
+            this.btnJobOfferUpdate.UseVisualStyleBackColor = true;
+            // 
+            // btnInsert
+            // 
+            this.btnInsert.Location = new System.Drawing.Point(512, 676);
+            this.btnInsert.Name = "btnInsert";
+            this.btnInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnInsert.TabIndex = 61;
+            this.btnInsert.Text = "Insert";
+            this.btnInsert.UseVisualStyleBackColor = true;
+            // 
+            // btnJobOfferWhentoOffer
+            // 
+            this.btnJobOfferWhentoOffer.Location = new System.Drawing.Point(846, 634);
+            this.btnJobOfferWhentoOffer.Name = "btnJobOfferWhentoOffer";
+            this.btnJobOfferWhentoOffer.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferWhentoOffer.TabIndex = 60;
+            this.btnJobOfferWhentoOffer.Text = "Details";
+            this.btnJobOfferWhentoOffer.UseVisualStyleBackColor = true;
+            // 
+            // txtJobOfferWhentoOffer
+            // 
+            this.txtJobOfferWhentoOffer.Location = new System.Drawing.Point(350, 634);
+            this.txtJobOfferWhentoOffer.Multiline = true;
+            this.txtJobOfferWhentoOffer.Name = "txtJobOfferWhentoOffer";
+            this.txtJobOfferWhentoOffer.Size = new System.Drawing.Size(447, 20);
+            this.txtJobOfferWhentoOffer.TabIndex = 59;
+            // 
+            // lblJobOfferWhentoOffer
+            // 
+            this.lblJobOfferWhentoOffer.AutoSize = true;
+            this.lblJobOfferWhentoOffer.Location = new System.Drawing.Point(13, 637);
+            this.lblJobOfferWhentoOffer.Name = "lblJobOfferWhentoOffer";
+            this.lblJobOfferWhentoOffer.Size = new System.Drawing.Size(282, 13);
+            this.lblJobOfferWhentoOffer.TabIndex = 58;
+            this.lblJobOfferWhentoOffer.Text = "How and when did you offer this job to the foreign worker?";
+            // 
+            // btnJobOfferHowtoDetermine
+            // 
+            this.btnJobOfferHowtoDetermine.Location = new System.Drawing.Point(846, 604);
+            this.btnJobOfferHowtoDetermine.Name = "btnJobOfferHowtoDetermine";
+            this.btnJobOfferHowtoDetermine.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferHowtoDetermine.TabIndex = 57;
+            this.btnJobOfferHowtoDetermine.Text = "Details";
+            this.btnJobOfferHowtoDetermine.UseVisualStyleBackColor = true;
+            // 
+            // txtJobOfferHowtoDetermine
+            // 
+            this.txtJobOfferHowtoDetermine.Location = new System.Drawing.Point(350, 604);
+            this.txtJobOfferHowtoDetermine.Multiline = true;
+            this.txtJobOfferHowtoDetermine.Name = "txtJobOfferHowtoDetermine";
+            this.txtJobOfferHowtoDetermine.Size = new System.Drawing.Size(447, 20);
+            this.txtJobOfferHowtoDetermine.TabIndex = 56;
+            // 
+            // lblJobOfferHowtoQualify
+            // 
+            this.lblJobOfferHowtoQualify.AutoSize = true;
+            this.lblJobOfferHowtoQualify.Location = new System.Drawing.Point(13, 607);
+            this.lblJobOfferHowtoQualify.Name = "lblJobOfferHowtoQualify";
+            this.lblJobOfferHowtoQualify.Size = new System.Drawing.Size(323, 13);
+            this.lblJobOfferHowtoQualify.TabIndex = 55;
+            this.lblJobOfferHowtoQualify.Text = "How did you determine the foreign worker was qualified for the job?";
+            // 
+            // btnJobOfferHowDidYouFind
+            // 
+            this.btnJobOfferHowDidYouFind.Location = new System.Drawing.Point(846, 576);
+            this.btnJobOfferHowDidYouFind.Name = "btnJobOfferHowDidYouFind";
+            this.btnJobOfferHowDidYouFind.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferHowDidYouFind.TabIndex = 54;
+            this.btnJobOfferHowDidYouFind.Text = "Details";
+            this.btnJobOfferHowDidYouFind.UseVisualStyleBackColor = true;
+            // 
+            // lblJobOfferHowDidYouFind
+            // 
+            this.lblJobOfferHowDidYouFind.AutoSize = true;
+            this.lblJobOfferHowDidYouFind.Location = new System.Drawing.Point(14, 579);
+            this.lblJobOfferHowDidYouFind.Name = "lblJobOfferHowDidYouFind";
+            this.lblJobOfferHowDidYouFind.Size = new System.Drawing.Size(301, 13);
+            this.lblJobOfferHowDidYouFind.TabIndex = 53;
+            this.lblJobOfferHowDidYouFind.Text = "How did you find or identify the foreign worker for this position?";
+            // 
+            // txtJobOfferHowDidYouFind
+            // 
+            this.txtJobOfferHowDidYouFind.Location = new System.Drawing.Point(350, 576);
+            this.txtJobOfferHowDidYouFind.Multiline = true;
+            this.txtJobOfferHowDidYouFind.Name = "txtJobOfferHowDidYouFind";
+            this.txtJobOfferHowDidYouFind.Size = new System.Drawing.Size(447, 20);
+            this.txtJobOfferHowDidYouFind.TabIndex = 52;
+            // 
+            // btnJobOfferWhoFillInTheJob
+            // 
+            this.btnJobOfferWhoFillInTheJob.Location = new System.Drawing.Point(846, 550);
+            this.btnJobOfferWhoFillInTheJob.Name = "btnJobOfferWhoFillInTheJob";
+            this.btnJobOfferWhoFillInTheJob.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferWhoFillInTheJob.TabIndex = 51;
+            this.btnJobOfferWhoFillInTheJob.Text = "Details";
+            this.btnJobOfferWhoFillInTheJob.UseVisualStyleBackColor = true;
+            // 
+            // lblJobOfferWhoCurrentInThePosition
+            // 
+            this.lblJobOfferWhoCurrentInThePosition.AutoSize = true;
+            this.lblJobOfferWhoCurrentInThePosition.Location = new System.Drawing.Point(14, 553);
+            this.lblJobOfferWhoCurrentInThePosition.Name = "lblJobOfferWhoCurrentInThePosition";
+            this.lblJobOfferWhoCurrentInThePosition.Size = new System.Drawing.Size(324, 13);
+            this.lblJobOfferWhoCurrentInThePosition.TabIndex = 50;
+            this.lblJobOfferWhoCurrentInThePosition.Text = "Who is currently filling the duties and responsibilities of the position?";
+            // 
+            // txtJobOfferWhoFillInThisJob
+            // 
+            this.txtJobOfferWhoFillInThisJob.Location = new System.Drawing.Point(350, 550);
+            this.txtJobOfferWhoFillInThisJob.Name = "txtJobOfferWhoFillInThisJob";
+            this.txtJobOfferWhoFillInThisJob.Size = new System.Drawing.Size(447, 20);
+            this.txtJobOfferWhoFillInThisJob.TabIndex = 49;
+            // 
+            // lblJobOfferProvideAssistant
+            // 
+            this.lblJobOfferProvideAssistant.AutoSize = true;
+            this.lblJobOfferProvideAssistant.Location = new System.Drawing.Point(19, 526);
+            this.lblJobOfferProvideAssistant.Name = "lblJobOfferProvideAssistant";
+            this.lblJobOfferProvideAssistant.Size = new System.Drawing.Size(259, 13);
+            this.lblJobOfferProvideAssistant.TabIndex = 48;
+            this.lblJobOfferProvideAssistant.Text = "No, but the employer will assist by doing the following:";
+            // 
+            // txtJobOfferProvideAssistant
+            // 
+            this.txtJobOfferProvideAssistant.Location = new System.Drawing.Point(284, 523);
+            this.txtJobOfferProvideAssistant.Multiline = true;
+            this.txtJobOfferProvideAssistant.Name = "txtJobOfferProvideAssistant";
+            this.txtJobOfferProvideAssistant.Size = new System.Drawing.Size(677, 20);
+            this.txtJobOfferProvideAssistant.TabIndex = 47;
+            // 
+            // chkJobOfferProvideRentNA
+            // 
+            this.chkJobOfferProvideRentNA.AutoSize = true;
+            this.chkJobOfferProvideRentNA.Location = new System.Drawing.Point(863, 502);
+            this.chkJobOfferProvideRentNA.Name = "chkJobOfferProvideRentNA";
+            this.chkJobOfferProvideRentNA.Size = new System.Drawing.Size(95, 17);
+            this.chkJobOfferProvideRentNA.TabIndex = 46;
+            this.chkJobOfferProvideRentNA.Text = "Not Appliacble";
+            this.chkJobOfferProvideRentNA.UseVisualStyleBackColor = true;
+            // 
+            // cmbJobOfferProvideRent
+            // 
+            this.cmbJobOfferProvideRent.FormattingEnabled = true;
+            this.cmbJobOfferProvideRent.Items.AddRange(new object[] {
+            "Days",
+            "Weeks",
+            "Months"});
+            this.cmbJobOfferProvideRent.Location = new System.Drawing.Point(719, 499);
+            this.cmbJobOfferProvideRent.Name = "cmbJobOfferProvideRent";
+            this.cmbJobOfferProvideRent.Size = new System.Drawing.Size(78, 21);
+            this.cmbJobOfferProvideRent.TabIndex = 45;
+            // 
+            // lblJobOfferProvideRent
+            // 
+            this.lblJobOfferProvideRent.AutoSize = true;
+            this.lblJobOfferProvideRent.Location = new System.Drawing.Point(424, 506);
+            this.lblJobOfferProvideRent.Name = "lblJobOfferProvideRent";
+            this.lblJobOfferProvideRent.Size = new System.Drawing.Size(122, 13);
+            this.lblJobOfferProvideRent.TabIndex = 44;
+            this.lblJobOfferProvideRent.Text = "Yes, we provide the rent";
+            // 
+            // txtJobOfferProvideRent
+            // 
+            this.txtJobOfferProvideRent.Location = new System.Drawing.Point(609, 499);
+            this.txtJobOfferProvideRent.Name = "txtJobOfferProvideRent";
+            this.txtJobOfferProvideRent.Size = new System.Drawing.Size(80, 20);
+            this.txtJobOfferProvideRent.TabIndex = 43;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(19, 506);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(283, 17);
+            this.checkBox2.TabIndex = 42;
+            this.checkBox2.Text = "Will you provide the TFW with suitable accomadation?";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(846, 473);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 41;
+            this.button5.Text = "Details";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(219, 475);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(198, 13);
+            this.label30.TabIndex = 40;
+            this.label30.Text = "If no, explain;if yes, brief the training plan";
+            // 
+            // txtJobOfferTrainCanadian
+            // 
+            this.txtJobOfferTrainCanadian.Location = new System.Drawing.Point(423, 473);
+            this.txtJobOfferTrainCanadian.Multiline = true;
+            this.txtJobOfferTrainCanadian.Name = "txtJobOfferTrainCanadian";
+            this.txtJobOfferTrainCanadian.Size = new System.Drawing.Size(374, 20);
+            this.txtJobOfferTrainCanadian.TabIndex = 39;
+            // 
+            // chkJobOfferTrainCanadian
+            // 
+            this.chkJobOfferTrainCanadian.AutoSize = true;
+            this.chkJobOfferTrainCanadian.Location = new System.Drawing.Point(19, 475);
+            this.chkJobOfferTrainCanadian.Name = "chkJobOfferTrainCanadian";
+            this.chkJobOfferTrainCanadian.Size = new System.Drawing.Size(204, 17);
+            this.chkJobOfferTrainCanadian.TabIndex = 38;
+            this.chkJobOfferTrainCanadian.Text = "Do you plan to hire or train Canadian?";
+            this.chkJobOfferTrainCanadian.UseVisualStyleBackColor = true;
+            // 
+            // btnJobOfferRationale
+            // 
+            this.btnJobOfferRationale.Location = new System.Drawing.Point(846, 443);
+            this.btnJobOfferRationale.Name = "btnJobOfferRationale";
+            this.btnJobOfferRationale.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferRationale.TabIndex = 37;
+            this.btnJobOfferRationale.Text = "Details";
+            this.btnJobOfferRationale.UseVisualStyleBackColor = true;
+            // 
+            // txtJobOfferOfferRationale
+            // 
+            this.txtJobOfferOfferRationale.Location = new System.Drawing.Point(19, 445);
+            this.txtJobOfferOfferRationale.Multiline = true;
+            this.txtJobOfferOfferRationale.Name = "txtJobOfferOfferRationale";
+            this.txtJobOfferOfferRationale.Size = new System.Drawing.Size(778, 24);
+            this.txtJobOfferOfferRationale.TabIndex = 36;
+            // 
+            // lblJobOfferOfferRational
+            // 
+            this.lblJobOfferOfferRational.AutoSize = true;
+            this.lblJobOfferOfferRational.Location = new System.Drawing.Point(16, 429);
+            this.lblJobOfferOfferRational.Name = "lblJobOfferOfferRational";
+            this.lblJobOfferOfferRational.Size = new System.Drawing.Size(202, 13);
+            this.lblJobOfferOfferRational.TabIndex = 35;
+            this.lblJobOfferOfferRational.Text = "The rational providing this job to the TFW";
+            // 
+            // btnJobOfferBenefitDetails
+            // 
+            this.btnJobOfferBenefitDetails.Location = new System.Drawing.Point(846, 396);
+            this.btnJobOfferBenefitDetails.Name = "btnJobOfferBenefitDetails";
+            this.btnJobOfferBenefitDetails.Size = new System.Drawing.Size(75, 23);
+            this.btnJobOfferBenefitDetails.TabIndex = 34;
+            this.btnJobOfferBenefitDetails.Text = "Details";
+            this.btnJobOfferBenefitDetails.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(19, 398);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(778, 24);
+            this.textBox8.TabIndex = 33;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(847, 382);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(74, 13);
+            this.label33.TabIndex = 32;
+            this.label33.Text = "Other Benefits";
+            // 
+            // lblJobOfferJobCreation
+            // 
+            this.lblJobOfferJobCreation.AutoSize = true;
+            this.lblJobOfferJobCreation.Location = new System.Drawing.Point(649, 382);
+            this.lblJobOfferJobCreation.Name = "lblJobOfferJobCreation";
+            this.lblJobOfferJobCreation.Size = new System.Drawing.Size(148, 13);
+            this.lblJobOfferJobCreation.TabIndex = 31;
+            this.lblJobOfferJobCreation.Text = "Direct job creation or retaining";
+            // 
+            // lblJobOfferSkillTransfer
+            // 
+            this.lblJobOfferSkillTransfer.AutoSize = true;
+            this.lblJobOfferSkillTransfer.Location = new System.Drawing.Point(488, 382);
+            this.lblJobOfferSkillTransfer.Name = "lblJobOfferSkillTransfer";
+            this.lblJobOfferSkillTransfer.Size = new System.Drawing.Size(136, 13);
+            this.lblJobOfferSkillTransfer.TabIndex = 30;
+            this.lblJobOfferSkillTransfer.Text = "Knowledge or Skill Transfer";
+            // 
+            // lblFillingLabourShortage
+            // 
+            this.lblFillingLabourShortage.AutoSize = true;
+            this.lblFillingLabourShortage.Location = new System.Drawing.Point(347, 382);
+            this.lblFillingLabourShortage.Name = "lblFillingLabourShortage";
+            this.lblFillingLabourShortage.Size = new System.Drawing.Size(118, 13);
+            this.lblFillingLabourShortage.TabIndex = 29;
+            this.lblFillingLabourShortage.Text = "Filling a labour shortage";
+            // 
+            // lblJobOfferPotentialBenifit
+            // 
+            this.lblJobOfferPotentialBenifit.AutoSize = true;
+            this.lblJobOfferPotentialBenifit.Location = new System.Drawing.Point(16, 382);
+            this.lblJobOfferPotentialBenifit.Name = "lblJobOfferPotentialBenifit";
+            this.lblJobOfferPotentialBenifit.Size = new System.Drawing.Size(302, 13);
+            this.lblJobOfferPotentialBenifit.TabIndex = 28;
+            this.lblJobOfferPotentialBenifit.Text = "Please justify why hiring TFW can bring this benifits to Canada:";
+            // 
+            // lblJobOfferRecruitCanadian
+            // 
+            this.lblJobOfferRecruitCanadian.AutoSize = true;
+            this.lblJobOfferRecruitCanadian.Location = new System.Drawing.Point(202, 352);
+            this.lblJobOfferRecruitCanadian.Name = "lblJobOfferRecruitCanadian";
+            this.lblJobOfferRecruitCanadian.Size = new System.Drawing.Size(322, 13);
+            this.lblJobOfferRecruitCanadian.TabIndex = 27;
+            this.lblJobOfferRecruitCanadian.Text = "If no, explain;if yes, provide Jobbank or WorkBC etc recruit number";
+            // 
+            // txtJobOfferRecruitCanadian
+            // 
+            this.txtJobOfferRecruitCanadian.Location = new System.Drawing.Point(530, 350);
+            this.txtJobOfferRecruitCanadian.Multiline = true;
+            this.txtJobOfferRecruitCanadian.Name = "txtJobOfferRecruitCanadian";
+            this.txtJobOfferRecruitCanadian.Size = new System.Drawing.Size(431, 20);
+            this.txtJobOfferRecruitCanadian.TabIndex = 26;
+            // 
+            // chkJobOfferRecruitCanadian
+            // 
+            this.chkJobOfferRecruitCanadian.AutoSize = true;
+            this.chkJobOfferRecruitCanadian.Location = new System.Drawing.Point(19, 351);
+            this.chkJobOfferRecruitCanadian.Name = "chkJobOfferRecruitCanadian";
+            this.chkJobOfferRecruitCanadian.Size = new System.Drawing.Size(172, 17);
+            this.chkJobOfferRecruitCanadian.TabIndex = 25;
+            this.chkJobOfferRecruitCanadian.Text = "Attempted to recruit Canadian?";
+            this.chkJobOfferRecruitCanadian.UseVisualStyleBackColor = true;
+            // 
+            // lblJobOfferUnionConsulted
+            // 
+            this.lblJobOfferUnionConsulted.AutoSize = true;
+            this.lblJobOfferUnionConsulted.Location = new System.Drawing.Point(202, 328);
+            this.lblJobOfferUnionConsulted.Name = "lblJobOfferUnionConsulted";
+            this.lblJobOfferUnionConsulted.Size = new System.Drawing.Size(264, 13);
+            this.lblJobOfferUnionConsulted.TabIndex = 24;
+            this.lblJobOfferUnionConsulted.Text = "If no, explain;if yes, provide union opion and attestaton";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(472, 326);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(489, 20);
+            this.textBox5.TabIndex = 23;
+            // 
+            // chkJobOfferUnionConsulted
+            // 
+            this.chkJobOfferUnionConsulted.AutoSize = true;
+            this.chkJobOfferUnionConsulted.Location = new System.Drawing.Point(19, 328);
+            this.chkJobOfferUnionConsulted.Name = "chkJobOfferUnionConsulted";
+            this.chkJobOfferUnionConsulted.Size = new System.Drawing.Size(156, 17);
+            this.chkJobOfferUnionConsulted.TabIndex = 22;
+            this.chkJobOfferUnionConsulted.Text = "Has union been cnosulted?";
+            this.chkJobOfferUnionConsulted.UseVisualStyleBackColor = true;
+            // 
+            // chkJobOfferIsUnion
+            // 
+            this.chkJobOfferIsUnion.AutoSize = true;
+            this.chkJobOfferIsUnion.Location = new System.Drawing.Point(19, 305);
+            this.chkJobOfferIsUnion.Name = "chkJobOfferIsUnion";
+            this.chkJobOfferIsUnion.Size = new System.Drawing.Size(147, 17);
+            this.chkJobOfferIsUnion.TabIndex = 21;
+            this.chkJobOfferIsUnion.Text = "Is this job part of a union?";
+            this.chkJobOfferIsUnion.UseVisualStyleBackColor = true;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(202, 305);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(122, 13);
+            this.label29.TabIndex = 20;
+            this.label29.Text = "Name and local of union";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(350, 303);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(611, 20);
+            this.textBox2.TabIndex = 19;
+            // 
+            // cmbJobOfferDWM
+            // 
+            this.cmbJobOfferDWM.FormattingEnabled = true;
+            this.cmbJobOfferDWM.Items.AddRange(new object[] {
+            "Days",
+            "Weeks",
+            "Months"});
+            this.cmbJobOfferDWM.Location = new System.Drawing.Point(883, 276);
+            this.cmbJobOfferDWM.Name = "cmbJobOfferDWM";
+            this.cmbJobOfferDWM.Size = new System.Drawing.Size(78, 21);
+            this.cmbJobOfferDWM.TabIndex = 17;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(649, 280);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(164, 13);
+            this.label28.TabIndex = 16;
+            this.label28.Text = "How long can the TFW obtain it?";
+            // 
+            // txtJobOfferHowlongLicense
+            // 
+            this.txtJobOfferHowlongLicense.Location = new System.Drawing.Point(819, 277);
+            this.txtJobOfferHowlongLicense.Name = "txtJobOfferHowlongLicense";
+            this.txtJobOfferHowlongLicense.Size = new System.Drawing.Size(49, 20);
+            this.txtJobOfferHowlongLicense.TabIndex = 15;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(531, 278);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(103, 17);
+            this.checkBox1.TabIndex = 14;
+            this.checkBox1.Text = "License Ready?";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(202, 280);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(144, 13);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Name of the license authority";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(350, 276);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(175, 20);
+            this.textBox1.TabIndex = 12;
+            // 
+            // chkJobOfferLicenseNeeded
+            // 
+            this.chkJobOfferLicenseNeeded.AutoSize = true;
+            this.chkJobOfferLicenseNeeded.Location = new System.Drawing.Point(19, 279);
+            this.chkJobOfferLicenseNeeded.Name = "chkJobOfferLicenseNeeded";
+            this.chkJobOfferLicenseNeeded.Size = new System.Drawing.Size(156, 17);
+            this.chkJobOfferLicenseNeeded.TabIndex = 11;
+            this.chkJobOfferLicenseNeeded.Text = "Does this job need license?";
+            this.chkJobOfferLicenseNeeded.UseVisualStyleBackColor = true;
+            // 
+            // txtJobOfferOtherBenifits
+            // 
+            this.txtJobOfferOtherBenifits.Location = new System.Drawing.Point(502, 194);
+            this.txtJobOfferOtherBenifits.Name = "txtJobOfferOtherBenifits";
+            this.txtJobOfferOtherBenifits.Size = new System.Drawing.Size(456, 20);
+            this.txtJobOfferOtherBenifits.TabIndex = 10;
+            // 
+            // lblJobOfferOtherBenifits
+            // 
+            this.lblJobOfferOtherBenifits.AutoSize = true;
+            this.lblJobOfferOtherBenifits.Location = new System.Drawing.Point(420, 196);
+            this.lblJobOfferOtherBenifits.Name = "lblJobOfferOtherBenifits";
+            this.lblJobOfferOtherBenifits.Size = new System.Drawing.Size(74, 13);
+            this.lblJobOfferOtherBenifits.TabIndex = 9;
+            this.lblJobOfferOtherBenifits.Text = "Other Benefits";
+            // 
+            // chkJobOfferFullDuration
+            // 
+            this.chkJobOfferFullDuration.AutoSize = true;
+            this.chkJobOfferFullDuration.Location = new System.Drawing.Point(146, 223);
+            this.chkJobOfferFullDuration.Name = "chkJobOfferFullDuration";
+            this.chkJobOfferFullDuration.Size = new System.Drawing.Size(398, 17);
+            this.chkJobOfferFullDuration.TabIndex = 8;
+            this.chkJobOfferFullDuration.Text = "Is the job offer fully cover the duration of the LMIA stated ? if no, explain bel" +
+    "ow:";
+            this.chkJobOfferFullDuration.UseVisualStyleBackColor = true;
+            // 
+            // chkJobOfferSeasonal
+            // 
+            this.chkJobOfferSeasonal.AutoSize = true;
+            this.chkJobOfferSeasonal.Location = new System.Drawing.Point(19, 223);
+            this.chkJobOfferSeasonal.Name = "chkJobOfferSeasonal";
+            this.chkJobOfferSeasonal.Size = new System.Drawing.Size(121, 17);
+            this.chkJobOfferSeasonal.TabIndex = 7;
+            this.chkJobOfferSeasonal.Text = "Is this job seasonal?";
+            this.chkJobOfferSeasonal.UseVisualStyleBackColor = true;
+            // 
+            // txtJobOfferRemuneraton
+            // 
+            this.txtJobOfferRemuneraton.Location = new System.Drawing.Point(332, 191);
+            this.txtJobOfferRemuneraton.Name = "txtJobOfferRemuneraton";
+            this.txtJobOfferRemuneraton.Size = new System.Drawing.Size(76, 20);
+            this.txtJobOfferRemuneraton.TabIndex = 6;
+            // 
+            // txtJobOfferVacationDays
+            // 
+            this.txtJobOfferVacationDays.Location = new System.Drawing.Point(128, 193);
+            this.txtJobOfferVacationDays.Name = "txtJobOfferVacationDays";
+            this.txtJobOfferVacationDays.Size = new System.Drawing.Size(76, 20);
+            this.txtJobOfferVacationDays.TabIndex = 6;
+            // 
+            // txtJobOfferRemuneration
+            // 
+            this.txtJobOfferRemuneration.Location = new System.Drawing.Point(19, 246);
+            this.txtJobOfferRemuneration.Multiline = true;
+            this.txtJobOfferRemuneration.Name = "txtJobOfferRemuneration";
+            this.txtJobOfferRemuneration.Size = new System.Drawing.Size(939, 20);
+            this.txtJobOfferRemuneration.TabIndex = 6;
+            // 
+            // rdbJobOfferRemuneration
+            // 
+            this.rdbJobOfferRemuneration.AutoSize = true;
+            this.rdbJobOfferRemuneration.Location = new System.Drawing.Point(210, 194);
+            this.rdbJobOfferRemuneration.Name = "rdbJobOfferRemuneration";
+            this.rdbJobOfferRemuneration.Size = new System.Drawing.Size(116, 17);
+            this.rdbJobOfferRemuneration.TabIndex = 5;
+            this.rdbJobOfferRemuneration.TabStop = true;
+            this.rdbJobOfferRemuneration.Text = "Or Remuneration %";
+            this.rdbJobOfferRemuneration.UseVisualStyleBackColor = true;
+            // 
+            // rdbJobOfferVacationDays
+            // 
+            this.rdbJobOfferVacationDays.AutoSize = true;
+            this.rdbJobOfferVacationDays.Location = new System.Drawing.Point(22, 194);
+            this.rdbJobOfferVacationDays.Name = "rdbJobOfferVacationDays";
+            this.rdbJobOfferVacationDays.Size = new System.Drawing.Size(92, 17);
+            this.rdbJobOfferVacationDays.TabIndex = 5;
+            this.rdbJobOfferVacationDays.TabStop = true;
+            this.rdbJobOfferVacationDays.Text = "Vacation days";
+            this.rdbJobOfferVacationDays.UseVisualStyleBackColor = true;
             // 
             // grpLMIALanguage
             // 
@@ -1869,6 +2550,7 @@
             this.grpLMIALanguage.Controls.Add(this.chkLIMAWriting);
             this.grpLMIALanguage.Controls.Add(this.chkLMIAoralEnglish);
             this.grpLMIALanguage.Controls.Add(this.chkLIMAOral);
+            this.grpLMIALanguage.Controls.Add(this.chkLanguageRequired);
             this.grpLMIALanguage.Location = new System.Drawing.Point(17, 34);
             this.grpLMIALanguage.Name = "grpLMIALanguage";
             this.grpLMIALanguage.Size = new System.Drawing.Size(950, 150);
@@ -1879,7 +2561,7 @@
             // chkLMIAOtherLanguage
             // 
             this.chkLMIAOtherLanguage.AutoSize = true;
-            this.chkLMIAOtherLanguage.Location = new System.Drawing.Point(15, 73);
+            this.chkLMIAOtherLanguage.Location = new System.Drawing.Point(8, 94);
             this.chkLMIAOtherLanguage.Name = "chkLMIAOtherLanguage";
             this.chkLMIAOtherLanguage.Size = new System.Drawing.Size(466, 17);
             this.chkLMIAOtherLanguage.TabIndex = 2;
@@ -1890,7 +2572,7 @@
             // chkLMIAWritingEnglisAndFrench
             // 
             this.chkLMIAWritingEnglisAndFrench.AutoSize = true;
-            this.chkLMIAWritingEnglisAndFrench.Location = new System.Drawing.Point(762, 43);
+            this.chkLMIAWritingEnglisAndFrench.Location = new System.Drawing.Point(755, 64);
             this.chkLMIAWritingEnglisAndFrench.Name = "chkLMIAWritingEnglisAndFrench";
             this.chkLMIAWritingEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
             this.chkLMIAWritingEnglisAndFrench.TabIndex = 1;
@@ -1900,7 +2582,7 @@
             // chkLMIAWritingEnglisOrFrench
             // 
             this.chkLMIAWritingEnglisOrFrench.AutoSize = true;
-            this.chkLMIAWritingEnglisOrFrench.Location = new System.Drawing.Point(657, 43);
+            this.chkLMIAWritingEnglisOrFrench.Location = new System.Drawing.Point(650, 64);
             this.chkLMIAWritingEnglisOrFrench.Name = "chkLMIAWritingEnglisOrFrench";
             this.chkLMIAWritingEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
             this.chkLMIAWritingEnglisOrFrench.TabIndex = 1;
@@ -1910,7 +2592,7 @@
             // chkLMIAOralEnglisAndFrench
             // 
             this.chkLMIAOralEnglisAndFrench.AutoSize = true;
-            this.chkLMIAOralEnglisAndFrench.Location = new System.Drawing.Point(269, 43);
+            this.chkLMIAOralEnglisAndFrench.Location = new System.Drawing.Point(262, 64);
             this.chkLMIAOralEnglisAndFrench.Name = "chkLMIAOralEnglisAndFrench";
             this.chkLMIAOralEnglisAndFrench.Size = new System.Drawing.Size(117, 17);
             this.chkLMIAOralEnglisAndFrench.TabIndex = 1;
@@ -1920,7 +2602,7 @@
             // chkLMIAWritingFrench
             // 
             this.chkLMIAWritingFrench.AutoSize = true;
-            this.chkLMIAWritingFrench.Location = new System.Drawing.Point(592, 43);
+            this.chkLMIAWritingFrench.Location = new System.Drawing.Point(585, 64);
             this.chkLMIAWritingFrench.Name = "chkLMIAWritingFrench";
             this.chkLMIAWritingFrench.Size = new System.Drawing.Size(59, 17);
             this.chkLMIAWritingFrench.TabIndex = 1;
@@ -1930,7 +2612,7 @@
             // chkLMIAOralEnglisOrFrench
             // 
             this.chkLMIAOralEnglisOrFrench.AutoSize = true;
-            this.chkLMIAOralEnglisOrFrench.Location = new System.Drawing.Point(164, 43);
+            this.chkLMIAOralEnglisOrFrench.Location = new System.Drawing.Point(157, 64);
             this.chkLMIAOralEnglisOrFrench.Name = "chkLMIAOralEnglisOrFrench";
             this.chkLMIAOralEnglisOrFrench.Size = new System.Drawing.Size(108, 17);
             this.chkLMIAOralEnglisOrFrench.TabIndex = 1;
@@ -1942,7 +2624,7 @@
             this.chkLMIAWritingEnglish.AutoSize = true;
             this.chkLMIAWritingEnglish.Checked = true;
             this.chkLMIAWritingEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLMIAWritingEnglish.Location = new System.Drawing.Point(526, 43);
+            this.chkLMIAWritingEnglish.Location = new System.Drawing.Point(519, 64);
             this.chkLMIAWritingEnglish.Name = "chkLMIAWritingEnglish";
             this.chkLMIAWritingEnglish.Size = new System.Drawing.Size(60, 17);
             this.chkLMIAWritingEnglish.TabIndex = 1;
@@ -1952,7 +2634,7 @@
             // chkLMIAOralFrench
             // 
             this.chkLMIAOralFrench.AutoSize = true;
-            this.chkLMIAOralFrench.Location = new System.Drawing.Point(99, 43);
+            this.chkLMIAOralFrench.Location = new System.Drawing.Point(92, 64);
             this.chkLMIAOralFrench.Name = "chkLMIAOralFrench";
             this.chkLMIAOralFrench.Size = new System.Drawing.Size(59, 17);
             this.chkLMIAOralFrench.TabIndex = 1;
@@ -1961,7 +2643,7 @@
             // 
             // txtLMIAOtherLanguage
             // 
-            this.txtLMIAOtherLanguage.Location = new System.Drawing.Point(15, 106);
+            this.txtLMIAOtherLanguage.Location = new System.Drawing.Point(8, 127);
             this.txtLMIAOtherLanguage.Name = "txtLMIAOtherLanguage";
             this.txtLMIAOtherLanguage.Size = new System.Drawing.Size(929, 20);
             this.txtLMIAOtherLanguage.TabIndex = 1;
@@ -1971,7 +2653,7 @@
             this.chkLIMAWriting.AutoSize = true;
             this.chkLIMAWriting.Checked = true;
             this.chkLIMAWriting.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLIMAWriting.Location = new System.Drawing.Point(506, 20);
+            this.chkLIMAWriting.Location = new System.Drawing.Point(499, 41);
             this.chkLIMAWriting.Name = "chkLIMAWriting";
             this.chkLIMAWriting.Size = new System.Drawing.Size(355, 17);
             this.chkLIMAWriting.TabIndex = 0;
@@ -1983,7 +2665,7 @@
             this.chkLMIAoralEnglish.AutoSize = true;
             this.chkLMIAoralEnglish.Checked = true;
             this.chkLMIAoralEnglish.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLMIAoralEnglish.Location = new System.Drawing.Point(33, 43);
+            this.chkLMIAoralEnglish.Location = new System.Drawing.Point(26, 64);
             this.chkLMIAoralEnglish.Name = "chkLMIAoralEnglish";
             this.chkLMIAoralEnglish.Size = new System.Drawing.Size(60, 17);
             this.chkLMIAoralEnglish.TabIndex = 1;
@@ -1995,7 +2677,7 @@
             this.chkLIMAOral.AutoSize = true;
             this.chkLIMAOral.Checked = true;
             this.chkLIMAOral.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLIMAOral.Location = new System.Drawing.Point(13, 20);
+            this.chkLIMAOral.Location = new System.Drawing.Point(6, 41);
             this.chkLIMAOral.Name = "chkLIMAOral";
             this.chkLIMAOral.Size = new System.Drawing.Size(346, 17);
             this.chkLIMAOral.TabIndex = 0;
@@ -2007,7 +2689,7 @@
             this.chkLanguageRequired.AutoSize = true;
             this.chkLanguageRequired.Checked = true;
             this.chkLanguageRequired.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLanguageRequired.Location = new System.Drawing.Point(703, 9);
+            this.chkLanguageRequired.Location = new System.Drawing.Point(6, 19);
             this.chkLanguageRequired.Name = "chkLanguageRequired";
             this.chkLanguageRequired.Size = new System.Drawing.Size(265, 17);
             this.chkLanguageRequired.TabIndex = 3;
@@ -2016,6 +2698,7 @@
             // 
             // cmbDurationUnit
             // 
+            this.cmbDurationUnit.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbDurationUnit.FormattingEnabled = true;
             this.cmbDurationUnit.Items.AddRange(new object[] {
             "Days",
@@ -2023,14 +2706,15 @@
             "Months",
             "Years",
             "Permanent"});
-            this.cmbDurationUnit.Location = new System.Drawing.Point(364, 7);
+            this.cmbDurationUnit.Location = new System.Drawing.Point(333, 3);
             this.cmbDurationUnit.Name = "cmbDurationUnit";
             this.cmbDurationUnit.Size = new System.Drawing.Size(78, 21);
             this.cmbDurationUnit.TabIndex = 2;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(315, 8);
+            this.textBox14.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox14.Location = new System.Drawing.Point(284, 4);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(43, 20);
             this.textBox14.TabIndex = 1;
@@ -2038,7 +2722,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(202, 12);
+            this.label24.Location = new System.Drawing.Point(189, 8);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(93, 13);
             this.label24.TabIndex = 0;
@@ -2046,7 +2730,7 @@
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(585, 7);
+            this.textBox15.Location = new System.Drawing.Point(892, 4);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(77, 20);
             this.textBox15.TabIndex = 1;
@@ -2054,18 +2738,19 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(476, 10);
+            this.label25.Location = new System.Drawing.Point(783, 7);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(103, 13);
             this.label25.TabIndex = 0;
             this.label25.Text = "Expected Start Date";
             // 
-            // textBox13
+            // txtJobOfferNumberofTFW
             // 
-            this.textBox13.Location = new System.Drawing.Point(116, 5);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(54, 20);
-            this.textBox13.TabIndex = 1;
+            this.txtJobOfferNumberofTFW.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtJobOfferNumberofTFW.Location = new System.Drawing.Point(116, 5);
+            this.txtJobOfferNumberofTFW.Name = "txtJobOfferNumberofTFW";
+            this.txtJobOfferNumberofTFW.Size = new System.Drawing.Size(54, 20);
+            this.txtJobOfferNumberofTFW.TabIndex = 1;
             // 
             // label21
             // 
@@ -2174,6 +2859,24 @@
             this.applicationSteam1.Name = "applicationSteam1";
             this.applicationSteam1.Size = new System.Drawing.Size(970, 69);
             this.applicationSteam1.TabIndex = 7;
+            // 
+            // lblJobOfferDurationRationale
+            // 
+            this.lblJobOfferDurationRationale.AutoSize = true;
+            this.lblJobOfferDurationRationale.Location = new System.Drawing.Point(422, 8);
+            this.lblJobOfferDurationRationale.Name = "lblJobOfferDurationRationale";
+            this.lblJobOfferDurationRationale.Size = new System.Drawing.Size(95, 13);
+            this.lblJobOfferDurationRationale.TabIndex = 0;
+            this.lblJobOfferDurationRationale.Text = "Duration Rationale";
+            // 
+            // txtJobOfferDurationRationale
+            // 
+            this.txtJobOfferDurationRationale.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtJobOfferDurationRationale.Location = new System.Drawing.Point(516, 5);
+            this.txtJobOfferDurationRationale.Multiline = true;
+            this.txtJobOfferDurationRationale.Name = "txtJobOfferDurationRationale";
+            this.txtJobOfferDurationRationale.Size = new System.Drawing.Size(261, 20);
+            this.txtJobOfferDurationRationale.TabIndex = 1;
             // 
             // LMIAForm
             // 
@@ -2344,12 +3047,9 @@
         private System.Windows.Forms.Button btnDeleteBD;
         private System.Windows.Forms.Button btnBDClear;
         private System.Windows.Forms.CheckBox chkLanguageRequired;
-        private System.Windows.Forms.ComboBox cmbDurationUnit;
-        private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox grpLMIALanguage;
         private System.Windows.Forms.CheckBox chkLMIAWritingEnglisAndFrench;
@@ -2414,5 +3114,72 @@
         public System.Windows.Forms.TextBox txtBizDetailQ3;
         public System.Windows.Forms.TextBox txtBizDetailQ4;
         public System.Windows.Forms.TextBox txtBizDetailQ5;
+        private System.Windows.Forms.CheckBox chkJobOfferFullDuration;
+        private System.Windows.Forms.CheckBox chkJobOfferSeasonal;
+        private System.Windows.Forms.TextBox txtJobOfferVacationDays;
+        private System.Windows.Forms.TextBox txtJobOfferRemuneration;
+        private System.Windows.Forms.RadioButton rdbJobOfferRemuneration;
+        private System.Windows.Forms.RadioButton rdbJobOfferVacationDays;
+        private System.Windows.Forms.ComboBox cmbJobOfferDWM;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtJobOfferHowlongLicense;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox chkJobOfferLicenseNeeded;
+        private System.Windows.Forms.TextBox txtJobOfferOtherBenifits;
+        private System.Windows.Forms.Label lblJobOfferOtherBenifits;
+        private System.Windows.Forms.Label lblJobOfferRecruitCanadian;
+        private System.Windows.Forms.TextBox txtJobOfferRecruitCanadian;
+        private System.Windows.Forms.CheckBox chkJobOfferRecruitCanadian;
+        private System.Windows.Forms.Label lblJobOfferUnionConsulted;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.CheckBox chkJobOfferUnionConsulted;
+        private System.Windows.Forms.CheckBox chkJobOfferIsUnion;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button btnJobOfferBenefitDetails;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label lblJobOfferJobCreation;
+        private System.Windows.Forms.Label lblJobOfferSkillTransfer;
+        private System.Windows.Forms.Label lblFillingLabourShortage;
+        private System.Windows.Forms.Label lblJobOfferPotentialBenifit;
+        private System.Windows.Forms.Label lblJobOfferProvideAssistant;
+        private System.Windows.Forms.TextBox txtJobOfferProvideAssistant;
+        private System.Windows.Forms.CheckBox chkJobOfferProvideRentNA;
+        private System.Windows.Forms.ComboBox cmbJobOfferProvideRent;
+        private System.Windows.Forms.Label lblJobOfferProvideRent;
+        private System.Windows.Forms.TextBox txtJobOfferProvideRent;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.TextBox txtJobOfferTrainCanadian;
+        private System.Windows.Forms.CheckBox chkJobOfferTrainCanadian;
+        private System.Windows.Forms.Button btnJobOfferRationale;
+        private System.Windows.Forms.TextBox txtJobOfferOfferRationale;
+        private System.Windows.Forms.Label lblJobOfferOfferRational;
+        private System.Windows.Forms.Button btnJobOfferClear;
+        private System.Windows.Forms.Button btnJobOfferDelete;
+        private System.Windows.Forms.Button btnJobOfferUpdate;
+        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnJobOfferWhentoOffer;
+        private System.Windows.Forms.TextBox txtJobOfferWhentoOffer;
+        private System.Windows.Forms.Label lblJobOfferWhentoOffer;
+        private System.Windows.Forms.Button btnJobOfferHowtoDetermine;
+        private System.Windows.Forms.TextBox txtJobOfferHowtoDetermine;
+        private System.Windows.Forms.Label lblJobOfferHowtoQualify;
+        private System.Windows.Forms.Button btnJobOfferHowDidYouFind;
+        private System.Windows.Forms.Label lblJobOfferHowDidYouFind;
+        private System.Windows.Forms.TextBox txtJobOfferHowDidYouFind;
+        private System.Windows.Forms.Button btnJobOfferWhoFillInTheJob;
+        private System.Windows.Forms.Label lblJobOfferWhoCurrentInThePosition;
+        private System.Windows.Forms.TextBox txtJobOfferWhoFillInThisJob;
+        private System.Windows.Forms.TextBox txtJobOfferRemuneraton;
+        private System.Windows.Forms.Label lblJobOfferDurationRationale;
+        public System.Windows.Forms.TextBox txtJobOfferNumberofTFW;
+        public System.Windows.Forms.TextBox textBox14;
+        public System.Windows.Forms.ComboBox cmbDurationUnit;
+        public System.Windows.Forms.TextBox txtJobOfferDurationRationale;
     }
 }

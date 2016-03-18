@@ -9,13 +9,15 @@ namespace CA.Immigration.LMIA
 {
     public partial class LMIADict
     {
-        //public Dictionary<string, string> outputDict;
+        
+        
+        public static Dictionary<string, string> outputDict=new Dictionary<string, string>();
 
 
         // Build a dictionary of EMP5593 based on the Application Id
-        public static Dictionary<string, string> EMP5593(int AppId)
+       public static Dictionary<string, string> EMP5593(int AppId)
         {
-            CommonDataContext cd = new CommonDataContext();
+      /*      CommonDataContext cd = new CommonDataContext();
 
             //var joinedApplication = from c in cd.tblApplications
             //                        join l in ld.tblLMIAApplications
@@ -334,8 +336,8 @@ namespace CA.Immigration.LMIA
                 
 
             };
-           
-            return dict;
+           */
+            return outputDict;
             }
 
         }
