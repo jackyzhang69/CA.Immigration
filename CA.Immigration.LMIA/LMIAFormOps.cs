@@ -70,6 +70,9 @@ namespace CA.Immigration.LMIA
            
             lf.DTPQ8.Format = DateTimePickerFormat.Custom;
             lf.DTPQ8.CustomFormat = "yyyy-MM-dd";
+            lf.dtpJobOfferStartDate.Format = DateTimePickerFormat.Custom;
+            lf.dtpJobOfferStartDate.CustomFormat = "yyyy-MM-dd";
+
         }
         public static void formLoadInitialization(LMIAForm lf)
         {
@@ -85,6 +88,9 @@ namespace CA.Immigration.LMIA
                     LMIABusinessDetail.fillForm(lf);
                 }
                 else lf.btnInsertBD.Visible = true;
+                // Initialize job offer form
+                LMIAJobOffer.loadFromDB(lf);
+                LMIAJobOffer.fillForm(lf);
             }
             else {
                 lf.btnAnalysisInsert.Visible = true;

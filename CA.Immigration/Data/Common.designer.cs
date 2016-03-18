@@ -8740,6 +8740,8 @@ namespace CA.Immigration.Data
 		
 		private System.Nullable<System.DateTime> _startDate;
 		
+		private System.Nullable<bool> _languageRequired;
+		
 		private System.Nullable<bool> _readingEnglishFrenchRequied;
 		
 		private System.Nullable<bool> _readingEnglishRequired;
@@ -8862,6 +8864,8 @@ namespace CA.Immigration.Data
     partial void OndurationRationaleChanged();
     partial void OnstartDateChanging(System.Nullable<System.DateTime> value);
     partial void OnstartDateChanged();
+    partial void OnlanguageRequiredChanging(System.Nullable<bool> value);
+    partial void OnlanguageRequiredChanged();
     partial void OnreadingEnglishFrenchRequiedChanging(System.Nullable<bool> value);
     partial void OnreadingEnglishFrenchRequiedChanged();
     partial void OnreadingEnglishRequiredChanging(System.Nullable<bool> value);
@@ -9127,6 +9131,26 @@ namespace CA.Immigration.Data
 					this._startDate = value;
 					this.SendPropertyChanged("startDate");
 					this.OnstartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_languageRequired", DbType="Bit")]
+		public System.Nullable<bool> languageRequired
+		{
+			get
+			{
+				return this._languageRequired;
+			}
+			set
+			{
+				if ((this._languageRequired != value))
+				{
+					this.OnlanguageRequiredChanging(value);
+					this.SendPropertyChanging();
+					this._languageRequired = value;
+					this.SendPropertyChanged("languageRequired");
+					this.OnlanguageRequiredChanged();
 				}
 			}
 		}

@@ -48,7 +48,7 @@ namespace CA.Immigration.LMIA
         private static string _employerSituation { get; set; }
         private static string _situationImpact { get; set; }
         private static List<int> _lmFactors { get; set; }
-        
+
         // Labour market factors
         private static bool _JobCreation { get; set; }
         private static bool _SkillTransfer { get; set; }
@@ -364,7 +364,8 @@ namespace CA.Immigration.LMIA
             //lowestsameposition = (lf.jobPositionAdvisor.txtSameLowest.Text != null && lf.jobPositionAdvisor.txtSameLowest.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtSameLowest.Text) : 0f;
             //highestsameposition = (lf.jobPositionAdvisor.txtSameHighest.Text != null && lf.jobPositionAdvisor.txtSameHighest.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtSameHighest.Text) : 0f;
             getInput(lf);
-
+            //Initialize Indicator rows as 5
+            if(lf.dgvQualificationIndicator.RowCount<5) lf.dgvQualificationIndicator.Rows.Add(5);
 
             switch(GlobalData.CurrentStreamId)
             {
@@ -382,6 +383,7 @@ namespace CA.Immigration.LMIA
                     else {
                         lf.dgvQualificationIndicator.Rows[0].Cells[0].Value = "No comparing data yet";
                         lf.dgvQualificationIndicator.Rows[0].Cells[1].Value = "N/A";
+                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = Color.Black;
                     }
                     //2. Check if the position wage bigger than local NOC median wage
                     if(_hourlyRate != 0 && _hourlyRate != null && _localNOCMedian != null && _localNOCMedian != 0)
@@ -394,6 +396,7 @@ namespace CA.Immigration.LMIA
                     else {
                         lf.dgvQualificationIndicator.Rows[1].Cells[0].Value = "No comparing data yet";
                         lf.dgvQualificationIndicator.Rows[1].Cells[1].Value = "N/A";
+                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = Color.Black;
                     }
                     //3. check if the position wage between same place same position wage range
                     if(_hourlyRate != null && _hourlyRate != 0 && _localNOCLowest != null && _localNOCLowest != 0 && _localNOCHighest != null && _localNOCHighest != 0)
@@ -406,6 +409,7 @@ namespace CA.Immigration.LMIA
                     {
                         lf.dgvQualificationIndicator.Rows[2].Cells[0].Value = "No comparing data yet";
                         lf.dgvQualificationIndicator.Rows[2].Cells[1].Value = "N/A";
+                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = Color.Black;
                     }
                     //4. Check if the position wage reasonable comparing to T4 summary (total paid divides by total pay slips)
                     if(_hourlyRate != null && _hourlyRate != null && _Average1 != null && _Average1 != null && _workingHours != null && _workingHours != null)
@@ -419,6 +423,8 @@ namespace CA.Immigration.LMIA
                     {
                         lf.dgvQualificationIndicator.Rows[3].Cells[0].Value = "No comparing data yet";
                         lf.dgvQualificationIndicator.Rows[3].Cells[1].Value = "N/A";
+                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = Color.Black;
+
                     }
                     if(_COPSRating != null)
                     {
@@ -585,6 +591,21 @@ namespace CA.Immigration.LMIA
 
                     MessageBox.Show(exc.Message);
                 }
+                //Create a new record of job offer
+                tblJobOffer jo = new tblJobOffer
+                {
+                    applicationID = GlobalData.CurrentApplicationId
+                };
+                try
+                {
+                    cdc.tblJobOffers.InsertOnSubmit(jo);
+                    cdc.SubmitChanges();
+                    msg.Append("Job offer record has been created\n");
+                }
+                catch(Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
                 MessageBox.Show(msg.ToString(), "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -715,7 +736,9 @@ namespace CA.Immigration.LMIA
                 //5. delete business details
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
                 if(bd != null) cdc.tblBusinessDetails.DeleteOnSubmit(bd);
-
+                //6. Delete job offer 
+                tblJobOffer jo=cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
+                if(jo!=null) cdc.tblJobOffers.DeleteOnSubmit(jo);
                 if(MessageBox.Show("This operation will delete the current application and all its dependencies. Are you sure to delete it?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     try
@@ -723,7 +746,7 @@ namespace CA.Immigration.LMIA
                         cdc.SubmitChanges();
                         GlobalData.CurrentApplicationId = null;
                         GlobalData.CurrentApplicationIdReadOnly = false;
-                        MessageBox.Show("The current application and its Dependant job position, finance, Labour market factors, and business details record has been deleted");
+                        MessageBox.Show("The current application and its Dependant job position, finance, Labour market factors, business details record, job offer has been deleted");
                         lf.btnAnalysisInsert.Visible = true;
                         lf.btnInsertBD.Visible = true;
                     }

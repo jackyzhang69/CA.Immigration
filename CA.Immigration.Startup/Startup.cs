@@ -282,7 +282,11 @@ namespace CA.Immigration.Startup
             GlobalData.CurrentApplicationId = 7;
             StartupOps.buildupEMP5575();
         }
-       
+
+        private void StartupForm_Activated(object sender, EventArgs e)
+        {
+            StartupOps.getAllApplications(this);
+        }
     }
 }
 

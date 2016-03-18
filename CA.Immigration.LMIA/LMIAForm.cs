@@ -139,7 +139,26 @@ namespace CA.Immigration.LMIA
 
         }
 
-      
+        private void btnJobOfferSave_Click(object sender, EventArgs e)
+        {
+            LMIAJobOffer.SaveRecord(this);
+        }
+
+        private void btnJobOfferDelete_Click(object sender, EventArgs e)
+        {
+            LMIAJobOffer.deleteRecord(this);
+        }
+
+        private void btnJobOfferClear_Click(object sender, EventArgs e)
+        {
+            LMIAJobOffer.clearForm(this);
+        }
+
+        private void btnJobOfferBenefitDetails_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails(ref LMIAJobOffer._detailedBenefit);
+            dt.Show();
+        }
     }
 }
 

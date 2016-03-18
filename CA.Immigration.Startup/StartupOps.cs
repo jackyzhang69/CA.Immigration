@@ -17,7 +17,7 @@ namespace CA.Immigration.Startup
         public static void startupInitialize(StartupForm sf)
         {
             // turn label things invisible
-            sf.lblSelectedPersonId.Visible = false;
+            sf.lblSelectedPerson.Visible = false;
             sf.lblSelectedPersonId.Visible = false;
             sf.lblSelectedEmployer.Visible = false;
             sf.lblSelectedEmployerId.Visible = false;
@@ -47,7 +47,7 @@ namespace CA.Immigration.Startup
            
             getAllApplications(sf);
         }
-        private static void getAllApplications(StartupForm sf)
+        public static void getAllApplications(StartupForm sf)
         {
             // if no person or/and employer selected, display all applications
             // Get LMIA application 
@@ -70,20 +70,19 @@ namespace CA.Immigration.Startup
         }
         public static void RefreshMainForm(StartupForm sf)
         {
+            getAllApplications(sf);
             if(GlobalData.CurrentPersonId != null)
             {
                 sf.lblSelectedPersonId.Text = GlobalData.CurrentPersonId.ToString();
                 using(CommonDataContext cdc = new CommonDataContext())
                 {
                     tblPerson p = cdc.tblPersons.Where(x => x.Id == GlobalData.CurrentPersonId).Select(x => x).FirstOrDefault();
-                    sf.lblSelectPerson.Text = p.FirstName + " " + p.LastName;
+                    sf.lblSelectedPerson.Text = p.FirstName + " " + p.LastName;
 
                 }
                 sf.lblSelectedPersonId.Visible = true;
-                sf.lblSelectPerson.Visible = true;
-                sf.lblSelectedPersonId.ForeColor = Color.FromArgb(50, 70, 190);
-                sf.lblSelectPerson.ForeColor = Color.FromArgb(50, 70, 190);
-                // getPersonInfo((int)GlobalData.CurrentPersonId, sf);
+                sf.lblSelectedPerson.Visible = true;
+                // get Person Info
                 Person.loadFromDB();
                 Person.fillForm(sf);
                 sf.btnPBIInsert.Visible = false;
@@ -104,8 +103,6 @@ namespace CA.Immigration.Startup
                 }
                 sf.lblSelectedEmployer.Visible = true;
                 sf.lblSelectedEmployerId.Visible = true;
-                sf.lblSelectedEmployer.ForeColor = Color.FromArgb(50, 70, 190);
-                sf.lblSelectedEmployerId.ForeColor = Color.FromArgb(50, 70, 190);
                 Employer.loadFromDB();
                 Employer.fillForm(sf);
                 sf.btnEBIInsert.Visible = false;
@@ -115,7 +112,7 @@ namespace CA.Immigration.Startup
         
         public static void clearSelectedPerson(StartupForm sf)
         {
-            sf.lblSelectPerson.Text = null;
+            sf.lblSelectedPerson.Text = null;
             sf.lblSelectedPersonId.Text = null;
         }
         public static void clearSelectedEmployer(StartupForm sf)

@@ -170,10 +170,10 @@
         <elementListCompartment Id="4ff32671-2a27-4086-8d26-fb331a64e4fa" absoluteBounds="7.64, 12.835, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0aa217e9-0eec-4b41-a945-c3d1afbfca4f" isExpanded="false" absoluteBounds="6.75, 4.375, 2, 0.45">
+    <classShape Id="682dfa6b-678e-4787-970b-dfee31fb83e6" isExpanded="false" absoluteBounds="3.875, 5.875, 2, 0.45">
       <DataClassMoniker Name="/CommonDataContext/tblJobOffer" />
       <nestedChildShapes>
-        <elementListCompartment Id="c1766d84-f6a7-4e95-9b43-fdfb3aed6371" absoluteBounds="6.765, 4.835, 1.9700000000000002, 11.595174153645832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6b911722-0bb7-4bea-a7f9-4eda1e80f8f6" absoluteBounds="3.89, 6.335, 1.9700000000000002, 11.7874755859375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
