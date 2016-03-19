@@ -8,6 +8,7 @@ using CA.Immigration.Utility;
 using System.Windows.Forms;
 using CA.Immigration.Data;
 using CA.Immigration.PDF;
+using CA.Immigration.Utility;
 
 namespace CA.Immigration.LMIA
 {
@@ -151,12 +152,48 @@ namespace CA.Immigration.LMIA
 
         private void btnJobOfferClear_Click(object sender, EventArgs e)
         {
-            LMIAJobOffer.clearForm(this);
+            if(MessageBox.Show("Are you sure to clear all inputs?","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes) LMIAJobOffer.clearForm(this);
         }
 
         private void btnJobOfferBenefitDetails_Click(object sender, EventArgs e)
         {
-            txtDetails dt = new txtDetails(ref LMIAJobOffer._detailedBenefit);
+            txtDetails dt = new txtDetails("Please justify why hiring TFW can bring this benifits to Canada", "_detailedBenefit");
+            dt.Show();
+        }
+
+        private void btnJobOfferRationale_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails("The rational providing this job to the TFW", "_detailedRationaleOfferingJob");
+            dt.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails("Please explain your training plan for Canadians", "_trainPlanDetails");
+            dt.Show();
+        }
+
+        private void btnJobOfferWhoFillInTheJob_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails("Who is currently filling the duties and responsibilities of the positio?", "_whoIsFillingDetail");
+            dt.Show();
+        }
+
+        private void btnJobOfferHowDidYouFind_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails("How did you find or identify the foreign worker for this position?", "_howDidYouFindDetail");
+            dt.Show();
+        }
+
+        private void btnJobOfferHowtoDetermine_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails("How did you determine the foreign worker was qualified for the job?", "_howDidYouDetermineDetail");
+            dt.Show();
+        }
+
+        private void btnJobOfferWhentoOffer_Click(object sender, EventArgs e)
+        {
+            txtDetails dt = new txtDetails("How and when did you offer this job to the foreign worker?", "_howAndWhenOfferDetail");
             dt.Show();
         }
     }

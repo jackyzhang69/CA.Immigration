@@ -45,8 +45,8 @@ namespace CA.Immigration.Startup
                     _MarriageStatusId = ps.MarriageStatusId;
                     _Phone = ps.Phone;
                     _Email = ps.Email;
-                    _Photo = ps.Photo != null ? ImageWork.ByteArrayToImage(ps.Photo.ToArray()) : null;
-                    _theSignature = ps.theSignature != null ? ImageWork.ByteArrayToImage(ps.theSignature.ToArray()) : null;
+                    _Photo = ps.Photo.Length!=0 ? ImageWork.ByteArrayToImage(ps.Photo.ToArray()) : null;
+                    _theSignature = ps.theSignature.Length!=0? ImageWork.ByteArrayToImage(ps.theSignature.ToArray()) : null;
                 }
 
             }

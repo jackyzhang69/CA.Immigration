@@ -238,31 +238,31 @@ namespace CA.Immigration.LMIA
             lf.jobPositionAdvisor.txtNoc.Text = _NOC;
             lf.jobPositionAdvisor.cmbProvince.SelectedIndex = (int)_province;
             lf.jobPositionAdvisor.txtWorkingHours.Text = _workingHours.ToString();
-            lf.jobPositionAdvisor.txtHourlyRate.Text = _hourlyRate.ToString();
-            lf.jobPositionAdvisor.txtProvincialMedian.Text = _provincialMedian.ToString();
-            lf.jobPositionAdvisor.txtLocalNOCMedian.Text = _localNOCMedian.ToString();
-            lf.jobPositionAdvisor.txtLocalNocLowest.Text = _localNOCLowest.ToString();
-            lf.jobPositionAdvisor.txtLocalNocHighest.Text = _localNOCHighest.ToString();
-            lf.jobPositionAdvisor.txtSameLowest.Text = _samePlaceSamePositionLowest.ToString();
-            lf.jobPositionAdvisor.txtSameHighest.Text = _samePlaceSamePositionHighest.ToString();
+            lf.jobPositionAdvisor.txtHourlyRate.Text = String.Format("{0:0.00}", _hourlyRate);
+            lf.jobPositionAdvisor.txtProvincialMedian.Text = String.Format("{0:0.00}", _provincialMedian); 
+            lf.jobPositionAdvisor.txtLocalNOCMedian.Text = String.Format("{0:#,###.##}", _localNOCMedian);
+            lf.jobPositionAdvisor.txtLocalNocLowest.Text = String.Format("{0:#,###.##}", _localNOCLowest);
+            lf.jobPositionAdvisor.txtLocalNocHighest.Text = String.Format("{0:#,###.##}", _localNOCHighest);
+            lf.jobPositionAdvisor.txtSameLowest.Text = String.Format("{0:#,###.##}", _samePlaceSamePositionLowest);
+            lf.jobPositionAdvisor.txtSameHighest.Text = String.Format("{0:#,###.##}", _samePlaceSamePositionHighest);
             lf.jobPositionAdvisor.chkNoSame.Checked = _noSamePosition;
             lf.financialAdvisor.txtLast1Year.Text = _year1.ToString();
-            lf.financialAdvisor.txtRevenue1.Text = _totalRevenue1.ToString();
-            lf.financialAdvisor.txtCash1.Text = _cash1.ToString();
-            lf.financialAdvisor.txtNetImcome1.Text = _netIncome1.ToString();
-            lf.financialAdvisor.txtRetainedEarning1.Text = _retianedEarning1.ToString();
-            lf.financialAdvisor.txtGrossPayroll1.Text = _grossPayrol1.ToString();
+            lf.financialAdvisor.txtRevenue1.Text = String.Format("{0:#,###.##}", _totalRevenue1);
+            lf.financialAdvisor.txtCash1.Text = String.Format("{0:#,###.##}", _cash1);
+            lf.financialAdvisor.txtNetImcome1.Text = String.Format("{0:#,###.##}", _netIncome1);
+            lf.financialAdvisor.txtRetainedEarning1.Text = String.Format("{0:#,###.##}", _retianedEarning1);
+            lf.financialAdvisor.txtGrossPayroll1.Text = String.Format("{0:#,###.##}", _grossPayrol1);
             lf.financialAdvisor.txtSlips1.Text = _t4Slips1.ToString();
-            lf.financialAdvisor.txtAverageWage1.Text = _Average1.ToString();
+            lf.financialAdvisor.txtAverageWage1.Text = String.Format("{0:#,###.##}",_t4Slips1!=null?String.Format("{0:#,###.##}",_grossPayrol1/_t4Slips1):"");
             lf.financialAdvisor.txtLast2Year.Text = _year2.ToString();
-            lf.financialAdvisor.txtRevenue2.Text = _totalRevenue2.ToString();
-            lf.financialAdvisor.txtCash2.Text = _cash2.ToString();
-            lf.financialAdvisor.txtNetImcome2.Text = _netIncome2.ToString();
-            lf.financialAdvisor.txtRetainedEarning2.Text = _retianedEarning2.ToString();
-            lf.financialAdvisor.txtGrossPayroll2.Text = _grossPayrol2.ToString();
+            lf.financialAdvisor.txtRevenue2.Text = String.Format("{0:#,###.##}", _totalRevenue2);
+            lf.financialAdvisor.txtCash2.Text = String.Format("{0:#,###.##}", _cash2);
+            lf.financialAdvisor.txtNetImcome2.Text = String.Format("{0:#,###.##}", _netIncome2);
+            lf.financialAdvisor.txtRetainedEarning2.Text = String.Format("{0:#,###.##}", _retianedEarning2);
+            lf.financialAdvisor.txtGrossPayroll2.Text = String.Format("{0:#,###.##}", _grossPayrol2);
             lf.financialAdvisor.txtSlips2.Text = _t4Slips2.ToString();
-            lf.financialAdvisor.txtAverageWage2.Text = _Average2.ToString();
-            lf.txtUnemployRate.Text = _unemploymentRate.ToString();
+            lf.financialAdvisor.txtAverageWage2.Text = String.Format("{0:#,###.##}", _t4Slips2 != null ? String.Format("{0:#,###.##}", _grossPayrol2 / _t4Slips2) : "");
+            lf.txtUnemployRate.Text = String.Format("{0:#,###.##}", _unemploymentRate);
             lf.txtCOPSRating.Text = _COPSRating.ToString();
             lf.txtOccupationProfile.Text = _occupationProfile.ToString();
             lf.txtEmployerSituation.Text = _employerSituation.ToString();
@@ -272,86 +272,14 @@ namespace CA.Immigration.LMIA
         }
         public static void analysisLoadInitialization(LMIAForm lf)
         {
-            //Load Tab Analysis data
-            using(CommonDataContext cdc = new CommonDataContext())
-            {
-                // load position record
-                tblLMIAPosition lp = cdc.tblLMIAPositions.Where(x => x != null && x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if(lp != null)
-                {
-                    lf.jobPositionAdvisor.txtJobTitle.Text = lp.JobTitle;
-                    lf.jobPositionAdvisor.txtNoc.Text = lp.NOC;
-                    lf.jobPositionAdvisor.cmbProvince.SelectedIndex = (int)lp.Province;
-                    lf.jobPositionAdvisor.txtWorkingHours.Text = lp.WorkingHours.ToString();
-                    lf.jobPositionAdvisor.txtHourlyRate.Text = lp.HourlyRate.ToString();
-                    lf.jobPositionAdvisor.txtProvincialMedian.Text = lp.ProvincialMedian.ToString();
-                    lf.jobPositionAdvisor.txtLocalNOCMedian.Text = lp.LocalNOCMedian.ToString();
-                    lf.jobPositionAdvisor.txtLocalNocLowest.Text = lp.LocalNOCLowest.ToString();
-                    lf.jobPositionAdvisor.txtLocalNocHighest.Text = lp.LocalNOCHighest.ToString();
-                    lf.jobPositionAdvisor.txtSameLowest.Text = lp.SamePlaceSamePositionLowest.ToString();
-                    lf.jobPositionAdvisor.txtSameHighest.Text = lp.SamePlaceSamePositionHighest.ToString();
-                    lf.jobPositionAdvisor.chkNoSame.Checked = lp.NoSamePosition == true ? true : false;
-                    lf.txtUnemployRate.Text = lp.UmemploymentRate.ToString();
-                    lf.txtCOPSRating.Text = lp.COPSRating.ToString();
-                    lf.txtOccupationProfile.Text = lp.OccupationProfile.ToString();
-                    lf.txtEmployerSituation.Text = lp.EmployerSituation;
-                    lf.txtSituationImpact.Text = lp.EmployerImact;
-                }
-                // load financial record
-                List<tblFinance> finance = cdc.tblFinances.Where(x => x != null && x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).ToList();
-
-                if(finance.Count >= 1)
-                {
-                    lf.financialAdvisor.txtLast1Year.Text = finance[0].FiscalYear.ToString();
-                    lf.financialAdvisor.txtRevenue1.Text = finance[0].TotalRevenue.ToString();
-                    lf.financialAdvisor.txtCash1.Text = finance[0].Cash.ToString();
-                    lf.financialAdvisor.txtNetImcome1.Text = finance[0].NetIncome.ToString();
-                    lf.financialAdvisor.txtRetainedEarning1.Text = finance[0].RetainedEarning.ToString();
-                    lf.financialAdvisor.txtGrossPayroll1.Text = finance[0].GrossPayroll.ToString();
-                    lf.financialAdvisor.txtSlips1.Text = finance[0].T4SlipsIssued.ToString();
-
-                }
-                if(finance.Count == 2)
-                {
-                    lf.financialAdvisor.txtLast2Year.Text = finance[1].FiscalYear.ToString();
-                    lf.financialAdvisor.txtRevenue2.Text = finance[1].TotalRevenue.ToString();
-                    lf.financialAdvisor.txtCash2.Text = finance[1].Cash.ToString();
-                    lf.financialAdvisor.txtNetImcome2.Text = finance[1].NetIncome.ToString();
-                    lf.financialAdvisor.txtRetainedEarning2.Text = finance[1].RetainedEarning.ToString();
-                    lf.financialAdvisor.txtGrossPayroll2.Text = finance[1].GrossPayroll.ToString();
-                    lf.financialAdvisor.txtSlips2.Text = finance[1].T4SlipsIssued.ToString();
-                }
-                tblLMIA11Factor factors = cdc.tblLMIA11Factors.Where(x => x != null && x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if(factors != null)
-                {
-                    lf.ckbLmFactor.SetItemChecked(0, factors.JobCreation == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(1, factors.SkillTransfer == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(2, factors.FillLabourShortage == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(3, factors.PrevailingWageOffered == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(4, factors.HireCanadianEffort == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(5, factors.LabourDisputUnaffected == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(6, factors.CommitmentFulfilled == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(7, factors.BusinessEngagement == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(8, factors.OfferConsistentwithDemand == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(9, factors.AbletoFulfillTermofOffer == true ? true : false);
-                    lf.ckbLmFactor.SetItemChecked(10, factors.PastCompliance == true ? true : false);
-                }
-                // if business details is existed, load from database and fill the form
-                tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x != null && x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if(bd != null)
-                {
-                    LMIABusinessDetail.loadFromDB(lf);
-                    LMIABusinessDetail.fillForm(lf);
-                    lf.btnInsertBD.Visible = false;
-                }
-
-
-            }
+            //get analysis data
+            loadFromDB(lf);
+            fillForm(lf);
             // get average wage based on data loaded from database
             lf.financialAdvisor.txtAverageWage1.Text = lf.financialAdvisor.getAverage(lf.financialAdvisor.txtGrossPayroll1.Text, lf.financialAdvisor.txtSlips1.Text);
             lf.financialAdvisor.txtAverageWage2.Text = lf.financialAdvisor.getAverage(lf.financialAdvisor.txtGrossPayroll2.Text, lf.financialAdvisor.txtSlips2.Text);
             // set up and display qualification indicator
-            lf.dgvQualificationIndicator.Rows.Add(5);
+            //lf.dgvQualificationIndicator.Rows.Add(5);
             getIndicators(lf);
         }
         public static void getIndicators(LMIAForm lf)
@@ -756,6 +684,8 @@ namespace CA.Immigration.LMIA
                         MessageBox.Show(exc.Message);
                     }
                 }
+                clearForm(lf);
+                fillForm(lf);
             }
         }
 

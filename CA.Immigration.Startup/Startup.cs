@@ -27,12 +27,6 @@ namespace CA.Immigration.Startup
 
         }
 
-        private void lMIAToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            //LMIAForm lmiaForm=new LMIAForm(1,2,3);
-            //lmiaForm.Show();
-        }
-
         private void qIIPToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ApplicationId = 1;
@@ -81,10 +75,10 @@ namespace CA.Immigration.Startup
         private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GlobalData.CurrentCategoryId = int.Parse(cmbCategory.SelectedValue.ToString());
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 int id = int.Parse(cmbCategory.SelectedValue.ToString());
-                if(cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name) != null)
+                if (cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name) != null)
                     cmbProgram.DataSource = cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name);
                 else
                 {
@@ -99,23 +93,16 @@ namespace CA.Immigration.Startup
         {
             // call functions based on program selected 
             GlobalData.CurrentProgramIdReadOnly = true;  // disable changing application id
-            switch(GlobalData.CurrentProgramId)
+            if (GlobalData.CurrentEmployerId != null)
             {
-                case (int)GlobalData.AppStream.LMIAPRandWP:
-
-                    break;
-                case (int)GlobalData.AppStream.LMIAWPOnly:
-                    if(GlobalData.CurrentEmployerId != null)
-                    {
-                        LMIAForm lf = new LMIAForm();
-                        lf.Show();
-                    }
-
-                    else MessageBox.Show("You have to select an employer first");
-                    break;
-                default:
-                    break;
+                if (GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes))
+                {
+                    LMIAForm lf = new LMIAForm();
+                    lf.Show(); 
+                }
             }
+
+            else MessageBox.Show("You have to select an employer first");
 
         }
 
@@ -128,7 +115,7 @@ namespace CA.Immigration.Startup
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.jpg;*.jpeg;*.png;*.bmp";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pcbPhoto.Image = Image.FromFile(ofd.FileName);
                 pcbPhoto.SizeMode = PictureBoxSizeMode.Zoom;
@@ -139,7 +126,7 @@ namespace CA.Immigration.Startup
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.png";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pcbSignature.Image = Image.FromFile(ofd.FileName);
                 pcbSignature.SizeMode = PictureBoxSizeMode.Zoom;
@@ -152,7 +139,7 @@ namespace CA.Immigration.Startup
             ps.Show();
 
         }
-         private void btnMakeImm5476_Click(object sender, EventArgs e)
+        private void btnMakeImm5476_Click(object sender, EventArgs e)
         {
             int[] ids = new int[] { 4, (int)GlobalData.CurrentPersonId };
             FormOPs.IMM5476Sign i5476 = new FormOPs.IMM5476Sign(ids);
@@ -162,12 +149,12 @@ namespace CA.Immigration.Startup
 
         private void btnEMP5575_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void dgvLMIAApplication_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(dgvLMIAApplication.SelectedRows != null)
+            if (dgvLMIAApplication.SelectedRows != null)
             {
                 GlobalData.CurrentApplicationId = (int)dgvLMIAApplication.SelectedRows[0].Cells[0].Value;
                 LMIAForm lf = new LMIAForm((int)GlobalData.CurrentApplicationId);
@@ -226,13 +213,14 @@ namespace CA.Immigration.Startup
 
         private void cbxAlias_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxAlias.Checked == true) {
+            if (cbxAlias.Checked == true)
+            {
                 lblPBIAliasFN.Visible = true;
                 txtPBIAFN.Visible = true;
                 lblPBIAliasLN.Visible = true;
                 txtPBIALN.Visible = true;
             }
-            else 
+            else
             {
                 lblPBIAliasFN.Visible = false;
                 txtPBIAFN.Visible = false;
@@ -269,13 +257,13 @@ namespace CA.Immigration.Startup
 
         }
 
-       
+
         private void btnEMP5602_Click(object sender, EventArgs e)
         {
             StartupOps.buildupEMP5602();
         }
 
-    private void btnEMP5575_Click_1(object sender, EventArgs e)
+        private void btnEMP5575_Click_1(object sender, EventArgs e)
         {
             //if(GlobalData.CurrentApplicationId != null) { StartupOps.buildupEMP5575(); }
             //else MessageBox.Show("There is no active application");

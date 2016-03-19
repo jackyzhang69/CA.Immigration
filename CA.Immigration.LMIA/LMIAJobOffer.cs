@@ -69,6 +69,7 @@ namespace CA.Immigration.LMIA
         private static string _howAndWhenOfferBrief;
         private static string _howAndWhenOfferDetail;
 
+        public static Dictionary<string, string> detailDict = new Dictionary<string, string>();
         public static void getInput(LMIAForm lf)
         {
             _numOfTFWs = getValue.getIntValue(lf.txtJobOfferNumberofTFW.Text);
@@ -112,13 +113,13 @@ namespace CA.Immigration.LMIA
             if(_attemptedRecruitCanadian == false) _notAttemptedReason = lf.txtJobOfferRecruitCanadian.Text;
             if(_attemptedRecruitCanadian == true) _OfficialAdNumber = lf.txtJobOfferRecruitCanadian.Text;
             _briefBenefit = lf.txtJobOfferBenefitBrief.Text;
-            // _detailedBenefit =  ;
+            _detailedBenefit =(detailDict!=null && detailDict.ContainsKey("_detailedBenefit")) ? detailDict["_detailedBenefit"] : string.Empty;
             _briefRationaleOfferingJob = lf.txtJobOfferOfferRationale.Text;
-            //_detailedRationaleOfferingJob =  ;
+            _detailedRationaleOfferingJob = (detailDict != null && detailDict.ContainsKey("_detailedRationaleOfferingJob")) ? detailDict["_detailedRationaleOfferingJob"] : string.Empty;
             _trainCanadian = lf.chkJobOfferTrainCanadian.Checked == true ? true : false;
             if(_trainCanadian == false) _noTrainReason = lf.txtJobOfferTrainCanadian.Text;
             if(_trainCanadian == true) _trainPlanBrief = lf.txtJobOfferTrainCanadian.Text;
-            //_trainPlanDetails =  ;
+            _trainPlanDetails = (detailDict != null && detailDict.ContainsKey("_trainPlanDetails") )? detailDict["_trainPlanDetails"] : string.Empty;
             _willProvideAccomadation = lf.chkJobOfferProvideAccomadation.Checked = true ? true : false;
             if(_willProvideAccomadation == false) _notProvideButOffer = lf.txtJobOfferProvideAssistant.Text;
             _provideRent = getValue.getIntValue(lf.txtJobOfferProvideRent.Text);
@@ -127,22 +128,22 @@ namespace CA.Immigration.LMIA
             if(lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
             {  //Below are EMP5593 Questions
                 _whoIsFillingBrief = lf.txtJobOfferWhoFillInThisJob.Text;
-                // _whoIsFillingDetail =  ; 
+                _whoIsFillingDetail = (detailDict != null && detailDict.ContainsKey("_whoIsFillingDetail")) ? detailDict["_whoIsFillingDetail"] : string.Empty;
             }
             if(lf.lblJobOfferHowDidYouFind.Visible == true)
             {
                 _howDidYouFindBrief = lf.txtJobOfferHowDidYouFind.Text;
-                //_howDidYouFindDetail =  ;
+                _howDidYouFindDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouFindDetail")) ? detailDict["_howDidYouFindDetail"] : string.Empty;
             }
             if(lf.lblJobOfferHowtoQualify.Visible == true)
             {
                 _howDidYouDetermineBrief = lf.txtJobOfferHowtoDetermine.Text;
-                //_howDidYouDetermineDetail =  ;
+                _howDidYouDetermineDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouDetermineDetail")) ? detailDict["_howDidYouDetermineDetail"] : string.Empty;
             }
             if(lf.lblJobOfferWhentoOffer.Visible == true)
             {
                 _howAndWhenOfferBrief = lf.txtJobOfferWhentoOffer.Text;
-                //_howAndWhenOfferDetail =  ;
+                _howAndWhenOfferDetail = (detailDict != null && detailDict.ContainsKey("_howAndWhenOfferDetail")) ? detailDict["_howAndWhenOfferDetail"] : string.Empty;
             }
 
         }
@@ -160,7 +161,7 @@ namespace CA.Immigration.LMIA
                         _duration = jo.duration;
                         _durationUnit = jo.durationUnit;
                         _durationRationale = jo.durationRationale;
-                        _startDate = jo.startDate != null ? (DateTime)jo.startDate : DateTime.Today;
+                        _startDate = (jo.startDate==null || (DateTime)jo.startDate<DateTime.MinValue || (DateTime)jo.startDate>DateTime.MaxValue) ?DateTime.Today : (DateTime)jo.startDate;
                         _languageRequired = jo.languageRequired == true ? true : false;
                         _readingEnglishFrenchRequied = jo.readingEnglishFrenchRequied == true ? true : false;
                         _readingEnglishRequired = jo.readingEnglishRequired == true ? true : false;
@@ -226,7 +227,7 @@ namespace CA.Immigration.LMIA
             lf.txtJobOfferExpectedDuration.Text = _duration.ToString();
             lf.cmbDurationUnit.SelectedText = _durationUnit;
             lf.txtJobOfferDurationRationale.Text = _durationRationale;
-            lf.dtpJobOfferStartDate.Value = _startDate;
+            lf.dtpJobOfferStartDate.Value = (_startDate<DateTime.MinValue || _startDate >DateTime.MaxValue)?DateTime.Today:_startDate;
             lf.chkLanguageRequired.Checked = _languageRequired;
             lf.chkLIMAOralEnglish.Checked = _readingEnglishFrenchRequied;
             lf.chkLMIAoralEnglish.Checked = _readingEnglishRequired;
@@ -277,13 +278,13 @@ namespace CA.Immigration.LMIA
             if(_attemptedRecruitCanadian == false) lf.txtJobOfferRecruitCanadian.Text = _notAttemptedReason;
             if(_attemptedRecruitCanadian == true) lf.txtJobOfferRecruitCanadian.Text = _OfficialAdNumber;
             lf.txtJobOfferBenefitBrief.Text = _briefBenefit;
-            // _detailedBenefit =  ;
+             _detailedBenefit = (detailDict != null && detailDict.ContainsKey("_detailedBenefit"))?detailDict["_detailedBenefit"]:string.Empty;
             lf.txtJobOfferOfferRationale.Text = _briefRationaleOfferingJob;
-            //_detailedRationaleOfferingJob =  ;
+            _detailedRationaleOfferingJob = (detailDict != null && detailDict.ContainsKey("_detailedRationaleOfferingJob")) ? detailDict["_detailedRationaleOfferingJob"] : string.Empty;
             lf.chkJobOfferTrainCanadian.Checked = _trainCanadian;
             if(_trainCanadian == false) lf.txtJobOfferTrainCanadian.Text = _noTrainReason;
             if(_trainCanadian == true) lf.txtJobOfferTrainCanadian.Text = _trainPlanBrief;
-            //_trainPlanDetails =  ;
+            _trainPlanDetails = (detailDict != null && detailDict.ContainsKey("_trainPlanDetails")) ? detailDict["_trainPlanDetails"] : string.Empty ;
             lf.chkJobOfferProvideAccomadation.Checked = _willProvideAccomadation;
             if(_willProvideAccomadation == false) lf.txtJobOfferProvideAssistant.Text = _notProvideButOffer;
             lf.txtJobOfferProvideRent.Text = _provideRent.ToString();
@@ -292,26 +293,27 @@ namespace CA.Immigration.LMIA
             if(lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
             {  //Below are EMP5593 Questions
                 lf.txtJobOfferWhoFillInThisJob.Text = _whoIsFillingBrief;
-                // _whoIsFillingDetail =  ; 
+                _whoIsFillingDetail = (detailDict != null && detailDict.ContainsKey("_whoIsFillingDetail")) ? detailDict["_whoIsFillingDetail"] : string.Empty ; 
             }
-            if(lf.lblJobOfferHowDidYouFind.Visible == true)
+            if (lf.lblJobOfferHowDidYouFind.Visible == true)
             {
                 lf.txtJobOfferHowDidYouFind.Text = _howDidYouFindBrief;
-                //_howDidYouFindDetail =  ;
+                _howDidYouFindDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouFindDetail")) ? detailDict["_howDidYouFindDetail"] : string.Empty ;
             }
-            if(lf.lblJobOfferHowtoQualify.Visible == true)
+            if (lf.lblJobOfferHowtoQualify.Visible == true)
             {
                 lf.txtJobOfferHowtoDetermine.Text = _howDidYouDetermineBrief;
-                //_howDidYouDetermineDetail =  ;
+                _howDidYouDetermineDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouDetermineDetail")) ? detailDict["_howDidYouDetermineDetail"] : string.Empty ;
             }
-            if(lf.lblJobOfferWhentoOffer.Visible == true)
+            if (lf.lblJobOfferWhentoOffer.Visible == true)
             {
                 lf.txtJobOfferWhentoOffer.Text = _howAndWhenOfferBrief;
-                //_howAndWhenOfferDetail =  ;
+                _howAndWhenOfferDetail = (detailDict != null && detailDict.ContainsKey("_howAndWhenOfferDetail")) ? detailDict["_howAndWhenOfferDetail"] : string.Empty;
             }
         }
         public static void clearForm(LMIAForm lf)
         {
+            detailDict.Clear();
             lf.txtJobOfferNumberofTFW.Text = null;
             lf.txtJobOfferExpectedDuration.Text = null;
             lf.cmbDurationUnit.SelectedText = null;
@@ -354,25 +356,25 @@ namespace CA.Immigration.LMIA
             lf.chkJobOfferRecruitCanadian.Checked = true;
             lf.txtJobOfferRecruitCanadian.Text = null;
             lf.txtJobOfferBenefitBrief.Text = null;
-            // _detailedBenefit =  ;
+             _detailedBenefit = string.Empty ;
             lf.txtJobOfferOfferRationale.Text = null;
-            //_detailedRationaleOfferingJob =  ;
+            _detailedRationaleOfferingJob = string.Empty;
             lf.chkJobOfferTrainCanadian.Checked = false;
             lf.txtJobOfferTrainCanadian.Text = null;
-            //_trainPlanDetails =  ;
+            _trainPlanDetails = string.Empty;
             lf.chkJobOfferProvideAccomadation.Checked = false;
             lf.txtJobOfferProvideAssistant.Text = null;
             lf.txtJobOfferProvideRent.Text = null;
             lf.cmbJobOfferProvideRent.SelectedText = null;
             lf.chkJobOfferProvideRentNA.Checked = false;
             lf.txtJobOfferWhoFillInThisJob.Text = null;
-            // _whoIsFillingDetail =  ; 
+             _whoIsFillingDetail = string.Empty; 
             lf.txtJobOfferHowDidYouFind.Text = null;
 
             lf.txtJobOfferHowtoDetermine.Text = null;
-            //_howDidYouDetermineDetail =  ;
+            _howDidYouDetermineDetail = string.Empty;
             lf.txtJobOfferWhentoOffer.Text = null;
-            //_howAndWhenOfferDetail =  ;
+            _howAndWhenOfferDetail = string.Empty;
             getInput(lf);
             fillForm(lf);
         }

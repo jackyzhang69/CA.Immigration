@@ -7,29 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CA.Immigration.Utility;
 
 namespace CA.Immigration.LMIA
 {
     public partial class txtDetails : Form
     {
         string _source;
+        string _question;
         private bool _txtChanged;
-        public txtDetails(ref string source)
+        public txtDetails(string question, string source)
         {
             InitializeComponent();
             _source = source;
+            _question = question;
         }
+
 
         private void btnTxtDetailsSave_Click(object sender, EventArgs e)
         {
-            LMIAJobOffer._detailedBenefit = txtTxtDetails.Text;
+            if (LMIAJobOffer.detailDict.ContainsKey(_source)) LMIAJobOffer.detailDict[_source] = txtTxtDetails.Text;
+            else LMIAJobOffer.detailDict.Add(_source, txtTxtDetails.Text);
+
             btnTxtDetailsSave.Visible = false;
             _txtChanged = false;
         }
 
         private void txtDetails_Load(object sender, EventArgs e)
         {
-            txtTxtDetails.Text = _source;
+            if(LMIAJobOffer.detailDict.ContainsKey(_source)) txtTxtDetails.Text = LMIAJobOffer.detailDict[_source];
+            lblTopic.Text = _question;
             btnTxtDetailsSave.Visible = false;
             _txtChanged = false;
         }

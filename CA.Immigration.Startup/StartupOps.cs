@@ -53,12 +53,14 @@ namespace CA.Immigration.Startup
             // Get LMIA application 
             using(CommonDataContext cdc = new CommonDataContext())
             {
-                if(GlobalData.CurrentPersonId != null)
-                {
-                    sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate });
-                }
-                else sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), CreateDate = x.CreatedDate });
-
+                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate,SubmitDate=x.SubmittedDate,ApplicationNumber=x.ApplicationNumber,PositionNumber=x.NumberofPosition });
+                sf.dgvLMIAApplication.Columns[0].Width = 50;
+                sf.dgvLMIAApplication.Columns[1].Width = 150;
+                sf.dgvLMIAApplication.Columns[2].Width = 85;
+                sf.dgvLMIAApplication.Columns[3].Width = 100;
+                sf.dgvLMIAApplication.Columns[4].Width = 100;
+                sf.dgvLMIAApplication.Columns[5].Width = 100;
+               // sf.dgvLMIAApplication.Columns[7].Width = 80;
             }
 
             // Get ... application
