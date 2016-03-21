@@ -17,7 +17,7 @@ namespace CA.Immigration.LMIA
             {
                 if (Validation.IsFloat(txtGrossPayroll1.Text) && Validation.IsFloat(txtSlips1.Text)) txtAverageWage1.Text = getAverage(txtGrossPayroll1.Text, txtSlips1.Text);
                 else {
-                    MessageBox.Show("Your input, pay roll or slips, is not float");
+                    MessageBox.Show("Your input, pay roll or slips, is not float or integer");
                 }
 
             }
@@ -25,7 +25,7 @@ namespace CA.Immigration.LMIA
             {
                 if (Validation.IsFloat(txtGrossPayroll2.Text) && Validation.IsFloat(txtSlips2.Text)) txtAverageWage2.Text = getAverage(txtGrossPayroll2.Text, txtSlips2.Text);
                 else {
-                    MessageBox.Show("Your input, pay roll or slips, is not float");
+                    MessageBox.Show("Your input, pay roll or slips, is not float or integer");
                 }
             }
         }
@@ -47,21 +47,29 @@ namespace CA.Immigration.LMIA
         private void txtGrossPayroll1_Leave(object sender, EventArgs e)
         {
             validate();
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
         }
 
         private void txtSlips1_Leave(object sender, EventArgs e)
         {
             validate();
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
         }
 
         private void txtGrossPayroll2_Leave(object sender, EventArgs e)
         {
             validate();
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
         }
 
         private void txtSlips2_Leave(object sender, EventArgs e)
         {
             validate();
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
         }
 
         private void txtLast1Year_Leave(object sender, EventArgs e)
@@ -152,6 +160,30 @@ namespace CA.Immigration.LMIA
                 MessageBox.Show("Retained Earning should be a float number");
                 txtRetainedEarning2.Focus();
             }
+        }
+
+        private void txtGrossPayroll1_TextChanged(object sender, EventArgs e)
+        {
+          txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+          txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
+        }
+
+        private void txtSlips1_TextChanged(object sender, EventArgs e)
+        {
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
+        }
+
+        private void txtGrossPayroll2_TextChanged(object sender, EventArgs e)
+        {
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
+        }
+
+        private void txtSlips2_TextChanged(object sender, EventArgs e)
+        {
+            txtAverageWage1.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll1.Text, txtSlips1.Text));
+            txtAverageWage2.Text = String.Format("{0:#,###.##}", getAverage(txtGrossPayroll2.Text, txtSlips2.Text));
         }
     }
 }

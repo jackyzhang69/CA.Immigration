@@ -157,7 +157,7 @@ namespace CA.Immigration.Startup
             if (dgvLMIAApplication.SelectedRows != null)
             {
                 GlobalData.CurrentApplicationId = (int)dgvLMIAApplication.SelectedRows[0].Cells[0].Value;
-                LMIAForm lf = new LMIAForm((int)GlobalData.CurrentApplicationId);
+                LMIAForm lf = new LMIAForm();
                 lf.Show();
             }
 

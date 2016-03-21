@@ -97,7 +97,9 @@ namespace CA.Immigration.LMIA
                 if(GlobalData.CurrentBusinessDetailId != null) lf.btnInsertBD.Visible = false;
                 else lf.btnInsertBD.Visible = true;
             }
+            
         }
+        
        
 
     }

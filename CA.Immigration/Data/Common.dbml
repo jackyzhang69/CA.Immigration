@@ -440,6 +440,7 @@
       <Column Name="otherLanguageExplanation" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="vacationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="remuneration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="otherBenefit" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="isSeasonal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="isFullyCoveredLMIA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="notFullyCoveredReason" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
@@ -468,6 +469,7 @@
       <Column Name="notProvideButOffer" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="provideRent" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="provideUnit" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="accommodationDescription" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="accomadationNotApplicalbe" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="whoIsFillingBrief" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="whoIsFillingDetail" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />

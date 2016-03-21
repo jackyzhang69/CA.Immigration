@@ -8770,6 +8770,8 @@ namespace CA.Immigration.Data
 		
 		private System.Nullable<int> _remuneration;
 		
+		private string _otherBenefit;
+		
 		private System.Nullable<bool> _isSeasonal;
 		
 		private System.Nullable<bool> _isFullyCoveredLMIA;
@@ -8825,6 +8827,8 @@ namespace CA.Immigration.Data
 		private System.Nullable<int> _provideRent;
 		
 		private string _provideUnit;
+		
+		private string _accommodationDescription;
 		
 		private System.Nullable<bool> _accomadationNotApplicalbe;
 		
@@ -8894,6 +8898,8 @@ namespace CA.Immigration.Data
     partial void OnvacationDaysChanged();
     partial void OnremunerationChanging(System.Nullable<int> value);
     partial void OnremunerationChanged();
+    partial void OnotherBenefitChanging(string value);
+    partial void OnotherBenefitChanged();
     partial void OnisSeasonalChanging(System.Nullable<bool> value);
     partial void OnisSeasonalChanged();
     partial void OnisFullyCoveredLMIAChanging(System.Nullable<bool> value);
@@ -8950,6 +8956,8 @@ namespace CA.Immigration.Data
     partial void OnprovideRentChanged();
     partial void OnprovideUnitChanging(string value);
     partial void OnprovideUnitChanged();
+    partial void OnaccommodationDescriptionChanging(string value);
+    partial void OnaccommodationDescriptionChanged();
     partial void OnaccomadationNotApplicalbeChanging(System.Nullable<bool> value);
     partial void OnaccomadationNotApplicalbeChanged();
     partial void OnwhoIsFillingBriefChanging(string value);
@@ -9431,6 +9439,26 @@ namespace CA.Immigration.Data
 					this._remuneration = value;
 					this.SendPropertyChanged("remuneration");
 					this.OnremunerationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_otherBenefit", DbType="VarChar(150)")]
+		public string otherBenefit
+		{
+			get
+			{
+				return this._otherBenefit;
+			}
+			set
+			{
+				if ((this._otherBenefit != value))
+				{
+					this.OnotherBenefitChanging(value);
+					this.SendPropertyChanging();
+					this._otherBenefit = value;
+					this.SendPropertyChanged("otherBenefit");
+					this.OnotherBenefitChanged();
 				}
 			}
 		}
@@ -9991,6 +10019,26 @@ namespace CA.Immigration.Data
 					this._provideUnit = value;
 					this.SendPropertyChanged("provideUnit");
 					this.OnprovideUnitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_accommodationDescription", DbType="VarChar(150)")]
+		public string accommodationDescription
+		{
+			get
+			{
+				return this._accommodationDescription;
+			}
+			set
+			{
+				if ((this._accommodationDescription != value))
+				{
+					this.OnaccommodationDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._accommodationDescription = value;
+					this.SendPropertyChanged("accommodationDescription");
+					this.OnaccommodationDescriptionChanged();
 				}
 			}
 		}

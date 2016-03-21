@@ -54,13 +54,13 @@ namespace CA.Immigration.Startup
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate,SubmitDate=x.SubmittedDate,ApplicationNumber=x.ApplicationNumber,PositionNumber=x.NumberofPosition });
-                sf.dgvLMIAApplication.Columns[0].Width = 50;
-                sf.dgvLMIAApplication.Columns[1].Width = 150;
-                sf.dgvLMIAApplication.Columns[2].Width = 85;
-                sf.dgvLMIAApplication.Columns[3].Width = 100;
-                sf.dgvLMIAApplication.Columns[4].Width = 100;
-                sf.dgvLMIAApplication.Columns[5].Width = 100;
-               // sf.dgvLMIAApplication.Columns[7].Width = 80;
+                sf.dgvLMIAApplication.Columns[0].Width = 35;
+                sf.dgvLMIAApplication.Columns[1].Width = 185;
+                sf.dgvLMIAApplication.Columns[2].Width = 110;
+                sf.dgvLMIAApplication.Columns[3].Width = 80;
+                sf.dgvLMIAApplication.Columns[4].Width = 80;
+                sf.dgvLMIAApplication.Columns[5].Width = 85;
+                sf.dgvLMIAApplication.Columns[6].Width = 85;
             }
 
             // Get ... application
@@ -157,7 +157,8 @@ namespace CA.Immigration.Startup
             // Business detail Information
             LMIABusinessDetail.buildupDict5602(ref dict5602);
             // Job offer information
-            //buildupDict5602(ref dict5602);
+            LMIAJobOffer.buildupDict5602(ref dict5602);
+            // 
 
             FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5602);
         }

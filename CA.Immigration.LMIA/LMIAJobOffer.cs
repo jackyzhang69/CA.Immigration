@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 using CA.Immigration.Data;
-using CA.Immigration;
 using CA.Immigration.Utility;
 
 namespace CA.Immigration.LMIA
@@ -17,11 +15,11 @@ namespace CA.Immigration.LMIA
         private static string _durationRationale;
         private static DateTime _startDate=DateTime.Today;
         private static bool _languageRequired;
-        private static bool _readingEnglishFrenchRequied;
-        private static bool _readingEnglishRequired;
-        private static bool _readingFrenchRequired;
-        private static bool _readingEnglishOrFrenchRequired;
-        private static bool _readingEnglishAndFrenchRequired;
+        private static bool _speakingEnglishFrenchRequied;
+        private static bool _speakingEnglishRequired;
+        private static bool _speakingFrenchRequired;
+        private static bool _speakingEnglishOrFrenchRequired;
+        private static bool _speakingEnglishAndFrenchRequired;
         private static bool _writingEnglishFrenchRequired;
         private static bool _writingEnglishRequired;
         private static bool _writingFrenchRequired;
@@ -31,6 +29,7 @@ namespace CA.Immigration.LMIA
         private static string _otherLanguageExplanation;
         private static int? _vacationDays;
         private static int? _remuneration;
+        private static string _otherBenefit;
         private static bool _isSeasonal;
         private static bool _isFullyCoveredLMIA;
         private static string _notFullyCoveredReason;
@@ -59,6 +58,7 @@ namespace CA.Immigration.LMIA
         private static string _notProvideButOffer;
         private static int? _provideRent;
         private static string _provideUnit;
+        private static string _accommodationDescription;
         private static bool _accomadationNotApplicalbe;
         private static string _whoIsFillingBrief;
         private static string _whoIsFillingDetail;
@@ -78,11 +78,11 @@ namespace CA.Immigration.LMIA
             _durationRationale = lf.txtJobOfferDurationRationale.Text;
             _startDate = lf.dtpJobOfferStartDate.Value;
             _languageRequired = lf.chkLanguageRequired.Checked == true ? true : false;
-            _readingEnglishFrenchRequied = lf.chkLIMAOralEnglish.Checked == true ? true : false;
-            _readingEnglishRequired = lf.chkLMIAoralEnglish.Checked == true ? true : false;
-            _readingFrenchRequired = lf.chkLMIAOralFrench.Checked == true ? true : false;
-            _readingEnglishOrFrenchRequired = lf.chkLMIAoralEnglish.Checked == true ? true : false;
-            _readingEnglishAndFrenchRequired = lf.chkLMIAOralEnglisAndFrench.Checked == true ? true : false;
+            _speakingEnglishFrenchRequied = lf.chkLIMAOralEnglish.Checked == true ? true : false;
+            _speakingEnglishRequired = lf.chkLMIAoralEnglish.Checked == true ? true : false;
+            _speakingFrenchRequired = lf.chkLMIAOralFrench.Checked == true ? true : false;
+            _speakingEnglishOrFrenchRequired = lf.chkLMIAoralEnglish.Checked == true ? true : false;
+            _speakingEnglishAndFrenchRequired = lf.chkLMIAOralEnglisAndFrench.Checked == true ? true : false;
 
             _writingEnglishFrenchRequired = lf.chkLMIAWritingEnglish.Checked == true ? true : false;
             _writingEnglishRequired = lf.chkLMIAWritingFrench.Checked == true ? true : false;
@@ -96,6 +96,7 @@ namespace CA.Immigration.LMIA
             else _vacationDays = null;
             if(lf.rdbJobOfferRemuneration.Checked) _remuneration = getValue.getIntValue(lf.txtJobOfferRemuneraton.Text);
             else _remuneration = null;
+            _otherBenefit = lf.txtJobOfferOtherBenifits.Text;
             _isSeasonal = lf.chkJobOfferSeasonal.Checked == true ? true : false;
             _isFullyCoveredLMIA = lf.chkJobOfferFullDuration.Checked == true ? true : false;
             _notFullyCoveredReason = lf.txtJobOfferRemuneration.Text;
@@ -124,6 +125,7 @@ namespace CA.Immigration.LMIA
             if(_willProvideAccomadation == false) _notProvideButOffer = lf.txtJobOfferProvideAssistant.Text;
             _provideRent = getValue.getIntValue(lf.txtJobOfferProvideRent.Text);
             _provideUnit = lf.cmbJobOfferProvideRent.SelectedText;
+            _accommodationDescription = lf.txtJobOfferAccomadationDescription.Text;
             _accomadationNotApplicalbe = lf.chkJobOfferProvideRentNA.Checked == true ? true : false;
             if(lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
             {  //Below are EMP5593 Questions
@@ -163,11 +165,11 @@ namespace CA.Immigration.LMIA
                         _durationRationale = jo.durationRationale;
                         _startDate = (jo.startDate==null || (DateTime)jo.startDate<DateTime.MinValue || (DateTime)jo.startDate>DateTime.MaxValue) ?DateTime.Today : (DateTime)jo.startDate;
                         _languageRequired = jo.languageRequired == true ? true : false;
-                        _readingEnglishFrenchRequied = jo.readingEnglishFrenchRequied == true ? true : false;
-                        _readingEnglishRequired = jo.readingEnglishRequired == true ? true : false;
-                        _readingFrenchRequired = jo.readingFrenchRequired == true ? true : false;
-                        _readingEnglishOrFrenchRequired = jo.readingEnglishOrFrenchRequired == true ? true : false;
-                        _readingEnglishAndFrenchRequired = jo.readingEnglishAndFrenchRequired == true ? true : false;
+                        _speakingEnglishFrenchRequied = jo.readingEnglishFrenchRequied == true ? true : false;
+                        _speakingEnglishRequired = jo.readingEnglishRequired == true ? true : false;
+                        _speakingFrenchRequired = jo.readingFrenchRequired == true ? true : false;
+                        _speakingEnglishOrFrenchRequired = jo.readingEnglishOrFrenchRequired == true ? true : false;
+                        _speakingEnglishAndFrenchRequired = jo.readingEnglishAndFrenchRequired == true ? true : false;
                         _writingEnglishFrenchRequired = jo.writingEnglishFrenchRequired == true ? true : false;
                         _writingEnglishRequired = jo.writingEnglishRequired == true ? true : false;
                         _writingFrenchRequired = jo.writingFrenchRequired == true ? true : false;
@@ -177,6 +179,7 @@ namespace CA.Immigration.LMIA
                         _otherLanguageExplanation = jo.otherLanguageExplanation;
                         _vacationDays = jo.vacationDays;
                         _remuneration = jo.remuneration;
+                        _otherBenefit = jo.otherBenefit;
                         _isSeasonal = jo.isSeasonal == true ? true : false;
                         _isFullyCoveredLMIA = jo.isFullyCoveredLMIA == true ? true : false;
                         _notFullyCoveredReason = jo.notFullyCoveredReason;
@@ -205,6 +208,7 @@ namespace CA.Immigration.LMIA
                         _notProvideButOffer = jo.notProvideButOffer;
                         _provideRent = jo.provideRent;
                         _provideUnit = jo.provideUnit;
+                        _accommodationDescription = jo.accommodationDescription;
                         _accomadationNotApplicalbe = jo.accomadationNotApplicalbe == true ? true : false;
                         _whoIsFillingBrief = jo.whoIsFillingBrief;
                         _whoIsFillingDetail = jo.whoIsFillingDetail;
@@ -229,11 +233,11 @@ namespace CA.Immigration.LMIA
             lf.txtJobOfferDurationRationale.Text = _durationRationale;
             lf.dtpJobOfferStartDate.Value = (_startDate<DateTime.MinValue || _startDate >DateTime.MaxValue)?DateTime.Today:_startDate;
             lf.chkLanguageRequired.Checked = _languageRequired;
-            lf.chkLIMAOralEnglish.Checked = _readingEnglishFrenchRequied;
-            lf.chkLMIAoralEnglish.Checked = _readingEnglishRequired;
-            lf.chkLMIAOralFrench.Checked = _readingFrenchRequired;
-            lf.chkLMIAoralEnglish.Checked = _readingEnglishOrFrenchRequired;
-            lf.chkLMIAOralEnglisAndFrench.Checked = _readingEnglishAndFrenchRequired;
+            lf.chkLIMAOralEnglish.Checked = _speakingEnglishFrenchRequied;
+            lf.chkLMIAoralEnglish.Checked = _speakingEnglishRequired;
+            lf.chkLMIAOralFrench.Checked = _speakingFrenchRequired;
+            lf.chkLMIAoralEnglish.Checked = _speakingEnglishOrFrenchRequired;
+            lf.chkLMIAOralEnglisAndFrench.Checked = _speakingEnglishAndFrenchRequired;
 
             lf.chkLMIAWritingEnglish.Checked = _writingEnglishFrenchRequired;
             lf.chkLMIAWritingFrench.Checked = _writingEnglishRequired;
@@ -261,6 +265,7 @@ namespace CA.Immigration.LMIA
                 lf.txtJobOfferRemuneraton.Text = null;
                 lf.rdbJobOfferRemuneration.Checked = false;
             };
+            lf.txtJobOfferOtherBenifits.Text = _otherBenefit;
             lf.chkJobOfferSeasonal.Checked = _isSeasonal;
             lf.chkJobOfferFullDuration.Checked = _isFullyCoveredLMIA;
             lf.txtJobOfferRemuneration.Text = _notFullyCoveredReason;
@@ -289,6 +294,7 @@ namespace CA.Immigration.LMIA
             if(_willProvideAccomadation == false) lf.txtJobOfferProvideAssistant.Text = _notProvideButOffer;
             lf.txtJobOfferProvideRent.Text = _provideRent.ToString();
             lf.cmbJobOfferProvideRent.SelectedText = _provideUnit;
+            lf.txtJobOfferAccomadationDescription.Text = _accommodationDescription;
             lf.chkJobOfferProvideRentNA.Checked = _accomadationNotApplicalbe;
             if(lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
             {  //Below are EMP5593 Questions
@@ -340,7 +346,7 @@ namespace CA.Immigration.LMIA
 
             lf.txtJobOfferRemuneraton.Text = null;
             lf.rdbJobOfferRemuneration.Checked = false;
-
+            lf.txtJobOfferOtherBenifits.Text = null;
             lf.chkJobOfferSeasonal.Checked = false;
             lf.chkJobOfferFullDuration.Checked = true;
             lf.txtJobOfferRemuneration.Text = null;
@@ -366,6 +372,7 @@ namespace CA.Immigration.LMIA
             lf.txtJobOfferProvideAssistant.Text = null;
             lf.txtJobOfferProvideRent.Text = null;
             lf.cmbJobOfferProvideRent.SelectedText = null;
+            lf.txtJobOfferAccomadationDescription.Text = null;
             lf.chkJobOfferProvideRentNA.Checked = false;
             lf.txtJobOfferWhoFillInThisJob.Text = null;
              _whoIsFillingDetail = string.Empty; 
@@ -426,11 +433,11 @@ namespace CA.Immigration.LMIA
                         jo.durationRationale= _durationRationale;
                         jo.startDate= _startDate;
                         jo.languageRequired = _languageRequired;
-                        jo.readingEnglishFrenchRequied = _readingEnglishFrenchRequied;
-                        jo.readingEnglishRequired= _readingEnglishRequired;
-                        jo.readingFrenchRequired = _readingFrenchRequired;
-                        jo.readingEnglishOrFrenchRequired = _readingEnglishOrFrenchRequired;
-                        jo.readingEnglishAndFrenchRequired = _readingEnglishAndFrenchRequired;
+                        jo.readingEnglishFrenchRequied = _speakingEnglishFrenchRequied;
+                        jo.readingEnglishRequired= _speakingEnglishRequired;
+                        jo.readingFrenchRequired = _speakingFrenchRequired;
+                        jo.readingEnglishOrFrenchRequired = _speakingEnglishOrFrenchRequired;
+                        jo.readingEnglishAndFrenchRequired = _speakingEnglishAndFrenchRequired;
                         jo.writingEnglishFrenchRequired = _writingEnglishFrenchRequired;
                         jo.writingEnglishRequired = _writingEnglishRequired;
                         jo.writingFrenchRequired = _writingFrenchRequired;
@@ -440,6 +447,7 @@ namespace CA.Immigration.LMIA
                         jo.otherLanguageExplanation= _otherLanguageExplanation;
                         jo.vacationDays= _vacationDays;
                         jo.remuneration= _remuneration;
+                        jo.otherBenefit = _otherBenefit;
                         jo.isSeasonal = _isSeasonal;
                         jo.isFullyCoveredLMIA = _isFullyCoveredLMIA;
                         jo.notFullyCoveredReason= _notFullyCoveredReason;
@@ -468,6 +476,7 @@ namespace CA.Immigration.LMIA
                         jo.notProvideButOffer= _notProvideButOffer;
                         jo.provideRent= _provideRent;
                         jo.provideUnit= _provideUnit;
+                        jo.accommodationDescription = _accommodationDescription;
                         jo.accomadationNotApplicalbe = _accomadationNotApplicalbe;
                         jo.whoIsFillingBrief= _whoIsFillingBrief;
                         jo.whoIsFillingDetail= _whoIsFillingDetail;
@@ -495,6 +504,61 @@ namespace CA.Immigration.LMIA
             else MessageBox.Show("There is no active application");
 
         }
-        public static void buildupDict5602(ref Dictionary<string, string> dict) { }
+        public static void buildupDict5602(ref Dictionary<string, string> dict) {
+
+            dict.Add("EMP5602_E[0].Page3[0].txtF_Number_of_foreign_workers[0]", _numOfTFWs.ToString());
+            dict.Add("EMP5602_E[0].Page3[0].txtF_Date_E[0]",String.Format("{0:yyyy-MM-dd}",_startDate.ToString()));
+            dict.Add("EMP5602_E[0].Page3[0].txtF_Employment_Rational[0]",_durationRationale);
+            switch(_durationUnit) {
+                case "Days":
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Days[0]", _duration.ToString());
+                    break;
+                case "Weeks":
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Weeks[0]",_duration.ToString());
+                    break;
+                case "Months":
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Months[0]",_duration.ToString());
+                    break;
+                case "Years":
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Years[0]",_duration.ToString());
+                    break;
+            }
+            dict.Add("EMP5602_E[0].Page3[0].chkB_NoLanguage[0]", _languageRequired == true ? "0" : "1");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_OrallyIn[0]", _speakingEnglishFrenchRequied == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_English1[0]", _speakingEnglishRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_French1[0]", _speakingFrenchRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_EnglishOrFrench1[0]", _speakingEnglishOrFrenchRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_EnglishAndFrench1[0]", _speakingEnglishAndFrenchRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_TheOffer[0]", _writingEnglishFrenchRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_English2[0]", _writingEnglishRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_French2[0]", _writingFrenchRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_EnglishOrFrench2[0]", _writingEnglishOrFrenchRequired == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page3[0].chkB_EnglishAndFrench2[0]", _writingEnglishAndFrenchRequired == true ? "1" : "0");
+            //P4 Q16
+            dict.Add("EMP5602_E[0].Page4[0].txtF_Days[0]",_vacationDays.ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_Remuneration[0]",_remuneration.ToString());
+            //P4 Q20
+            dict.Add("EMP5602_E[0].Page4[0].txtF_OtherBenefits[0]",_otherBenefit==string.Empty?"N/A":_otherBenefit);
+            //P4 Q24 Provide Details
+            dict.Add("EMP5602_E[0].Page5[0].txtF_ProvideDetails[0]", _briefBenefit);
+            //P4 Q25
+            dict.Add("EMP5602_E[0].Page5[0].txtF_ProvideARationale[0]", _briefRationaleOfferingJob);
+            //P5 Q26
+            dict.Add("EMP5602_E[0].Page5[0].No_E[0]", _trainCanadian==false?"1":"0");
+            dict.Add("EMP5602_E[0].Page5[0].Yes_E[0]", _trainCanadian==true?"1":"0");
+            dict.Add("EMP5602_E[0].Page5[0].txtF_IfNo19[0]",_noTrainReason);
+            dict.Add("EMP5602_E[0].Page5[0].txtF_IfYes19[0]",_trainPlanBrief);
+            //P5 Q27
+            //dict.Add("",);
+            //dict.Add("",);
+            dict.Add("EMP5602_E[0].Page5[0].txtF_no[0]", _notProvideButOffer);
+            dict.Add("EMP5602_E[0].Page5[0].txtF_yes[0]", _provideRent.ToString());
+            dict.Add("EMP5602_E[0].Page5[0].CheckBox1[0]", _provideUnit=="Weeks"?"1":"0");
+            dict.Add("EMP5602_E[0].Page5[0].CheckBox1[1]", _provideUnit == "Months" ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page5[0].txtF_accomodation[0]",_accommodationDescription);
+
+
+
+        }
     }
 }

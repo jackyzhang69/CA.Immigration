@@ -239,7 +239,7 @@ namespace CA.Immigration.LMIA
             lf.jobPositionAdvisor.cmbProvince.SelectedIndex = (int)_province;
             lf.jobPositionAdvisor.txtWorkingHours.Text = _workingHours.ToString();
             lf.jobPositionAdvisor.txtHourlyRate.Text = String.Format("{0:0.00}", _hourlyRate);
-            lf.jobPositionAdvisor.txtProvincialMedian.Text = String.Format("{0:0.00}", _provincialMedian); 
+            lf.jobPositionAdvisor.txtProvincialMedian.Text = String.Format("{0:0.00}", _provincialMedian);
             lf.jobPositionAdvisor.txtLocalNOCMedian.Text = String.Format("{0:#,###.##}", _localNOCMedian);
             lf.jobPositionAdvisor.txtLocalNocLowest.Text = String.Format("{0:#,###.##}", _localNOCLowest);
             lf.jobPositionAdvisor.txtLocalNocHighest.Text = String.Format("{0:#,###.##}", _localNOCHighest);
@@ -253,7 +253,7 @@ namespace CA.Immigration.LMIA
             lf.financialAdvisor.txtRetainedEarning1.Text = String.Format("{0:#,###.##}", _retianedEarning1);
             lf.financialAdvisor.txtGrossPayroll1.Text = String.Format("{0:#,###.##}", _grossPayrol1);
             lf.financialAdvisor.txtSlips1.Text = _t4Slips1.ToString();
-            lf.financialAdvisor.txtAverageWage1.Text = String.Format("{0:#,###.##}",_t4Slips1!=null?String.Format("{0:#,###.##}",_grossPayrol1/_t4Slips1):"");
+            lf.financialAdvisor.txtAverageWage1.Text = String.Format("{0:#,###.##}", _t4Slips1 != null ? String.Format("{0:#,###.##}", _grossPayrol1 / _t4Slips1) : "");
             lf.financialAdvisor.txtLast2Year.Text = _year2.ToString();
             lf.financialAdvisor.txtRevenue2.Text = String.Format("{0:#,###.##}", _totalRevenue2);
             lf.financialAdvisor.txtCash2.Text = String.Format("{0:#,###.##}", _cash2);
@@ -276,8 +276,6 @@ namespace CA.Immigration.LMIA
             loadFromDB(lf);
             fillForm(lf);
             // get average wage based on data loaded from database
-            lf.financialAdvisor.txtAverageWage1.Text = lf.financialAdvisor.getAverage(lf.financialAdvisor.txtGrossPayroll1.Text, lf.financialAdvisor.txtSlips1.Text);
-            lf.financialAdvisor.txtAverageWage2.Text = lf.financialAdvisor.getAverage(lf.financialAdvisor.txtGrossPayroll2.Text, lf.financialAdvisor.txtSlips2.Text);
             // set up and display qualification indicator
             //lf.dgvQualificationIndicator.Rows.Add(5);
             getIndicators(lf);
@@ -293,7 +291,7 @@ namespace CA.Immigration.LMIA
             //highestsameposition = (lf.jobPositionAdvisor.txtSameHighest.Text != null && lf.jobPositionAdvisor.txtSameHighest.Text != string.Empty) ? decimal.Parse(lf.jobPositionAdvisor.txtSameHighest.Text) : 0f;
             getInput(lf);
             //Initialize Indicator rows as 5
-            if(lf.dgvQualificationIndicator.RowCount<5) lf.dgvQualificationIndicator.Rows.Add(5);
+            if(lf.dgvQualificationIndicator.RowCount < 5) lf.dgvQualificationIndicator.Rows.Add(5);
 
             switch(GlobalData.CurrentStreamId)
             {
@@ -541,107 +539,111 @@ namespace CA.Immigration.LMIA
         {
             //update application, finance, job position, labour market factors
             //1. update application record
-            getInput(lf);
-            using(CommonDataContext cdc = new CommonDataContext())
+            if(GlobalData.CurrentApplicationId != null)
             {
-                tblLMIAApplication la = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                la.LMIAType = GlobalData.CurrentProgramId;
-                la.StreamType = GlobalData.CurrentStreamId;
-                la.EmployeeId = GlobalData.CurrentPersonId;
-                la.EmployerId = GlobalData.CurrentEmployerId;
-                la.RCICId = GlobalData.CurrentRCICId;
-                la.AnotherEmployerName = _otherEmployerName;
-                try
+                getInput(lf);
+                using(CommonDataContext cdc = new CommonDataContext())
                 {
-                    cdc.SubmitChanges();
-                }
-                catch(System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                //2. update finance
-                List<tblFinance> tf = cdc.tblFinances.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).ToList();
-                if(tf != null && tf.Count >= 1)
-                {
-                    tf[0].ApplicationId = GlobalData.CurrentApplicationId;
-                    tf[0].FiscalYear = _year1;
-                    tf[0].TotalRevenue = _totalRevenue1;
-                    tf[0].Cash = _cash1;
-                    tf[0].NetIncome = _netIncome1;
-                    tf[0].RetainedEarning = _retianedEarning1;
-                    tf[0].GrossPayroll = _grossPayrol1;
-                    tf[0].T4SlipsIssued = _t4Slips1;
-                }
-                if(tf != null && tf.Count == 2)
-                {
-                    tf[1].ApplicationId = GlobalData.CurrentApplicationId;
-                    tf[0].FiscalYear = _year2;
-                    tf[0].TotalRevenue = _totalRevenue2;
-                    tf[0].Cash = _cash2;
-                    tf[0].NetIncome = _netIncome2;
-                    tf[0].RetainedEarning = _retianedEarning2;
-                    tf[0].GrossPayroll = _grossPayrol2;
-                    tf[0].T4SlipsIssued = _t4Slips2;
-                }
-                try
-                {
-                    cdc.SubmitChanges();
-                }
-                catch(System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                //3. update job position
-                tblLMIAPosition lp = cdc.tblLMIAPositions.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                lp.JobTitle = _jobTitle;
-                lp.NOC = _NOC;
-                lp.Province = _province;
-                lp.WorkingHours = _workingHours;
-                lp.HourlyRate = _hourlyRate;
-                lp.ProvincialMedian = _provincialMedian;
-                lp.LocalNOCMedian = _localNOCMedian;
-                lp.LocalNOCLowest = _localNOCLowest;
-                lp.LocalNOCHighest = _localNOCHighest;
-                lp.SamePlaceSamePositionLowest = _samePlaceSamePositionLowest;
-                lp.SamePlaceSamePositionHighest = _samePlaceSamePositionHighest;
-                lp.NoSamePosition = _noSamePosition;
-                lp.UmemploymentRate = _unemploymentRate;
-                lp.COPSRating = _COPSRating;
-                lp.OccupationProfile = _occupationProfile;
-                lp.EmployerSituation = _employerSituation;
-                lp.EmployerImact = _situationImpact;
-                try
-                {
-                    cdc.SubmitChanges();
-                }
-                catch(System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                //4. update Labour market factor
-                tblLMIA11Factor lmf = cdc.tblLMIA11Factors.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                lmf.JobCreation = lf.ckbLmFactor.CheckedIndices.Contains(0) ? true : false;
-                lmf.SkillTransfer = lf.ckbLmFactor.CheckedIndices.Contains(1) ? true : false;
-                lmf.FillLabourShortage = lf.ckbLmFactor.CheckedIndices.Contains(2) ? true : false;
-                lmf.PrevailingWageOffered = lf.ckbLmFactor.CheckedIndices.Contains(3) ? true : false;
-                lmf.HireCanadianEffort = lf.ckbLmFactor.CheckedIndices.Contains(4) ? true : false;
-                lmf.LabourDisputUnaffected = lf.ckbLmFactor.CheckedIndices.Contains(5) ? true : false;
-                lmf.CommitmentFulfilled = lf.ckbLmFactor.CheckedIndices.Contains(6) ? true : false;
-                lmf.BusinessEngagement = lf.ckbLmFactor.CheckedIndices.Contains(7) ? true : false;
-                lmf.OfferConsistentwithDemand = lf.ckbLmFactor.CheckedIndices.Contains(8) ? true : false;
-                lmf.AbletoFulfillTermofOffer = lf.ckbLmFactor.CheckedIndices.Contains(9) ? true : false;
-                lmf.PastCompliance = lf.ckbLmFactor.CheckedIndices.Contains(10) ? true : false;
-                try
-                {
-                    cdc.SubmitChanges();
-                }
-                catch(System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                    tblLMIAApplication la = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
+                    la.LMIAType = GlobalData.CurrentProgramId;
+                    la.StreamType = GlobalData.CurrentStreamId;
+                    la.EmployeeId = GlobalData.CurrentPersonId;
+                    la.EmployerId = GlobalData.CurrentEmployerId;
+                    la.RCICId = GlobalData.CurrentRCICId;
+                    la.AnotherEmployerName = _otherEmployerName;
+                    try
+                    {
+                        cdc.SubmitChanges();
+                    }
+                    catch(System.Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    //2. update finance
+                    List<tblFinance> tf = cdc.tblFinances.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).ToList();
+                    if(tf != null && tf.Count >= 1)
+                    {
+                        tf[0].ApplicationId = GlobalData.CurrentApplicationId;
+                        tf[0].FiscalYear = _year1;
+                        tf[0].TotalRevenue = _totalRevenue1;
+                        tf[0].Cash = _cash1;
+                        tf[0].NetIncome = _netIncome1;
+                        tf[0].RetainedEarning = _retianedEarning1;
+                        tf[0].GrossPayroll = _grossPayrol1;
+                        tf[0].T4SlipsIssued = _t4Slips1;
+                    }
+                    if(tf != null && tf.Count == 2)
+                    {
+                        tf[1].ApplicationId = GlobalData.CurrentApplicationId;
+                        tf[0].FiscalYear = _year2;
+                        tf[0].TotalRevenue = _totalRevenue2;
+                        tf[0].Cash = _cash2;
+                        tf[0].NetIncome = _netIncome2;
+                        tf[0].RetainedEarning = _retianedEarning2;
+                        tf[0].GrossPayroll = _grossPayrol2;
+                        tf[0].T4SlipsIssued = _t4Slips2;
+                    }
+                    try
+                    {
+                        cdc.SubmitChanges();
+                    }
+                    catch(System.Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    //3. update job position
+                    tblLMIAPosition lp = cdc.tblLMIAPositions.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
+                    lp.JobTitle = _jobTitle;
+                    lp.NOC = _NOC;
+                    lp.Province = _province;
+                    lp.WorkingHours = _workingHours;
+                    lp.HourlyRate = _hourlyRate;
+                    lp.ProvincialMedian = _provincialMedian;
+                    lp.LocalNOCMedian = _localNOCMedian;
+                    lp.LocalNOCLowest = _localNOCLowest;
+                    lp.LocalNOCHighest = _localNOCHighest;
+                    lp.SamePlaceSamePositionLowest = _samePlaceSamePositionLowest;
+                    lp.SamePlaceSamePositionHighest = _samePlaceSamePositionHighest;
+                    lp.NoSamePosition = _noSamePosition;
+                    lp.UmemploymentRate = _unemploymentRate;
+                    lp.COPSRating = _COPSRating;
+                    lp.OccupationProfile = _occupationProfile;
+                    lp.EmployerSituation = _employerSituation;
+                    lp.EmployerImact = _situationImpact;
+                    try
+                    {
+                        cdc.SubmitChanges();
+                    }
+                    catch(System.Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    //4. update Labour market factor
+                    tblLMIA11Factor lmf = cdc.tblLMIA11Factors.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
+                    lmf.JobCreation = lf.ckbLmFactor.CheckedIndices.Contains(0) ? true : false;
+                    lmf.SkillTransfer = lf.ckbLmFactor.CheckedIndices.Contains(1) ? true : false;
+                    lmf.FillLabourShortage = lf.ckbLmFactor.CheckedIndices.Contains(2) ? true : false;
+                    lmf.PrevailingWageOffered = lf.ckbLmFactor.CheckedIndices.Contains(3) ? true : false;
+                    lmf.HireCanadianEffort = lf.ckbLmFactor.CheckedIndices.Contains(4) ? true : false;
+                    lmf.LabourDisputUnaffected = lf.ckbLmFactor.CheckedIndices.Contains(5) ? true : false;
+                    lmf.CommitmentFulfilled = lf.ckbLmFactor.CheckedIndices.Contains(6) ? true : false;
+                    lmf.BusinessEngagement = lf.ckbLmFactor.CheckedIndices.Contains(7) ? true : false;
+                    lmf.OfferConsistentwithDemand = lf.ckbLmFactor.CheckedIndices.Contains(8) ? true : false;
+                    lmf.AbletoFulfillTermofOffer = lf.ckbLmFactor.CheckedIndices.Contains(9) ? true : false;
+                    lmf.PastCompliance = lf.ckbLmFactor.CheckedIndices.Contains(10) ? true : false;
+                    try
+                    {
+                        cdc.SubmitChanges();
+                    }
+                    catch(System.Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
 
-                MessageBox.Show("Advisory analysis data has been updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Advisory analysis data has been updated!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
+            else MessageBox.Show("There is no active application yet! Please insert first");
 
         }
         public static void deleteApplication(LMIAForm lf)
@@ -665,8 +667,8 @@ namespace CA.Immigration.LMIA
                 tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
                 if(bd != null) cdc.tblBusinessDetails.DeleteOnSubmit(bd);
                 //6. Delete job offer 
-                tblJobOffer jo=cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if(jo!=null) cdc.tblJobOffers.DeleteOnSubmit(jo);
+                tblJobOffer jo = cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
+                if(jo != null) cdc.tblJobOffers.DeleteOnSubmit(jo);
                 if(MessageBox.Show("This operation will delete the current application and all its dependencies. Are you sure to delete it?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     try
@@ -688,6 +690,29 @@ namespace CA.Immigration.LMIA
                 fillForm(lf);
             }
         }
+        public static void buildupDict5602(ref Dictionary<string, string> dict)
+        {
+            dict.Add("EMP5602_E[0].Page3[0].txtF_Job_Title[0]", _jobTitle);
+
+            //P4 Q14-15
+            dict.Add("EMP5602_E[0].Page4[0].txtF_PerHour[0]", _hourlyRate.ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_PerYear[0]", (_hourlyRate * (decimal)_workingHours * 365 / 7).ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_NumberOfHours[0]", (_workingHours / 5).ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_TotalNumberOfHoursPerWeek[0]", _workingHours.ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_TotalNumberOfHoursPerMonth[0]", (_workingHours * 365 / 7 / 12).ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_OtRate[0]", (_hourlyRate * (decimal)1.5).ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_hoursOfWorkPerWeek[0]", _workingHours.ToString());
+            dict.Add("EMP5602_E[0].Page4[0].chkB_no_employees[0]", _noSamePosition == true ? "1" : "0");
+            if(_noSamePosition == false)
+            {
+                dict.Add("EMP5602_E[0].Page4[0].txtF_low_wage[0]", _samePlaceSamePositionLowest.ToString());
+                dict.Add("EMP5602_E[0].Page4[0].txtF_high_wage[0]", _samePlaceSamePositionHighest.ToString());
+            }
+
+
+
+        }
+
 
     }
 }
