@@ -22,15 +22,11 @@ namespace CA.Immigration.LMIA
                 txtProgram.ReadOnly = true;
             }
         }
-        public LMIAForm(int applicationid)
-        {
-            InitializeComponent();
-            LMIAFormOps.formConstruction(this);
-
-        }
+       
         private void LMIAForm_Load(object sender, EventArgs e)
         {
             LMIAFormOps.formLoadInitialization(this);
+            LMIAFormOps.showMainStatus(this);
         }
         private void ckbOtherEmployer_CheckedChanged(object sender, EventArgs e)
         {
@@ -47,11 +43,13 @@ namespace CA.Immigration.LMIA
             }
             if(cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
             GlobalData.CurrentStreamId = cmbStream.SelectedIndex;
+            LMIAFormOps.showMainStatus(this);
             LMIAAnalysis.getIndicators(this);
         }
         private void btnAnalysisInsert_Click(object sender, EventArgs e)
         {
             LMIAAnalysis.insertApplication(this);
+            LMIAFormOps.showMainStatus(this);
 
 
         }
@@ -100,6 +98,7 @@ namespace CA.Immigration.LMIA
         {
             LMIABusinessDetail.getInput(this);
             LMIABusinessDetail.Insert2DB(this);
+            LMIAFormOps.showMainStatus(this);
         }
 
         private void tabBusinessDetails_Layout(object sender, LayoutEventArgs e)
@@ -116,6 +115,7 @@ namespace CA.Immigration.LMIA
         {
             LMIABusinessDetail.deleteRecord(this);
             LMIABusinessDetail.clearForm(this);
+            LMIAFormOps.showMainStatus(this);
         }
 
         private void btnUpdateBD_Click(object sender, EventArgs e)

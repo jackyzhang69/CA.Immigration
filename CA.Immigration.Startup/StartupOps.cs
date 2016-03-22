@@ -110,8 +110,10 @@ namespace CA.Immigration.Startup
                 sf.btnEBIInsert.Visible = false;
             }
             else { Employer.clearForm(sf); clearSelectedEmployer(sf); sf.btnEBIInsert.Visible = false; }
+
+
         }
-        
+
         public static void clearSelectedPerson(StartupForm sf)
         {
             sf.lblSelectedPerson.Text = null;

@@ -55,7 +55,8 @@ namespace CA.Immigration.Startup
         }
         private void cmbSelectRCIC_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex;
+            GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex+1;
+            showMainStatus();
         }
 
 
@@ -70,6 +71,7 @@ namespace CA.Immigration.Startup
         {
             EmployerSelector es = new EmployerSelector(this);
             es.Show();
+            showMainStatus();
         }
 
         private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
@@ -98,7 +100,8 @@ namespace CA.Immigration.Startup
                 if (GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes))
                 {
                     LMIAForm lf = new LMIAForm();
-                    lf.Show(); 
+                    lf.Show();
+                    showMainStatus();
                 }
             }
 
@@ -109,6 +112,7 @@ namespace CA.Immigration.Startup
         private void cmbProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GlobalData.CurrentProgramId = (int)cmbProgram.SelectedIndex;
+            showMainStatus();
         }
 
         private void btnPhoto_Click(object sender, EventArgs e)
@@ -147,16 +151,20 @@ namespace CA.Immigration.Startup
             FormOPs.signForm(@"c:\vba\imm5476.pdf", i5476.getFormData());
         }
 
-        private void btnEMP5575_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgvLMIAApplication_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (dgvLMIAApplication.SelectedRows != null)
             {
                 GlobalData.CurrentApplicationId = (int)dgvLMIAApplication.SelectedRows[0].Cells[0].Value;
+                using (CommonDataContext cdc=new CommonDataContext())
+                {
+                    GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
+                    GlobalData.CurrentRCICId= cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
+                    GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
+                    GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.LMIAType).FirstOrDefault();
+                }
+                showMainStatus();
                 LMIAForm lf = new LMIAForm();
                 lf.Show();
             }
@@ -170,7 +178,6 @@ namespace CA.Immigration.Startup
 
         private void btnEBIUpdate_Click(object sender, EventArgs e)
         {
-
             Employer.employerUpdate(this);
         }
         private void btnEBIDelete_Click(object sender, EventArgs e)
@@ -204,11 +211,6 @@ namespace CA.Immigration.Startup
         private void btnPBIUpdate_Click(object sender, EventArgs e)
         {
             Person.personUpdate(this);
-        }
-
-        private void cmbSelectRCIC_SelectionChangeCommitted_1(object sender, EventArgs e)
-        {
-            GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex;
         }
 
         private void cbxAlias_CheckedChanged(object sender, EventArgs e)
@@ -274,6 +276,15 @@ namespace CA.Immigration.Startup
         private void StartupForm_Activated(object sender, EventArgs e)
         {
             StartupOps.getAllApplications(this);
+        }
+
+        private void showMainStatus()
+        {
+            tssEmployer.Text = "Employer Id: " + GlobalData.CurrentEmployerId;
+            tssPerson.Text = "Person Id:" + GlobalData.CurrentPersonId;
+            tssRCIC.Text = "RCIC Id: " + GlobalData.CurrentRCICId;
+            tssProgram.Text = "Program Id: " + GlobalData.CurrentProgramId;
+            tssApplication.Text = "Application Id: " + GlobalData.CurrentApplicationId;
         }
     }
 }

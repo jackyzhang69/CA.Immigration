@@ -78,11 +78,13 @@
             this.btnAnalysisDelete = new System.Windows.Forms.Button();
             this.btnAnalysisUpdate = new System.Windows.Forms.Button();
             this.btnAnalysisInsert = new System.Windows.Forms.Button();
+            this.jobPositionAdvisor = new CA.Immigration.LMIA.JobPosition();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSituationImpact = new System.Windows.Forms.TextBox();
             this.txtEmployerSituation = new System.Windows.Forms.TextBox();
+            this.financialAdvisor = new CA.Immigration.LMIA.financial();
             this.tabBusinessDetails = new System.Windows.Forms.TabPage();
             this.btnInsertBD = new System.Windows.Forms.Button();
             this.btnUpdateBD = new System.Windows.Forms.Button();
@@ -129,10 +131,8 @@
             this.tabApplication = new System.Windows.Forms.TabPage();
             this.tabLMIAApplication = new System.Windows.Forms.TabControl();
             this.tabAD = new System.Windows.Forms.TabPage();
-            this.stsStatus = new System.Windows.Forms.StatusStrip();
-            this.stsEmployer = new System.Windows.Forms.ToolStripStatusLabel();
-            this.stsEmployee = new System.Windows.Forms.ToolStripStatusLabel();
-            this.stsAppId = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dbOpsJobAd = new CA.Immigration.LMIA.DBOps();
+            this.ucAddress1 = new CA.Immigration.LMIA.UCAddress();
             this.grpSelectEmployer = new System.Windows.Forms.GroupBox();
             this.dgvEmployer = new System.Windows.Forms.DataGridView();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -146,10 +146,12 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tabMainDuties = new System.Windows.Forms.TabPage();
+            this.dbOpsMainDuties = new CA.Immigration.LMIA.DBOps();
             this.dgvMainDuties = new System.Windows.Forms.DataGridView();
             this.ESDC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.JobDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabQualifications = new System.Windows.Forms.TabPage();
+            this.dbOpsQualification = new CA.Immigration.LMIA.DBOps();
             this.dgvQualifications = new System.Windows.Forms.DataGridView();
             this.isReasonable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ESDCQualification = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -205,7 +207,9 @@
             this.txtJobOfferProvideAssistant = new System.Windows.Forms.TextBox();
             this.chkJobOfferProvideRentNA = new System.Windows.Forms.CheckBox();
             this.cmbJobOfferProvideRent = new System.Windows.Forms.ComboBox();
+            this.lblJobOfferAccomodationDescription = new System.Windows.Forms.Label();
             this.lblJobOfferProvideRent = new System.Windows.Forms.Label();
+            this.txtJobOfferAccomadationDescription = new System.Windows.Forms.TextBox();
             this.txtJobOfferProvideRent = new System.Windows.Forms.TextBox();
             this.chkJobOfferProvideAccomadation = new System.Windows.Forms.CheckBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -275,18 +279,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.txtJobOfferAccomadationDescription = new System.Windows.Forms.TextBox();
-            this.lblJobOfferAccomodationDescription = new System.Windows.Forms.Label();
-            this.jobPositionAdvisor = new CA.Immigration.LMIA.JobPosition();
-            this.financialAdvisor = new CA.Immigration.LMIA.financial();
-            this.dbOpsJobAd = new CA.Immigration.LMIA.DBOps();
-            this.ucAddress1 = new CA.Immigration.LMIA.UCAddress();
-            this.dbOpsMainDuties = new CA.Immigration.LMIA.DBOps();
-            this.dbOpsQualification = new CA.Immigration.LMIA.DBOps();
             this.lmFactors2 = new CA.Immigration.LMIA.LMFactors();
             this.financial2 = new CA.Immigration.LMIA.financial();
             this.jobPosition2 = new CA.Immigration.LMIA.JobPosition();
             this.applicationSteam1 = new CA.Immigration.LMIA.ApplicationStream();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tssLMIAEmployer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssLMIAEmployee = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssLMIARCIC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssLMIAProgram = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssLMIAStream = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssLMIAApplication = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabBase.SuspendLayout();
             this.tabAdvisor.SuspendLayout();
             this.tbcSubAdvisor.SuspendLayout();
@@ -304,7 +307,6 @@
             this.tabApplication.SuspendLayout();
             this.tabLMIAApplication.SuspendLayout();
             this.tabAD.SuspendLayout();
-            this.stsStatus.SuspendLayout();
             this.grpSelectEmployer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployer)).BeginInit();
             this.tabMainDuties.SuspendLayout();
@@ -319,6 +321,7 @@
             this.grpLMIALanguage.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabBase
@@ -336,6 +339,7 @@
             // 
             // tabAdvisor
             // 
+            this.tabAdvisor.AutoScroll = true;
             this.tabAdvisor.CausesValidation = false;
             this.tabAdvisor.Controls.Add(this.tbcSubAdvisor);
             this.tabAdvisor.Location = new System.Drawing.Point(4, 29);
@@ -361,6 +365,7 @@
             // 
             // tabAnalysis
             // 
+            this.tabAnalysis.AutoScroll = true;
             this.tabAnalysis.Controls.Add(this.grpApplicationStream);
             this.tabAnalysis.Controls.Add(this.grpLabourMarketFactors);
             this.tabAnalysis.Controls.Add(this.grpIndicator);
@@ -657,6 +662,15 @@
             this.btnAnalysisInsert.UseVisualStyleBackColor = true;
             this.btnAnalysisInsert.Click += new System.EventHandler(this.btnAnalysisInsert_Click);
             // 
+            // jobPositionAdvisor
+            // 
+            this.jobPositionAdvisor.Location = new System.Drawing.Point(6, 132);
+            this.jobPositionAdvisor.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.jobPositionAdvisor.Name = "jobPositionAdvisor";
+            this.jobPositionAdvisor.Size = new System.Drawing.Size(1083, 240);
+            this.jobPositionAdvisor.TabIndex = 0;
+            this.jobPositionAdvisor.Leave += new System.EventHandler(this.jobPositionAdvisor_Leave);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
@@ -718,6 +732,15 @@
             this.txtEmployerSituation.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtEmployerSituation.Size = new System.Drawing.Size(918, 184);
             this.txtEmployerSituation.TabIndex = 0;
+            // 
+            // financialAdvisor
+            // 
+            this.financialAdvisor.Location = new System.Drawing.Point(10, 371);
+            this.financialAdvisor.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.financialAdvisor.Name = "financialAdvisor";
+            this.financialAdvisor.Size = new System.Drawing.Size(1080, 162);
+            this.financialAdvisor.TabIndex = 1;
+            this.financialAdvisor.Leave += new System.EventHandler(this.financialAdvisor_Leave);
             // 
             // tabBusinessDetails
             // 
@@ -1258,7 +1281,6 @@
             this.tabAD.BackColor = System.Drawing.Color.White;
             this.tabAD.Controls.Add(this.dbOpsJobAd);
             this.tabAD.Controls.Add(this.ucAddress1);
-            this.tabAD.Controls.Add(this.stsStatus);
             this.tabAD.Controls.Add(this.grpSelectEmployer);
             this.tabAD.Controls.Add(this.chkEducation);
             this.tabAD.Controls.Add(this.chkBenefit);
@@ -1270,39 +1292,28 @@
             this.tabAD.Controls.Add(this.label16);
             this.tabAD.Location = new System.Drawing.Point(4, 29);
             this.tabAD.Name = "tabAD";
-            this.tabAD.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabAD.Padding = new System.Windows.Forms.Padding(3);
             this.tabAD.Size = new System.Drawing.Size(1474, 1092);
             this.tabAD.TabIndex = 0;
             this.tabAD.Text = "Job AD";
             // 
-            // stsStatus
+            // dbOpsJobAd
             // 
-            this.stsStatus.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.stsStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stsEmployer,
-            this.stsEmployee,
-            this.stsAppId});
-            this.stsStatus.Location = new System.Drawing.Point(3, 1067);
-            this.stsStatus.Name = "stsStatus";
-            this.stsStatus.Padding = new System.Windows.Forms.Padding(2, 0, 14, 0);
-            this.stsStatus.Size = new System.Drawing.Size(1468, 22);
-            this.stsStatus.TabIndex = 6;
-            this.stsStatus.Text = "Status";
+            this.dbOpsJobAd.Location = new System.Drawing.Point(750, 852);
+            this.dbOpsJobAd.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.dbOpsJobAd.Name = "dbOpsJobAd";
+            this.dbOpsJobAd.Size = new System.Drawing.Size(580, 43);
+            this.dbOpsJobAd.TabIndex = 8;
             // 
-            // stsEmployer
+            // ucAddress1
             // 
-            this.stsEmployer.Name = "stsEmployer";
-            this.stsEmployer.Size = new System.Drawing.Size(0, 17);
-            // 
-            // stsEmployee
-            // 
-            this.stsEmployee.Name = "stsEmployee";
-            this.stsEmployee.Size = new System.Drawing.Size(0, 17);
-            // 
-            // stsAppId
-            // 
-            this.stsAppId.Name = "stsAppId";
-            this.stsAppId.Size = new System.Drawing.Size(0, 17);
+            this.ucAddress1.AutoSize = true;
+            this.ucAddress1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ucAddress1.Location = new System.Drawing.Point(8, 91);
+            this.ucAddress1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.ucAddress1.Name = "ucAddress1";
+            this.ucAddress1.Size = new System.Drawing.Size(1321, 212);
+            this.ucAddress1.TabIndex = 7;
             // 
             // grpSelectEmployer
             // 
@@ -1429,15 +1440,24 @@
             // 
             // tabMainDuties
             // 
+            this.tabMainDuties.AutoScroll = true;
             this.tabMainDuties.Controls.Add(this.dbOpsMainDuties);
             this.tabMainDuties.Controls.Add(this.dgvMainDuties);
             this.tabMainDuties.Location = new System.Drawing.Point(4, 29);
             this.tabMainDuties.Name = "tabMainDuties";
-            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabMainDuties.Padding = new System.Windows.Forms.Padding(3);
             this.tabMainDuties.Size = new System.Drawing.Size(1474, 1092);
             this.tabMainDuties.TabIndex = 1;
             this.tabMainDuties.Text = "Main Duties";
             this.tabMainDuties.UseVisualStyleBackColor = true;
+            // 
+            // dbOpsMainDuties
+            // 
+            this.dbOpsMainDuties.Location = new System.Drawing.Point(861, 877);
+            this.dbOpsMainDuties.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.dbOpsMainDuties.Name = "dbOpsMainDuties";
+            this.dbOpsMainDuties.Size = new System.Drawing.Size(584, 46);
+            this.dbOpsMainDuties.TabIndex = 3;
             // 
             // dgvMainDuties
             // 
@@ -1470,6 +1490,7 @@
             // 
             // tabQualifications
             // 
+            this.tabQualifications.AutoScroll = true;
             this.tabQualifications.Controls.Add(this.dbOpsQualification);
             this.tabQualifications.Controls.Add(this.dgvQualifications);
             this.tabQualifications.Location = new System.Drawing.Point(4, 29);
@@ -1478,6 +1499,14 @@
             this.tabQualifications.TabIndex = 3;
             this.tabQualifications.Text = "Qualifications";
             this.tabQualifications.UseVisualStyleBackColor = true;
+            // 
+            // dbOpsQualification
+            // 
+            this.dbOpsQualification.Location = new System.Drawing.Point(20, 806);
+            this.dbOpsQualification.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.dbOpsQualification.Name = "dbOpsQualification";
+            this.dbOpsQualification.Size = new System.Drawing.Size(584, 46);
+            this.dbOpsQualification.TabIndex = 2;
             // 
             // dgvQualifications
             // 
@@ -1531,6 +1560,7 @@
             // 
             // tabJobAdPreview
             // 
+            this.tabJobAdPreview.AutoScroll = true;
             this.tabJobAdPreview.Controls.Add(this.btnWord);
             this.tabJobAdPreview.Controls.Add(this.btnPDF);
             this.tabJobAdPreview.Controls.Add(this.txtJobAdPreview);
@@ -1575,6 +1605,7 @@
             // 
             // tabMedia
             // 
+            this.tabMedia.AutoScroll = true;
             this.tabMedia.Controls.Add(this.button1);
             this.tabMedia.Controls.Add(this.dataGridView1);
             this.tabMedia.Controls.Add(this.btnGoForPosting);
@@ -1869,6 +1900,7 @@
             // 
             // tabJobOffer
             // 
+            this.tabJobOffer.AutoScroll = true;
             this.tabJobOffer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.tabJobOffer.Controls.Add(this.dtpJobOfferStartDate);
             this.tabJobOffer.Controls.Add(this.btnJobOfferClear);
@@ -2140,6 +2172,16 @@
             this.cmbJobOfferProvideRent.Size = new System.Drawing.Size(77, 28);
             this.cmbJobOfferProvideRent.TabIndex = 45;
             // 
+            // lblJobOfferAccomodationDescription
+            // 
+            this.lblJobOfferAccomodationDescription.AutoSize = true;
+            this.lblJobOfferAccomodationDescription.Location = new System.Drawing.Point(809, 774);
+            this.lblJobOfferAccomodationDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblJobOfferAccomodationDescription.Name = "lblJobOfferAccomodationDescription";
+            this.lblJobOfferAccomodationDescription.Size = new System.Drawing.Size(89, 20);
+            this.lblJobOfferAccomodationDescription.TabIndex = 44;
+            this.lblJobOfferAccomodationDescription.Text = "Description";
+            // 
             // lblJobOfferProvideRent
             // 
             this.lblJobOfferProvideRent.AutoSize = true;
@@ -2149,6 +2191,14 @@
             this.lblJobOfferProvideRent.Size = new System.Drawing.Size(179, 20);
             this.lblJobOfferProvideRent.TabIndex = 44;
             this.lblJobOfferProvideRent.Text = "Yes, we provide the rent";
+            // 
+            // txtJobOfferAccomadationDescription
+            // 
+            this.txtJobOfferAccomadationDescription.Location = new System.Drawing.Point(904, 771);
+            this.txtJobOfferAccomadationDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtJobOfferAccomadationDescription.Name = "txtJobOfferAccomadationDescription";
+            this.txtJobOfferAccomadationDescription.Size = new System.Drawing.Size(379, 26);
+            this.txtJobOfferAccomadationDescription.TabIndex = 43;
             // 
             // txtJobOfferProvideRent
             // 
@@ -2896,76 +2946,6 @@
             this.textBox4.Size = new System.Drawing.Size(918, 184);
             this.textBox4.TabIndex = 0;
             // 
-            // txtJobOfferAccomadationDescription
-            // 
-            this.txtJobOfferAccomadationDescription.Location = new System.Drawing.Point(904, 771);
-            this.txtJobOfferAccomadationDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtJobOfferAccomadationDescription.Name = "txtJobOfferAccomadationDescription";
-            this.txtJobOfferAccomadationDescription.Size = new System.Drawing.Size(379, 26);
-            this.txtJobOfferAccomadationDescription.TabIndex = 43;
-            // 
-            // lblJobOfferAccomodationDescription
-            // 
-            this.lblJobOfferAccomodationDescription.AutoSize = true;
-            this.lblJobOfferAccomodationDescription.Location = new System.Drawing.Point(809, 774);
-            this.lblJobOfferAccomodationDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblJobOfferAccomodationDescription.Name = "lblJobOfferAccomodationDescription";
-            this.lblJobOfferAccomodationDescription.Size = new System.Drawing.Size(89, 20);
-            this.lblJobOfferAccomodationDescription.TabIndex = 44;
-            this.lblJobOfferAccomodationDescription.Text = "Description";
-            // 
-            // jobPositionAdvisor
-            // 
-            this.jobPositionAdvisor.Location = new System.Drawing.Point(6, 132);
-            this.jobPositionAdvisor.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.jobPositionAdvisor.Name = "jobPositionAdvisor";
-            this.jobPositionAdvisor.Size = new System.Drawing.Size(1083, 240);
-            this.jobPositionAdvisor.TabIndex = 0;
-            this.jobPositionAdvisor.Leave += new System.EventHandler(this.jobPositionAdvisor_Leave);
-            // 
-            // financialAdvisor
-            // 
-            this.financialAdvisor.Location = new System.Drawing.Point(10, 371);
-            this.financialAdvisor.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.financialAdvisor.Name = "financialAdvisor";
-            this.financialAdvisor.Size = new System.Drawing.Size(1080, 162);
-            this.financialAdvisor.TabIndex = 1;
-            this.financialAdvisor.Leave += new System.EventHandler(this.financialAdvisor_Leave);
-            // 
-            // dbOpsJobAd
-            // 
-            this.dbOpsJobAd.Location = new System.Drawing.Point(750, 852);
-            this.dbOpsJobAd.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.dbOpsJobAd.Name = "dbOpsJobAd";
-            this.dbOpsJobAd.Size = new System.Drawing.Size(580, 43);
-            this.dbOpsJobAd.TabIndex = 8;
-            // 
-            // ucAddress1
-            // 
-            this.ucAddress1.AutoSize = true;
-            this.ucAddress1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ucAddress1.Location = new System.Drawing.Point(8, 91);
-            this.ucAddress1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.ucAddress1.Name = "ucAddress1";
-            this.ucAddress1.Size = new System.Drawing.Size(1321, 212);
-            this.ucAddress1.TabIndex = 7;
-            // 
-            // dbOpsMainDuties
-            // 
-            this.dbOpsMainDuties.Location = new System.Drawing.Point(861, 877);
-            this.dbOpsMainDuties.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.dbOpsMainDuties.Name = "dbOpsMainDuties";
-            this.dbOpsMainDuties.Size = new System.Drawing.Size(584, 46);
-            this.dbOpsMainDuties.TabIndex = 3;
-            // 
-            // dbOpsQualification
-            // 
-            this.dbOpsQualification.Location = new System.Drawing.Point(20, 806);
-            this.dbOpsQualification.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.dbOpsQualification.Name = "dbOpsQualification";
-            this.dbOpsQualification.Size = new System.Drawing.Size(584, 46);
-            this.dbOpsQualification.TabIndex = 2;
-            // 
             // lmFactors2
             // 
             this.lmFactors2.Location = new System.Drawing.Point(28, 489);
@@ -2998,6 +2978,58 @@
             this.applicationSteam1.Size = new System.Drawing.Size(1455, 106);
             this.applicationSteam1.TabIndex = 7;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tssLMIAEmployer,
+            this.tssLMIAEmployee,
+            this.tssLMIARCIC,
+            this.tssLMIAProgram,
+            this.tssLMIAStream,
+            this.tssLMIAApplication});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 1138);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1498, 30);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tssLMIAEmployer
+            // 
+            this.tssLMIAEmployer.Name = "tssLMIAEmployer";
+            this.tssLMIAEmployer.Size = new System.Drawing.Size(97, 25);
+            this.tssLMIAEmployer.Text = "Employer()";
+            // 
+            // tssLMIAEmployee
+            // 
+            this.tssLMIAEmployee.Name = "tssLMIAEmployee";
+            this.tssLMIAEmployee.Size = new System.Drawing.Size(100, 25);
+            this.tssLMIAEmployee.Text = "Employee()";
+            // 
+            // tssLMIARCIC
+            // 
+            this.tssLMIARCIC.Name = "tssLMIARCIC";
+            this.tssLMIARCIC.Size = new System.Drawing.Size(60, 25);
+            this.tssLMIARCIC.Text = "RCIC()";
+            // 
+            // tssLMIAProgram
+            // 
+            this.tssLMIAProgram.Name = "tssLMIAProgram";
+            this.tssLMIAProgram.Size = new System.Drawing.Size(91, 25);
+            this.tssLMIAProgram.Text = "Program()";
+            // 
+            // tssLMIAStream
+            // 
+            this.tssLMIAStream.Name = "tssLMIAStream";
+            this.tssLMIAStream.Size = new System.Drawing.Size(77, 25);
+            this.tssLMIAStream.Text = "Stream()";
+            // 
+            // tssLMIAApplication
+            // 
+            this.tssLMIAApplication.Name = "tssLMIAApplication";
+            this.tssLMIAApplication.Size = new System.Drawing.Size(112, 25);
+            this.tssLMIAApplication.Text = "Application()";
+            // 
             // LMIAForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -3005,6 +3037,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1498, 1168);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabBase);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "LMIAForm";
@@ -3035,8 +3068,6 @@
             this.tabLMIAApplication.ResumeLayout(false);
             this.tabAD.ResumeLayout(false);
             this.tabAD.PerformLayout();
-            this.stsStatus.ResumeLayout(false);
-            this.stsStatus.PerformLayout();
             this.grpSelectEmployer.ResumeLayout(false);
             this.grpSelectEmployer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployer)).EndInit();
@@ -3057,7 +3088,10 @@
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -3066,10 +3100,6 @@
         private System.Windows.Forms.TabControl tabBase;
         private System.Windows.Forms.TabPage tabApplication;
         private System.Windows.Forms.TabControl tabLMIAApplication;
-        private System.Windows.Forms.StatusStrip stsStatus;
-        private System.Windows.Forms.ToolStripStatusLabel stsEmployer;
-        private System.Windows.Forms.ToolStripStatusLabel stsEmployee;
-        private System.Windows.Forms.ToolStripStatusLabel stsAppId;
         private System.Windows.Forms.GroupBox grpSelectEmployer;
         private System.Windows.Forms.DataGridView dgvEmployer;
         private System.Windows.Forms.TextBox textBox7;
@@ -3302,5 +3332,12 @@
         public System.Windows.Forms.TextBox txtJobOfferWhoFillInThisJob;
         public System.Windows.Forms.Label lblJobOfferAccomodationDescription;
         public System.Windows.Forms.TextBox txtJobOfferAccomadationDescription;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        public System.Windows.Forms.ToolStripStatusLabel tssLMIAEmployer;
+        public System.Windows.Forms.ToolStripStatusLabel tssLMIAEmployee;
+        public System.Windows.Forms.ToolStripStatusLabel tssLMIARCIC;
+        public System.Windows.Forms.ToolStripStatusLabel tssLMIAProgram;
+        public System.Windows.Forms.ToolStripStatusLabel tssLMIAStream;
+        public System.Windows.Forms.ToolStripStatusLabel tssLMIAApplication;
     }
 }
