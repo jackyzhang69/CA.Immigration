@@ -111,7 +111,6 @@ namespace CA.Immigration.Startup
             }
             else { Employer.clearForm(sf); clearSelectedEmployer(sf); sf.btnEBIInsert.Visible = false; }
 
-
         }
 
         public static void clearSelectedPerson(StartupForm sf)
@@ -127,10 +126,7 @@ namespace CA.Immigration.Startup
         public static void buildupEMP5575()
         {
             Dictionary<string, string> dict5575 = new Dictionary<string, string>();
-            GlobalData.CurrentApplicationId = 7;
-            GlobalData.CurrentEmployerId = 1;
-            GlobalData.CurrentPersonId = 1;
-            
+                       
             //RCIC's company Information
             RCIC.buildupDict5575(ref dict5575);
             // Employer Information
@@ -142,16 +138,11 @@ namespace CA.Immigration.Startup
         }
         public static void buildupEMP5602()
         {
-            //if(GlobalData.CurrentApplicationId != null) { LMIAOps.buildupEMP5602(); }
-            //else MessageBox.Show("There is no active application");
-            GlobalData.CurrentApplicationId = 7;
-            //LMIAOps.buildupEMP5602();
+          
             Dictionary<string, string> dict5602 = new Dictionary<string, string>();
-            // below is for debug purpose only
-            GlobalData.CurrentApplicationId = 7;
-            GlobalData.CurrentEmployerId = 1;
-            GlobalData.CurrentPersonId = 1;
 
+            // Analysis information
+            LMIAAnalysis.buildupDict5602(ref dict5602);  
             //Employer Information
             Employer.buildupDict5602(ref dict5602);
             //3rd party information

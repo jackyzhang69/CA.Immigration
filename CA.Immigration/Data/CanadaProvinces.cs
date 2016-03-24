@@ -16,7 +16,7 @@ namespace CA.Immigration.Data
         public CanadaProvinces()
         {
             InitializeComponent();
-            for(int i=0;i<Definition.CndProvince.Length/2;i++) cmbProvince.Items.Add(Definition.CndProvince[i,0]);
+            foreach(KeyValuePair<int,string> kvp in  Definition.CndProvince)   cmbProvince.Items.Add(kvp.Value);
             
          }
 

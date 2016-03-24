@@ -93,8 +93,7 @@ namespace CA.Immigration.Startup
 
         private void btnApplication_Click(object sender, EventArgs e)
         {
-            // call functions based on program selected 
-            GlobalData.CurrentProgramIdReadOnly = true;  // disable changing application id
+           
             if (GlobalData.CurrentEmployerId != null)
             {
                 if (GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes))
@@ -111,7 +110,7 @@ namespace CA.Immigration.Startup
 
         private void cmbProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedIndex;
+            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedIndex+1;
             showMainStatus();
         }
 
@@ -161,8 +160,8 @@ namespace CA.Immigration.Startup
                 {
                     GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
                     GlobalData.CurrentRCICId= cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
-                    GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
-                    GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.LMIAType).FirstOrDefault();
+                    GlobalData.CurrentPersonId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
+                    GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.ProgramType).FirstOrDefault();
                 }
                 showMainStatus();
                 LMIAForm lf = new LMIAForm();
@@ -175,7 +174,6 @@ namespace CA.Immigration.Startup
             Form ps = new PersonSelector(this);
             ps.Show();
         }
-
         private void btnEBIUpdate_Click(object sender, EventArgs e)
         {
             Employer.employerUpdate(this);
@@ -192,27 +190,22 @@ namespace CA.Immigration.Startup
         {
             Employer.clearForm(this);
         }
-
         private void btnPBIInsert_Click(object sender, EventArgs e)
         {
             Person.personInsert(this);
         }
-
         private void btnPBIClear_Click(object sender, EventArgs e)
         {
             Person.clearForm(this);
         }
-
         private void btnPBIDelete_Click(object sender, EventArgs e)
         {
             Person.personDelete(this);
         }
-
         private void btnPBIUpdate_Click(object sender, EventArgs e)
         {
             Person.personUpdate(this);
         }
-
         private void cbxAlias_CheckedChanged(object sender, EventArgs e)
         {
             if (cbxAlias.Checked == true)
@@ -230,7 +223,6 @@ namespace CA.Immigration.Startup
                 txtPBIALN.Visible = false;
             }
         }
-
         private void chkBizSameAsMail_CheckedChanged(object sender, EventArgs e)
         {
             if (chkBizSameAsMail.Checked == true)
@@ -258,27 +250,19 @@ namespace CA.Immigration.Startup
             }
 
         }
-
-
         private void btnEMP5602_Click(object sender, EventArgs e)
         {
             StartupOps.buildupEMP5602();
         }
-
         private void btnEMP5575_Click_1(object sender, EventArgs e)
         {
-            //if(GlobalData.CurrentApplicationId != null) { StartupOps.buildupEMP5575(); }
-            //else MessageBox.Show("There is no active application");
-            GlobalData.CurrentApplicationId = 7;
             StartupOps.buildupEMP5575();
         }
-
         private void StartupForm_Activated(object sender, EventArgs e)
         {
             StartupOps.getAllApplications(this);
         }
-
-        private void showMainStatus()
+        public  void showMainStatus()
         {
             tssEmployer.Text = "Employer Id: " + GlobalData.CurrentEmployerId;
             tssPerson.Text = "Person Id:" + GlobalData.CurrentPersonId;

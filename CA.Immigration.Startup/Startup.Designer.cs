@@ -67,9 +67,14 @@
             this.btnEMP5575 = new System.Windows.Forms.Button();
             this.MainStatus = new System.Windows.Forms.StatusStrip();
             this.tssEmployer = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssPerson = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssRCIC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssProgram = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tssApplication = new System.Windows.Forms.ToolStripStatusLabel();
             this.tblPerson = new System.Windows.Forms.TabPage();
             this.spltPerson = new System.Windows.Forms.SplitContainer();
             this.btnFindaPerson = new System.Windows.Forms.Button();
+            this.btnMakeImm5476 = new System.Windows.Forms.Button();
             this.grpPersonBasic = new System.Windows.Forms.GroupBox();
             this.btnPBIClear = new System.Windows.Forms.Button();
             this.btnPBIDelete = new System.Windows.Forms.Button();
@@ -188,11 +193,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txtESDCId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tssPerson = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssRCIC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssApplication = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tssProgram = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnMakeImm5476 = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.tbcFrontPage.SuspendLayout();
             this.tbcMain.SuspendLayout();
@@ -458,6 +458,7 @@
             // 
             // cmbProgram
             // 
+            this.cmbProgram.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbProgram.FormattingEnabled = true;
             this.cmbProgram.Location = new System.Drawing.Point(154, 189);
             this.cmbProgram.Name = "cmbProgram";
@@ -477,6 +478,7 @@
             // 
             // cmbCategory
             // 
+            this.cmbCategory.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(154, 155);
             this.cmbCategory.Name = "cmbCategory";
@@ -642,6 +644,30 @@
             this.tssEmployer.Size = new System.Drawing.Size(102, 25);
             this.tssEmployer.Text = "Employer() ";
             // 
+            // tssPerson
+            // 
+            this.tssPerson.Name = "tssPerson";
+            this.tssPerson.Size = new System.Drawing.Size(80, 25);
+            this.tssPerson.Text = "Person() ";
+            // 
+            // tssRCIC
+            // 
+            this.tssRCIC.Name = "tssRCIC";
+            this.tssRCIC.Size = new System.Drawing.Size(65, 25);
+            this.tssRCIC.Text = "RCIC() ";
+            // 
+            // tssProgram
+            // 
+            this.tssProgram.Name = "tssProgram";
+            this.tssProgram.Size = new System.Drawing.Size(96, 25);
+            this.tssProgram.Text = "Program() ";
+            // 
+            // tssApplication
+            // 
+            this.tssApplication.Name = "tssApplication";
+            this.tssApplication.Size = new System.Drawing.Size(117, 25);
+            this.tssApplication.Text = "Application() ";
+            // 
             // tblPerson
             // 
             this.tblPerson.AutoScroll = true;
@@ -682,6 +708,16 @@
             this.btnFindaPerson.Text = "Find a person";
             this.btnFindaPerson.UseVisualStyleBackColor = true;
             this.btnFindaPerson.Click += new System.EventHandler(this.btnFindaPerson_Click);
+            // 
+            // btnMakeImm5476
+            // 
+            this.btnMakeImm5476.Location = new System.Drawing.Point(183, 1065);
+            this.btnMakeImm5476.Name = "btnMakeImm5476";
+            this.btnMakeImm5476.Size = new System.Drawing.Size(141, 42);
+            this.btnMakeImm5476.TabIndex = 1;
+            this.btnMakeImm5476.Text = "Make IMM5476";
+            this.btnMakeImm5476.UseVisualStyleBackColor = true;
+            this.btnMakeImm5476.Click += new System.EventHandler(this.btnMakeImm5476_Click);
             // 
             // grpPersonBasic
             // 
@@ -1125,7 +1161,7 @@
             this.tblEducation.Location = new System.Drawing.Point(4, 29);
             this.tblEducation.Name = "tblEducation";
             this.tblEducation.Padding = new System.Windows.Forms.Padding(3);
-            this.tblEducation.Size = new System.Drawing.Size(1303, 940);
+            this.tblEducation.Size = new System.Drawing.Size(1303, 1103);
             this.tblEducation.TabIndex = 1;
             this.tblEducation.Text = "tblEducation";
             this.tblEducation.UseVisualStyleBackColor = true;
@@ -1209,7 +1245,7 @@
             this.tblWork.Location = new System.Drawing.Point(4, 29);
             this.tblWork.Name = "tblWork";
             this.tblWork.Padding = new System.Windows.Forms.Padding(3);
-            this.tblWork.Size = new System.Drawing.Size(1303, 940);
+            this.tblWork.Size = new System.Drawing.Size(1303, 1103);
             this.tblWork.TabIndex = 2;
             this.tblWork.Text = "Work Experience";
             this.tblWork.UseVisualStyleBackColor = true;
@@ -1219,7 +1255,7 @@
             this.tblAssets.Location = new System.Drawing.Point(4, 29);
             this.tblAssets.Name = "tblAssets";
             this.tblAssets.Padding = new System.Windows.Forms.Padding(3);
-            this.tblAssets.Size = new System.Drawing.Size(1303, 940);
+            this.tblAssets.Size = new System.Drawing.Size(1303, 1103);
             this.tblAssets.TabIndex = 3;
             this.tblAssets.Text = "Assets";
             this.tblAssets.UseVisualStyleBackColor = true;
@@ -1229,7 +1265,7 @@
             this.tblPersonalHistory.Location = new System.Drawing.Point(4, 29);
             this.tblPersonalHistory.Name = "tblPersonalHistory";
             this.tblPersonalHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tblPersonalHistory.Size = new System.Drawing.Size(1303, 940);
+            this.tblPersonalHistory.Size = new System.Drawing.Size(1303, 1103);
             this.tblPersonalHistory.TabIndex = 4;
             this.tblPersonalHistory.Text = "Personal History";
             this.tblPersonalHistory.UseVisualStyleBackColor = true;
@@ -1239,7 +1275,7 @@
             this.tblTravelHistory.Location = new System.Drawing.Point(4, 29);
             this.tblTravelHistory.Name = "tblTravelHistory";
             this.tblTravelHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tblTravelHistory.Size = new System.Drawing.Size(1303, 940);
+            this.tblTravelHistory.Size = new System.Drawing.Size(1303, 1103);
             this.tblTravelHistory.TabIndex = 5;
             this.tblTravelHistory.Text = "Travel History";
             this.tblTravelHistory.UseVisualStyleBackColor = true;
@@ -1249,7 +1285,7 @@
             this.tblResidence.Location = new System.Drawing.Point(4, 29);
             this.tblResidence.Name = "tblResidence";
             this.tblResidence.Padding = new System.Windows.Forms.Padding(3);
-            this.tblResidence.Size = new System.Drawing.Size(1303, 940);
+            this.tblResidence.Size = new System.Drawing.Size(1303, 1103);
             this.tblResidence.TabIndex = 6;
             this.tblResidence.Text = "Residence History";
             this.tblResidence.UseVisualStyleBackColor = true;
@@ -1261,7 +1297,7 @@
             this.tabEmployer.Location = new System.Drawing.Point(4, 32);
             this.tabEmployer.Name = "tabEmployer";
             this.tabEmployer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEmployer.Size = new System.Drawing.Size(1657, 983);
+            this.tabEmployer.Size = new System.Drawing.Size(1657, 1142);
             this.tabEmployer.TabIndex = 2;
             this.tabEmployer.Text = "Employer";
             this.tabEmployer.UseVisualStyleBackColor = true;
@@ -1279,7 +1315,7 @@
             this.splitContainer3.Panel1.Controls.Add(this.btnEBIUpdate);
             this.splitContainer3.Panel1.Controls.Add(this.btnEBIInsert);
             this.splitContainer3.Panel1.Controls.Add(this.grpEBI);
-            this.splitContainer3.Size = new System.Drawing.Size(1651, 977);
+            this.splitContainer3.Size = new System.Drawing.Size(1651, 1136);
             this.splitContainer3.SplitterDistance = 542;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -1865,40 +1901,6 @@
             this.label7.Size = new System.Drawing.Size(72, 20);
             this.label7.TabIndex = 0;
             this.label7.Text = "ESDC Id";
-            // 
-            // tssPerson
-            // 
-            this.tssPerson.Name = "tssPerson";
-            this.tssPerson.Size = new System.Drawing.Size(80, 25);
-            this.tssPerson.Text = "Person() ";
-            // 
-            // tssRCIC
-            // 
-            this.tssRCIC.Name = "tssRCIC";
-            this.tssRCIC.Size = new System.Drawing.Size(65, 25);
-            this.tssRCIC.Text = "RCIC() ";
-            // 
-            // tssApplication
-            // 
-            this.tssApplication.Name = "tssApplication";
-            this.tssApplication.Size = new System.Drawing.Size(117, 25);
-            this.tssApplication.Text = "Application() ";
-            // 
-            // tssProgram
-            // 
-            this.tssProgram.Name = "tssProgram";
-            this.tssProgram.Size = new System.Drawing.Size(96, 25);
-            this.tssProgram.Text = "Program() ";
-            // 
-            // btnMakeImm5476
-            // 
-            this.btnMakeImm5476.Location = new System.Drawing.Point(183, 1065);
-            this.btnMakeImm5476.Name = "btnMakeImm5476";
-            this.btnMakeImm5476.Size = new System.Drawing.Size(141, 42);
-            this.btnMakeImm5476.TabIndex = 1;
-            this.btnMakeImm5476.Text = "Make IMM5476";
-            this.btnMakeImm5476.UseVisualStyleBackColor = true;
-            this.btnMakeImm5476.Click += new System.EventHandler(this.btnMakeImm5476_Click);
             // 
             // StartupForm
             // 

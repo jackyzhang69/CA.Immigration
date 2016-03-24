@@ -88,7 +88,7 @@ namespace CA.Immigration
                 {"EMP5575_E[0].Page1[0].txtF_Mail_Adress[0]",rcic.MailingAddress },
                 {"EMP5575_E[0].Page1[0].txtF_City[0]",rcic.City },
                 {"EMP5575_E[0].Page1[0].txtF_City[3]",rcic.MainBizActivities },
-                {"EMP5575_E[0].Page1[0].txtF_Province[2]",Definition.CndProvince[(int)rcic.Province,0]},
+                {"EMP5575_E[0].Page1[0].txtF_Province[2]",Definition.CndProvince[(int)rcic.Province]},
                 {"EMP5575_E[0].Page1[0].txtF_Province[3]",rcic.Country },
                 {"EMP5575_E[0].Page1[0].txtF_Country[1]",rcic.PostalCode},
                 //RCIC information
@@ -106,7 +106,7 @@ namespace CA.Immigration
                 {"EMP5575_E[0].Page2[0].Page2[0].txtF_membership_ID1[0]",rcic.MembershipID},
                 // Employer Information
                 {"EMP5575_E[0].Page3[0].txtF_Employer_Name[0]", employer.ContactFirstName+" "+employer.ContactLastName },
-                {"EMP5575_E[0].Page3[0].txtF_Employer_Address[0]",employer.BizAddress+", "+employer.BizCity+", "+Definition.CndProvince[(int)employer.BizProvince,0]+", "+employer.BizPostalCode },
+                {"EMP5575_E[0].Page3[0].txtF_Employer_Address[0]",employer.BizAddress+", "+employer.BizCity+", "+Definition.CndProvince[(int)employer.BizProvince]+", "+employer.BizPostalCode },
                 {"EMP5575_E[0].Page3[0].txtF_Employer_Telephone[0]",employer.BizTelephone },
                 {"EMP5575_E[0].Page3[0].txtF_Employer_Name[1]","N/A" },  // secondary contact
                 {"EMP5575_E[0].Page3[0].txtF_foreign_worker[0]",employee!=null?employee.FirstName+" "+employee.LastName:""},  // Foreign worker

@@ -25,19 +25,19 @@ namespace CA.Immigration.Utility
 
         public string getStreetAddress()
         {
-            if (POBox != string.Empty && AptUnit != string.Empty)
+            if(POBox != string.Empty && AptUnit != string.Empty)
                 return POBox + ", " + AptUnit + ", " + StreetNo + " " + StreetName;
-            else if (POBox != string.Empty) return POBox + ", " + StreetNo + " " + StreetName;
-            else if (AptUnit != string.Empty) return AptUnit + ", " + StreetNo + " " + StreetName;
+            else if(POBox != string.Empty) return POBox + ", " + StreetNo + " " + StreetName;
+            else if(AptUnit != string.Empty) return AptUnit + ", " + StreetNo + " " + StreetName;
             else return StreetNo + " " + StreetName;
         }
 
         public string getFullAddress()
         {
-            if (POBox != string.Empty && AptUnit != string.Empty)
+            if(POBox != string.Empty && AptUnit != string.Empty)
                 return POBox + ", " + AptUnit + ", " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
-            else if (POBox != string.Empty) return POBox + " " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
-            else if (AptUnit != string.Empty) return AptUnit + " " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
+            else if(POBox != string.Empty) return POBox + " " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
+            else if(AptUnit != string.Empty) return AptUnit + " " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
             else return StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
 
         }
@@ -79,7 +79,7 @@ namespace CA.Immigration.Utility
         public static int countryToCode(this string value)
         {
 
-            using (CommonDataContext cd = new CommonDataContext())
+            using(CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblCountries.Where(x => x.Country == value).Select(x => x.CountryCode).FirstOrDefault();
 
@@ -89,7 +89,7 @@ namespace CA.Immigration.Utility
         }
         public static string countryToString(this int value)
         {
-            using (CommonDataContext cd = new CommonDataContext())
+            using(CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblCountries.Where(x => x.CountryCode == value).Select(x => x.Country).FirstOrDefault();
 
@@ -99,21 +99,21 @@ namespace CA.Immigration.Utility
 
         public static string statusCodeToName(this string code)
         {
-            using (CommonDataContext cd = new CommonDataContext())
+            using(CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblStatusTypes.Where(x => x.TypeCode == code).Select(x => x.StatusType).FirstOrDefault();
             }
         }
         public static string statusNameToCode(this string name)
         {
-            using (CommonDataContext cd = new CommonDataContext())
+            using(CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblStatusTypes.Where(x => x.StatusType == name).Select(x => x.TypeCode).FirstOrDefault();
             }
         }
         public static string genderToString(this int value)
         {
-            switch (value)
+            switch(value)
             {
                 case 1:
                     return "Male";
@@ -128,7 +128,7 @@ namespace CA.Immigration.Utility
         }
         public static int genderToCode(this string value)
         {
-            switch (value)
+            switch(value)
             {
                 case "Male":
                     return 1;
@@ -143,14 +143,14 @@ namespace CA.Immigration.Utility
 
         public static string MarriageStatusIdtoString(this string MarriageId)
         {
-            using (CommonDataContext cd = new CommonDataContext())
+            using(CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblMarriageStatusTypes.Where(x => x.TypeCode == MarriageId).Select(x => x.MarriageStatusType).FirstOrDefault();
             }
         }
         public static string MarriageStatusStringtoId(this string marriagestatus)
         {
-            using (CommonDataContext cd = new CommonDataContext())
+            using(CommonDataContext cd = new CommonDataContext())
             {
                 return cd.tblMarriageStatusTypes.Where(x => x.MarriageStatusType == marriagestatus).Select(x => x.TypeCode).FirstOrDefault();
             }
@@ -158,7 +158,7 @@ namespace CA.Immigration.Utility
 
         public static string getEmployerFromId(this int id)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 return cdc.tblEmployers.Where(x => x.Id == id).Select(x => x.LegalName).Single();
             }
@@ -166,9 +166,16 @@ namespace CA.Immigration.Utility
         }
         public static string getEmployeeFromId(this int id)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            if(id==0)   //Define Id=0 as no employee in LMIA application
             {
-                return cdc.tblPersons.Where(x => x.Id == id).Select(x => x.FirstName + " " + x.LastName).Single();
+                return "Employee Unnamed";
+            }
+            else
+            {
+                using(CommonDataContext cdc = new CommonDataContext())
+                {
+                    return cdc.tblPersons.Where(x => x.Id == id).Select(x => x.FirstName + " " + x.LastName).Single();
+                }
             }
 
         }
@@ -179,7 +186,7 @@ namespace CA.Immigration.Utility
     {
         public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
         {
-            using (MemoryStream ms = new MemoryStream())
+            using(MemoryStream ms = new MemoryStream())
             {
                 imageIn.Save(ms, imageIn.RawFormat);
 
@@ -189,7 +196,7 @@ namespace CA.Immigration.Utility
 
         public static System.Drawing.Image ByteArrayToImage(byte[] byteArrayIn)
         {
-            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            using(MemoryStream ms = new MemoryStream(byteArrayIn))
             {
                 Image returnImage = Image.FromStream(ms);
 
@@ -201,7 +208,7 @@ namespace CA.Immigration.Utility
         {
             int numOfBytes = input.Length / 8;
             byte[] bytes = new byte[numOfBytes];
-            for (int i = 0; i < numOfBytes; ++i)
+            for(int i = 0; i < numOfBytes; ++i)
             {
                 bytes[i] = Convert.ToByte(input.Substring(8 * i, 8), 2);
             }
@@ -210,11 +217,11 @@ namespace CA.Immigration.Utility
         }
         public static Aspose.Pdf.Generator.Image ByteArrayToAsposeImage(byte[] byteArrayIn, string format)
         {
-            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            using(MemoryStream ms = new MemoryStream(byteArrayIn))
             {
                 Aspose.Pdf.Generator.Image AsposeImage = new Aspose.Pdf.Generator.Image();
                 //Set the type of image using ImageFileType enumeration
-                switch (format.ToUpper())
+                switch(format.ToUpper())
                 {
                     case "JPG":
                         AsposeImage.ImageInfo.ImageFileType = Aspose.Pdf.Generator.ImageFileType.Jpeg;
@@ -240,19 +247,19 @@ namespace CA.Immigration.Utility
         {
             MemoryStream ms = new MemoryStream(imageBytes);
 
-            using (BinaryReader br = new BinaryReader(ms))
+            using(BinaryReader br = new BinaryReader(ms))
             {
                 int maxMagicBytesLength = imageFormatDecoders.Keys.OrderByDescending(x => x.Length).First().Length;
 
                 byte[] magicBytes = new byte[maxMagicBytesLength];
 
-                for (int i = 0; i < maxMagicBytesLength; i += 1)
+                for(int i = 0; i < maxMagicBytesLength; i += 1)
                 {
                     magicBytes[i] = br.ReadByte();
 
-                    foreach (var kvPair in imageFormatDecoders)
+                    foreach(var kvPair in imageFormatDecoders)
                     {
-                        if (magicBytes.StartsWith(kvPair.Key))
+                        if(magicBytes.StartsWith(kvPair.Key))
                         {
                             return kvPair.Value;
                         }
@@ -265,9 +272,9 @@ namespace CA.Immigration.Utility
 
         private static bool StartsWith(this byte[] thisBytes, byte[] thatBytes)
         {
-            for (int i = 0; i < thatBytes.Length; i += 1)
+            for(int i = 0; i < thatBytes.Length; i += 1)
             {
-                if (thisBytes[i] != thatBytes[i])
+                if(thisBytes[i] != thatBytes[i])
                 {
                     return false;
                 }
@@ -294,12 +301,12 @@ namespace CA.Immigration.Utility
             int intValue;
             return Int32.TryParse(value, out intValue);
         }
-        public static bool IsIntInRange(string value,int low, int high)
+        public static bool IsIntInRange(string value, int low, int high)
         {
             int intValue;
-            if (Int32.TryParse(value, out intValue) && intValue >= low && intValue <= high) return true;
+            if(Int32.TryParse(value, out intValue) && intValue >= low && intValue <= high) return true;
             else return false;
-            
+
         }
         public static bool IsFloat(string value)
         {
@@ -309,7 +316,7 @@ namespace CA.Immigration.Utility
         public static bool IsFloatInRange(string value, float low, float high)
         {
             float floatValue;
-            if (float.TryParse(value, out floatValue) && floatValue >= low && floatValue <= high) return true;
+            if(float.TryParse(value, out floatValue) && floatValue >= low && floatValue <= high) return true;
             else return false;
         }
         public static bool IsDecimal(string value)
@@ -317,7 +324,7 @@ namespace CA.Immigration.Utility
             decimal decimalValue;
             return decimal.TryParse(value, out decimalValue);
         }
-      
+
         public static bool IsDouble(string value)
         {
             double doubleValue;
@@ -329,30 +336,30 @@ namespace CA.Immigration.Utility
         public static int? getIntValue(string input)
         {
             int? value = null;
-            if (Validation.IsInt(input)) value = int.Parse(input);
-            if (input == string.Empty) value = null;
+            if(Validation.IsInt(input)) value = int.Parse(input);
+            if(input == string.Empty) value = null;
             return value;
         }
         public static float? getFloatValue(string input)
         {
             float? value = null;
-            if (Validation.IsFloat(input)) value = float.Parse(input);
-            if (input == string.Empty) value = null;
+            if(Validation.IsFloat(input)) value = float.Parse(input);
+            if(input == string.Empty) value = null;
             return value;
         }
 
         public static decimal? getDecimalValue(string input)
         {
             decimal? value = null;
-            if (Validation.IsDecimal(input)) value = decimal.Parse(input);
-            if (input == string.Empty) value = null;
+            if(Validation.IsDecimal(input)) value = decimal.Parse(input);
+            if(input == string.Empty) value = null;
             return value;
         }
         public static double? getDoubleValue(string input)
         {
             double? value = null;
-            if (Validation.IsDouble(input)) value = double.Parse(input);
-            if (input == string.Empty) value = null;
+            if(Validation.IsDouble(input)) value = double.Parse(input);
+            if(input == string.Empty) value = null;
             return value;
         }
     }

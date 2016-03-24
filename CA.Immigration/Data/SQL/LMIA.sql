@@ -57,7 +57,7 @@ theWitness nvarchar(20)
 -- Application information
 create table tblLMIAApplication(
 LMIAApplicationId int not null primary key identity(1,1),
-LMIAType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
+ProgramType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
 StreamType int, --0 for High Wage Stream 1 for Low Wage Stream
 EmployerId int,
 EmployeeId int,
@@ -65,14 +65,14 @@ RCICId int,
 CreatedDate date,
 SubmittedDate date,
 ClosedDate date,
-ApplicationNumber nvarchar(20),
+ApplicationNumber varchar(20),
 ApplicationFee money,
-SecondEmployer nvarchar(30),
+SecondEmployer varchar(30),
 NumberofPosition int,
 ApplicationFeePerPosition money,
-PayMethod int  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
+PayMethod int,  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
 MoreThanOneEmployer bit,
-AnotherEmployerName
+AnotherEmployerName	varchar(150)
 )
 
 -- Application followup 

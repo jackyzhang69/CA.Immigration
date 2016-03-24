@@ -126,15 +126,6 @@ insert into tblPhoneType values(2, 'Cellular')
 insert into tblPhoneType values(3, 'Business')
 
 -- Creat address type PK table
-create table tblAddressType
-(
-Id int not null primary key Identity(1,1),
-AddressType varchar(15) not null
-)
-
-insert into tblAddressType values('Residential')
-insert into tblAddressType values('Business')
-insert into tblAddressType values('Mailing')
 
 -- Creat language type PK table
 create table tblLanguageType
@@ -144,38 +135,7 @@ TypeCode int,  -- Code matchs CIC Definition
 LanguageType varchar(10)
 )
 
--- Create Status type PK table
-create table tblStatusType
-(
-Id int not null primary key Identity(1,1),
-TypeCode char(2),  -- Code matchs CIC Definition
-StatusType varchar(20) 
-)
-insert into tblStatusType values ('01', 'Citizen')
-insert into tblStatusType values ('02', 'Permanent resident')
-insert into tblStatusType values ('03', 'Visitor')
-insert into tblStatusType values ('04', 'Worker')
-insert into tblStatusType values ('05', 'Student')
-insert into tblStatusType values ('06', 'Other')
-insert into tblStatusType values ('07', 'Protected Person')
-insert into tblStatusType values ('08', 'Refugee Claiment')
---Create Residence Type PK table
-create table tblResidenceType
-(
-Id int not null primary key Identity(1,1),
-Type int, -- 1 Current 2 Previous 3 Country where applying
-ResidenceType varchar(25)
-)
 
-insert into tblResidenceType values(1,'Current')
-insert into tblResidenceType values(2,'Previous')
-insert into tblResidenceType values(3,'Country where applying')
-
--------------------------------------------------------------------------
-
---alter table tblGenders
---add constraint DF_Gender
---default 3 for Id
 
 -- Create education information 
 -- PersonId: FK to reference the person who owns this education
@@ -312,22 +272,6 @@ EndDate date,
 relationship char(2)
 )
 
--- Create marriage status type PK table
-create table tblMarriageStatusType
-(
-Id int not null primary key Identity(1,1),
-TypeCode char(2),   -- Type code matchs CIC defenition
-MarriageStatusType varchar(20) not null,
-)
-
-insert into tblMarriageStatusType values ('09', 'Annulled Marriage')
-insert into tblMarriageStatusType values ('03', 'Common-Law')
-insert into tblMarriageStatusType values ('04', 'Divorced')
-insert into tblMarriageStatusType values ('05', 'Legally Separated')
-insert into tblMarriageStatusType values ('01', 'Married')
-insert into tblMarriageStatusType values ('02', 'Single')
-insert into tblMarriageStatusType values ('00', 'Unknown')
-insert into tblMarriageStatusType values ('06', 'Widowed')
 -- Create residence table
 create table tblResidence
 (
@@ -448,4 +392,24 @@ BusinessEngagement bit,
 OfferConsistentwithDemand bit,
 AbletoFulfillTermofOffer bit,
 PastCompliance bit
+)
+-- Application information
+create table tblLMIAApplication(
+Id int not null primary key identity(1,1),
+ProgramType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
+StreamType int, --0 for High Wage Stream 1 for Low Wage Stream
+EmployerId int,
+EmployeeId int,
+RCICId int,
+CreatedDate date,
+SubmittedDate date,
+ClosedDate date,
+ApplicationNumber varchar(20),
+ApplicationFee money,
+SecondEmployer varchar(30),
+NumberofPosition int,
+ApplicationFeePerPosition money,
+PayMethod int,  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
+MoreThanOneEmployer bit,
+AnotherEmployerName	varchar(150)
 )

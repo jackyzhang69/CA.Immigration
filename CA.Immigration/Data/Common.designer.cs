@@ -33,9 +33,6 @@ namespace CA.Immigration.Data
     partial void InserttblAddress(tblAddress instance);
     partial void UpdatetblAddress(tblAddress instance);
     partial void DeletetblAddress(tblAddress instance);
-    partial void InserttblApplication(tblApplication instance);
-    partial void UpdatetblApplication(tblApplication instance);
-    partial void DeletetblApplication(tblApplication instance);
     partial void InserttblCategory(tblCategory instance);
     partial void UpdatetblCategory(tblCategory instance);
     partial void DeletetblCategory(tblCategory instance);
@@ -93,9 +90,6 @@ namespace CA.Immigration.Data
     partial void InserttblGender(tblGender instance);
     partial void UpdatetblGender(tblGender instance);
     partial void DeletetblGender(tblGender instance);
-    partial void InserttblLMIAApplication(tblLMIAApplication instance);
-    partial void UpdatetblLMIAApplication(tblLMIAApplication instance);
-    partial void DeletetblLMIAApplication(tblLMIAApplication instance);
     partial void InserttblEmployer(tblEmployer instance);
     partial void UpdatetblEmployer(tblEmployer instance);
     partial void DeletetblEmployer(tblEmployer instance);
@@ -117,6 +111,12 @@ namespace CA.Immigration.Data
     partial void InserttblJobOffer(tblJobOffer instance);
     partial void UpdatetblJobOffer(tblJobOffer instance);
     partial void DeletetblJobOffer(tblJobOffer instance);
+    partial void InserttblLMIAApplication(tblLMIAApplication instance);
+    partial void UpdatetblLMIAApplication(tblLMIAApplication instance);
+    partial void DeletetblLMIAApplication(tblLMIAApplication instance);
+    partial void InserttblApplication(tblApplication instance);
+    partial void UpdatetblApplication(tblApplication instance);
+    partial void DeletetblApplication(tblApplication instance);
     #endregion
 		
 		public CommonDataContext() : 
@@ -154,14 +154,6 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblAddress>();
-			}
-		}
-		
-		public System.Data.Linq.Table<tblApplication> tblApplications
-		{
-			get
-			{
-				return this.GetTable<tblApplication>();
 			}
 		}
 		
@@ -317,14 +309,6 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<tblLMIAApplication> tblLMIAApplications
-		{
-			get
-			{
-				return this.GetTable<tblLMIAApplication>();
-			}
-		}
-		
 		public System.Data.Linq.Table<tblEmployer> tblEmployers
 		{
 			get
@@ -378,6 +362,22 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblJobOffer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblLMIAApplication> tblLMIAApplications
+		{
+			get
+			{
+				return this.GetTable<tblLMIAApplication>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblApplication> tblApplications
+		{
+			get
+			{
+				return this.GetTable<tblApplication>();
 			}
 		}
 	}
@@ -683,284 +683,6 @@ namespace CA.Immigration.Data
 					this._AddressTypeId = value;
 					this.SendPropertyChanged("AddressTypeId");
 					this.OnAddressTypeIdChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblApplication")]
-	public partial class tblApplication : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _ApplicantId;
-		
-		private System.Nullable<int> _RCICId;
-		
-		private System.Nullable<int> _ApplicationType;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<System.DateTime> _SubmittedDate;
-		
-		private System.Nullable<System.DateTime> _ClosedDate;
-		
-		private string _ApplicationNumber;
-		
-		private System.Nullable<decimal> _ApplicationFee;
-		
-		private System.Nullable<int> _Stage;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnApplicantIdChanging(System.Nullable<int> value);
-    partial void OnApplicantIdChanged();
-    partial void OnRCICIdChanging(System.Nullable<int> value);
-    partial void OnRCICIdChanged();
-    partial void OnApplicationTypeChanging(System.Nullable<int> value);
-    partial void OnApplicationTypeChanged();
-    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedDateChanged();
-    partial void OnSubmittedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnSubmittedDateChanged();
-    partial void OnClosedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnClosedDateChanged();
-    partial void OnApplicationNumberChanging(string value);
-    partial void OnApplicationNumberChanged();
-    partial void OnApplicationFeeChanging(System.Nullable<decimal> value);
-    partial void OnApplicationFeeChanged();
-    partial void OnStageChanging(System.Nullable<int> value);
-    partial void OnStageChanged();
-    #endregion
-		
-		public tblApplication()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicantId", DbType="Int")]
-		public System.Nullable<int> ApplicantId
-		{
-			get
-			{
-				return this._ApplicantId;
-			}
-			set
-			{
-				if ((this._ApplicantId != value))
-				{
-					this.OnApplicantIdChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicantId = value;
-					this.SendPropertyChanged("ApplicantId");
-					this.OnApplicantIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCICId", DbType="Int")]
-		public System.Nullable<int> RCICId
-		{
-			get
-			{
-				return this._RCICId;
-			}
-			set
-			{
-				if ((this._RCICId != value))
-				{
-					this.OnRCICIdChanging(value);
-					this.SendPropertyChanging();
-					this._RCICId = value;
-					this.SendPropertyChanged("RCICId");
-					this.OnRCICIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationType", DbType="Int")]
-		public System.Nullable<int> ApplicationType
-		{
-			get
-			{
-				return this._ApplicationType;
-			}
-			set
-			{
-				if ((this._ApplicationType != value))
-				{
-					this.OnApplicationTypeChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationType = value;
-					this.SendPropertyChanged("ApplicationType");
-					this.OnApplicationTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubmittedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> SubmittedDate
-		{
-			get
-			{
-				return this._SubmittedDate;
-			}
-			set
-			{
-				if ((this._SubmittedDate != value))
-				{
-					this.OnSubmittedDateChanging(value);
-					this.SendPropertyChanging();
-					this._SubmittedDate = value;
-					this.SendPropertyChanged("SubmittedDate");
-					this.OnSubmittedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClosedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> ClosedDate
-		{
-			get
-			{
-				return this._ClosedDate;
-			}
-			set
-			{
-				if ((this._ClosedDate != value))
-				{
-					this.OnClosedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ClosedDate = value;
-					this.SendPropertyChanged("ClosedDate");
-					this.OnClosedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationNumber", DbType="NVarChar(20)")]
-		public string ApplicationNumber
-		{
-			get
-			{
-				return this._ApplicationNumber;
-			}
-			set
-			{
-				if ((this._ApplicationNumber != value))
-				{
-					this.OnApplicationNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationNumber = value;
-					this.SendPropertyChanged("ApplicationNumber");
-					this.OnApplicationNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFee", DbType="Money")]
-		public System.Nullable<decimal> ApplicationFee
-		{
-			get
-			{
-				return this._ApplicationFee;
-			}
-			set
-			{
-				if ((this._ApplicationFee != value))
-				{
-					this.OnApplicationFeeChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationFee = value;
-					this.SendPropertyChanged("ApplicationFee");
-					this.OnApplicationFeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stage", DbType="Int")]
-		public System.Nullable<int> Stage
-		{
-			get
-			{
-				return this._Stage;
-			}
-			set
-			{
-				if ((this._Stage != value))
-				{
-					this.OnStageChanging(value);
-					this.SendPropertyChanging();
-					this._Stage = value;
-					this.SendPropertyChanged("Stage");
-					this.OnStageChanged();
 				}
 			}
 		}
@@ -5211,428 +4933,6 @@ namespace CA.Immigration.Data
 					this._Gender = value;
 					this.SendPropertyChanged("Gender");
 					this.OnGenderChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLMIAApplication")]
-	public partial class tblLMIAApplication : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _LMIAType;
-		
-		private System.Nullable<int> _StreamType;
-		
-		private System.Nullable<int> _EmployerId;
-		
-		private System.Nullable<int> _EmployeeId;
-		
-		private System.Nullable<int> _RCICId;
-		
-		private System.Nullable<System.DateTime> _CreatedDate;
-		
-		private System.Nullable<System.DateTime> _SubmittedDate;
-		
-		private System.Nullable<System.DateTime> _ClosedDate;
-		
-		private string _ApplicationNumber;
-		
-		private System.Nullable<decimal> _ApplicationFee;
-		
-		private string _SecondEmployer;
-		
-		private System.Nullable<int> _NumberofPosition;
-		
-		private System.Nullable<decimal> _ApplicationFeePerPosition;
-		
-		private System.Nullable<int> _PayMethod;
-		
-		private string _AnotherEmployerName;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnLMIATypeChanging(System.Nullable<int> value);
-    partial void OnLMIATypeChanged();
-    partial void OnStreamTypeChanging(System.Nullable<int> value);
-    partial void OnStreamTypeChanged();
-    partial void OnEmployerIdChanging(System.Nullable<int> value);
-    partial void OnEmployerIdChanged();
-    partial void OnEmployeeIdChanging(System.Nullable<int> value);
-    partial void OnEmployeeIdChanged();
-    partial void OnRCICIdChanging(System.Nullable<int> value);
-    partial void OnRCICIdChanged();
-    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCreatedDateChanged();
-    partial void OnSubmittedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnSubmittedDateChanged();
-    partial void OnClosedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnClosedDateChanged();
-    partial void OnApplicationNumberChanging(string value);
-    partial void OnApplicationNumberChanged();
-    partial void OnApplicationFeeChanging(System.Nullable<decimal> value);
-    partial void OnApplicationFeeChanged();
-    partial void OnSecondEmployerChanging(string value);
-    partial void OnSecondEmployerChanged();
-    partial void OnNumberofPositionChanging(System.Nullable<int> value);
-    partial void OnNumberofPositionChanged();
-    partial void OnApplicationFeePerPositionChanging(System.Nullable<decimal> value);
-    partial void OnApplicationFeePerPositionChanged();
-    partial void OnPayMethodChanging(System.Nullable<int> value);
-    partial void OnPayMethodChanged();
-    partial void OnAnotherEmployerNameChanging(string value);
-    partial void OnAnotherEmployerNameChanged();
-    #endregion
-		
-		public tblLMIAApplication()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LMIAType", DbType="Int")]
-		public System.Nullable<int> LMIAType
-		{
-			get
-			{
-				return this._LMIAType;
-			}
-			set
-			{
-				if ((this._LMIAType != value))
-				{
-					this.OnLMIATypeChanging(value);
-					this.SendPropertyChanging();
-					this._LMIAType = value;
-					this.SendPropertyChanged("LMIAType");
-					this.OnLMIATypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StreamType", DbType="Int")]
-		public System.Nullable<int> StreamType
-		{
-			get
-			{
-				return this._StreamType;
-			}
-			set
-			{
-				if ((this._StreamType != value))
-				{
-					this.OnStreamTypeChanging(value);
-					this.SendPropertyChanging();
-					this._StreamType = value;
-					this.SendPropertyChanged("StreamType");
-					this.OnStreamTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployerId", DbType="Int")]
-		public System.Nullable<int> EmployerId
-		{
-			get
-			{
-				return this._EmployerId;
-			}
-			set
-			{
-				if ((this._EmployerId != value))
-				{
-					this.OnEmployerIdChanging(value);
-					this.SendPropertyChanging();
-					this._EmployerId = value;
-					this.SendPropertyChanged("EmployerId");
-					this.OnEmployerIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeId", DbType="Int")]
-		public System.Nullable<int> EmployeeId
-		{
-			get
-			{
-				return this._EmployeeId;
-			}
-			set
-			{
-				if ((this._EmployeeId != value))
-				{
-					this.OnEmployeeIdChanging(value);
-					this.SendPropertyChanging();
-					this._EmployeeId = value;
-					this.SendPropertyChanged("EmployeeId");
-					this.OnEmployeeIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCICId", DbType="Int")]
-		public System.Nullable<int> RCICId
-		{
-			get
-			{
-				return this._RCICId;
-			}
-			set
-			{
-				if ((this._RCICId != value))
-				{
-					this.OnRCICIdChanging(value);
-					this.SendPropertyChanging();
-					this._RCICId = value;
-					this.SendPropertyChanged("RCICId");
-					this.OnRCICIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> CreatedDate
-		{
-			get
-			{
-				return this._CreatedDate;
-			}
-			set
-			{
-				if ((this._CreatedDate != value))
-				{
-					this.OnCreatedDateChanging(value);
-					this.SendPropertyChanging();
-					this._CreatedDate = value;
-					this.SendPropertyChanged("CreatedDate");
-					this.OnCreatedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubmittedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> SubmittedDate
-		{
-			get
-			{
-				return this._SubmittedDate;
-			}
-			set
-			{
-				if ((this._SubmittedDate != value))
-				{
-					this.OnSubmittedDateChanging(value);
-					this.SendPropertyChanging();
-					this._SubmittedDate = value;
-					this.SendPropertyChanged("SubmittedDate");
-					this.OnSubmittedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClosedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> ClosedDate
-		{
-			get
-			{
-				return this._ClosedDate;
-			}
-			set
-			{
-				if ((this._ClosedDate != value))
-				{
-					this.OnClosedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ClosedDate = value;
-					this.SendPropertyChanged("ClosedDate");
-					this.OnClosedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationNumber", DbType="NVarChar(20)")]
-		public string ApplicationNumber
-		{
-			get
-			{
-				return this._ApplicationNumber;
-			}
-			set
-			{
-				if ((this._ApplicationNumber != value))
-				{
-					this.OnApplicationNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationNumber = value;
-					this.SendPropertyChanged("ApplicationNumber");
-					this.OnApplicationNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFee", DbType="Money")]
-		public System.Nullable<decimal> ApplicationFee
-		{
-			get
-			{
-				return this._ApplicationFee;
-			}
-			set
-			{
-				if ((this._ApplicationFee != value))
-				{
-					this.OnApplicationFeeChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationFee = value;
-					this.SendPropertyChanged("ApplicationFee");
-					this.OnApplicationFeeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecondEmployer", DbType="NVarChar(30)")]
-		public string SecondEmployer
-		{
-			get
-			{
-				return this._SecondEmployer;
-			}
-			set
-			{
-				if ((this._SecondEmployer != value))
-				{
-					this.OnSecondEmployerChanging(value);
-					this.SendPropertyChanging();
-					this._SecondEmployer = value;
-					this.SendPropertyChanged("SecondEmployer");
-					this.OnSecondEmployerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberofPosition", DbType="Int")]
-		public System.Nullable<int> NumberofPosition
-		{
-			get
-			{
-				return this._NumberofPosition;
-			}
-			set
-			{
-				if ((this._NumberofPosition != value))
-				{
-					this.OnNumberofPositionChanging(value);
-					this.SendPropertyChanging();
-					this._NumberofPosition = value;
-					this.SendPropertyChanged("NumberofPosition");
-					this.OnNumberofPositionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFeePerPosition", DbType="Money")]
-		public System.Nullable<decimal> ApplicationFeePerPosition
-		{
-			get
-			{
-				return this._ApplicationFeePerPosition;
-			}
-			set
-			{
-				if ((this._ApplicationFeePerPosition != value))
-				{
-					this.OnApplicationFeePerPositionChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationFeePerPosition = value;
-					this.SendPropertyChanged("ApplicationFeePerPosition");
-					this.OnApplicationFeePerPositionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayMethod", DbType="Int")]
-		public System.Nullable<int> PayMethod
-		{
-			get
-			{
-				return this._PayMethod;
-			}
-			set
-			{
-				if ((this._PayMethod != value))
-				{
-					this.OnPayMethodChanging(value);
-					this.SendPropertyChanging();
-					this._PayMethod = value;
-					this.SendPropertyChanged("PayMethod");
-					this.OnPayMethodChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnotherEmployerName", DbType="NVarChar(50)")]
-		public string AnotherEmployerName
-		{
-			get
-			{
-				return this._AnotherEmployerName;
-			}
-			set
-			{
-				if ((this._AnotherEmployerName != value))
-				{
-					this.OnAnotherEmployerNameChanging(value);
-					this.SendPropertyChanging();
-					this._AnotherEmployerName = value;
-					this.SendPropertyChanged("AnotherEmployerName");
-					this.OnAnotherEmployerNameChanged();
 				}
 			}
 		}
@@ -10219,6 +9519,706 @@ namespace CA.Immigration.Data
 					this._howAndWhenOfferDetail = value;
 					this.SendPropertyChanged("howAndWhenOfferDetail");
 					this.OnhowAndWhenOfferDetailChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblLMIAApplication")]
+	public partial class tblLMIAApplication : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _ProgramType;
+		
+		private System.Nullable<int> _StreamType;
+		
+		private System.Nullable<int> _EmployerId;
+		
+		private System.Nullable<int> _EmployeeId;
+		
+		private System.Nullable<int> _RCICId;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _SubmittedDate;
+		
+		private System.Nullable<System.DateTime> _ClosedDate;
+		
+		private string _ApplicationNumber;
+		
+		private System.Nullable<decimal> _ApplicationFee;
+		
+		private string _SecondEmployer;
+		
+		private System.Nullable<int> _NumberofPosition;
+		
+		private System.Nullable<decimal> _ApplicationFeePerPosition;
+		
+		private System.Nullable<int> _PayMethod;
+		
+		private System.Nullable<bool> _MoreThanOneEmployer;
+		
+		private string _AnotherEmployerName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnProgramTypeChanging(System.Nullable<int> value);
+    partial void OnProgramTypeChanged();
+    partial void OnStreamTypeChanging(System.Nullable<int> value);
+    partial void OnStreamTypeChanged();
+    partial void OnEmployerIdChanging(System.Nullable<int> value);
+    partial void OnEmployerIdChanged();
+    partial void OnEmployeeIdChanging(System.Nullable<int> value);
+    partial void OnEmployeeIdChanged();
+    partial void OnRCICIdChanging(System.Nullable<int> value);
+    partial void OnRCICIdChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnSubmittedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSubmittedDateChanged();
+    partial void OnClosedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnClosedDateChanged();
+    partial void OnApplicationNumberChanging(string value);
+    partial void OnApplicationNumberChanged();
+    partial void OnApplicationFeeChanging(System.Nullable<decimal> value);
+    partial void OnApplicationFeeChanged();
+    partial void OnSecondEmployerChanging(string value);
+    partial void OnSecondEmployerChanged();
+    partial void OnNumberofPositionChanging(System.Nullable<int> value);
+    partial void OnNumberofPositionChanged();
+    partial void OnApplicationFeePerPositionChanging(System.Nullable<decimal> value);
+    partial void OnApplicationFeePerPositionChanged();
+    partial void OnPayMethodChanging(System.Nullable<int> value);
+    partial void OnPayMethodChanged();
+    partial void OnMoreThanOneEmployerChanging(System.Nullable<bool> value);
+    partial void OnMoreThanOneEmployerChanged();
+    partial void OnAnotherEmployerNameChanging(string value);
+    partial void OnAnotherEmployerNameChanged();
+    #endregion
+		
+		public tblLMIAApplication()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProgramType", DbType="Int")]
+		public System.Nullable<int> ProgramType
+		{
+			get
+			{
+				return this._ProgramType;
+			}
+			set
+			{
+				if ((this._ProgramType != value))
+				{
+					this.OnProgramTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ProgramType = value;
+					this.SendPropertyChanged("ProgramType");
+					this.OnProgramTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StreamType", DbType="Int")]
+		public System.Nullable<int> StreamType
+		{
+			get
+			{
+				return this._StreamType;
+			}
+			set
+			{
+				if ((this._StreamType != value))
+				{
+					this.OnStreamTypeChanging(value);
+					this.SendPropertyChanging();
+					this._StreamType = value;
+					this.SendPropertyChanged("StreamType");
+					this.OnStreamTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployerId", DbType="Int")]
+		public System.Nullable<int> EmployerId
+		{
+			get
+			{
+				return this._EmployerId;
+			}
+			set
+			{
+				if ((this._EmployerId != value))
+				{
+					this.OnEmployerIdChanging(value);
+					this.SendPropertyChanging();
+					this._EmployerId = value;
+					this.SendPropertyChanged("EmployerId");
+					this.OnEmployerIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeId", DbType="Int")]
+		public System.Nullable<int> EmployeeId
+		{
+			get
+			{
+				return this._EmployeeId;
+			}
+			set
+			{
+				if ((this._EmployeeId != value))
+				{
+					this.OnEmployeeIdChanging(value);
+					this.SendPropertyChanging();
+					this._EmployeeId = value;
+					this.SendPropertyChanged("EmployeeId");
+					this.OnEmployeeIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCICId", DbType="Int")]
+		public System.Nullable<int> RCICId
+		{
+			get
+			{
+				return this._RCICId;
+			}
+			set
+			{
+				if ((this._RCICId != value))
+				{
+					this.OnRCICIdChanging(value);
+					this.SendPropertyChanging();
+					this._RCICId = value;
+					this.SendPropertyChanged("RCICId");
+					this.OnRCICIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubmittedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> SubmittedDate
+		{
+			get
+			{
+				return this._SubmittedDate;
+			}
+			set
+			{
+				if ((this._SubmittedDate != value))
+				{
+					this.OnSubmittedDateChanging(value);
+					this.SendPropertyChanging();
+					this._SubmittedDate = value;
+					this.SendPropertyChanged("SubmittedDate");
+					this.OnSubmittedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClosedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ClosedDate
+		{
+			get
+			{
+				return this._ClosedDate;
+			}
+			set
+			{
+				if ((this._ClosedDate != value))
+				{
+					this.OnClosedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ClosedDate = value;
+					this.SendPropertyChanged("ClosedDate");
+					this.OnClosedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationNumber", DbType="VarChar(20)")]
+		public string ApplicationNumber
+		{
+			get
+			{
+				return this._ApplicationNumber;
+			}
+			set
+			{
+				if ((this._ApplicationNumber != value))
+				{
+					this.OnApplicationNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationNumber = value;
+					this.SendPropertyChanged("ApplicationNumber");
+					this.OnApplicationNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFee", DbType="Money")]
+		public System.Nullable<decimal> ApplicationFee
+		{
+			get
+			{
+				return this._ApplicationFee;
+			}
+			set
+			{
+				if ((this._ApplicationFee != value))
+				{
+					this.OnApplicationFeeChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationFee = value;
+					this.SendPropertyChanged("ApplicationFee");
+					this.OnApplicationFeeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SecondEmployer", DbType="VarChar(30)")]
+		public string SecondEmployer
+		{
+			get
+			{
+				return this._SecondEmployer;
+			}
+			set
+			{
+				if ((this._SecondEmployer != value))
+				{
+					this.OnSecondEmployerChanging(value);
+					this.SendPropertyChanging();
+					this._SecondEmployer = value;
+					this.SendPropertyChanged("SecondEmployer");
+					this.OnSecondEmployerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberofPosition", DbType="Int")]
+		public System.Nullable<int> NumberofPosition
+		{
+			get
+			{
+				return this._NumberofPosition;
+			}
+			set
+			{
+				if ((this._NumberofPosition != value))
+				{
+					this.OnNumberofPositionChanging(value);
+					this.SendPropertyChanging();
+					this._NumberofPosition = value;
+					this.SendPropertyChanged("NumberofPosition");
+					this.OnNumberofPositionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFeePerPosition", DbType="Money")]
+		public System.Nullable<decimal> ApplicationFeePerPosition
+		{
+			get
+			{
+				return this._ApplicationFeePerPosition;
+			}
+			set
+			{
+				if ((this._ApplicationFeePerPosition != value))
+				{
+					this.OnApplicationFeePerPositionChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationFeePerPosition = value;
+					this.SendPropertyChanged("ApplicationFeePerPosition");
+					this.OnApplicationFeePerPositionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PayMethod", DbType="Int")]
+		public System.Nullable<int> PayMethod
+		{
+			get
+			{
+				return this._PayMethod;
+			}
+			set
+			{
+				if ((this._PayMethod != value))
+				{
+					this.OnPayMethodChanging(value);
+					this.SendPropertyChanging();
+					this._PayMethod = value;
+					this.SendPropertyChanged("PayMethod");
+					this.OnPayMethodChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MoreThanOneEmployer", DbType="Bit")]
+		public System.Nullable<bool> MoreThanOneEmployer
+		{
+			get
+			{
+				return this._MoreThanOneEmployer;
+			}
+			set
+			{
+				if ((this._MoreThanOneEmployer != value))
+				{
+					this.OnMoreThanOneEmployerChanging(value);
+					this.SendPropertyChanging();
+					this._MoreThanOneEmployer = value;
+					this.SendPropertyChanged("MoreThanOneEmployer");
+					this.OnMoreThanOneEmployerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnotherEmployerName", DbType="VarChar(150)")]
+		public string AnotherEmployerName
+		{
+			get
+			{
+				return this._AnotherEmployerName;
+			}
+			set
+			{
+				if ((this._AnotherEmployerName != value))
+				{
+					this.OnAnotherEmployerNameChanging(value);
+					this.SendPropertyChanging();
+					this._AnotherEmployerName = value;
+					this.SendPropertyChanged("AnotherEmployerName");
+					this.OnAnotherEmployerNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblApplication")]
+	public partial class tblApplication : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _ApplicantId;
+		
+		private System.Nullable<int> _RCICId;
+		
+		private System.Nullable<int> _ApplicationType;
+		
+		private System.Nullable<System.DateTime> _CreatedDate;
+		
+		private System.Nullable<System.DateTime> _SubmittedDate;
+		
+		private System.Nullable<System.DateTime> _ClosedDate;
+		
+		private string _ApplicationNumber;
+		
+		private System.Nullable<decimal> _ApplicationFee;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnApplicantIdChanging(System.Nullable<int> value);
+    partial void OnApplicantIdChanged();
+    partial void OnRCICIdChanging(System.Nullable<int> value);
+    partial void OnRCICIdChanged();
+    partial void OnApplicationTypeChanging(System.Nullable<int> value);
+    partial void OnApplicationTypeChanged();
+    partial void OnCreatedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCreatedDateChanged();
+    partial void OnSubmittedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSubmittedDateChanged();
+    partial void OnClosedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnClosedDateChanged();
+    partial void OnApplicationNumberChanging(string value);
+    partial void OnApplicationNumberChanged();
+    partial void OnApplicationFeeChanging(System.Nullable<decimal> value);
+    partial void OnApplicationFeeChanged();
+    #endregion
+		
+		public tblApplication()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicantId", DbType="Int")]
+		public System.Nullable<int> ApplicantId
+		{
+			get
+			{
+				return this._ApplicantId;
+			}
+			set
+			{
+				if ((this._ApplicantId != value))
+				{
+					this.OnApplicantIdChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicantId = value;
+					this.SendPropertyChanged("ApplicantId");
+					this.OnApplicantIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCICId", DbType="Int")]
+		public System.Nullable<int> RCICId
+		{
+			get
+			{
+				return this._RCICId;
+			}
+			set
+			{
+				if ((this._RCICId != value))
+				{
+					this.OnRCICIdChanging(value);
+					this.SendPropertyChanging();
+					this._RCICId = value;
+					this.SendPropertyChanged("RCICId");
+					this.OnRCICIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationType", DbType="Int")]
+		public System.Nullable<int> ApplicationType
+		{
+			get
+			{
+				return this._ApplicationType;
+			}
+			set
+			{
+				if ((this._ApplicationType != value))
+				{
+					this.OnApplicationTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationType = value;
+					this.SendPropertyChanged("ApplicationType");
+					this.OnApplicationTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> CreatedDate
+		{
+			get
+			{
+				return this._CreatedDate;
+			}
+			set
+			{
+				if ((this._CreatedDate != value))
+				{
+					this.OnCreatedDateChanging(value);
+					this.SendPropertyChanging();
+					this._CreatedDate = value;
+					this.SendPropertyChanged("CreatedDate");
+					this.OnCreatedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubmittedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> SubmittedDate
+		{
+			get
+			{
+				return this._SubmittedDate;
+			}
+			set
+			{
+				if ((this._SubmittedDate != value))
+				{
+					this.OnSubmittedDateChanging(value);
+					this.SendPropertyChanging();
+					this._SubmittedDate = value;
+					this.SendPropertyChanged("SubmittedDate");
+					this.OnSubmittedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ClosedDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ClosedDate
+		{
+			get
+			{
+				return this._ClosedDate;
+			}
+			set
+			{
+				if ((this._ClosedDate != value))
+				{
+					this.OnClosedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ClosedDate = value;
+					this.SendPropertyChanged("ClosedDate");
+					this.OnClosedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationNumber", DbType="NVarChar(20)")]
+		public string ApplicationNumber
+		{
+			get
+			{
+				return this._ApplicationNumber;
+			}
+			set
+			{
+				if ((this._ApplicationNumber != value))
+				{
+					this.OnApplicationNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationNumber = value;
+					this.SendPropertyChanged("ApplicationNumber");
+					this.OnApplicationNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFee", DbType="Money")]
+		public System.Nullable<decimal> ApplicationFee
+		{
+			get
+			{
+				return this._ApplicationFee;
+			}
+			set
+			{
+				if ((this._ApplicationFee != value))
+				{
+					this.OnApplicationFeeChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationFee = value;
+					this.SendPropertyChanged("ApplicationFee");
+					this.OnApplicationFeeChanged();
 				}
 			}
 		}

@@ -18,11 +18,11 @@ namespace CA.Immigration.LMIA
             InitializeComponent();
             using(CommonDataContext cdc = new CommonDataContext())
             {
-                txtProgram.Text = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Name).FirstOrDefault();
-                txtProgram.ReadOnly = true;
+                cmbLMIAProgram.DataSource = cdc.tblPrograms.Where(x => x.CategoryId == 1).Select(x => x.Name);
             }
+            LMIAFormOps.formConstruction(this);
         }
-       
+
         private void LMIAForm_Load(object sender, EventArgs e)
         {
             LMIAFormOps.formLoadInitialization(this);
@@ -90,6 +90,7 @@ namespace CA.Immigration.LMIA
             LMIAAnalysis.deleteApplication(this);
             MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             resetGlobalData();
+            LMIAFormOps.showMainStatus(this);
 
         }
 
@@ -151,7 +152,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobOfferClear_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure to clear all inputs?","Warning",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.Yes) LMIAJobOffer.clearForm(this);
+            if(MessageBox.Show("Are you sure to clear all inputs?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) LMIAJobOffer.clearForm(this);
         }
 
         private void btnJobOfferBenefitDetails_Click(object sender, EventArgs e)
@@ -194,6 +195,12 @@ namespace CA.Immigration.LMIA
         {
             txtDetails dt = new txtDetails("How and when did you offer this job to the foreign worker?", "_howAndWhenOfferDetail");
             dt.Show();
+        }
+
+        private void cmbLMIAProgram_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            GlobalData.CurrentProgramId = cmbLMIAProgram.SelectedIndex+1;
+            LMIAFormOps.showMainStatus(this);
         }
     }
 }

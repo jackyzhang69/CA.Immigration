@@ -15,7 +15,7 @@ namespace CA.Immigration.Data
         public CompanyType()
         {
             InitializeComponent();
-            for (int i = 0; i < Definition.CompanyType.Length / 2; i++) cmbCompanyType.Items.Add(Definition.CompanyType[i, 1]);
+           foreach(KeyValuePair<int,string> kvp in Definition.CompanyType) cmbCompanyType.Items.Add(kvp.Value);
         }
     }
 }

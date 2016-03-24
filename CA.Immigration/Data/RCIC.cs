@@ -84,7 +84,7 @@ namespace CA.Immigration.CICDict
             dict.Add("EMP5575_E[0].Page1[0].txtF_Mail_Adress[0]", MailingAddress);
             dict.Add("EMP5575_E[0].Page1[0].txtF_City[0]", City);
             dict.Add("EMP5575_E[0].Page1[0].txtF_City[3]", MainBizActivities);
-            dict.Add("EMP5575_E[0].Page1[0].txtF_Province[2]", Definition.CndProvince[(int)Province, 0]);
+            dict.Add("EMP5575_E[0].Page1[0].txtF_Province[2]", Definition.CndProvince[(int)Province]);
             dict.Add("EMP5575_E[0].Page1[0].txtF_Province[3]", Country);
             dict.Add("EMP5575_E[0].Page1[0].txtF_Country[1]", PostalCode);
             // Add RCIC personal information

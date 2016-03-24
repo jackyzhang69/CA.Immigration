@@ -16,20 +16,6 @@
       <Column Name="AddressTypeId" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblApplication" Member="tblApplications">
-    <Type Name="tblApplication">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ApplicantId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RCICId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ApplicationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="SubmittedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ClosedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ApplicationNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ApplicationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="Stage" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblCategory" Member="tblCategories">
     <Type Name="tblCategory">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -253,26 +239,6 @@
       <Column Name="Gender" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.tblLMIAApplication" Member="tblLMIAApplications">
-    <Type Name="tblLMIAApplication">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LMIAType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="StreamType" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EmployerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EmployeeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RCICId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="SubmittedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ClosedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ApplicationNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="ApplicationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="SecondEmployer" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="NumberofPosition" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ApplicationFeePerPosition" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="PayMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="AnotherEmployerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblEmployer" Member="tblEmployers">
     <Type Name="tblEmployer">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -479,6 +445,40 @@
       <Column Name="howDidYouDetermineDetail" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
       <Column Name="howAndWhenOfferBrief" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="howAndWhenOfferDetail" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLMIAApplication" Member="tblLMIAApplications">
+    <Type Name="tblLMIAApplication">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProgramType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StreamType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployeeId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RCICId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SubmittedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ClosedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ApplicationNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ApplicationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SecondEmployer" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NumberofPosition" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationFeePerPosition" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PayMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MoreThanOneEmployer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AnotherEmployerName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblApplication" Member="tblApplications">
+    <Type Name="tblApplication">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicantId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RCICId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SubmittedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ClosedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ApplicationNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="ApplicationFee" Type="System.Decimal" DbType="Money" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

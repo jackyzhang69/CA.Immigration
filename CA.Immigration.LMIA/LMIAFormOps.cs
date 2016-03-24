@@ -28,18 +28,15 @@ namespace CA.Immigration.LMIA
                     GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
                     GlobalData.CurrentPersonId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
                     GlobalData.CurrentRCICId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
-                    GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.LMIAType).FirstOrDefault();
-                    lf.txtProgram.Text = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Name).FirstOrDefault();
-                    lf.txtProgram.ReadOnly = true;
-
-                    // Load stream info
+                    GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.ProgramType).FirstOrDefault();
                     GlobalData.CurrentStreamId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.StreamType).FirstOrDefault();
-                    lf.cmbStream.SelectedIndex = (int)GlobalData.CurrentStreamId;
+
+                    // load program and stream info
+                    lf.cmbLMIAProgram.SelectedIndex = (int)GlobalData.CurrentProgramId-1;
+                    lf.cmbStream.SelectedIndex = (int)GlobalData.CurrentStreamId;  // don't minus one, since stream comes from form instead of database
+
                     // Get data from definition to fill LMIA 11 factors
-                    for(int i = 0; i < Definition.LMIA11Factors.Length / 2; i++)
-                    {
-                        lf.ckbLmFactor.Items.Add(Definition.LMIA11Factors[i, 1]);
-                    }
+                    foreach(KeyValuePair<int,string> kvp in Definition.LMIA11Factors)  lf.ckbLmFactor.Items.Add(kvp.Value);
                     //set another employer if in low wage stream
                     if(GlobalData.CurrentStreamId == 0) lf.ckbOtherEmployer.Visible = false;
                     if(GlobalData.CurrentStreamId == 1)
@@ -63,8 +60,9 @@ namespace CA.Immigration.LMIA
 
                 using(CommonDataContext cdc = new CommonDataContext())
                 {
-                    lf.txtProgram.Text = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Name).FirstOrDefault();
-                    lf.txtProgram.ReadOnly = true;
+                    lf.cmbLMIAProgram.SelectedIndex = cdc.tblPrograms.Where(x => x.Id == GlobalData.CurrentProgramId).Select(x => x.Id).FirstOrDefault()-1;
+                    // Get data from definition to fill LMIA 11 factors
+                    foreach(KeyValuePair<int, string> kvp in Definition.LMIA11Factors) lf.ckbLmFactor.Items.Add(kvp.Value);
                 }
             }
 
@@ -72,7 +70,7 @@ namespace CA.Immigration.LMIA
             lf.DTPQ8.CustomFormat = "yyyy-MM-dd";
             lf.dtpJobOfferStartDate.Format = DateTimePickerFormat.Custom;
             lf.dtpJobOfferStartDate.CustomFormat = "yyyy-MM-dd";
-
+            
         }
         public static void formLoadInitialization(LMIAForm lf)
         {
@@ -80,6 +78,7 @@ namespace CA.Immigration.LMIA
             {
                 LMIAAnalysis.analysisLoadInitialization(lf);
                 lf.btnAnalysisInsert.Visible = false;
+                // load business details
                 if(GlobalData.CurrentBusinessDetailId != null)
                 {
                     lf.btnInsertBD.Visible = false;
@@ -91,6 +90,7 @@ namespace CA.Immigration.LMIA
                 // Initialize job offer form
                 LMIAJobOffer.loadFromDB(lf);
                 LMIAJobOffer.fillForm(lf);
+
             }
             else {
                 lf.btnAnalysisInsert.Visible = true;

@@ -95,7 +95,7 @@ namespace CA.Immigration.LMIA
             _grossPayrol2 = getValue.getDecimalValue(lf.financialAdvisor.txtGrossPayroll2.Text);
             _t4Slips2 = getValue.getIntValue(lf.financialAdvisor.txtSlips2.Text);
             _Average2 = (_grossPayrol2 != null && _t4Slips2 != null && _t4Slips2 != 0) ? _grossPayrol2 / _t4Slips2 : null;
-            _unemploymentRate = getValue.getIntValue(lf.txtUnemployRate.Text);
+            _unemploymentRate = getValue.getDoubleValue(lf.txtUnemployRate.Text);
             _COPSRating = getValue.getIntValue(lf.txtCOPSRating.Text);
             _occupationProfile = getValue.getIntValue(lf.txtOccupationProfile.Text);
             _employerSituation = lf.txtEmployerSituation.Text;
@@ -120,6 +120,7 @@ namespace CA.Immigration.LMIA
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 // load position record
+                
                 tblLMIAPosition lp = cdc.tblLMIAPositions.Where(x => x != null && x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
                 if(lp != null)
                 {
@@ -180,14 +181,7 @@ namespace CA.Immigration.LMIA
                     _AbletoFulfillTermofOffer = factors.AbletoFulfillTermofOffer == true ? true : false;
                     _PastCompliance = factors.PastCompliance == true ? true : false;
                 }
-                // if business details is existed, load from database and fill the form
-                tblBusinessDetail bd = cdc.tblBusinessDetails.Where(x => x != null && x.ApplicationId == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                if(bd != null)
-                {
-                    LMIABusinessDetail.loadFromDB(lf);
-                    LMIABusinessDetail.fillForm(lf);
-                    lf.btnInsertBD.Visible = false;
-                }
+
             }
         }
         public static void clearForm(LMIAForm lf)
@@ -267,8 +261,17 @@ namespace CA.Immigration.LMIA
             lf.txtOccupationProfile.Text = _occupationProfile.ToString();
             lf.txtEmployerSituation.Text = _employerSituation.ToString();
             lf.txtSituationImpact.Text = _situationImpact.ToString();
-            //lf.ckbLmFactor.SelectedIndices= _lmFactors;
-
+            lf.ckbLmFactor.SetItemChecked(0, _JobCreation);
+            lf.ckbLmFactor.SetItemChecked(1, _SkillTransfer);
+            lf.ckbLmFactor.SetItemChecked(2, _FillLabourShortage);
+            lf.ckbLmFactor.SetItemChecked(3, _PrevailingWageOffered);
+            lf.ckbLmFactor.SetItemChecked(4, _HireCanadianEffort);
+            lf.ckbLmFactor.SetItemChecked(5, _LabourDisputUnaffected);
+            lf.ckbLmFactor.SetItemChecked(6, _CommitmentFulfilled);
+            lf.ckbLmFactor.SetItemChecked(7, _BusinessEngagement);
+            lf.ckbLmFactor.SetItemChecked(8, _OfferConsistentwithDemand);
+            lf.ckbLmFactor.SetItemChecked(9, _AbletoFulfillTermofOffer);
+            lf.ckbLmFactor.SetItemChecked(10, _PastCompliance);
         }
         public static void analysisLoadInitialization(LMIAForm lf)
         {
@@ -335,7 +338,7 @@ namespace CA.Immigration.LMIA
                     {
                         lf.dgvQualificationIndicator.Rows[2].Cells[0].Value = "No comparing data yet";
                         lf.dgvQualificationIndicator.Rows[2].Cells[1].Value = "N/A";
-                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = Color.Black;
+                        lf.dgvQualificationIndicator.Rows[2].DefaultCellStyle.ForeColor = Color.Black;
                     }
                     //4. Check if the position wage reasonable comparing to T4 summary (total paid divides by total pay slips)
                     if(_hourlyRate != null && _hourlyRate != null && _Average1 != null && _Average1 != null && _workingHours != null && _workingHours != null)
@@ -349,7 +352,7 @@ namespace CA.Immigration.LMIA
                     {
                         lf.dgvQualificationIndicator.Rows[3].Cells[0].Value = "No comparing data yet";
                         lf.dgvQualificationIndicator.Rows[3].Cells[1].Value = "N/A";
-                        lf.dgvQualificationIndicator.Rows[1].DefaultCellStyle.ForeColor = Color.Black;
+                        lf.dgvQualificationIndicator.Rows[3].DefaultCellStyle.ForeColor = Color.Black;
 
                     }
                     if(_COPSRating != null)
@@ -394,10 +397,10 @@ namespace CA.Immigration.LMIA
                 // Insert data row to Table LMIAApplication
                 tblLMIAApplication la = new tblLMIAApplication
                 {
-                    LMIAType = GlobalData.CurrentProgramId,
+                    ProgramType = GlobalData.CurrentProgramId,
                     StreamType = GlobalData.CurrentStreamId,
                     EmployerId = GlobalData.CurrentEmployerId,
-                    EmployeeId = GlobalData.CurrentPersonId,
+                    EmployeeId = GlobalData.CurrentPersonId==null?0:GlobalData.CurrentPersonId,
                     RCICId = GlobalData.CurrentRCICId,
                     CreatedDate = DateTime.Now,
                     SecondEmployer = _otherEmployerName != null ? _otherEmployerName : null,
@@ -483,26 +486,21 @@ namespace CA.Immigration.LMIA
 
                     MessageBox.Show(exc.Message);
                 }
-                // create a new record of 11 factors
-                foreach(int indexchecked in lf.ckbLmFactor.CheckedIndices)
-                {
-                    Definition.LMIA11Factors[indexchecked, 0] = "1";
-
-                }
+               
                 tblLMIA11Factor factor = new tblLMIA11Factor
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
-                    JobCreation = Definition.LMIA11Factors[0, 0] == "1" ? true : false,
-                    SkillTransfer = Definition.LMIA11Factors[1, 0] == "1" ? true : false,
-                    FillLabourShortage = Definition.LMIA11Factors[2, 0] == "1" ? true : false,
-                    PrevailingWageOffered = Definition.LMIA11Factors[3, 0] == "1" ? true : false,
-                    HireCanadianEffort = Definition.LMIA11Factors[4, 0] == "1" ? true : false,
-                    LabourDisputUnaffected = Definition.LMIA11Factors[5, 0] == "1" ? true : false,
-                    CommitmentFulfilled = Definition.LMIA11Factors[6, 0] == "1" ? true : false,
-                    BusinessEngagement = Definition.LMIA11Factors[7, 0] == "1" ? true : false,
-                    OfferConsistentwithDemand = Definition.LMIA11Factors[8, 0] == "1" ? true : false,
-                    AbletoFulfillTermofOffer = Definition.LMIA11Factors[9, 0] == "1" ? true : false,
-                    PastCompliance = Definition.LMIA11Factors[10, 0] == "1" ? true : false
+                    JobCreation =lf.ckbLmFactor.CheckedIndices.Contains(0) ? true : false,
+                    SkillTransfer = lf.ckbLmFactor.CheckedIndices.Contains(1) ? true : false,
+                    FillLabourShortage = lf.ckbLmFactor.CheckedIndices.Contains(2) ? true : false,
+                    PrevailingWageOffered = lf.ckbLmFactor.CheckedIndices.Contains(3) ? true : false,
+                    HireCanadianEffort = lf.ckbLmFactor.CheckedIndices.Contains(4) ? true : false,
+                    LabourDisputUnaffected = lf.ckbLmFactor.CheckedIndices.Contains(5) ? true : false,
+                    CommitmentFulfilled = lf.ckbLmFactor.CheckedIndices.Contains(6) ? true : false,
+                    BusinessEngagement = lf.ckbLmFactor.CheckedIndices.Contains(7) ? true : false,
+                    OfferConsistentwithDemand = lf.ckbLmFactor.CheckedIndices.Contains(8) ? true : false,
+                    AbletoFulfillTermofOffer = lf.ckbLmFactor.CheckedIndices.Contains(9) ? true : false,
+                    PastCompliance = lf.ckbLmFactor.CheckedIndices.Contains(10) ? true : false
 
                 };
                 try
@@ -545,7 +543,7 @@ namespace CA.Immigration.LMIA
                 using(CommonDataContext cdc = new CommonDataContext())
                 {
                     tblLMIAApplication la = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                    la.LMIAType = GlobalData.CurrentProgramId;
+                    la.ProgramType = GlobalData.CurrentProgramId;
                     la.StreamType = GlobalData.CurrentStreamId;
                     la.EmployeeId = GlobalData.CurrentPersonId;
                     la.EmployerId = GlobalData.CurrentEmployerId;

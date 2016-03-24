@@ -50,7 +50,7 @@ namespace CA.Immigration.Startup
             _OperatingName = sf.txtOperatingName.Text;
             _OperatingName = sf.txtOperatingName.Text;
             _FranchiseName = sf.txtFranchise.Text;
-            _CompanyType = sf.BEIcompanyType.cmbCompanyType.SelectedIndex != -1 ? sf.BEIcompanyType.cmbCompanyType.SelectedIndex + 1 : -1; //index 0 is corporate
+            _CompanyType = sf.BEIcompanyType.cmbCompanyType.SelectedIndex != -1 ? sf.BEIcompanyType.cmbCompanyType.SelectedIndex: -1; //index 0 is corporate
             _MailingAddress = sf.txtMailAddress.Text;
             _MailingCity = sf.txtMailCity.Text;
             _MailingProvince = sf.canadaProvincesMail.cmbProvince.SelectedIndex != -1 ? sf.canadaProvincesMail.cmbProvince.SelectedIndex : -1;
@@ -98,7 +98,7 @@ namespace CA.Immigration.Startup
                     _LegalName = emp.LegalName;
                     _OperatingName = emp.OperatingName;
                     _FranchiseName = emp.FranchiseName;
-                    _CompanyType = emp.CompanyType == null ? 0 : (int)emp.CompanyType;
+                    _CompanyType = emp.CompanyType == null ? -1 : (int)emp.CompanyType;
                     _MailingAddress = emp.MailingAddress;
                     _MailingCity = emp.MailingCity;
                     _MailingProvince = emp.MailingProvince == null ? 0 : (int)emp.MailingProvince;
@@ -134,7 +134,7 @@ namespace CA.Immigration.Startup
             _OperatingName = null;
             _FranchiseName = null;
             _FranchiseAware = false;
-            _CompanyType = 1;
+            _CompanyType = 0;
             _MailingAddress = null;
             _MailingCity = null;
             _MailingProvince = -1;
@@ -169,7 +169,7 @@ namespace CA.Immigration.Startup
             sf.txtOperatingName.Text = _OperatingName;
             sf.txtOperatingName.Text = _OperatingName;
             sf.txtFranchise.Text = _FranchiseName;
-            sf.BEIcompanyType.cmbCompanyType.SelectedIndex = _CompanyType - 1;
+            sf.BEIcompanyType.cmbCompanyType.SelectedIndex = _CompanyType;
             sf.txtMailAddress.Text = _MailingAddress;
             sf.txtMailCity.Text = _MailingCity;
             sf.canadaProvincesMail.cmbProvince.SelectedIndex = _MailingProvince;
@@ -333,7 +333,7 @@ namespace CA.Immigration.Startup
         {
             loadFromDB();
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Name[0]", _ContactFirstName + " " + _ContactLastName);
-            dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Address[0]", _BizAddress + ", " + _BizCity + ", " + Definition.CndProvince[(int)_BizProvince, 0] + ", " + _BizPostalCode);
+            dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Address[0]", _BizAddress + ", " + _BizCity + ", " + Definition.CndProvince[(int)_BizProvince] + ", " + _BizPostalCode);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Telephone[0]", _BizTelephone);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Fax[0]",_ContactFax==string.Empty?"N/A":_ContactFax);
             dict.Add("EMP5575_E[0].Page3[0].txtF_Employer_Name[1]", "N/A");  // secondary contact
@@ -371,9 +371,9 @@ namespace CA.Immigration.Startup
             dict.Add("EMP5602_E[0].Page1[0].txtF_City[1]", _BizTelephone);
             dict.Add("EMP5602_E[0].Page1[0].txtF_Country[0]",_MailingCountry);
             dict.Add("EMP5602_E[0].Page1[0].txtF_Postal_Code[0]",_MailingPostalCode);
-            dict.Add("EMP5602_E[0].Page1[0].txtF_Province[0]", _MailingProvince != -1 ? Definition.CndProvince[_MailingProvince, 1] : "");
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Province[0]", _MailingProvince != -1 ? Definition.CndProvince[_MailingProvince] : "");
             dict.Add("EMP5602_E[0].Page1[0].txtF_City[2]",_BizCity);
-            dict.Add("EMP5602_E[0].Page1[0].txtF_Province[1]",_BizProvince!=-1?Definition.CndProvince[_BizProvince,1]:"");
+            dict.Add("EMP5602_E[0].Page1[0].txtF_Province[1]",_BizProvince!=-1?Definition.CndProvince[_BizProvince]:"");
             dict.Add("EMP5602_E[0].Page1[0].txtF_Country[1]",_BizCountry);
             dict.Add("EMP5602_E[0].Page1[0].txtF_Postal_Code[1]",_BizPostalCode);
             dict.Add("EMP5602_E[0].Page1[0].txtF_Emp_Buss_Adress[0]",_BizAddress);
