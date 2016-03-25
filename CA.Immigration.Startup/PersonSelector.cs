@@ -51,7 +51,8 @@ namespace CA.Immigration.Startup
             {
                 //GlobalData.CurrentPersonIdReadOnly = true;  // use it after application is created
                 GlobalData.CurrentPersonId = int.Parse(dgvPerson.SelectedRows[0].Cells[0].Value.ToString()); //get Person ID
-                sf.RefreshMainForm();
+                StartupOps.RefreshMainForm(sf);
+                
                 this.Close();
             }
             else MessageBox.Show("Someone is working with current person. \nPlease finish that task then do it again.","Message",MessageBoxButtons.OK,MessageBoxIcon.Error);

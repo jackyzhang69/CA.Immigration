@@ -33,50 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Nevron.Nov.Barcode, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Barcode.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Chart, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Chart.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Diagram, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Diagram.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Host.WinBase, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Host.WinBase.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Host.WinForm, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Host.WinForm.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Host.Wpf, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Host.Wpf.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Presentation, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Presentation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Schedule, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Schedule.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.Text, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.Text.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.WinFormControls, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.WinFormControls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Nevron.Nov.WpfControls, Version=16.2.12.12, Culture=neutral, PublicKeyToken=b33b1a04bb5ca8ad, processorArchitecture=MSIL">
-      <HintPath>..\packages\NevronOpenVision.16.2.15.12\lib\net40\Nevron.Nov.WpfControls.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -91,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationSteam.cs">
+    <Compile Include="ApplicationStream.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ApplicationSteam.designer.cs">
-      <DependentUpon>ApplicationSteam.cs</DependentUpon>
+    <Compile Include="ApplicationStream.designer.cs">
+      <DependentUpon>ApplicationStream.cs</DependentUpon>
     </Compile>
     <Compile Include="DBOps.cs">
       <SubType>UserControl</SubType>
@@ -109,12 +65,6 @@
     <Compile Include="financial.designer.cs">
       <DependentUpon>financial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Indicators.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Indicators.designer.cs">
-      <DependentUpon>Indicators.cs</DependentUpon>
-    </Compile>
     <Compile Include="JobPosition.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -127,12 +77,16 @@
     <Compile Include="LMFactors.designer.cs">
       <DependentUpon>LMFactors.cs</DependentUpon>
     </Compile>
+    <Compile Include="LMIAAnalysis.cs" />
+    <Compile Include="LMIABusinessDetail.cs" />
     <Compile Include="LMIAForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LMIAForm.designer.cs">
       <DependentUpon>LMIAForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LMIAFormOps.cs" />
+    <Compile Include="LMIAJobOffer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="theApplication.cs">
@@ -141,12 +95,21 @@
     <Compile Include="theApplication.designer.cs">
       <DependentUpon>theApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="txtDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="txtDetails.Designer.cs">
+      <DependentUpon>txtDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCAddress.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UCAddress.designer.cs">
       <DependentUpon>UCAddress.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ApplicationStream.resx">
+      <DependentUpon>ApplicationStream.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="financial.resx">
       <DependentUpon>financial.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,10 +134,12 @@
     <EmbeddedResource Include="theApplication.resx">
       <DependentUpon>theApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="txtDetails.resx">
+      <DependentUpon>txtDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCAddress.resx">
       <DependentUpon>UCAddress.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

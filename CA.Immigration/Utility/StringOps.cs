@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CA.Immigration.Utility
 {
-    class StringOps
+    public static class StringOps
     {
         public static string[] sep(string s, char c)  // seperate one string to two with a char
         {
@@ -27,6 +27,8 @@ namespace CA.Immigration.Utility
                 return outnew;
             }
         }
+
+       
 
     }
 }

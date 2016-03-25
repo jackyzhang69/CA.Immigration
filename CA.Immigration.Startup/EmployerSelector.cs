@@ -23,9 +23,9 @@ namespace CA.Immigration.Startup
 
         private void EmployerSelector_Load(object sender, EventArgs e)
         {
-            using (LMIADCDataContext ld = new LMIADCDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
-                dgvEmployer.DataSource = ld.tblEmployers.Select(x => new { Id = x.Id, OperatingName = x.OperatingName, Contact = x.ContactFirstName + " " + x.ContactLastName, Phone = x.ContactPhone, Email = x.ContactEmail, City = x.BizCity });
+                dgvEmployer.DataSource = cdc.tblEmployers.Select(x => new { Id = x.Id, OperatingName = x.OperatingName, Contact = x.ContactFirstName + " " + x.ContactLastName, Phone = x.ContactPhone, Email = x.ContactEmail, City = x.BizCity });
 
             }
             DataGridViewColumn ecolumn0 = dgvEmployer.Columns[0]; //Id
@@ -48,7 +48,7 @@ namespace CA.Immigration.Startup
             {
                 GlobalData.CurrentEmployerId = int.Parse(dgvEmployer.SelectedRows[0].Cells[0].Value.ToString());
               //  GlobalData.CurrentEmployerIdReadOnly = true; // could be used after application is create. after application closed, set it to false
-                _sf.RefreshMainForm();
+                StartupOps.RefreshMainForm(_sf);
                 this.Close();
             }
             else MessageBox.Show("Someone is working on this employer.\nPlease finish that task and then work on this", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);

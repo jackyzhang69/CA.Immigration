@@ -8,26 +8,36 @@ namespace CA.Immigration
 {
     public static class GlobalData
     {
+        // Global scope data
         public static int? CurrentPersonId;
         public static bool CurrentPersonIdReadOnly = false;
         public static int? CurrentEmployerId;
         public static bool CurrentEmployerIdReadOnly = false;
         public static int? CurrentCategoryId;
         public static bool CurrentCategoryReadOnly = false;
+        public static int? CurrentProgramId;
+        public static bool CurrentProgramIdReadOnly = false;
         public static int? CurrentStreamId;
         public static bool CurrentStreamIdReadOnly = false;
         public static int? CurrentApplicationId;
-        public static bool CurrentApplicationReadOnly = false;
+        public static bool CurrentApplicationIdReadOnly = false;
+        public static string CurrentNOC;
+        public static int? CurrentRCICId;
+       
 
+        // For LMIA application data
+        public static int? CurrentBusinessDetailId;
+        public static int? CurrentJobOfferId;
+        public static double CurrentWorkingHours;
         public enum AppStream
         {
 
-            LMIAPRSupportOnly = 1,
-            LMIAPRandWP = 2,
-            LMIAWPOnly = 3,
-            BCPNPSW = 4,
-            BCPNPEI = 5,
-            BCPNPInternationalGraduate = 6
+            LMIAPRSupportOnly = 0,
+            LMIAPRandWP = 1,
+            LMIAWPOnly = 2,
+            BCPNPSW = 3,
+            BCPNPEI = 4,
+            BCPNPInternationalGraduate = 5
         }
 
     }

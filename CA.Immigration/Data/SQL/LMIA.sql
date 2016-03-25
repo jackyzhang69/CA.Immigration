@@ -23,7 +23,7 @@ WhyNotCnd nvarchar(4000) --Please explain why each Canadians/PRs is not qualifie
 -- Employer information
 create table tblEmployer(
 Id int not null primary key identity(1,1),
-ESDCId int,   -- if not first apply, should have a ESDC employer ID
+ESDCId char(6),   -- if not first apply, should have a ESDC employer ID
 CRA_BN nvarchar(15) ,  -- CRA Business Number 
 LegalName nvarchar(50) ,
 OperatingName nvarchar(50),
@@ -32,12 +32,12 @@ FranchiseAware int, --1 yes, 2 no, 3 not applicalb
 CompanyType int,  -- 1 Incorporated 2 Partner 3 Solo proprietor
 MailingAddress nvarchar(50),   -- street address for mailing address
 MailingCity nvarchar(20),
-MailingProvince nvarchar(20),
+MailingProvince int,
 MailingCountry nvarchar(20),
 MailingPostalCode nvarchar(10),
 BizAddress nvarchar(50),   -- street address for business address, should check if same
 BizCity nvarchar(20),
-BizProvince nvarchar(20),
+BizProvince int,
 BizCountry nvarchar(20),
 BizPostalCode nvarchar(10),
 BizTelephone nvarchar(20),
@@ -51,19 +51,28 @@ ContactJobTitle nvarchar(20),
 ContactPhone nvarchar(20),
 ContactFax nvarchar(20),
 ContactEmail nvarchar(50),
-Witness nvarchar(20)
+theWitness nvarchar(20)
 )
 
 -- Application information
 create table tblLMIAApplication(
-LMIAId int not null primary key identity(1,1),
-ApplicationId int, -- refer to the mother application table
+LMIAApplicationId int not null primary key identity(1,1),
+ProgramType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
+StreamType int, --0 for High Wage Stream 1 for Low Wage Stream
+EmployerId int,
 EmployeeId int,
-LMIAType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
-SecondEmployer nvarchar(30),
+RCICId int,
+CreatedDate date,
+SubmittedDate date,
+ClosedDate date,
+ApplicationNumber varchar(20),
+ApplicationFee money,
+SecondEmployer varchar(30),
 NumberofPosition int,
 ApplicationFeePerPosition money,
-PayMethod int  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
+PayMethod int,  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
+MoreThanOneEmployer bit,
+AnotherEmployerName	varchar(150)
 )
 
 -- Application followup 
@@ -79,139 +88,96 @@ ResponseDate date
 --Business detail table
 create table tblBusinessDetail (
 Id int not null primary key identity(1,1),
-ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
+ApplicationId int,  -- Business information could be changed, so it only directly related to application, instead of Employer
 TotalEmployeeUnderCRA int, --"1. Number of employees currently employed nationally under this Canada Revenue Agency Business number (e.g. 5 franchises are covered by the business
                                            -- number and there are a total of 100 employees):"
-
 TotalEmployeeThisLocation int, --2. Total number of employees currently employed at the work location specified on this form:
 
 TotalCndThisLocation int, --3. Total number of Canadian/permanent resident employees at the work location specified on this form:
 
 TotalEmployeeThisOccupationLocation int,  --4. Total number of employees (including Canadians/permanent residents and TFWs) working in this occupation at this work location:
 TotalTFWAfterPositive int,  --5. Total number of foreign workers (as a result of receiving a positive LMIA) at the work location specified on this form:
-Q6 int , --	1 N 2 Y, within two years before 12/31/2013, did you employ a foreign worker(as the result of receiving LMIA)
-Q6_1 int,  --  1N 2 Y,If YES – did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that were substantially the same as those that were described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
-Q7 int , --	Have you applied for and received a positive LMIA on or after December 31, 2013, and employed a foreign worker in that position?
-Q7_1 int,  --	  If YES – did you provide all foreign workers employed by you, on LMIAs received on or after December 31, 2013, with employment in the same occupation as described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s)) and with substantially the same wages and working conditions - but not less favourable than- those set out in that offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
-Q8 int ,  --	  Have you had an LMIA revoked, within the previous 2 years from the date you submitted this Application?
-Q8_1 int, 	--If YES – was the LMIA revoked because you had provided false, misleading or inaccurate information in the context of a request for an opinion?
+Q6 bit , --	1 N 2 Y, within two years before 12/31/2013, did you employ a foreign worker(as the result of receiving LMIA)
+Q6_1 bit,  --  1N 2 Y,If YES ?did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that were substantially the same as those that were described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
+Q7 bit , --	Have you applied for and received a positive LMIA on or after December 31, 2013, and employed a foreign worker in that position?
+Q7_1 bit,  --	  If YES ?did you provide all foreign workers employed by you, on LMIAs received on or after December 31, 2013, with employment in the same occupation as described in the offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s)) and with substantially the same wages and working conditions - but not less favourable than- those set out in that offer(s) of employment (and confirmed in the LMIA letter(s) and annexe(s))?
+Q8 bit ,  --	  Have you had an LMIA revoked, within the previous 2 years from the date you submitted this Application?
+Q8_1 bit, 	--If YES ?was the LMIA revoked because you had provided false, misleading or inaccurate information in the context of a request for an opinion?
 Q8_2 date, -- If yes, please provide the following details regarding this revocation:	Date (yyyy-mm-dd):
-Q8_3 nvarchar(20),--System File Number:	  
-Q8_4 nvarchar(100),	 -- If the public policy considerations that justified the revocation are no longer relevant, please provide a detailed explanation:
-Q9 int, --   Were any employees laid off in the past 12 months?
+Q8_3 varchar(20),--System File Number:	  
+Q8_4 varchar(100),	 -- If the public policy considerations that justified the revocation are no longer relevant, please provide a detailed explanation:
+Q9 bit, --   Were any employees laid off in the past 12 months?
 Q9_1 int,  -- 	 If yes, how many Canadians/permanent residents?
 Q9_2 int,  --  How many foreign workers?
-Q9_3 nvarchar(100),	-- Reason(s) for layoff(s) and occupations affected:
-Q10 int, --  Does your business receive support through any Government of Canada program (e.g. Work-Sharing Program)?
-Q10_1 nvarchar(50)  -- If yes, name the program(s):
+Q9_3 varchar(100),	-- Reason(s) for layoff(s) and occupations affected:
+Q10 bit, --  Does your business receive support through any Government of Canada program (e.g. Work-Sharing Program)?
+Q10_1 varchar(50)  -- If yes, name the program(s):
 
 )
 
 
 -- Job offer tables, 1 for Job itself(5593:1-18), 2 for related info(5593:19-28)
-create table tblJobOffer1(
+create table tblJobOffer(
 Id int not null primary key identity(1,1),
-ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
-JobTile nvarchar(30),
-Number int, 
-WorkingDays int, 
-WorkingWeeks int,
-WorkingMonths int,
-WorkingYears int,
-Permanent int,
-StartDate date,
-WorkLocation nvarchar(50), -- street address
-City nvarchar(20),
-Province nvarchar(20),
-PostalCode nvarchar(7),
-Mainduties nvarchar(1000),
-Doctorate_PHD int, 
-DoctorOfMdeicine int,
-MasterDegree int,
-Bachelor int,
-College int,
-Apprentice int,
-Trade int,
-SecondarySchool int,
-Vocational int,
-NotRequired int,
-EduAdditionalInfo nvarchar(100),
-SkillRequirement nvarchar(500),
-Oral int,
-OralEnglish int, 
-OralFrench int,
-OralEnglishorFrench int,
-oralEnglishandFrench int,
-Writing int,
-WritingEnglish int, 
-WritingFrench int,
-WritingEnglishorFrench int,
-WritingEnglishandFrench int,
-OtherLanguage int,
-OtherLangugeExplanation nvarchar(500),  -- use seperate sheet 
-FullTime int,
-FullTimeExplanation nvarchar(100),
-HourlyWage money,  -- per hour
-YearlyWage money,
-Dayhours float,
-WeeklyHours float,
-MonthlyHours float,
-OverTimeRate money,
-OverTimeStart float,
-LowestWage money,
-HighestWage money,
-NoEmployeeInSamePosition int,
-Seasonal int,
-DisabilityInsurance int,   -- check
-DentalInsurance int,
-Pension int,
-ExtendedMedical int,
-VacationDays int,
-Remuneration int,
-OtherBenefits nvarchar(100)
-)
-
-create table tblJobOffer2(
-Id int not null primary key identity(1,1),
-ApplicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
-IsUnionized int, 
-UnionName nvarchar(50), -- if it's null, then means no union
-UnionKnows int, 
-UnionDoesnotKnow nvarchar(100),
-UnionOpinion nvarchar(100),
--- 19(5593)	   Are there any federal/provincial/territorial certification, licensing or registration requirements for this job?
-licenseRequired int, 
-NameOfLicense nvarchar(50),
-HaveLicense int,	   -- Yes No use 
-WhenCanHaveDay int, -- how many days, weeks,months
-WhenCanHaveWeek int, -- how many days, weeks,months
-WhenCanHaveMonth int, -- how many days, weeks,months
-
-AttemptedtoRecruitCnd int,
-ExplainifNo nvarchar(100),
-ProveYes nvarchar(100),
--- 22(5593) What are the potential benefits to Canadian
-FillLabourShort int, 
-SkillTransfer int,
-JobCreation int,
-Other int,
-Details nvarchar(500),
---23(5593) Provide a rationale for the job offer you are making to the foreign worker(s) (e.g. what led to the vacancy of the position or creation of the position) and
---describe how this will meet your employment needs:
-JobOfferRationale nvarchar(500),
---24(5593) Who is currently filling the duties and responsibilities of the position?
-WhoElse nvarchar(100),
--- 25(5593)  How did you find or identify the foreign worker for this position?
-HowToFindTheTFW nvarchar(500),
--- 26(5593)How did you determine that the foreign worker was qualified for the job?
-WhyTFWQualified nvarchar(500),
---27(5593) How and when did you offer this job to the foreign worker?
-HowAndWhen nvarchar(300),
--- 28(5593) Do you plan to hire or train Canadians/permanent residents for the position(s) for which you are requesting an LMIA?
-NoTraining int,
-ExplainNoTraining nvarchar(100),
-DescriptionTrainingPlan nvarchar(100)
-
+applicationID int,  -- Business information could be changed, so it only directly related to application, instead of Employer
+jobTile varchar(30),
+numOfTFWs int,
+duration int,
+durationUnit varchar(30),
+durationRationale varchar(150),
+startDate date,
+languageRequired bit,
+readingEnglishFrenchRequied bit,
+readingEnglishRequired bit,
+readingFrenchRequired bit,
+readingEnglishOrFrenchRequired bit,
+readingEnglishAndFrenchRequired bit,
+writingEnglishFrenchRequired bit,
+writingEnglishRequired bit,
+writingFrenchRequired bit,
+writingEnglishOrFrenchRequired bit,
+writingEnglishAndFrenchRequired bit,
+otherLanguageRequired bit,
+otherLanguageExplanation varchar(150),
+vacationDays int,
+remuneration int,
+isSeasonal  bit,
+isFullyCoveredLMIA bit,
+notFullyCoveredReason varchar(150),
+isJobLicensed  bit,
+licenseAuthority varchar(150),
+licenseReady  bit,
+licenseReadyTime int,
+licenseReadyUnit  varchar(30),
+isJobUnion bit,
+unionNameLocation varchar(150),
+isUnionConsulted  bit,
+unionNotExplanation varchar(150),
+unionOpinion varchar(150),
+attemptedRecruitCanadian  bit,
+notAttemptedReason varchar(150),
+OfficialAdNumber varchar(20),
+briefBenefit varchar(150),
+detailedBenefit varchar(4000),
+briefRationaleOfferingJob varchar(150),
+detailedRationaleOfferingJob varchar(4000),
+trainCanadian  bit,
+noTrainReason varchar(150),
+trainPlanBrief varchar(150),
+trainPlanDetails varchar(4000),
+willProvideAccomadation  bit,
+notProvideButOffer  varchar(150),
+provideRent int,
+provideUnit varchar(30),
+accomadationNotApplicalbe  bit,
+whoIsFillingBrief varchar(150),
+whoIsFillingDetail varchar(4000),
+howDidYouFindBrief varchar(150),
+howDidYouFindDetail  varchar(4000),
+howDidYouDetermineBrief  varchar(150),
+howDidYouDetermineDetail varchar(4000),
+howAndWhenOfferBrief  varchar(150),
+howAndWhenOfferDetail varchar(4000),
 )
 
 create table tblImpactLM(

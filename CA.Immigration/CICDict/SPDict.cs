@@ -16,7 +16,6 @@ namespace CA.Immigration.SP
         // Build a dictionary of IMM1294 based on the Application Id
         public static Dictionary<string, string> IMM1294(int AppId)
         {
-            SPDataContext spdc = new SPDataContext();
             CommonDataContext cmdc = new CommonDataContext();
 
             int personId = (int)cmdc.tblApplications.Where(x => x.Id == AppId).Select(x => x.ApplicantId).FirstOrDefault();
@@ -31,7 +30,7 @@ namespace CA.Immigration.SP
             tblAddress address = cmdc.tblAddresses.Where(x => (x.PersonId == personId) && x.AddressTypeId=="Residential").Select(x => x).FirstOrDefault();
             tblPhone phone = cmdc.tblPhones.Where(x => x.PersonId == personId).Select(x => x).FirstOrDefault();
 
-            tblStudyInfo std = spdc.tblStudyInfos.Where(x => x.ApplicationId == AppId).Select(x => x).FirstOrDefault();
+            tblStudyInfo std = cmdc.tblStudyInfos.Where(x => x.ApplicationId == AppId).Select(x => x).FirstOrDefault();
 
 
 
@@ -86,7 +85,7 @@ namespace CA.Immigration.SP
                 ["form1[0].Page2[0].contact[0].AddressRow1[0].Streetname[0].Streetname[0]"] = rcic.MailStreetName,
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].CityTow[0].CityTown[0]"] = rcic.City,
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].Country[0].Country[0]"] = rcic.Country.countryToCode().ToString(),
-                ["form1[0].Page2[0].contact[0].AddressRow2[0].ProvinceState[0].ProvinceState[0]"] = rcic.Province,
+                ["form1[0].Page2[0].contact[0].AddressRow2[0].ProvinceState[0].ProvinceState[0]"] = Definition.CndProvince[(int)rcic.Province],
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].PostalCode[0].PostalCode[0]"] = rcic.PostalCode,
                 ["form1[0].Page2[0].contact[0].AddressRow2[0].District[0]"] = "",
 

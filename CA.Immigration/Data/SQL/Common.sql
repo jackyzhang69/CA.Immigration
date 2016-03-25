@@ -1,4 +1,4 @@
-use common
+fuse common
 go
 
 -- RCIC Information table
@@ -19,11 +19,11 @@ ESDCThirdPartyID nvarchar(20),
 MailingAddress nvarchar(30),
 BusinessAddress nvarchar(30),
 City nvarchar(20),
-Province nvarchar(10),
+Province int,
 Country nvarchar(20),
 PostalCode nvarchar(10),
 MainBizActivities nvarchar(100),
-Signature image,
+theSignature image,
 MailPO nvarchar(10),
 MailAptUnit nvarchar(20),
 MailStreetNo nvarchar(100),
@@ -70,26 +70,6 @@ CountryCode int not null,  -- Match with CIC country code defenition
 Country varchar(30) not null
 )
 
--- Create Canada province PK table
-create table tblCNDProvince
-(
-Id int not null primary key Identity(1,1),
-ProvinceCode int not null,  -- Match with CIC country code defenition
-Province varchar(2) not null
-)
-insert into tblCNDProvince values(1,'AB')
-insert into tblCNDProvince values(2,'BC')
-insert into tblCNDProvince values(3,'MB')
-insert into tblCNDProvince values(4,'NB')
-insert into tblCNDProvince values(5,'NL')
-insert into tblCNDProvince values(6,'NS')
-insert into tblCNDProvince values(7,'NT')
-insert into tblCNDProvince values(8,'NU')
-insert into tblCNDProvince values(9,'ON')
-insert into tblCNDProvince values(10,'PE')
-insert into tblCNDProvince values(11,'QC')
-insert into tblCNDProvince values(12,'SK')
-insert into tblCNDProvince values(13,'YT')
 
 -- PK Table indicates education level
 create table tblEducationLevel
@@ -117,17 +97,6 @@ insert into tblEducationLevel values(16,'ESL/FSL and University')
 insert into tblEducationLevel values(17,'Other Studies')
 insert into tblEducationLevel values(18,'Not Applicable')
 
-
--- Creat Gender type PK table 
-create table tblGender
-(
-Id int not null primary key Identity(1,1),
-Gender varchar(7) not null
-)
-
-insert into tblGender values('Male')
-insert into tblGender values('Female')
-insert into tblGender values('Unknown')
 
 -- Create Canada visit purpose PK table
 create table tblCNDVisitPurpose
@@ -157,15 +126,6 @@ insert into tblPhoneType values(2, 'Cellular')
 insert into tblPhoneType values(3, 'Business')
 
 -- Creat address type PK table
-create table tblAddressType
-(
-Id int not null primary key Identity(1,1),
-AddressType varchar(15) not null
-)
-
-insert into tblAddressType values('Residential')
-insert into tblAddressType values('Business')
-insert into tblAddressType values('Mailing')
 
 -- Creat language type PK table
 create table tblLanguageType
@@ -175,38 +135,7 @@ TypeCode int,  -- Code matchs CIC Definition
 LanguageType varchar(10)
 )
 
--- Create Status type PK table
-create table tblStatusType
-(
-Id int not null primary key Identity(1,1),
-TypeCode char(2),  -- Code matchs CIC Definition
-StatusType varchar(20) 
-)
-insert into tblStatusType values ('01', 'Citizen')
-insert into tblStatusType values ('02', 'Permanent resident')
-insert into tblStatusType values ('03', 'Visitor')
-insert into tblStatusType values ('04', 'Worker')
-insert into tblStatusType values ('05', 'Student')
-insert into tblStatusType values ('06', 'Other')
-insert into tblStatusType values ('07', 'Protected Person')
-insert into tblStatusType values ('08', 'Refugee Claiment')
---Create Residence Type PK table
-create table tblResidenceType
-(
-Id int not null primary key Identity(1,1),
-Type int, -- 1 Current 2 Previous 3 Country where applying
-ResidenceType varchar(25)
-)
 
-insert into tblResidenceType values(1,'Current')
-insert into tblResidenceType values(2,'Previous')
-insert into tblResidenceType values(3,'Country where applying')
-
--------------------------------------------------------------------------
-
---alter table tblGenders
---add constraint DF_Gender
---default 3 for Id
 
 -- Create education information 
 -- PersonId: FK to reference the person who owns this education
@@ -329,7 +258,8 @@ Id int not null primary key Identity(1,1),
 PersonId int ,  -- FK to reference the Person Id,
 NativeLanguageId char(3) ,  --FK to reference the language Id who matchs CIC defenition
 OtherMostlyUse char(2), --Other than native language, which one does you use mostly 01 English, 02 French 03 neither, 04 Both
-CommIn varchar(20)  -- English or french, Both,Neither
+CommIn varchar(20),  -- English or french, Both,Neither
+LanguageTest bit
 )
 
 
@@ -342,22 +272,6 @@ EndDate date,
 relationship char(2)
 )
 
--- Create marriage status type PK table
-create table tblMarriageStatusType
-(
-Id int not null primary key Identity(1,1),
-TypeCode char(2),   -- Type code matchs CIC defenition
-MarriageStatusType varchar(20) not null,
-)
-
-insert into tblMarriageStatusType values ('09', 'Annulled Marriage')
-insert into tblMarriageStatusType values ('03', 'Common-Law')
-insert into tblMarriageStatusType values ('04', 'Divorced')
-insert into tblMarriageStatusType values ('05', 'Legally Separated')
-insert into tblMarriageStatusType values ('01', 'Married')
-insert into tblMarriageStatusType values ('02', 'Single')
-insert into tblMarriageStatusType values ('00', 'Unknown')
-insert into tblMarriageStatusType values ('06', 'Widowed')
 -- Create residence table
 create table tblResidence
 (
@@ -389,7 +303,7 @@ MarriageStatusId char(2),
 Phone varchar(20),
 Email varchar(100),
 Photo Image,
-[Signature] Image
+theSignature Image
 )
 
 -- Create Phone table
@@ -412,9 +326,90 @@ Id int not null primary key identity(1,1),
 Name varchar(150),
 CategoryId int
 )
+insert into tblProgram values('LMIAPRSupportOnly',1)
+insert into tblProgram values('LMIAPRandWP',1)
+insert into tblProgram values('LMIAWPOnly',1)
+insert into tblProgram values('BCPNPSW',1)
+insert into tblProgram values('BCPNPEI',1)
+insert into tblProgram values('BCPNPInternationalGraduate',1)
 
 create table tblCategory
 (
   Id int not null primary key identity(1,1),
 Name varchar(100),
+)
+insert into tblCategory values ('LMIA')
+insert into tblCategory values ('BCPNP')
+
+create table tblFinance
+(
+Id int not null primary key identity(1,1),
+ApplicationId int,
+FiscalYear int,
+TotalRevenue money,
+Cash money,
+NetIncome money,
+RetainedEarning money,
+GrossPayroll money,
+T4SlipsIssued int
+)
+
+create table tblLMIAPosition
+(
+Id int not null primary key identity(1,1),
+ApplicationId int,
+JobTitle varchar(100),
+NOC char(4),
+Province int,
+WorkingHours float,
+HourlyRate money,
+ProvincialMedian money,
+LocalNOCMedian money,
+LocalNOCLowest money,
+LocalNOCHighest money,
+SamePlaceSamePositionLowest money,
+SamePlaceSamePositionHighest money,
+NoSamePosition bit,
+UmemploymentRate float,
+COPSRating int,  -- 1 poor 2 moderate 3 good
+OccupationProfile int, -- 1 poor 2 moderate 3 good
+EmployerSituation nvarchar(500),
+EmployerImact nvarchar(500)
+
+)
+create table tblLMIA11Factors
+(
+Id int not null primary key identity(1,1),
+ApplicationId int,
+JobCreation bit,
+SkillTransfer bit,
+FillLabourShortage bit,
+PrevailingWageOffered bit,
+HireCanadianEffort bit,
+LabourDisputUnaffected bit,
+CommitmentFulfilled bit,
+BusinessEngagement bit,
+OfferConsistentwithDemand bit,
+AbletoFulfillTermofOffer bit,
+PastCompliance bit
+)
+-- Application information
+create table tblLMIAApplication(
+Id int not null primary key identity(1,1),
+ProgramType int, -- 1 Only for PR, 2 PR+WP 3 N/A  // this data can be stored in codes
+StreamType int, --0 for High Wage Stream 1 for Low Wage Stream
+EmployerId int,
+EmployeeId int,
+RCICId int,
+CreatedDate date,
+SubmittedDate date,
+ClosedDate date,
+ApplicationNumber varchar(20),
+ApplicationFee money,
+SecondEmployer varchar(30),
+NumberofPosition int,
+ApplicationFeePerPosition money,
+PayMethod int,  -- Method of Payment:1 Certified cheque or money order (postal or bank) made payable to the Receiver General for Canada 2 Credit Card
+MoreThanOneEmployer bit,
+AnotherEmployerName	varchar(150)
 )
