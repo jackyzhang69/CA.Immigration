@@ -204,9 +204,7 @@ namespace CA.Immigration.LMIA
                 {
                     cdc.tblBusinessDetails.InsertOnSubmit(bd);
                     cdc.SubmitChanges();
-                    GlobalData.CurrentBusinessDetailId = bd.Id;  // set up global data
-                    lf.btnInsertBD.Visible = false;
-                    MessageBox.Show("Data has been inserted to database", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lf.textChanged = false;
 
                 }
                 catch(Exception exc)

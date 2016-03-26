@@ -13,13 +13,11 @@ namespace CA.Immigration.LMIA
 {
     public partial class LMIAForm : Form
     {
+        public bool textChanged = false;
         public LMIAForm()
         {
             InitializeComponent();
-            using(CommonDataContext cdc = new CommonDataContext())
-            {
-                cmbLMIAProgram.DataSource = cdc.tblPrograms.Where(x => x.CategoryId == 1).Select(x => x.Name);
-            }
+
             LMIAFormOps.formConstruction(this);
         }
 
@@ -87,10 +85,20 @@ namespace CA.Immigration.LMIA
         }
         private void btnAnalysisDelete_Click(object sender, EventArgs e)
         {
-            LMIAAnalysis.deleteApplication(this);
-            MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            resetGlobalData();
-            LMIAFormOps.showMainStatus(this);
+            // Here delete all application related records
+            try
+  {
+	  LMIAJobOffer.deleteRecord(this);
+	            LMIABusinessDetail.deleteRecord(this);
+	            LMIAAnalysis.deleteApplication(this);
+	            MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+	            resetGlobalData();
+	            LMIAFormOps.showMainStatus(this);
+  }
+  catch (System.Exception ex)
+  {
+                MessageBox.Show(ex.Message);
+  }
 
         }
 
@@ -121,8 +129,15 @@ namespace CA.Immigration.LMIA
 
         private void btnUpdateBD_Click(object sender, EventArgs e)
         {
-            LMIABusinessDetail.getInput(this);
-            LMIABusinessDetail.updateRecord((int)GlobalData.CurrentApplicationId);
+            if(GlobalData.CurrentApplicationId != null)
+            {
+                LMIABusinessDetail.getInput(this);
+                LMIABusinessDetail.updateRecord((int)GlobalData.CurrentApplicationId);
+            }
+            else
+            {
+                MessageBox.Show("There is no active application. Please create on in Analysis");
+            }
         }
         private void btnNewBD_Click(object sender, EventArgs e)
         {
@@ -137,6 +152,10 @@ namespace CA.Immigration.LMIA
         {
             GlobalData.CurrentApplicationId = null;
             GlobalData.CurrentApplicationIdReadOnly = false;
+            GlobalData.CurrentProgramId = null;
+            GlobalData.CurrentProgramIdReadOnly = false;
+            GlobalData.CurrentStreamId = null;
+            GlobalData.CurrentStreamIdReadOnly = false;
 
         }
 
@@ -157,7 +176,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobOfferBenefitDetails_Click(object sender, EventArgs e)
         {
-            txtDetails dt = new txtDetails("Please justify why hiring TFW can bring this benifits to Canada", "_detailedBenefit");
+            txtDetails dt = new txtDetails("Please justify why hiring TFW can bring this benefits to Canada", "_detailedBenefit");
             dt.Show();
         }
 
@@ -175,7 +194,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobOfferWhoFillInTheJob_Click(object sender, EventArgs e)
         {
-            txtDetails dt = new txtDetails("Who is currently filling the duties and responsibilities of the positio?", "_whoIsFillingDetail");
+            txtDetails dt = new txtDetails("Who is currently filling the duties and responsibilities of the position?", "_whoIsFillingDetail");
             dt.Show();
         }
 
@@ -199,8 +218,62 @@ namespace CA.Immigration.LMIA
 
         private void cmbLMIAProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentProgramId = cmbLMIAProgram.SelectedIndex+1;
+            GlobalData.CurrentProgramId = cmbLMIAProgram.SelectedIndex + 1;
             LMIAFormOps.showMainStatus(this);
+        }
+
+        private void LMIAForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalData.CurrentApplicationId = null;
+            GlobalData.CurrentProgramId = null;
+            GlobalData.CurrentStreamId = null;
+            GlobalData.CurrentApplicationIdReadOnly = false;
+            GlobalData.CurrentEmployerIdReadOnly = false;
+            GlobalData.CurrentPersonIdReadOnly = false;
+            GlobalData.CurrentRCICIdReadOnly = false;
+            GlobalData.CurrentWorkingHours = null;
+
+            //base.OnFormClosing(e);
+
+            //if(e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            //// Confirm user wants to close
+            //if(textChanged == true)
+            //{
+            //    switch(MessageBox.Show(this, "Form data has been changed. Are you sure you want to close?", "Closing", MessageBoxButtons.YesNo))
+            //    {
+            //        case DialogResult.No:
+            //            e.Cancel = true;
+            //            break;
+            //        default:
+            //            GlobalData.CurrentApplicationId = null;
+            //            GlobalData.CurrentProgramId = null;
+            //            GlobalData.CurrentStreamId = null;
+            //            GlobalData.CurrentApplicationIdReadOnly = false;
+            //            GlobalData.CurrentEmployerIdReadOnly = false;
+            //            GlobalData.CurrentPersonIdReadOnly = false;
+            //            GlobalData.CurrentRCICIdReadOnly = false;
+            //            GlobalData.CurrentWorkingHours = null;
+            //            break;
+            //    }
+            //}
+        }
+
+
+
+
+        private void LMIAForm_TextChanged(object sender, EventArgs e)
+        {
+            textChanged = true;
+        }
+
+        private void btnJobAdSave_Click(object sender, EventArgs e)
+        {
+            if (GlobalData.CurrentApplicationId!=null)
+            {
+            	JobAd.SaveRecord(this);
+            }
+            else { MessageBox.Show("There is no active application yet. Please create in Analysis"); }
         }
     }
 }

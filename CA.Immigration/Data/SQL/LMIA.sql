@@ -20,39 +20,7 @@ WhyNotCnd nvarchar(4000) --Please explain why each Canadians/PRs is not qualifie
 )
 
 
--- Employer information
-create table tblEmployer(
-Id int not null primary key identity(1,1),
-ESDCId char(6),   -- if not first apply, should have a ESDC employer ID
-CRA_BN nvarchar(15) ,  -- CRA Business Number 
-LegalName nvarchar(50) ,
-OperatingName nvarchar(50),
-FranchiseName nvarchar(50),
-FranchiseAware int, --1 yes, 2 no, 3 not applicalb
-CompanyType int,  -- 1 Incorporated 2 Partner 3 Solo proprietor
-MailingAddress nvarchar(50),   -- street address for mailing address
-MailingCity nvarchar(20),
-MailingProvince int,
-MailingCountry nvarchar(20),
-MailingPostalCode nvarchar(10),
-BizAddress nvarchar(50),   -- street address for business address, should check if same
-BizCity nvarchar(20),
-BizProvince int,
-BizCountry nvarchar(20),
-BizPostalCode nvarchar(10),
-BizTelephone nvarchar(20),
-Website nvarchar(100),
-BizStartDate date,
-BizActivity nvarchar(100),  --  Describe the principal business acivity
-ContactFirstName nvarchar(20),
-ContactMiddleName nvarchar(20),
-ContactLastName nvarchar(20),
-ContactJobTitle nvarchar(20),
-ContactPhone nvarchar(20),
-ContactFax nvarchar(20),
-ContactEmail nvarchar(50),
-theWitness nvarchar(20)
-)
+
 
 -- Application information
 create table tblLMIAApplication(
@@ -123,7 +91,7 @@ applicationID int,  -- Business information could be changed, so it only directl
 jobTile varchar(30),
 numOfTFWs int,
 duration int,
-durationUnit varchar(30),
+durationUnit int,
 durationRationale varchar(150),
 startDate date,
 languageRequired bit,

@@ -55,13 +55,13 @@ namespace CA.Immigration.Startup
         }
         private void cmbSelectRCIC_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex+1;
-            showMainStatus();
+            if(GlobalData.CurrentRCICIdReadOnly != true)
+            {
+                GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex + 1;
+                showMainStatus();
+            }
+            else MessageBox.Show("This RCIC is handling an active application. Please close it before your doing anything else", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
-
-
-
-
         private void btnInsertPassport_Click(object sender, EventArgs e)
         {
             Person.passportInsert(this);
@@ -77,10 +77,10 @@ namespace CA.Immigration.Startup
         private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GlobalData.CurrentCategoryId = int.Parse(cmbCategory.SelectedValue.ToString());
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 int id = int.Parse(cmbCategory.SelectedValue.ToString());
-                if (cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name) != null)
+                if(cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name) != null)
                     cmbProgram.DataSource = cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name);
                 else
                 {
@@ -93,24 +93,29 @@ namespace CA.Immigration.Startup
 
         private void btnApplication_Click(object sender, EventArgs e)
         {
-           
-            if (GlobalData.CurrentEmployerId != null)
-            {
-                if (GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?","Confirm",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes))
-                {
-                    LMIAForm lf = new LMIAForm();
-                    lf.Show();
-                    showMainStatus();
-                }
-            }
 
-            else MessageBox.Show("You have to select an employer first");
+            if(GlobalData.CurrentApplicationIdReadOnly!=true)
+            {
+                if(GlobalData.CurrentEmployerId != null)
+                {
+                    if(GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    {
+                        LMIAForm lf = new LMIAForm();
+                        lf.Show();
+                        showMainStatus();
+                    }
+                }
+
+                else MessageBox.Show("You have to select an employer first");
+            }
+            else MessageBox.Show("There is an active application. Please close it before your doing anything else", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
 
         }
 
         private void cmbProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedIndex+1;
+            GlobalData.CurrentProgramId = (int)cmbProgram.SelectedIndex + 1;
             showMainStatus();
         }
 
@@ -118,7 +123,7 @@ namespace CA.Immigration.Startup
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.jpg;*.jpeg;*.png;*.bmp";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if(ofd.ShowDialog() == DialogResult.OK)
             {
                 pcbPhoto.Image = Image.FromFile(ofd.FileName);
                 pcbPhoto.SizeMode = PictureBoxSizeMode.Zoom;
@@ -129,7 +134,7 @@ namespace CA.Immigration.Startup
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.png";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if(ofd.ShowDialog() == DialogResult.OK)
             {
                 pcbSignature.Image = Image.FromFile(ofd.FileName);
                 pcbSignature.SizeMode = PictureBoxSizeMode.Zoom;
@@ -153,13 +158,13 @@ namespace CA.Immigration.Startup
 
         private void dgvLMIAApplication_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (dgvLMIAApplication.SelectedRows != null)
+            if(dgvLMIAApplication.SelectedRows != null)
             {
                 GlobalData.CurrentApplicationId = (int)dgvLMIAApplication.SelectedRows[0].Cells[0].Value;
-                using (CommonDataContext cdc=new CommonDataContext())
+                using(CommonDataContext cdc = new CommonDataContext())
                 {
                     GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
-                    GlobalData.CurrentRCICId= cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
+                    GlobalData.CurrentRCICId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
                     GlobalData.CurrentPersonId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
                     GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.ProgramType).FirstOrDefault();
                 }
@@ -208,7 +213,7 @@ namespace CA.Immigration.Startup
         }
         private void cbxAlias_CheckedChanged(object sender, EventArgs e)
         {
-            if (cbxAlias.Checked == true)
+            if(cbxAlias.Checked == true)
             {
                 lblPBIAliasFN.Visible = true;
                 txtPBIAFN.Visible = true;
@@ -225,7 +230,7 @@ namespace CA.Immigration.Startup
         }
         private void chkBizSameAsMail_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBizSameAsMail.Checked == true)
+            if(chkBizSameAsMail.Checked == true)
             {
                 lblEBIBizAddress.Visible = false;
                 txtBusinessAddress.Visible = false;
@@ -261,8 +266,10 @@ namespace CA.Immigration.Startup
         private void StartupForm_Activated(object sender, EventArgs e)
         {
             StartupOps.getAllApplications(this);
+            StartupOps.RefreshMainForm(this);
+            showMainStatus();
         }
-        public  void showMainStatus()
+        public void showMainStatus()
         {
             tssEmployer.Text = "Employer Id: " + GlobalData.CurrentEmployerId;
             tssPerson.Text = "Person Id:" + GlobalData.CurrentPersonId;

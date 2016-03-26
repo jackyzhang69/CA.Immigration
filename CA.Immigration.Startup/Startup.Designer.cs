@@ -163,19 +163,17 @@
             this.txtCRABN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtFranchise = new System.Windows.Forms.TextBox();
-            this.txtBusinessAddress = new System.Windows.Forms.TextBox();
-            this.txtMailAddress = new System.Windows.Forms.TextBox();
+            this.txtEBIStreetNameMail = new System.Windows.Forms.TextBox();
             this.txtOperatingName = new System.Windows.Forms.TextBox();
             this.lblFranchise = new System.Windows.Forms.Label();
-            this.lblEBIBizAddress = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtLegalName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtEBIBusinessCountry = new System.Windows.Forms.TextBox();
             this.txtEBIPostalBusiness = new System.Windows.Forms.TextBox();
-            this.txtPostalMail = new System.Windows.Forms.TextBox();
-            this.txtCountryMail = new System.Windows.Forms.TextBox();
+            this.txtEBIPostalMail = new System.Windows.Forms.TextBox();
+            this.txtEBICountryMail = new System.Windows.Forms.TextBox();
             this.lblEBICountry = new System.Windows.Forms.Label();
             this.lblEBIBizPost = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -189,10 +187,27 @@
             this.label20 = new System.Windows.Forms.Label();
             this.txtEBIBusinessCity = new System.Windows.Forms.TextBox();
             this.lblEBIBizCity = new System.Windows.Forms.Label();
-            this.txtMailCity = new System.Windows.Forms.TextBox();
+            this.txtEBIMailCity = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtESDCId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.grpEmployerMailAddress = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtEBIStreetNoMail = new System.Windows.Forms.TextBox();
+            this.txtEBIAptMail = new System.Windows.Forms.TextBox();
+            this.txtEBIPOBoxMail = new System.Windows.Forms.TextBox();
+            this.grpEmployerBizAddress = new System.Windows.Forms.GroupBox();
+            this.txtEBIStreetNameBiz = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtEBIStreetNoBiz = new System.Windows.Forms.TextBox();
+            this.txtEBIAptBiz = new System.Windows.Forms.TextBox();
+            this.txtEBIPOBoxBiz = new System.Windows.Forms.TextBox();
+            this.grpEmployerBusinessBrief = new System.Windows.Forms.GroupBox();
             this.MainMenu.SuspendLayout();
             this.tbcFrontPage.SuspendLayout();
             this.tbcMain.SuspendLayout();
@@ -231,6 +246,9 @@
             this.splitContainer3.SuspendLayout();
             this.grpEBI.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.grpEmployerMailAddress.SuspendLayout();
+            this.grpEmployerBizAddress.SuspendLayout();
+            this.grpEmployerBusinessBrief.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -315,7 +333,7 @@
             this.tbcFrontPage.Location = new System.Drawing.Point(0, 33);
             this.tbcFrontPage.Name = "tbcFrontPage";
             this.tbcFrontPage.SelectedIndex = 0;
-            this.tbcFrontPage.Size = new System.Drawing.Size(1665, 1178);
+            this.tbcFrontPage.Size = new System.Drawing.Size(1665, 1229);
             this.tbcFrontPage.TabIndex = 0;
             // 
             // tbcMain
@@ -1297,7 +1315,7 @@
             this.tabEmployer.Location = new System.Drawing.Point(4, 32);
             this.tabEmployer.Name = "tabEmployer";
             this.tabEmployer.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEmployer.Size = new System.Drawing.Size(1657, 1142);
+            this.tabEmployer.Size = new System.Drawing.Size(1657, 1193);
             this.tabEmployer.TabIndex = 2;
             this.tabEmployer.Text = "Employer";
             this.tabEmployer.UseVisualStyleBackColor = true;
@@ -1315,13 +1333,13 @@
             this.splitContainer3.Panel1.Controls.Add(this.btnEBIUpdate);
             this.splitContainer3.Panel1.Controls.Add(this.btnEBIInsert);
             this.splitContainer3.Panel1.Controls.Add(this.grpEBI);
-            this.splitContainer3.Size = new System.Drawing.Size(1651, 1136);
-            this.splitContainer3.SplitterDistance = 542;
+            this.splitContainer3.Size = new System.Drawing.Size(1651, 1187);
+            this.splitContainer3.SplitterDistance = 559;
             this.splitContainer3.TabIndex = 0;
             // 
             // btnEBIClear
             // 
-            this.btnEBIClear.Location = new System.Drawing.Point(430, 932);
+            this.btnEBIClear.Location = new System.Drawing.Point(428, 1145);
             this.btnEBIClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEBIClear.Name = "btnEBIClear";
             this.btnEBIClear.Size = new System.Drawing.Size(112, 35);
@@ -1332,7 +1350,7 @@
             // 
             // btnEBIDelete
             // 
-            this.btnEBIDelete.Location = new System.Drawing.Point(291, 932);
+            this.btnEBIDelete.Location = new System.Drawing.Point(289, 1145);
             this.btnEBIDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEBIDelete.Name = "btnEBIDelete";
             this.btnEBIDelete.Size = new System.Drawing.Size(112, 35);
@@ -1343,7 +1361,7 @@
             // 
             // btnEBIUpdate
             // 
-            this.btnEBIUpdate.Location = new System.Drawing.Point(150, 932);
+            this.btnEBIUpdate.Location = new System.Drawing.Point(148, 1145);
             this.btnEBIUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEBIUpdate.Name = "btnEBIUpdate";
             this.btnEBIUpdate.Size = new System.Drawing.Size(112, 35);
@@ -1354,7 +1372,7 @@
             // 
             // btnEBIInsert
             // 
-            this.btnEBIInsert.Location = new System.Drawing.Point(9, 932);
+            this.btnEBIInsert.Location = new System.Drawing.Point(7, 1145);
             this.btnEBIInsert.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEBIInsert.Name = "btnEBIInsert";
             this.btnEBIInsert.Size = new System.Drawing.Size(112, 35);
@@ -1365,49 +1383,26 @@
             // 
             // grpEBI
             // 
+            this.grpEBI.Controls.Add(this.grpEmployerBusinessBrief);
+            this.grpEBI.Controls.Add(this.grpEmployerBizAddress);
+            this.grpEBI.Controls.Add(this.grpEmployerMailAddress);
             this.grpEBI.Controls.Add(this.BEIcompanyType);
-            this.grpEBI.Controls.Add(this.dtpBusinessStartDate);
             this.grpEBI.Controls.Add(this.groupBox1);
             this.grpEBI.Controls.Add(this.chkBizSameAsMail);
-            this.grpEBI.Controls.Add(this.canadaProvincesBusiness);
-            this.grpEBI.Controls.Add(this.canadaProvincesMail);
             this.grpEBI.Controls.Add(this.chkFranchise);
             this.grpEBI.Controls.Add(this.txtCRABN);
             this.grpEBI.Controls.Add(this.label8);
             this.grpEBI.Controls.Add(this.txtFranchise);
-            this.grpEBI.Controls.Add(this.txtBusinessAddress);
-            this.grpEBI.Controls.Add(this.txtMailAddress);
             this.grpEBI.Controls.Add(this.txtOperatingName);
             this.grpEBI.Controls.Add(this.lblFranchise);
-            this.grpEBI.Controls.Add(this.lblEBIBizAddress);
-            this.grpEBI.Controls.Add(this.label13);
             this.grpEBI.Controls.Add(this.label10);
             this.grpEBI.Controls.Add(this.txtLegalName);
             this.grpEBI.Controls.Add(this.label9);
-            this.grpEBI.Controls.Add(this.txtEBIBusinessCountry);
-            this.grpEBI.Controls.Add(this.txtEBIPostalBusiness);
-            this.grpEBI.Controls.Add(this.txtPostalMail);
-            this.grpEBI.Controls.Add(this.txtCountryMail);
-            this.grpEBI.Controls.Add(this.lblEBICountry);
-            this.grpEBI.Controls.Add(this.lblEBIBizPost);
-            this.grpEBI.Controls.Add(this.label18);
-            this.grpEBI.Controls.Add(this.label16);
-            this.grpEBI.Controls.Add(this.txtEBIWebsite);
-            this.grpEBI.Controls.Add(this.label21);
-            this.grpEBI.Controls.Add(this.txtEBIBusinessActivities);
-            this.grpEBI.Controls.Add(this.label23);
-            this.grpEBI.Controls.Add(this.label22);
-            this.grpEBI.Controls.Add(this.txtEBIPhone);
-            this.grpEBI.Controls.Add(this.label20);
-            this.grpEBI.Controls.Add(this.txtEBIBusinessCity);
-            this.grpEBI.Controls.Add(this.lblEBIBizCity);
-            this.grpEBI.Controls.Add(this.txtMailCity);
-            this.grpEBI.Controls.Add(this.label14);
             this.grpEBI.Controls.Add(this.txtESDCId);
             this.grpEBI.Controls.Add(this.label7);
             this.grpEBI.Location = new System.Drawing.Point(9, 8);
             this.grpEBI.Name = "grpEBI";
-            this.grpEBI.Size = new System.Drawing.Size(531, 905);
+            this.grpEBI.Size = new System.Drawing.Size(531, 1067);
             this.grpEBI.TabIndex = 0;
             this.grpEBI.TabStop = false;
             this.grpEBI.Text = "Employer basic information";
@@ -1422,7 +1417,7 @@
             // 
             // dtpBusinessStartDate
             // 
-            this.dtpBusinessStartDate.Location = new System.Drawing.Point(228, 512);
+            this.dtpBusinessStartDate.Location = new System.Drawing.Point(214, 96);
             this.dtpBusinessStartDate.Name = "dtpBusinessStartDate";
             this.dtpBusinessStartDate.Size = new System.Drawing.Size(284, 26);
             this.dtpBusinessStartDate.TabIndex = 20;
@@ -1443,9 +1438,9 @@
             this.groupBox1.Controls.Add(this.txtEBIFirstName);
             this.groupBox1.Controls.Add(this.label26);
             this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Location = new System.Drawing.Point(21, 686);
+            this.groupBox1.Location = new System.Drawing.Point(5, 914);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(510, 215);
+            this.groupBox1.Size = new System.Drawing.Size(519, 215);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Primary Contact";
@@ -1574,7 +1569,7 @@
             this.chkBizSameAsMail.AutoSize = true;
             this.chkBizSameAsMail.Checked = true;
             this.chkBizSameAsMail.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBizSameAsMail.Location = new System.Drawing.Point(24, 332);
+            this.chkBizSameAsMail.Location = new System.Drawing.Point(13, 411);
             this.chkBizSameAsMail.Name = "chkBizSameAsMail";
             this.chkBizSameAsMail.Size = new System.Drawing.Size(348, 24);
             this.chkBizSameAsMail.TabIndex = 12;
@@ -1585,7 +1580,7 @@
             // canadaProvincesBusiness
             // 
             this.canadaProvincesBusiness.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.canadaProvincesBusiness.Location = new System.Drawing.Point(190, 392);
+            this.canadaProvincesBusiness.Location = new System.Drawing.Point(189, 106);
             this.canadaProvincesBusiness.Margin = new System.Windows.Forms.Padding(2);
             this.canadaProvincesBusiness.Name = "canadaProvincesBusiness";
             this.canadaProvincesBusiness.Size = new System.Drawing.Size(158, 48);
@@ -1595,7 +1590,7 @@
             // canadaProvincesMail
             // 
             this.canadaProvincesMail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.canadaProvincesMail.Location = new System.Drawing.Point(190, 280);
+            this.canadaProvincesMail.Location = new System.Drawing.Point(173, 106);
             this.canadaProvincesMail.Margin = new System.Windows.Forms.Padding(2);
             this.canadaProvincesMail.Name = "canadaProvincesMail";
             this.canadaProvincesMail.Size = new System.Drawing.Size(158, 48);
@@ -1636,22 +1631,13 @@
             this.txtFranchise.Size = new System.Drawing.Size(286, 26);
             this.txtFranchise.TabIndex = 5;
             // 
-            // txtBusinessAddress
+            // txtEBIStreetNameMail
             // 
-            this.txtBusinessAddress.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtBusinessAddress.Location = new System.Drawing.Point(160, 360);
-            this.txtBusinessAddress.Name = "txtBusinessAddress";
-            this.txtBusinessAddress.Size = new System.Drawing.Size(188, 26);
-            this.txtBusinessAddress.TabIndex = 13;
-            this.txtBusinessAddress.Visible = false;
-            // 
-            // txtMailAddress
-            // 
-            this.txtMailAddress.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtMailAddress.Location = new System.Drawing.Point(148, 248);
-            this.txtMailAddress.Name = "txtMailAddress";
-            this.txtMailAddress.Size = new System.Drawing.Size(200, 26);
-            this.txtMailAddress.TabIndex = 7;
+            this.txtEBIStreetNameMail.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIStreetNameMail.Location = new System.Drawing.Point(131, 74);
+            this.txtEBIStreetNameMail.Name = "txtEBIStreetNameMail";
+            this.txtEBIStreetNameMail.Size = new System.Drawing.Size(200, 26);
+            this.txtEBIStreetNameMail.TabIndex = 7;
             // 
             // txtOperatingName
             // 
@@ -1670,24 +1656,14 @@
             this.lblFranchise.TabIndex = 0;
             this.lblFranchise.Text = "Name";
             // 
-            // lblEBIBizAddress
-            // 
-            this.lblEBIBizAddress.AutoSize = true;
-            this.lblEBIBizAddress.Location = new System.Drawing.Point(18, 363);
-            this.lblEBIBizAddress.Name = "lblEBIBizAddress";
-            this.lblEBIBizAddress.Size = new System.Drawing.Size(137, 20);
-            this.lblEBIBizAddress.TabIndex = 12;
-            this.lblEBIBizAddress.Text = "Business Address";
-            this.lblEBIBizAddress.Visible = false;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(18, 251);
+            this.label13.Location = new System.Drawing.Point(15, 77);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 20);
+            this.label13.Size = new System.Drawing.Size(99, 20);
             this.label13.TabIndex = 0;
-            this.label13.Text = "Mail Address";
+            this.label13.Text = "Street Name";
             // 
             // label10
             // 
@@ -1718,41 +1694,43 @@
             // txtEBIBusinessCountry
             // 
             this.txtEBIBusinessCountry.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIBusinessCountry.Location = new System.Drawing.Point(418, 402);
+            this.txtEBIBusinessCountry.Location = new System.Drawing.Point(417, 116);
             this.txtEBIBusinessCountry.Name = "txtEBIBusinessCountry";
             this.txtEBIBusinessCountry.Size = new System.Drawing.Size(94, 26);
             this.txtEBIBusinessCountry.TabIndex = 17;
+            this.txtEBIBusinessCountry.Text = "Canada";
             this.txtEBIBusinessCountry.Visible = false;
             // 
             // txtEBIPostalBusiness
             // 
             this.txtEBIPostalBusiness.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIPostalBusiness.Location = new System.Drawing.Point(420, 357);
+            this.txtEBIPostalBusiness.Location = new System.Drawing.Point(419, 71);
             this.txtEBIPostalBusiness.Name = "txtEBIPostalBusiness";
             this.txtEBIPostalBusiness.Size = new System.Drawing.Size(94, 26);
             this.txtEBIPostalBusiness.TabIndex = 14;
             this.txtEBIPostalBusiness.Visible = false;
             // 
-            // txtPostalMail
+            // txtEBIPostalMail
             // 
-            this.txtPostalMail.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtPostalMail.Location = new System.Drawing.Point(420, 251);
-            this.txtPostalMail.Name = "txtPostalMail";
-            this.txtPostalMail.Size = new System.Drawing.Size(94, 26);
-            this.txtPostalMail.TabIndex = 8;
+            this.txtEBIPostalMail.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIPostalMail.Location = new System.Drawing.Point(403, 77);
+            this.txtEBIPostalMail.Name = "txtEBIPostalMail";
+            this.txtEBIPostalMail.Size = new System.Drawing.Size(94, 26);
+            this.txtEBIPostalMail.TabIndex = 8;
             // 
-            // txtCountryMail
+            // txtEBICountryMail
             // 
-            this.txtCountryMail.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCountryMail.Location = new System.Drawing.Point(423, 288);
-            this.txtCountryMail.Name = "txtCountryMail";
-            this.txtCountryMail.Size = new System.Drawing.Size(90, 26);
-            this.txtCountryMail.TabIndex = 11;
+            this.txtEBICountryMail.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBICountryMail.Location = new System.Drawing.Point(406, 114);
+            this.txtEBICountryMail.Name = "txtEBICountryMail";
+            this.txtEBICountryMail.Size = new System.Drawing.Size(90, 26);
+            this.txtEBICountryMail.TabIndex = 11;
+            this.txtEBICountryMail.Text = "Canada";
             // 
             // lblEBICountry
             // 
             this.lblEBICountry.AutoSize = true;
-            this.lblEBICountry.Location = new System.Drawing.Point(354, 405);
+            this.lblEBICountry.Location = new System.Drawing.Point(353, 119);
             this.lblEBICountry.Name = "lblEBICountry";
             this.lblEBICountry.Size = new System.Drawing.Size(64, 20);
             this.lblEBICountry.TabIndex = 0;
@@ -1762,7 +1740,7 @@
             // lblEBIBizPost
             // 
             this.lblEBIBizPost.AutoSize = true;
-            this.lblEBIBizPost.Location = new System.Drawing.Point(354, 360);
+            this.lblEBIBizPost.Location = new System.Drawing.Point(353, 74);
             this.lblEBIBizPost.Name = "lblEBIBizPost";
             this.lblEBIBizPost.Size = new System.Drawing.Size(53, 20);
             this.lblEBIBizPost.TabIndex = 0;
@@ -1772,7 +1750,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(352, 289);
+            this.label18.Location = new System.Drawing.Point(335, 115);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(64, 20);
             this.label18.TabIndex = 0;
@@ -1781,7 +1759,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(354, 254);
+            this.label16.Location = new System.Drawing.Point(337, 80);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(53, 20);
             this.label16.TabIndex = 0;
@@ -1790,7 +1768,7 @@
             // txtEBIWebsite
             // 
             this.txtEBIWebsite.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIWebsite.Location = new System.Drawing.Point(284, 462);
+            this.txtEBIWebsite.Location = new System.Drawing.Point(270, 46);
             this.txtEBIWebsite.Name = "txtEBIWebsite";
             this.txtEBIWebsite.Size = new System.Drawing.Size(230, 26);
             this.txtEBIWebsite.TabIndex = 19;
@@ -1798,7 +1776,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(210, 465);
+            this.label21.Location = new System.Drawing.Point(196, 49);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(67, 20);
             this.label21.TabIndex = 0;
@@ -1807,7 +1785,7 @@
             // txtEBIBusinessActivities
             // 
             this.txtEBIBusinessActivities.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIBusinessActivities.Location = new System.Drawing.Point(21, 589);
+            this.txtEBIBusinessActivities.Location = new System.Drawing.Point(7, 173);
             this.txtEBIBusinessActivities.Multiline = true;
             this.txtEBIBusinessActivities.Name = "txtEBIBusinessActivities";
             this.txtEBIBusinessActivities.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -1817,7 +1795,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(16, 557);
+            this.label23.Location = new System.Drawing.Point(2, 141);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(138, 20);
             this.label23.TabIndex = 0;
@@ -1826,7 +1804,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(16, 515);
+            this.label22.Location = new System.Drawing.Point(2, 99);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(152, 20);
             this.label22.TabIndex = 0;
@@ -1835,7 +1813,7 @@
             // txtEBIPhone
             // 
             this.txtEBIPhone.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIPhone.Location = new System.Drawing.Point(78, 462);
+            this.txtEBIPhone.Location = new System.Drawing.Point(64, 46);
             this.txtEBIPhone.Name = "txtEBIPhone";
             this.txtEBIPhone.Size = new System.Drawing.Size(118, 26);
             this.txtEBIPhone.TabIndex = 18;
@@ -1843,7 +1821,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 465);
+            this.label20.Location = new System.Drawing.Point(2, 49);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(55, 20);
             this.label20.TabIndex = 0;
@@ -1852,7 +1830,7 @@
             // txtEBIBusinessCity
             // 
             this.txtEBIBusinessCity.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIBusinessCity.Location = new System.Drawing.Point(58, 405);
+            this.txtEBIBusinessCity.Location = new System.Drawing.Point(57, 119);
             this.txtEBIBusinessCity.Name = "txtEBIBusinessCity";
             this.txtEBIBusinessCity.Size = new System.Drawing.Size(118, 26);
             this.txtEBIBusinessCity.TabIndex = 15;
@@ -1861,25 +1839,25 @@
             // lblEBIBizCity
             // 
             this.lblEBIBizCity.AutoSize = true;
-            this.lblEBIBizCity.Location = new System.Drawing.Point(16, 408);
+            this.lblEBIBizCity.Location = new System.Drawing.Point(15, 122);
             this.lblEBIBizCity.Name = "lblEBIBizCity";
             this.lblEBIBizCity.Size = new System.Drawing.Size(35, 20);
             this.lblEBIBizCity.TabIndex = 0;
             this.lblEBIBizCity.Text = "City";
             this.lblEBIBizCity.Visible = false;
             // 
-            // txtMailCity
+            // txtEBIMailCity
             // 
-            this.txtMailCity.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtMailCity.Location = new System.Drawing.Point(58, 292);
-            this.txtMailCity.Name = "txtMailCity";
-            this.txtMailCity.Size = new System.Drawing.Size(118, 26);
-            this.txtMailCity.TabIndex = 9;
+            this.txtEBIMailCity.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIMailCity.Location = new System.Drawing.Point(58, 115);
+            this.txtEBIMailCity.Name = "txtEBIMailCity";
+            this.txtEBIMailCity.Size = new System.Drawing.Size(118, 26);
+            this.txtEBIMailCity.TabIndex = 9;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 295);
+            this.label14.Location = new System.Drawing.Point(16, 118);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 20);
             this.label14.TabIndex = 0;
@@ -1902,12 +1880,190 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "ESDC Id";
             // 
+            // grpEmployerMailAddress
+            // 
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBIStreetNameMail);
+            this.grpEmployerMailAddress.Controls.Add(this.label15);
+            this.grpEmployerMailAddress.Controls.Add(this.canadaProvincesMail);
+            this.grpEmployerMailAddress.Controls.Add(this.label17);
+            this.grpEmployerMailAddress.Controls.Add(this.label14);
+            this.grpEmployerMailAddress.Controls.Add(this.label19);
+            this.grpEmployerMailAddress.Controls.Add(this.label13);
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBIMailCity);
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBIStreetNoMail);
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBIPostalMail);
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBIAptMail);
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBIPOBoxMail);
+            this.grpEmployerMailAddress.Controls.Add(this.label16);
+            this.grpEmployerMailAddress.Controls.Add(this.txtEBICountryMail);
+            this.grpEmployerMailAddress.Controls.Add(this.label18);
+            this.grpEmployerMailAddress.Location = new System.Drawing.Point(0, 235);
+            this.grpEmployerMailAddress.Name = "grpEmployerMailAddress";
+            this.grpEmployerMailAddress.Size = new System.Drawing.Size(531, 159);
+            this.grpEmployerMailAddress.TabIndex = 23;
+            this.grpEmployerMailAddress.TabStop = false;
+            this.grpEmployerMailAddress.Text = "Mail Address";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(345, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(77, 20);
+            this.label15.TabIndex = 24;
+            this.label15.Text = "Street No";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(169, 28);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 20);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "Apt/Unit";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(15, 28);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 20);
+            this.label19.TabIndex = 26;
+            this.label19.Text = "PO. Box";
+            // 
+            // txtEBIStreetNoMail
+            // 
+            this.txtEBIStreetNoMail.Location = new System.Drawing.Point(428, 25);
+            this.txtEBIStreetNoMail.Name = "txtEBIStreetNoMail";
+            this.txtEBIStreetNoMail.Size = new System.Drawing.Size(79, 26);
+            this.txtEBIStreetNoMail.TabIndex = 22;
+            // 
+            // txtEBIAptMail
+            // 
+            this.txtEBIAptMail.Location = new System.Drawing.Point(247, 25);
+            this.txtEBIAptMail.Name = "txtEBIAptMail";
+            this.txtEBIAptMail.Size = new System.Drawing.Size(84, 26);
+            this.txtEBIAptMail.TabIndex = 23;
+            // 
+            // txtEBIPOBoxMail
+            // 
+            this.txtEBIPOBoxMail.Location = new System.Drawing.Point(95, 25);
+            this.txtEBIPOBoxMail.Name = "txtEBIPOBoxMail";
+            this.txtEBIPOBoxMail.Size = new System.Drawing.Size(55, 26);
+            this.txtEBIPOBoxMail.TabIndex = 20;
+            // 
+            // grpEmployerBizAddress
+            // 
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIPostalBusiness);
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIStreetNameBiz);
+            this.grpEmployerBizAddress.Controls.Add(this.lblEBIBizCity);
+            this.grpEmployerBizAddress.Controls.Add(this.label12);
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIBusinessCity);
+            this.grpEmployerBizAddress.Controls.Add(this.label31);
+            this.grpEmployerBizAddress.Controls.Add(this.lblEBIBizPost);
+            this.grpEmployerBizAddress.Controls.Add(this.lblEBICountry);
+            this.grpEmployerBizAddress.Controls.Add(this.label33);
+            this.grpEmployerBizAddress.Controls.Add(this.canadaProvincesBusiness);
+            this.grpEmployerBizAddress.Controls.Add(this.label34);
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIBusinessCountry);
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIStreetNoBiz);
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIAptBiz);
+            this.grpEmployerBizAddress.Controls.Add(this.txtEBIPOBoxBiz);
+            this.grpEmployerBizAddress.Location = new System.Drawing.Point(0, 450);
+            this.grpEmployerBizAddress.Name = "grpEmployerBizAddress";
+            this.grpEmployerBizAddress.Size = new System.Drawing.Size(531, 159);
+            this.grpEmployerBizAddress.TabIndex = 27;
+            this.grpEmployerBizAddress.TabStop = false;
+            this.grpEmployerBizAddress.Text = "Business Address";
+            // 
+            // txtEBIStreetNameBiz
+            // 
+            this.txtEBIStreetNameBiz.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIStreetNameBiz.Location = new System.Drawing.Point(131, 74);
+            this.txtEBIStreetNameBiz.Name = "txtEBIStreetNameBiz";
+            this.txtEBIStreetNameBiz.Size = new System.Drawing.Size(200, 26);
+            this.txtEBIStreetNameBiz.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(345, 28);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(77, 20);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Street No";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(169, 28);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(67, 20);
+            this.label31.TabIndex = 25;
+            this.label31.Text = "Apt/Unit";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(15, 28);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(66, 20);
+            this.label33.TabIndex = 26;
+            this.label33.Text = "PO. Box";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(15, 77);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(99, 20);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Street Name";
+            // 
+            // txtEBIStreetNoBiz
+            // 
+            this.txtEBIStreetNoBiz.Location = new System.Drawing.Point(428, 25);
+            this.txtEBIStreetNoBiz.Name = "txtEBIStreetNoBiz";
+            this.txtEBIStreetNoBiz.Size = new System.Drawing.Size(79, 26);
+            this.txtEBIStreetNoBiz.TabIndex = 22;
+            // 
+            // txtEBIAptBiz
+            // 
+            this.txtEBIAptBiz.Location = new System.Drawing.Point(247, 25);
+            this.txtEBIAptBiz.Name = "txtEBIAptBiz";
+            this.txtEBIAptBiz.Size = new System.Drawing.Size(84, 26);
+            this.txtEBIAptBiz.TabIndex = 23;
+            // 
+            // txtEBIPOBoxBiz
+            // 
+            this.txtEBIPOBoxBiz.Location = new System.Drawing.Point(95, 25);
+            this.txtEBIPOBoxBiz.Name = "txtEBIPOBoxBiz";
+            this.txtEBIPOBoxBiz.Size = new System.Drawing.Size(55, 26);
+            this.txtEBIPOBoxBiz.TabIndex = 20;
+            // 
+            // grpEmployerBusinessBrief
+            // 
+            this.grpEmployerBusinessBrief.Controls.Add(this.txtEBIWebsite);
+            this.grpEmployerBusinessBrief.Controls.Add(this.txtEBIPhone);
+            this.grpEmployerBusinessBrief.Controls.Add(this.label20);
+            this.grpEmployerBusinessBrief.Controls.Add(this.label21);
+            this.grpEmployerBusinessBrief.Controls.Add(this.txtEBIBusinessActivities);
+            this.grpEmployerBusinessBrief.Controls.Add(this.dtpBusinessStartDate);
+            this.grpEmployerBusinessBrief.Controls.Add(this.label23);
+            this.grpEmployerBusinessBrief.Controls.Add(this.label22);
+            this.grpEmployerBusinessBrief.Location = new System.Drawing.Point(7, 631);
+            this.grpEmployerBusinessBrief.Name = "grpEmployerBusinessBrief";
+            this.grpEmployerBusinessBrief.Size = new System.Drawing.Size(517, 277);
+            this.grpEmployerBusinessBrief.TabIndex = 28;
+            this.grpEmployerBusinessBrief.TabStop = false;
+            this.grpEmployerBusinessBrief.Text = "Business Information";
+            // 
             // StartupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1665, 1211);
+            this.ClientSize = new System.Drawing.Size(1665, 1262);
             this.Controls.Add(this.tbcFrontPage);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
@@ -1961,6 +2117,12 @@
             this.grpEBI.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpEmployerMailAddress.ResumeLayout(false);
+            this.grpEmployerMailAddress.PerformLayout();
+            this.grpEmployerBizAddress.ResumeLayout(false);
+            this.grpEmployerBizAddress.PerformLayout();
+            this.grpEmployerBusinessBrief.ResumeLayout(false);
+            this.grpEmployerBusinessBrief.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2046,7 +2208,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblEBIBizAddress;
         private System.Windows.Forms.Label lblEBICountry;
         private System.Windows.Forms.Label lblEBIBizCity;
         private System.Windows.Forms.Label lblEBIBizPost;
@@ -2100,17 +2261,16 @@
         public System.Windows.Forms.TextBox txtFranchise;
         public System.Windows.Forms.TextBox txtOperatingName;
         public System.Windows.Forms.TextBox txtLegalName;
-        public System.Windows.Forms.TextBox txtMailAddress;
-        public System.Windows.Forms.TextBox txtCountryMail;
-        public System.Windows.Forms.TextBox txtMailCity;
+        public System.Windows.Forms.TextBox txtEBIStreetNameMail;
+        public System.Windows.Forms.TextBox txtEBICountryMail;
+        public System.Windows.Forms.TextBox txtEBIMailCity;
         public Data.CanadaProvinces canadaProvincesMail;
         public System.Windows.Forms.CheckBox chkBizSameAsMail;
         public Data.CanadaProvinces canadaProvincesBusiness;
-        public System.Windows.Forms.TextBox txtBusinessAddress;
         public System.Windows.Forms.TextBox txtEBIBusinessCountry;
         public System.Windows.Forms.TextBox txtEBIBusinessCity;
         public System.Windows.Forms.TextBox txtEBIPostalBusiness;
-        public System.Windows.Forms.TextBox txtPostalMail;
+        public System.Windows.Forms.TextBox txtEBIPostalMail;
         public System.Windows.Forms.TextBox txtEBIWebsite;
         public System.Windows.Forms.TextBox txtEBIPhone;
         public System.Windows.Forms.TextBox txteBIPrimaryContactFax;
@@ -2133,6 +2293,23 @@
         private System.Windows.Forms.ToolStripStatusLabel tssApplication;
         private System.Windows.Forms.ToolStripStatusLabel tssProgram;
         private System.Windows.Forms.Button btnMakeImm5476;
+        private System.Windows.Forms.GroupBox grpEmployerMailAddress;
+        private System.Windows.Forms.GroupBox grpEmployerBusinessBrief;
+        private System.Windows.Forms.GroupBox grpEmployerBizAddress;
+        public System.Windows.Forms.TextBox txtEBIStreetNameBiz;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.TextBox txtEBIStreetNoBiz;
+        public System.Windows.Forms.TextBox txtEBIAptBiz;
+        public System.Windows.Forms.TextBox txtEBIPOBoxBiz;
+        public System.Windows.Forms.TextBox txtEBIStreetNoMail;
+        public System.Windows.Forms.TextBox txtEBIAptMail;
+        public System.Windows.Forms.TextBox txtEBIPOBoxMail;
     }
 }
 

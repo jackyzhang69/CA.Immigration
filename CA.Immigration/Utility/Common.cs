@@ -11,18 +11,17 @@ using System.Drawing.Imaging;
 
 namespace CA.Immigration.Utility
 {
-    public class Address
+    public class CanadianAddress
     {
-        public string Country { get; set; }
-        public string Province { get; set; }
-        public string City { get; set; }
-        public string PostalCode { get; set; }
-
+        public int Id { get; set; }
         public string POBox { get; set; }
         public string AptUnit { get; set; }
         public string StreetNo { get; set; }
         public string StreetName { get; set; }
-
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Country { get; set; }
+        public string PostalCode { get; set; }
         public string getStreetAddress()
         {
             if(POBox != string.Empty && AptUnit != string.Empty)
@@ -31,7 +30,6 @@ namespace CA.Immigration.Utility
             else if(AptUnit != string.Empty) return AptUnit + ", " + StreetNo + " " + StreetName;
             else return StreetNo + " " + StreetName;
         }
-
         public string getFullAddress()
         {
             if(POBox != string.Empty && AptUnit != string.Empty)
@@ -39,10 +37,7 @@ namespace CA.Immigration.Utility
             else if(POBox != string.Empty) return POBox + " " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
             else if(AptUnit != string.Empty) return AptUnit + " " + StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
             else return StreetNo + " " + StreetName + "," + City + ", " + Province + ", " + Country + " " + PostalCode;
-
         }
-
-
     }
     public class ContactInfo
     {
@@ -178,6 +173,24 @@ namespace CA.Immigration.Utility
                 }
             }
 
+        }
+        public static string getRCICFromId(this int id)
+        {
+            using(CommonDataContext cdc = new CommonDataContext())
+            {
+                string rcic;
+                string company;
+                 rcic=cdc.tblRCICs.Where(x => x.Id == id).Select(x =>  x.FirstName + " " + x.LastName).FirstOrDefault();
+                company= cdc.tblRCICs.Where(x => x.Id == id).Select(x => x.BusinessLegalName).FirstOrDefault();
+                return rcic + "@" + StringOps.sep(company,' ')[0];
+            }
+        }
+        public static string getProgramFromId(this int id)
+        {
+            using(CommonDataContext cdc = new CommonDataContext())
+            {
+                return cdc.tblPrograms.Where(x => x.Id == id).Select(x => x.Name).Single();
+            }
         }
 
 

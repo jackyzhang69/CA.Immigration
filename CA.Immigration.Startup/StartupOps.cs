@@ -30,6 +30,8 @@ namespace CA.Immigration.Startup
                 sf.cmbProgram.DataSource = cdc.tblPrograms.Select(x => new { x.Name, x.Id });
                 sf.cmbProgram.DisplayMember = "Name";
                 sf.cmbProgram.ValueMember = "Id";
+                sf.cmbProgram.SelectedIndex = 0;
+                GlobalData.CurrentProgramId = sf.cmbProgram.SelectedIndex + 1;
                 sf.cmbSelectRCIC.DataSource = cdc.tblRCICs.Where(x => x != null).Select(x => new { Id = x.Id, Prompt = x.FirstName + " " + x.LastName + "@" + x.BusinessLegalName });
                 sf.cmbSelectRCIC.DisplayMember = "Prompt";
                 sf.cmbSelectRCIC.ValueMember = "Id";

@@ -65,6 +65,7 @@
     <Compile Include="financial.designer.cs">
       <DependentUpon>financial.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobAd.cs" />
     <Compile Include="JobPosition.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -463,6 +463,17 @@ namespace CA.Immigration.LMIA
                     GrossPayroll = _grossPayrol1,
                     T4SlipsIssued = _t4Slips1
                 };
+                try
+                {
+                    cdc.tblFinances.InsertOnSubmit(fn1);
+                    cdc.SubmitChanges();
+                    msg.Append(_year1+" Financial data has been created\n");
+                }
+                catch(Exception exc)
+                {
+
+                    MessageBox.Show(exc.Message);
+                }
                 tblFinance fn2 = new tblFinance
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
@@ -476,10 +487,9 @@ namespace CA.Immigration.LMIA
                 };
                 try
                 {
-                    cdc.tblFinances.InsertOnSubmit(fn1);
                     cdc.tblFinances.InsertOnSubmit(fn2);
                     cdc.SubmitChanges();
-                    msg.Append("Financial data has been created\n");
+                    msg.Append(_year2+" Financial data has been created\n");
                 }
                 catch(Exception exc)
                 {
@@ -532,6 +542,7 @@ namespace CA.Immigration.LMIA
                 }
                 MessageBox.Show(msg.ToString(), "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            lf.textChanged = true;
         }
         public static void updateApplication(LMIAForm lf)
         {
@@ -573,13 +584,13 @@ namespace CA.Immigration.LMIA
                     if(tf != null && tf.Count == 2)
                     {
                         tf[1].ApplicationId = GlobalData.CurrentApplicationId;
-                        tf[0].FiscalYear = _year2;
-                        tf[0].TotalRevenue = _totalRevenue2;
-                        tf[0].Cash = _cash2;
-                        tf[0].NetIncome = _netIncome2;
-                        tf[0].RetainedEarning = _retianedEarning2;
-                        tf[0].GrossPayroll = _grossPayrol2;
-                        tf[0].T4SlipsIssued = _t4Slips2;
+                        tf[1].FiscalYear = _year2;
+                        tf[1].TotalRevenue = _totalRevenue2;
+                        tf[1].Cash = _cash2;
+                        tf[1].NetIncome = _netIncome2;
+                        tf[1].RetainedEarning = _retianedEarning2;
+                        tf[1].GrossPayroll = _grossPayrol2;
+                        tf[1].T4SlipsIssued = _t4Slips2;
                     }
                     try
                     {
@@ -642,6 +653,7 @@ namespace CA.Immigration.LMIA
                 }
             }
             else MessageBox.Show("There is no active application yet! Please insert first");
+            lf.textChanged = false;
 
         }
         public static void deleteApplication(LMIAForm lf)
@@ -676,7 +688,6 @@ namespace CA.Immigration.LMIA
                         GlobalData.CurrentApplicationIdReadOnly = false;
                         MessageBox.Show("The current application and its Dependant job position, finance, Labour market factors, business details record, job offer has been deleted");
                         lf.btnAnalysisInsert.Visible = true;
-                        lf.btnInsertBD.Visible = true;
                     }
                     catch(Exception exc)
                     {

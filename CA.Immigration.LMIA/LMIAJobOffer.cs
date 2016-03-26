@@ -11,7 +11,7 @@ namespace CA.Immigration.LMIA
     {
         private static int? _numOfTFWs;
         private static int? _duration;
-        private static string _durationUnit;
+        private static int? _durationUnit;
         private static string _durationRationale;
         private static DateTime _startDate=DateTime.Today;
         private static bool _languageRequired;
@@ -74,7 +74,7 @@ namespace CA.Immigration.LMIA
         {
             _numOfTFWs = getValue.getIntValue(lf.txtJobOfferNumberofTFW.Text);
             _duration = getValue.getIntValue(lf.txtJobOfferExpectedDuration.Text);
-            _durationUnit = lf.cmbDurationUnit.SelectedText;
+            _durationUnit = lf.cmbDurationUnit.SelectedIndex;
             _durationRationale = lf.txtJobOfferDurationRationale.Text;
             _startDate = lf.dtpJobOfferStartDate.Value;
             _languageRequired = lf.chkLanguageRequired.Checked == true ? true : false;
@@ -229,7 +229,7 @@ namespace CA.Immigration.LMIA
         {
             lf.txtJobOfferNumberofTFW.Text = _numOfTFWs.ToString();
             lf.txtJobOfferExpectedDuration.Text = _duration.ToString();
-            lf.cmbDurationUnit.SelectedText = _durationUnit;
+            lf.cmbDurationUnit.SelectedIndex = _durationUnit==null? -1 :(int)_durationUnit;
             lf.txtJobOfferDurationRationale.Text = _durationRationale;
             lf.dtpJobOfferStartDate.Value = (_startDate<DateTime.MinValue || _startDate >DateTime.MaxValue)?DateTime.Today:_startDate;
             lf.chkLanguageRequired.Checked = _languageRequired;
@@ -502,6 +502,7 @@ namespace CA.Immigration.LMIA
                 }
             }
             else MessageBox.Show("There is no active application");
+            lf.textChanged = false;
 
         }
         public static void buildupDict5602(ref Dictionary<string, string> dict) {
@@ -510,16 +511,16 @@ namespace CA.Immigration.LMIA
             dict.Add("EMP5602_E[0].Page3[0].txtF_Date_E[0]",String.Format("{0:yyyy-MM-dd}",_startDate.ToString()));
             dict.Add("EMP5602_E[0].Page3[0].txtF_Employment_Rational[0]",_durationRationale);
             switch(_durationUnit) {
-                case "Days":
+                case 0:
                     dict.Add("EMP5602_E[0].Page3[0].txtF_Days[0]", _duration.ToString());
                     break;
-                case "Weeks":
+                case 1:
                     dict.Add("EMP5602_E[0].Page3[0].txtF_Weeks[0]",_duration.ToString());
                     break;
-                case "Months":
+                case 2:
                     dict.Add("EMP5602_E[0].Page3[0].txtF_Months[0]",_duration.ToString());
                     break;
-                case "Years":
+                case 3:
                     dict.Add("EMP5602_E[0].Page3[0].txtF_Years[0]",_duration.ToString());
                     break;
             }
