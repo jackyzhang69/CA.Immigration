@@ -45,7 +45,7 @@ namespace CA.Immigration.Utility
         public string Cellphone { get; set; }
         public string Email { get; set; }
         public string Fax { get; set; }
-        public Address ContactAddress { get; set; }
+        public CanadianAddress ContactAddress { get; set; }
 
 
     }

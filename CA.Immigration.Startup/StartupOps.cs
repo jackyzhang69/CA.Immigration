@@ -24,6 +24,7 @@ namespace CA.Immigration.Startup
 
             using(CommonDataContext cdc = new CommonDataContext())
             {
+                //Setup Category Inforamtion
                 sf.cmbCategory.DataSource = cdc.tblCategories.Select(x => new { x.Name, x.Id });
                 sf.cmbCategory.DisplayMember = "Name";
                 sf.cmbCategory.ValueMember = "Id";
@@ -31,6 +32,7 @@ namespace CA.Immigration.Startup
                 sf.cmbProgram.DisplayMember = "Name";
                 sf.cmbProgram.ValueMember = "Id";
                 sf.cmbProgram.SelectedIndex = 0;
+                //Setup Program Information
                 GlobalData.CurrentProgramId = sf.cmbProgram.SelectedIndex + 1;
                 sf.cmbSelectRCIC.DataSource = cdc.tblRCICs.Where(x => x != null).Select(x => new { Id = x.Id, Prompt = x.FirstName + " " + x.LastName + "@" + x.BusinessLegalName });
                 sf.cmbSelectRCIC.DisplayMember = "Prompt";
@@ -38,13 +40,10 @@ namespace CA.Immigration.Startup
                 sf.cmbSelectRCIC.SelectedIndex = 0;
                 GlobalData.CurrentRCICId = cdc.tblRCICs.Select(x => x.Id).First();
 
+                //Setup Marriage stauts               
+                foreach (KeyValuePair<string, string> kvp in Definition.MarriageStatus) sf.cmbPBIMS.Items.Add(kvp.Value);
+                foreach (KeyValuePair<int, string> kvp in Definition.Gender) sf.cmbPBIGender.Items.Add(kvp.Value);
 
-                sf.cmbPBIMS.DataSource = cdc.tblMarriageStatusTypes.Select(x => new { x.MarriageStatusType, x.TypeCode });
-                sf.cmbPBIMS.DisplayMember = "MarriageStatusType";
-                sf.cmbPBIMS.ValueMember = "TypeCode";
-                sf.cmbPBIGender.DataSource = cdc.tblGenders.Select(x => new { x.Gender, x.GenderCode });
-                sf.cmbPBIGender.DisplayMember = "Gender";
-                sf.cmbPBIGender.ValueMember = "GenderCode";
             }
            
             getAllApplications(sf);
@@ -82,7 +81,6 @@ namespace CA.Immigration.Startup
                 {
                     tblPerson p = cdc.tblPersons.Where(x => x.Id == GlobalData.CurrentPersonId).Select(x => x).FirstOrDefault();
                     sf.lblSelectedPerson.Text = p.FirstName + " " + p.LastName;
-
                 }
                 sf.lblSelectedPersonId.Visible = true;
                 sf.lblSelectedPerson.Visible = true;
@@ -111,7 +109,7 @@ namespace CA.Immigration.Startup
                 Employer.fillForm(sf);
                 sf.btnEBIInsert.Visible = false;
             }
-            else { Employer.clearForm(sf); clearSelectedEmployer(sf); sf.btnEBIInsert.Visible = false; }
+            else { Employer.clearForm(sf); clearSelectedEmployer(sf); sf.btnEBIInsert.Visible = true; }
 
         }
 

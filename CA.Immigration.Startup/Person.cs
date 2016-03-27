@@ -58,7 +58,7 @@ namespace CA.Immigration.Startup
             _MiddleName = sf.txtPBImn.Text;
             _LastName = sf.txtPBIln.Text;
             _DOB = sf.dtpPBIDOB.Value;
-            _Gender = (int)sf.cmbPBIGender.SelectedValue;
+            _Gender = (int)sf.cmbPBIGender.SelectedIndex;
             _IsAliasName = sf.cbxAlias.Checked ? true : false;
             if (_IsAliasName == true)
             {
@@ -150,7 +150,7 @@ namespace CA.Immigration.Startup
             sf.txtPBImn.Text= _MiddleName;
             sf.txtPBIln.Text=_LastName;
             sf.dtpPBIDOB.Value=_DOB==null?DateTime.Today:(DateTime)_DOB;
-            sf.cmbPBIGender.SelectedValue= _Gender;
+            sf.cmbPBIGender.SelectedIndex= _Gender==null?-1:(int)_Gender;
             sf.cbxAlias.Checked= _IsAliasName==true? true :false;
             sf.txtPBIAFN.Text = _AliasLastName;
             sf.txtPBIALN.Text= _AliasFirstName;

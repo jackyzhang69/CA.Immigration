@@ -55,8 +55,8 @@ namespace CA.Immigration.LMIA
         {
             if(GlobalData.CurrentApplicationId != null)
             {
-                Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
-                FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
+            //    Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
+            //    FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
             }
             else MessageBox.Show("There is no current application existed");
         }
@@ -274,6 +274,11 @@ namespace CA.Immigration.LMIA
             	JobAd.SaveRecord(this);
             }
             else { MessageBox.Show("There is no active application yet. Please create in Analysis"); }
+        }
+
+        private void txtJobAdStreetNo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

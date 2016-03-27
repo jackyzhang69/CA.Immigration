@@ -33,7 +33,6 @@ namespace CA.Immigration.Data
 
         public static Dictionary<int, string> DurationUnit = new Dictionary<int, string>
         {
-            { -1,"No Selection"},
             {0,"Days"},
             {1,"Weeks"},
             {2,"Months"},
@@ -42,14 +41,12 @@ namespace CA.Immigration.Data
         };
 
         public static Dictionary<int, string> AddressType = new Dictionary<int, string> {
-            {-1,"No Selection"},
             { 0,"Residential" },
             {1,"Business" },
             {2,"Mailing" },
             {3,"Work Location"}
         };
         public static Dictionary<int, string> Gender = new Dictionary<int, string> {
-             {-1,"No Selection"},
             {0,"Male" },
             {1,"Female" },
             {2,"Unknown" }
@@ -66,14 +63,12 @@ namespace CA.Immigration.Data
         };
 
         public static Dictionary<int, string> CompanyType = new Dictionary<int, string> {
-             {-1,"No Selection"},
             { 0,"Incorporated" },
             { 1,"Partner" },
             { 2,"Solo Proprietor" },
             { 3,"Other" }
         };
         public static Dictionary<int, string> CndProvince = new Dictionary<int, string> {
-            {-1,"No Selection"},
             {0,"AB"},
             {1,"BC"},
             {2,"MB"},
@@ -101,18 +96,16 @@ namespace CA.Immigration.Data
 
         public static Dictionary<int, string> ResidenceType = new Dictionary<int, string>
         {
-            {-1,"No Selection"},
             { 0,"Current"},
             {1,"Previous"},
             {2,"Country where applying"}
         };
         public static Dictionary<int, string> LMIAStream = new Dictionary<int, string> {
-        {0,"High Wage Stream"},
-        {1,"Low Wage Stream"}
+            {0,"High Wage Stream"},
+            {1,"Low Wage Stream"}
          };
         public static Dictionary<int, string> LMIA11Factors = new Dictionary<int, string>
        {
-            {-1,"No Selection"},
             {0,"Job Creation / Job Retention of Canadians" },
             {1,"Development or Transfer of Skills and Knowledge" },
             {2,"Filling a Labour Shortage" },

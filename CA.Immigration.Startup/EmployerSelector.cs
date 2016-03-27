@@ -25,7 +25,7 @@ namespace CA.Immigration.Startup
         {
             using (CommonDataContext cdc = new CommonDataContext())
             {
-                dgvEmployer.DataSource = cdc.tblEmployers.Select(x => new { Id = x.Id, OperatingName = x.OperatingName, Contact = x.ContactFirstName + " " + x.ContactLastName, Phone = x.ContactPhone, Email = x.ContactEmail, City = x.BizCity });
+                dgvEmployer.DataSource = cdc.tblEmployers.Select(x => new { Id = x.Id, OperatingName = x.OperatingName, Contact = x.ContactFirstName + " " + x.ContactLastName, Phone = x.ContactPhone, Email = x.ContactEmail }); //, City = x.BizCity });
 
             }
             DataGridViewColumn ecolumn0 = dgvEmployer.Columns[0]; //Id
@@ -38,8 +38,8 @@ namespace CA.Immigration.Startup
             ecolumn3.Width = 80;
             DataGridViewColumn ecolumn4 = dgvEmployer.Columns[4]; //Contact email
             ecolumn4.Width = 150;
-            DataGridViewColumn ecolumn5 = dgvEmployer.Columns[5]; // City
-            ecolumn5.Width = 65;
+            //DataGridViewColumn ecolumn5 = dgvEmployer.Columns[5]; // City
+            //ecolumn5.Width = 65;
         }
 
         private void dgvEmployer_MouseDoubleClick(object sender, MouseEventArgs e)

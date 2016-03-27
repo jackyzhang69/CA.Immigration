@@ -55,7 +55,7 @@ namespace CA.Immigration.Startup
         }
         private void cmbSelectRCIC_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if(GlobalData.CurrentRCICIdReadOnly != true)
+            if (GlobalData.CurrentRCICIdReadOnly != true)
             {
                 GlobalData.CurrentRCICId = cmbSelectRCIC.SelectedIndex + 1;
                 showMainStatus();
@@ -77,10 +77,10 @@ namespace CA.Immigration.Startup
         private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GlobalData.CurrentCategoryId = int.Parse(cmbCategory.SelectedValue.ToString());
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 int id = int.Parse(cmbCategory.SelectedValue.ToString());
-                if(cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name) != null)
+                if (cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name) != null)
                     cmbProgram.DataSource = cdc.tblPrograms.Where(x => x.CategoryId == id).Select(x => x.Name);
                 else
                 {
@@ -94,11 +94,11 @@ namespace CA.Immigration.Startup
         private void btnApplication_Click(object sender, EventArgs e)
         {
 
-            if(GlobalData.CurrentApplicationIdReadOnly!=true)
+            if (GlobalData.CurrentApplicationIdReadOnly != true)
             {
-                if(GlobalData.CurrentEmployerId != null)
+                if (GlobalData.CurrentEmployerId != null)
                 {
-                    if(GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                    if (GlobalData.CurrentPersonId != null || (GlobalData.CurrentPersonId == null && MessageBox.Show("Are you applying a unnamed LMIA?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                     {
                         LMIAForm lf = new LMIAForm();
                         lf.Show();
@@ -123,7 +123,7 @@ namespace CA.Immigration.Startup
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.jpg;*.jpeg;*.png;*.bmp";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pcbPhoto.Image = Image.FromFile(ofd.FileName);
                 pcbPhoto.SizeMode = PictureBoxSizeMode.Zoom;
@@ -134,7 +134,7 @@ namespace CA.Immigration.Startup
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image file|*.png";
-            if(ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 pcbSignature.Image = Image.FromFile(ofd.FileName);
                 pcbSignature.SizeMode = PictureBoxSizeMode.Zoom;
@@ -158,10 +158,10 @@ namespace CA.Immigration.Startup
 
         private void dgvLMIAApplication_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if(dgvLMIAApplication.SelectedRows != null)
+            if (dgvLMIAApplication.SelectedRows != null)
             {
                 GlobalData.CurrentApplicationId = (int)dgvLMIAApplication.SelectedRows[0].Cells[0].Value;
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
                     GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
                     GlobalData.CurrentRCICId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
@@ -213,7 +213,7 @@ namespace CA.Immigration.Startup
         }
         private void cbxAlias_CheckedChanged(object sender, EventArgs e)
         {
-            if(cbxAlias.Checked == true)
+            if (cbxAlias.Checked == true)
             {
                 lblPBIAliasFN.Visible = true;
                 txtPBIAFN.Visible = true;
@@ -230,30 +230,8 @@ namespace CA.Immigration.Startup
         }
         private void chkBizSameAsMail_CheckedChanged(object sender, EventArgs e)
         {
-            if(chkBizSameAsMail.Checked == true)
-            {
-                lblEBIBizAddress.Visible = false;
-                txtBusinessAddress.Visible = false;
-                lblEBIBizPost.Visible = false;
-                txtEBIPostalBusiness.Visible = false;
-                lblEBIBizCity.Visible = false;
-                txtEBIBusinessCity.Visible = false;
-                canadaProvincesBusiness.Visible = false;
-                lblEBICountry.Visible = false;
-                txtEBIBusinessCountry.Visible = false;
-            }
-            else {
-                lblEBIBizAddress.Visible = true;
-                txtBusinessAddress.Visible = true;
-                lblEBIBizPost.Visible = true;
-                txtEBIPostalBusiness.Visible = true;
-                lblEBIBizCity.Visible = true;
-                txtEBIBusinessCity.Visible = true;
-                canadaProvincesBusiness.Visible = true;
-                lblEBICountry.Visible = true;
-                txtEBIBusinessCountry.Visible = true;
-            }
-
+            if (chkBizSameAsMail.Checked) Employer.copyMailtoBiz(this);
+            Employer._chkBizSameAsMail = chkBizSameAsMail.Checked;
         }
         private void btnEMP5602_Click(object sender, EventArgs e)
         {
@@ -276,6 +254,11 @@ namespace CA.Immigration.Startup
             tssRCIC.Text = "RCIC Id: " + GlobalData.CurrentRCICId;
             tssProgram.Text = "Program Id: " + GlobalData.CurrentProgramId;
             tssApplication.Text = "Application Id: " + GlobalData.CurrentApplicationId;
+        }
+
+        private void btnEBIAddSave_Click(object sender, EventArgs e)
+        {
+            Employer.addressUpdate(this);
         }
     }
 }

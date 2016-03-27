@@ -27,9 +27,9 @@ namespace CA.Immigration.Policy
         public string[,]  NOCQualification { get; set; } // the qualification listed in ESDC NOC description
 
         public string OperatingName { get; set; }
-        public Address BusinessAddress { get; set; }
-        public Address WorkingLocation { get; set; }
-        public Address MailingAddress { get; set; }
+        public CanadianAddress BusinessAddress { get; set; }
+        public CanadianAddress WorkingLocation { get; set; }
+        public CanadianAddress MailingAddress { get; set; }
         public string TermsofEmployment { get; set; }
         public string[]  BenefitPackage { get; set; } // multiple choices
         public ContactInfo Contact { get; set; }
