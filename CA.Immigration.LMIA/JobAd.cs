@@ -21,6 +21,7 @@ namespace CA.Immigration.LMIA
         private static bool _Dental;
         private static bool _Pension;
         private static bool _ExtendedMedical;
+        private static bool _otherBenefitFlag;
         private static string _benefit;
         private static string _otherBenefit;
         private static string _jobDuties;
@@ -79,6 +80,7 @@ namespace CA.Immigration.LMIA
             _ExtendedMedical = lf.chkJobAdBenefit.CheckedIndices.Contains(3) ? true : false;
             _benefit = _benefit.Remove(_benefit.Length - 1);
             _otherBenefit = lf.txtOtherBenefit.Text;
+            if (_otherBenefit != null && _otherBenefit != string.Empty) _otherBenefitFlag = true;
 
             _education = lf.cmbLMIAEduReq.SelectedIndex;
 
@@ -311,7 +313,8 @@ namespace CA.Immigration.LMIA
             //Responsibilities
             sb.AppendLine("Responsibilities: \n" + _jobDuties + "\n");
             // Qualifications
-            sb.AppendLine(_education + "\n");
+            sb.AppendLine("Qualification:\n");
+            sb.AppendLine(Definition.LMIAEduLevel[_education] + "\n");
             sb.AppendLine(_workExperience+"\n");
             sb.AppendLine(_skillRequirement + "\n");
             sb.AppendLine(_languageRequirement + "\n");
