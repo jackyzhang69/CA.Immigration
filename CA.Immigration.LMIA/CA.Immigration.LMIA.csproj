@@ -72,6 +72,7 @@
     <Compile Include="JobPosition.designer.cs">
       <DependentUpon>JobPosition.cs</DependentUpon>
     </Compile>
+    <Compile Include="JobPosting.cs" />
     <Compile Include="LMFactors.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,6 +89,7 @@
     </Compile>
     <Compile Include="LMIAFormOps.cs" />
     <Compile Include="LMIAJobOffer.cs" />
+    <Compile Include="Media.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="theApplication.cs">

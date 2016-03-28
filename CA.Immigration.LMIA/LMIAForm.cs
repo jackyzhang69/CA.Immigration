@@ -276,9 +276,20 @@ namespace CA.Immigration.LMIA
             else { MessageBox.Show("There is no active application yet. Please create in Analysis"); }
         }
 
-        private void txtJobAdStreetNo_TextChanged(object sender, EventArgs e)
+        private void cmbLMIAEduReq_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            JobAd._education = cmbLMIAEduReq.SelectedIndex;
+        }
 
+        private void btnJobAdClear_Click(object sender, EventArgs e)
+        {
+            JobAd.clearForm(this);
+            JobAd.fillForm(this);
+        }
+
+        private void btnJobAdPreview_Click(object sender, EventArgs e)
+        {
+            JobAd.generatePreview(this);
         }
     }
 }

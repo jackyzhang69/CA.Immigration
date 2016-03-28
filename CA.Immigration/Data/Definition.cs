@@ -8,6 +8,22 @@ namespace CA.Immigration.Data
 {
     public class Definition
     {
+
+        public static Dictionary<int, string> MediaType = new Dictionary<int, string>
+        {
+            {0,"Official"},
+            {1,"General"},
+            {2,"Specifical"},
+            {3,"Own"},
+            {4,"Other"}
+        };
+        public static Dictionary<int, string> MediaScope = new Dictionary<int, string>
+        {
+            {0,"National"},
+            {1,"Local"}
+        };
+
+
         public static Dictionary<int, string> LMIAEduLevel = new Dictionary<int, string>
         {
             {0,"Doctorate/PhD"},

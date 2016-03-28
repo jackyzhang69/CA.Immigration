@@ -252,29 +252,6 @@
       <Column Name="MailStreetName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tblLMIAPosition" Member="tblLMIAPositions">
-    <Type Name="tblLMIAPosition">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="JobTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="NOC" Type="System.String" DbType="Char(4)" CanBeNull="true" />
-      <Column Name="Province" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WorkingHours" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="HourlyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="ProvincialMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LocalNOCMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LocalNOCLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="LocalNOCHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="SamePlaceSamePositionLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="SamePlaceSamePositionHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="NoSamePosition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="UmemploymentRate" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="COPSRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="OccupationProfile" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="EmployerImact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.tblFinance" Member="tblFinances">
     <Type Name="tblFinance">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -468,6 +445,49 @@
       <Column Name="PayMethod" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MoreThanOneEmployer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="AnotherEmployerName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLMIABenefit" Member="tblLMIABenefits">
+    <Type Name="tblLMIABenefit">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Disability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Dental" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Pension" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExtendedMedical" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Other" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLMIAPosition" Member="tblLMIAPositions">
+    <Type Name="tblLMIAPosition">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ApplicationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="workLocationId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JobTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NOC" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="employmentTerm" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="jobDuties" Type="System.String" DbType="VarChar(4000)" CanBeNull="true" />
+      <Column Name="educationRequirement" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="skillRequirement" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="workExperience" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="languageRequirement" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="otherRequirement" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="contactInformation" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Province" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WorkingHours" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProvincialMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LocalNOCMedian" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LocalNOCLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="LocalNOCHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SamePlaceSamePositionLowest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SamePlaceSamePositionHighest" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="NoSamePosition" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="UmemploymentRate" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="COPSRating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OccupationProfile" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EmployerSituation" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EmployerImact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

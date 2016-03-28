@@ -27,11 +27,14 @@ namespace CA.Immigration.LMIA
             // Get data from definition to fill employee benefit
             foreach(KeyValuePair<int, string> kvp in Definition.LMIABenefit) lf.chkJobAdBenefit.Items.Add(kvp.Value);
             // Get data from definition to fill education requirement
-            foreach(KeyValuePair<int, string> kvp in Definition.LMIAEduLevel) lf.chkJobAdEducation.Items.Add(kvp.Value);
+            foreach(KeyValuePair<int, string> kvp in Definition.LMIAEduLevel) lf.cmbLMIAEduReq.Items.Add(kvp.Value);
             //Get data from definition to fill Job offer Duration Unit
             foreach(KeyValuePair<int, string> kvp in Definition.DurationUnit) lf.cmbDurationUnit.Items.Add(kvp.Value);
             //set another employer if in low wage stream
-            
+
+            // Media & Job posting
+            Media.initialDGVMedia(lf);
+
             lf.DTPQ8.Format = DateTimePickerFormat.Custom;
             lf.DTPQ8.CustomFormat = "yyyy-MM-dd";
             lf.dtpJobOfferStartDate.Format = DateTimePickerFormat.Custom;
@@ -82,6 +85,9 @@ namespace CA.Immigration.LMIA
                 // load business details
                 LMIABusinessDetail.loadFromDB(lf);
                 LMIABusinessDetail.fillForm(lf);
+                //load job ad
+                JobAd.loadFromDB(lf);
+                JobAd.fillForm(lf);
                 // Initialize job offer form
                 LMIAJobOffer.loadFromDB(lf);
                 LMIAJobOffer.fillForm(lf);

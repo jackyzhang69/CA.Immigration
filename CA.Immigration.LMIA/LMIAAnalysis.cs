@@ -389,12 +389,13 @@ namespace CA.Immigration.LMIA
             getInput(lf);
 
             StringBuilder msg = new StringBuilder();
+            int? tempId=null;
             // Create a new Application 
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 // Validation check
 
-                // Insert data row to Table LMIAApplication
+                // 1. Insert data row to Table LMIAApplication
                 tblLMIAApplication la = new tblLMIAApplication
                 {
                     ProgramType = GlobalData.CurrentProgramId,
@@ -418,10 +419,32 @@ namespace CA.Immigration.LMIA
                 {
                     MessageBox.Show(exc.Message);
                 }
-                // Create a new record of position with the application Id
+
+                // 2. Create an empty benefit row for future use
+                tblLMIABenefit lb = new tblLMIABenefit {
+                    ApplicationId = GlobalData.CurrentApplicationId
+                };
+                  // 3. Create an empty working address row for future use
+                tblCanadianAddress ca = new tblCanadianAddress
+                {
+                    City = null
+                };
+                try
+                {
+                    cdc.tblLMIABenefits.InsertOnSubmit(lb);
+                    cdc.tblCanadianAddresses.InsertOnSubmit(ca);
+                    cdc.SubmitChanges();
+                    tempId=ca.Id;
+                }
+                catch(Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+                //4. Create a new record of position with the application Id
                 tblLMIAPosition ps = new tblLMIAPosition
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
+                    workLocationId = tempId, // point to the address Id pre-reserved for working location
                     JobTitle = _jobTitle,
                     NOC = _NOC,
                     Province = _province,
@@ -451,7 +474,8 @@ namespace CA.Immigration.LMIA
 
                     MessageBox.Show(exc.Message);
                 }
-                //create a new record of financial analysis with application id
+              
+                //5. create a new record of financial analysis with application id
                 tblFinance fn1 = new tblFinance
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
@@ -496,7 +520,7 @@ namespace CA.Immigration.LMIA
 
                     MessageBox.Show(exc.Message);
                 }
-               
+               //6. create a new record for 11 LMIA factors
                 tblLMIA11Factor factor = new tblLMIA11Factor
                 {
                     ApplicationId = GlobalData.CurrentApplicationId,
@@ -525,7 +549,11 @@ namespace CA.Immigration.LMIA
 
                     MessageBox.Show(exc.Message);
                 }
-                //Create a new record of job offer
+
+                //7 Create a new business details
+                LMIABusinessDetail.getInput(lf);
+                LMIABusinessDetail.Insert2DB(lf);
+                //8 Create a new record of job offer
                 tblJobOffer jo = new tblJobOffer
                 {
                     applicationID = GlobalData.CurrentApplicationId
@@ -679,6 +707,8 @@ namespace CA.Immigration.LMIA
                 //6. Delete job offer 
                 tblJobOffer jo = cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
                 if(jo != null) cdc.tblJobOffers.DeleteOnSubmit(jo);
+                //7. Delete benefits and working address
+                JobAd.deleteRecord();
                 if(MessageBox.Show("This operation will delete the current application and all its dependencies. Are you sure to delete it?", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     try

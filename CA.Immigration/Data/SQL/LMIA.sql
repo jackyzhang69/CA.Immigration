@@ -6,6 +6,37 @@ use LMIA
 go
 -- If a required document is not attached, please explain:  do it someday
 
+-- Media
+create table tblMedia(
+Id int primary key not null identity(1,1),
+MediaName nvarchar(50),
+MediaType int,
+MediaScope int,
+Cost money,
+Duration int,
+Pro nvarchar(200),
+Con nvarchar(200),
+Link varchar(300)
+)
+-- Job posting
+create table tblJobPosting(
+Id int primary key not null identity(1,1),
+ApplicationId int,  -- foreign key to Application Id
+MediaId int,
+PostDate date,
+ExpiryDate date,
+InitialPrintDate date,
+LastPrintDate date,
+ProvenDays int,
+Account varchar(200),
+AccountPassword varchar(20),
+AccountOtherInfo varchar(200),
+Cost money,
+JobAdLink nvarchar(200),
+CurrentStatus int,
+Remark nvarchar(100)
+)
+
 -- Recruitment Summary 
 create table tblRecruitSummary(
 Id int not null primary key identity(1,1),
