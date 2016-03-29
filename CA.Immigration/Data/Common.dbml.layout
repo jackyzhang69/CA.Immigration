@@ -182,5 +182,11 @@
         <elementListCompartment Id="3c4f06ef-6b33-449d-86e9-a82f32b05993" absoluteBounds="3.765, 11.96, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="e9757368-af5f-4fe7-9e0a-b2415d9111bf" isExpanded="false" absoluteBounds="1, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/CommonDataContext/tblMedia" />
+      <nestedChildShapes>
+        <elementListCompartment Id="01872615-a1a2-4412-a8cd-108b725da96a" absoluteBounds="1.0149999999999997, 3.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

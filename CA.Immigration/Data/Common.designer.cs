@@ -120,6 +120,9 @@ namespace CA.Immigration.Data
     partial void InserttblLMIAPosition(tblLMIAPosition instance);
     partial void UpdatetblLMIAPosition(tblLMIAPosition instance);
     partial void DeletetblLMIAPosition(tblLMIAPosition instance);
+    partial void InserttblMedia(tblMedia instance);
+    partial void UpdatetblMedia(tblMedia instance);
+    partial void DeletetblMedia(tblMedia instance);
     #endregion
 		
 		public CommonDataContext() : 
@@ -389,6 +392,14 @@ namespace CA.Immigration.Data
 			get
 			{
 				return this.GetTable<tblLMIAPosition>();
+			}
+		}
+		
+		public System.Data.Linq.Table<tblMedia> tblMedias
+		{
+			get
+			{
+				return this.GetTable<tblMedia>();
 			}
 		}
 	}
@@ -10388,6 +10399,260 @@ namespace CA.Immigration.Data
 					this._EmployerImact = value;
 					this.SendPropertyChanged("EmployerImact");
 					this.OnEmployerImactChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tblMedia")]
+	public partial class tblMedia : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _MediaName;
+		
+		private System.Nullable<int> _MediaType;
+		
+		private System.Nullable<int> _MediaScope;
+		
+		private System.Nullable<decimal> _Cost;
+		
+		private System.Nullable<int> _Duration;
+		
+		private string _Pro;
+		
+		private string _Con;
+		
+		private string _Link;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnMediaNameChanging(string value);
+    partial void OnMediaNameChanged();
+    partial void OnMediaTypeChanging(System.Nullable<int> value);
+    partial void OnMediaTypeChanged();
+    partial void OnMediaScopeChanging(System.Nullable<int> value);
+    partial void OnMediaScopeChanged();
+    partial void OnCostChanging(System.Nullable<decimal> value);
+    partial void OnCostChanged();
+    partial void OnDurationChanging(System.Nullable<int> value);
+    partial void OnDurationChanged();
+    partial void OnProChanging(string value);
+    partial void OnProChanged();
+    partial void OnConChanging(string value);
+    partial void OnConChanged();
+    partial void OnLinkChanging(string value);
+    partial void OnLinkChanged();
+    #endregion
+		
+		public tblMedia()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MediaName", DbType="NVarChar(50)")]
+		public string MediaName
+		{
+			get
+			{
+				return this._MediaName;
+			}
+			set
+			{
+				if ((this._MediaName != value))
+				{
+					this.OnMediaNameChanging(value);
+					this.SendPropertyChanging();
+					this._MediaName = value;
+					this.SendPropertyChanged("MediaName");
+					this.OnMediaNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MediaType", DbType="Int")]
+		public System.Nullable<int> MediaType
+		{
+			get
+			{
+				return this._MediaType;
+			}
+			set
+			{
+				if ((this._MediaType != value))
+				{
+					this.OnMediaTypeChanging(value);
+					this.SendPropertyChanging();
+					this._MediaType = value;
+					this.SendPropertyChanged("MediaType");
+					this.OnMediaTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MediaScope", DbType="Int")]
+		public System.Nullable<int> MediaScope
+		{
+			get
+			{
+				return this._MediaScope;
+			}
+			set
+			{
+				if ((this._MediaScope != value))
+				{
+					this.OnMediaScopeChanging(value);
+					this.SendPropertyChanging();
+					this._MediaScope = value;
+					this.SendPropertyChanged("MediaScope");
+					this.OnMediaScopeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Money")]
+		public System.Nullable<decimal> Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Duration", DbType="Int")]
+		public System.Nullable<int> Duration
+		{
+			get
+			{
+				return this._Duration;
+			}
+			set
+			{
+				if ((this._Duration != value))
+				{
+					this.OnDurationChanging(value);
+					this.SendPropertyChanging();
+					this._Duration = value;
+					this.SendPropertyChanged("Duration");
+					this.OnDurationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pro", DbType="NVarChar(200)")]
+		public string Pro
+		{
+			get
+			{
+				return this._Pro;
+			}
+			set
+			{
+				if ((this._Pro != value))
+				{
+					this.OnProChanging(value);
+					this.SendPropertyChanging();
+					this._Pro = value;
+					this.SendPropertyChanged("Pro");
+					this.OnProChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Con", DbType="NVarChar(200)")]
+		public string Con
+		{
+			get
+			{
+				return this._Con;
+			}
+			set
+			{
+				if ((this._Con != value))
+				{
+					this.OnConChanging(value);
+					this.SendPropertyChanging();
+					this._Con = value;
+					this.SendPropertyChanged("Con");
+					this.OnConChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Link", DbType="VarChar(300)")]
+		public string Link
+		{
+			get
+			{
+				return this._Link;
+			}
+			set
+			{
+				if ((this._Link != value))
+				{
+					this.OnLinkChanging(value);
+					this.SendPropertyChanging();
+					this._Link = value;
+					this.SendPropertyChanged("Link");
+					this.OnLinkChanged();
 				}
 			}
 		}

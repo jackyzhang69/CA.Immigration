@@ -490,4 +490,17 @@
       <Column Name="EmployerImact" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.tblMedia" Member="tblMedias">
+    <Type Name="tblMedia">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MediaName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MediaType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MediaScope" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Pro" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Con" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="VarChar(300)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
