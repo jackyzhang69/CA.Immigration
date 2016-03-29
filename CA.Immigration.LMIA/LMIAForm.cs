@@ -55,8 +55,8 @@ namespace CA.Immigration.LMIA
         {
             if(GlobalData.CurrentApplicationId != null)
             {
-            //    Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
-            //    FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
+                //    Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
+                //    FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
             }
             else MessageBox.Show("There is no current application existed");
         }
@@ -87,18 +87,18 @@ namespace CA.Immigration.LMIA
         {
             // Here delete all application related records
             try
-  {
-	  LMIAJobOffer.deleteRecord(this);
-	            LMIABusinessDetail.deleteRecord(this);
-	            LMIAAnalysis.deleteApplication(this);
-	            MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-	            resetGlobalData();
-	            LMIAFormOps.showMainStatus(this);
-  }
-  catch (System.Exception ex)
-  {
+            {
+                LMIAJobOffer.deleteRecord(this);
+                LMIABusinessDetail.deleteRecord(this);
+                LMIAAnalysis.deleteApplication(this);
+                MessageBox.Show("Application has been deleted from database. \nHowever, Employer or/and employee Id is still there", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetGlobalData();
+                LMIAFormOps.showMainStatus(this);
+            }
+            catch(System.Exception ex)
+            {
                 MessageBox.Show(ex.Message);
-  }
+            }
 
         }
 
@@ -269,9 +269,9 @@ namespace CA.Immigration.LMIA
 
         private void btnJobAdSave_Click(object sender, EventArgs e)
         {
-            if (GlobalData.CurrentApplicationId!=null)
+            if(GlobalData.CurrentApplicationId != null)
             {
-            	JobAd.SaveRecord(this);
+                JobAd.SaveRecord(this);
             }
             else { MessageBox.Show("There is no active application yet. Please create in Analysis"); }
         }
@@ -290,6 +290,33 @@ namespace CA.Immigration.LMIA
         private void btnJobAdPreview_Click(object sender, EventArgs e)
         {
             JobAd.generatePreview(this);
+        }
+
+        private void dgvMedia_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            btnMediaSave.Visible = true;
+            // update media data
+        }
+
+        private void dgvMedia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+         // do something
+        }
+
+        private void btnGoForPosting_Click(object sender, EventArgs e)
+        {
+            List<int> checkedIndecies = new List<int>();
+            for (int i = 0; i < dgvMedia.Rows.Count; i++)
+            {
+                if (Convert.ToBoolean(dgvMedia.Rows[i].Cells[0].Value))
+                {
+
+                    MessageBox.Show("Row " + i + " is checked");
+                    checkedIndecies.Add(i);
+                }
+
+            }
+            Media.setJobPosting(this, checkedIndecies);
         }
     }
 }

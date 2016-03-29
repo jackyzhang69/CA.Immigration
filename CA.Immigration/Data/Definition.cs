@@ -11,6 +11,7 @@ namespace CA.Immigration.Data
 
         public static Dictionary<int, string> MediaType = new Dictionary<int, string>
         {
+            { -1,"" },
             {0,"Official"},
             {1,"General"},
             {2,"Specifical"},
@@ -19,8 +20,18 @@ namespace CA.Immigration.Data
         };
         public static Dictionary<int, string> MediaScope = new Dictionary<int, string>
         {
+            {-1,"" },
             {0,"National"},
             {1,"Local"}
+        };
+
+        public static Dictionary<int, string> JobPostStatus = new Dictionary<int, string>
+        {
+            {-1, "" },
+            {0,"Waiting for Approval" },
+            {1,"Posted" },
+            {2, "Expired" }
+
         };
 
 

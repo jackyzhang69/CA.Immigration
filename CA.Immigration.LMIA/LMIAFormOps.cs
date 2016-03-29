@@ -91,6 +91,8 @@ namespace CA.Immigration.LMIA
                 // Initialize job offer form
                 LMIAJobOffer.loadFromDB(lf);
                 LMIAJobOffer.fillForm(lf);
+                //Setup Media Form
+                lf.btnMediaSave.Visible = false;
 
             }
             else lf.btnAnalysisInsert.Visible = true;
