@@ -11,15 +11,17 @@ namespace CA.Immigration.LMIA
 {
     public class Media
     {
-        public static void initialDGVMedia(LMIAForm lf)
+        public static Dictionary<int, int> mediaIndex = new Dictionary<int, int>(); 
+        public static void InitialDGVMedia(LMIAForm lf)
         {
-            
+                    
             ConstructMedias(lf);
             ConstructJobPost(lf);
-
         }
-        private static void ConstructMedias(LMIAForm lf)
+        public static void ConstructMedias(LMIAForm lf)
         {
+           
+
             DataGridViewCheckBoxColumn Selection = new DataGridViewCheckBoxColumn();
             DataGridViewTextBoxColumn MediaName = new DataGridViewTextBoxColumn();
             DataGridViewComboBoxColumn Scope = new DataGridViewComboBoxColumn();
@@ -29,7 +31,7 @@ namespace CA.Immigration.LMIA
             DataGridViewTextBoxColumn Pro = new DataGridViewTextBoxColumn();
             DataGridViewTextBoxColumn Con = new DataGridViewTextBoxColumn();
             DataGridViewLinkColumn Link = new DataGridViewLinkColumn();
-
+            
 
             // Select check box
             Selection.HeaderText = "Select";
@@ -99,12 +101,14 @@ namespace CA.Immigration.LMIA
             lf.dgvMedia.Columns.Add(Link);
 
             List<tblMedia> tm = new List<tblMedia>();
+            
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 tm = cdc.tblMedias.Select(x => x).ToList();
                 int i = 0;
                 foreach(tblMedia m in tm)
                 {
+                    mediaIndex.Add(i,m.Id);
                     lf.dgvMedia.Rows.Add();
                     lf.dgvMedia.Rows[i].Cells[0].Value = false;
                     lf.dgvMedia.Rows[i].Cells[1].Value = m.MediaName;
@@ -224,33 +228,43 @@ namespace CA.Immigration.LMIA
 
             
         }
-
-
-        public static void setJobPosting(LMIAForm lf, List<int> indecies)
+        public static void SetJobPosting(LMIAForm lf, List<int> indecies)
         {
            
             using(CommonDataContext cdc = new CommonDataContext())
             {
-                //tm = cdc.tblMedias.Select(x => x).ToList();
-                //int i = 0;
-                //foreach(tblMedia m in tm)
-                //{
-                //    lf.dgvMedia.Rows.Add();
-                //    lf.dgvMedia.Rows[i].Cells[0].Value = false;
-                //    lf.dgvMedia.Rows[i].Cells[1].Value = m.MediaName;
-                //    lf.dgvMedia.Rows[i].Cells[2].Value = m.MediaScope == null ? -1 : (int)m.MediaScope;
-                //    lf.dgvMedia.Rows[i].Cells[3].Value = m.MediaType == null ? -1 : (int)m.MediaType;
-                //    lf.dgvMedia.Rows[i].Cells[4].Value = m.Cost;
-                //    lf.dgvMedia.Rows[i].Cells[5].Value = m.Duration;
-                //    lf.dgvMedia.Rows[i].Cells[6].Value = m.Pro;
-                //    lf.dgvMedia.Rows[i].Cells[7].Value = m.Con;
-                //    lf.dgvMedia.Rows[i].Cells[8].Value = m.Link;
-                //    i++;
-
-                //}
+                int i = 0;
+                foreach (int index in indecies)
+                {
+                    int Id = mediaIndex[index];
+                    tblMedia md = cdc.tblMedias.Where(x => x.Id == Id).Select(x => x).FirstOrDefault();
+                    lf.dgvJobPost.Rows.Add();
+                    lf.dgvJobPost.Rows[i].Cells[2].Value = md.MediaName;
+                    lf.dgvJobPost.Rows[i].Cells[11].Value = md.Cost;
+                    lf.dgvJobPost.Rows[i].Cells[12].Value = @"http:\\www.google.com";
+                    i++;
+                }
             }
 
         }
+
+        public static void LoadNocMainDuties(LMIAForm lf)
+        {
+            using (CommonDataContext cdc = new CommonDataContext())
+            {
+                tblNOC noc =
+                    cdc.tblNOCs.Where(x => x.NOC.Equals(lf.jobPositionAdvisor.txtNoc.Text))
+                        .Select(x => x)
+                        .FirstOrDefault();
+                if (noc != null)
+                {
+                    lf.txtNOCMainDuties.Text = noc.MainDuties;
+                    lf.txtESDCQualification.Text = noc.EmploymentRequirement;
+                }
+            }
+
+        }
+
         // setup remind functions based on expiry date, 14 or 28 days posted, auto direct to the web pages for printing
 
         // auto detect if the job post is qualified based on post date, print date, and therefore proven days. once qualified, automatically check qualified box.

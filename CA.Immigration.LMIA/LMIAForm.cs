@@ -29,18 +29,18 @@ namespace CA.Immigration.LMIA
         }
         private void ckbOtherEmployer_CheckedChanged(object sender, EventArgs e)
         {
-            if (ckbOtherEmployer.Checked) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
+            if(ckbOtherEmployer.Checked) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
             else { lblAnotherEmployer.Visible = false; txtAnotherEmployer.Visible = false; }
         }
         private void cmbStream_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if (cmbStream.SelectedIndex == 0)
+            if(cmbStream.SelectedIndex == 0)
             {
                 ckbOtherEmployer.Visible = false;// high wage stream has no second employer
                 lblAnotherEmployer.Visible = false;
                 txtAnotherEmployer.Visible = false;
             }
-            if (cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
+            if(cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
             GlobalData.CurrentStreamId = cmbStream.SelectedIndex;
             LMIAFormOps.showMainStatus(this);
             LMIAAnalysis.getIndicators(this);
@@ -54,7 +54,7 @@ namespace CA.Immigration.LMIA
         }
         private void btnEMP5575_Click(object sender, EventArgs e)
         {
-            if (GlobalData.CurrentApplicationId != null)
+            if(GlobalData.CurrentApplicationId != null)
             {
                 //    Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
                 //    FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
@@ -96,7 +96,7 @@ namespace CA.Immigration.LMIA
                 resetGlobalData();
                 LMIAFormOps.showMainStatus(this);
             }
-            catch (System.Exception ex)
+            catch(System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -113,7 +113,7 @@ namespace CA.Immigration.LMIA
 
         private void tabBusinessDetails_Layout(object sender, LayoutEventArgs e)
         {
-            if (GlobalData.CurrentApplicationId != null)
+            if(GlobalData.CurrentApplicationId != null)
             {
                 LMIABusinessDetail.loadFromDB(this);
                 LMIABusinessDetail.fillForm(this);
@@ -130,7 +130,7 @@ namespace CA.Immigration.LMIA
 
         private void btnUpdateBD_Click(object sender, EventArgs e)
         {
-            if (GlobalData.CurrentApplicationId != null)
+            if(GlobalData.CurrentApplicationId != null)
             {
                 LMIABusinessDetail.getInput(this);
                 LMIABusinessDetail.updateRecord((int)GlobalData.CurrentApplicationId);
@@ -172,7 +172,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobOfferClear_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure to clear all inputs?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) LMIAJobOffer.clearForm(this);
+            if(MessageBox.Show("Are you sure to clear all inputs?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) LMIAJobOffer.clearForm(this);
         }
 
         private void btnJobOfferBenefitDetails_Click(object sender, EventArgs e)
@@ -233,6 +233,7 @@ namespace CA.Immigration.LMIA
             GlobalData.CurrentPersonIdReadOnly = false;
             GlobalData.CurrentRCICIdReadOnly = false;
             GlobalData.CurrentWorkingHours = null;
+            Media.mediaIndex.Clear();
         }
 
         private void LMIAForm_TextChanged(object sender, EventArgs e)
@@ -242,7 +243,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobAdSave_Click(object sender, EventArgs e)
         {
-            if (GlobalData.CurrentApplicationId != null)
+            if(GlobalData.CurrentApplicationId != null)
             {
                 JobAd.SaveRecord(this);
             }
@@ -279,17 +280,11 @@ namespace CA.Immigration.LMIA
         private void btnGoForPosting_Click(object sender, EventArgs e)
         {
             List<int> checkedIndecies = new List<int>();
-            for (int i = 0; i < dgvMedia.Rows.Count; i++)
+            for(int i = 0; i < dgvMedia.Rows.Count; i++)
             {
-                if (Convert.ToBoolean(dgvMedia.Rows[i].Cells[0].Value))
-                {
-
-                    MessageBox.Show("Row " + i + " is checked");
-                    checkedIndecies.Add(i);
-                }
-
+                if(Convert.ToBoolean(dgvMedia.Rows[i].Cells[0].Value)) checkedIndecies.Add(i);
             }
-            Media.setJobPosting(this, checkedIndecies);
+            Media.SetJobPosting(this, checkedIndecies);
         }
 
         private void btnUmemploymentRate_Click(object sender, EventArgs e)
@@ -308,15 +303,48 @@ namespace CA.Immigration.LMIA
         {
 
             String url = "http://www.esdc.gc.ca/en/jobs/opportunities/index.page";
-            switch (jobPositionAdvisor.cmbProvince.SelectedIndex)
+            switch(jobPositionAdvisor.cmbProvince.SelectedIndex)
             {
                 case 1: //BC
-                    url = "https://www.workbc.ca/Jobs-Careers/Explore-Careers/Browse-Career-Profile/"+ jobPositionAdvisor.txtNoc.Text+ "#section-outlook";
+                    url = "https://www.workbc.ca/Jobs-Careers/Explore-Careers/Browse-Career-Profile/" + jobPositionAdvisor.txtNoc.Text + "#section-outlook";
                     break;
                 default:
                     break;
             }
             Process.Start(url);
+        }
+
+        private void btnNocSave_Click(object sender, EventArgs e)
+        {
+            using(CommonDataContext cdc = new CommonDataContext())
+            {
+                tblNOC noc = cdc.tblNOCs.Where(x => x.NOC.Equals(jobPositionAdvisor.txtNoc.Text)).FirstOrDefault();
+                if(noc == null)  //insert
+                {
+                    tblNOC n = new tblNOC
+                    {
+                        NOC = jobPositionAdvisor.txtNoc.Text,
+                        MainDuties = txtNOCMainDuties.Text,
+                        EmploymentRequirement = txtESDCQualification.Text
+                    };
+                    cdc.tblNOCs.InsertOnSubmit(n);
+                }
+                else  //update
+                {
+                    noc.MainDuties = txtNOCMainDuties.Text;
+                    noc.EmploymentRequirement = txtESDCQualification.Text;
+                }
+                try
+                {
+                    cdc.SubmitChanges();
+                    MessageBox.Show("Main duties and qualification have been saved!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
         }
     }
 }

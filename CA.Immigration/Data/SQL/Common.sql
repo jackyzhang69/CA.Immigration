@@ -35,6 +35,13 @@ update dbo.tblRCIC
 set Signature=(SELECT MyImage.* from Openrowset(Bulk 'C:\VBA\signature.png', Single_Blob) MyImage) 
 where Id=2
 
+create table tblNOC
+(
+Id int not null primary key identity(1,1),
+NOC char(4),
+MainDuties varchar(1000),
+EmploymentRequirement varchar(1000)
+)
 
 -- Credit card table
 create table tblCreditCard(
@@ -71,47 +78,9 @@ Country varchar(30) not null
 )
 
 
--- PK Table indicates education level
-create table tblEducationLevel
-(
-Id int not null primary key Identity(1,1),
-LevelCode int not null,  -- Matchs CIC defenition code
-Level varchar(100) not null
-)
-
-insert into tblEducationLevel values(1,'Primary School')
-insert into tblEducationLevel values(2,'Secondary School')
-insert into tblEducationLevel values(3,'PTC/TCST/DVS/AVS')
-insert into tblEducationLevel values(4,'CEGEP-Pre-universtiy')
-insert into tblEducationLevel values(5,'CEGEP-Technical')
-insert into tblEducationLevel values(6,'College-Certificate')
-insert into tblEducationLevel values(7,'College-Diploma')
-insert into tblEducationLevel values(8,'College-Applied Degree')
-insert into tblEducationLevel values(9,'University-Bachelor Deg.')
-insert into tblEducationLevel values(10,'University-Master Deg')
-insert into tblEducationLevel values(11,'University-Doctorate')
-insert into tblEducationLevel values(12,'University-Other Studies')
-insert into tblEducationLevel values(13,'ESL/FSL')
-insert into tblEducationLevel values(14,'ESL/FSL and College')
-insert into tblEducationLevel values(16,'ESL/FSL and University')
-insert into tblEducationLevel values(17,'Other Studies')
-insert into tblEducationLevel values(18,'Not Applicable')
 
 
--- Create Canada visit purpose PK table
-create table tblCNDVisitPurpose
-(
-Id int not null primary key Identity(1,1),
-PurposeCode int not null,  -- Matchs CIC defenition code
-Purpose varchar(15) not null
-)
 
-insert into tblCNDVisitPurpose values (1,'Business')
-insert into tblCNDVisitPurpose values (2,'Tourism')
-insert into tblCNDVisitPurpose values (3,'Study')
-insert into tblCNDVisitPurpose values (4,'Work')
-insert into tblCNDVisitPurpose values (5,'Other')
-insert into tblCNDVisitPurpose values (6,'Family Visit')
 
 -- Creat phone type PK table
 create table tblPhoneType
@@ -512,4 +481,22 @@ ContactPhone nvarchar(20),
 ContactFax nvarchar(20),
 ContactEmail nvarchar(50),
 theWitness nvarchar(20)
+)
+
+create table tblJobPost
+(
+Id int not null primary key identity(1,1),
+applicationID int, 
+[Status] int,
+Qualified bit,
+MediaName varchar(150),
+PostDate datetime,
+ExpiryDate datetime,
+InitialPrintDate datetime,
+LastPrintDate datetime,
+Account varchar(150),
+[Password] varchar(20),
+OtherInfo varchar(200),
+Cost money,
+Link varchar(200)
 )

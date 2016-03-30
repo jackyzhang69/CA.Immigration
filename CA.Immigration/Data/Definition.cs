@@ -8,7 +8,39 @@ namespace CA.Immigration.Data
 {
     public class Definition
     {
+        // TRV DICTIONARY
+        public static Dictionary<int, string> TRVEduLevel = new Dictionary<int, string>
+        {
+            {1,"Primary School"},
+            {2,"Secondary School"},
+            {3,"PTC/TCST/DVS/AVS"},
+            {4,"CEGEP-Pre-universtiy"},
+            {5,"CEGEP-Technical"},
+            {6,"College-Certificate"},
+            {7,"College-Diploma"},
+            {8,"College-Applied Degree"},
+            {9,"University-Bachelor Deg."},
+            {10,"University-Master Deg"},
+            {11,"University-Doctorate"},
+            {12,"University-Other Studies"},
+            {13,"ESL/FSL"},
+            {14,"ESL/FSL and College"},
+            {16,"ESL/FSL and University"},
+            {17,"Other Studies"},
+            {18,"Not Applicable"}
+        };
 
+        public static Dictionary<int, string> TRVVisitPurpose = new Dictionary<int, string>
+        {
+            {1, "Business"},
+            {2, "Tourism"},
+            {3, "Study"},
+            {4, "Work"},
+            {5, "Other"},
+            {6, "Family Visit"}
+        };
+
+        // LMIA DICTIONARY
         public static Dictionary<int, string> MediaType = new Dictionary<int, string>
         {
             { -1,"" },
@@ -33,7 +65,6 @@ namespace CA.Immigration.Data
             {2, "Expired" }
 
         };
-
 
         public static Dictionary<int, string> LMIAEduLevel = new Dictionary<int, string>
         {
