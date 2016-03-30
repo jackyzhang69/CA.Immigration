@@ -36,28 +36,31 @@
             // 
             this.cmbProvince.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbProvince.FormattingEnabled = true;
-            this.cmbProvince.Location = new System.Drawing.Point(87, 8);
+            this.cmbProvince.Location = new System.Drawing.Point(58, 5);
+            this.cmbProvince.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbProvince.Name = "cmbProvince";
-            this.cmbProvince.Size = new System.Drawing.Size(66, 28);
+            this.cmbProvince.Size = new System.Drawing.Size(45, 21);
             this.cmbProvince.TabIndex = 7;
             // 
             // lblProvince
             // 
             this.lblProvince.AutoSize = true;
-            this.lblProvince.Location = new System.Drawing.Point(3, 15);
+            this.lblProvince.Location = new System.Drawing.Point(2, 10);
+            this.lblProvince.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProvince.Name = "lblProvince";
-            this.lblProvince.Size = new System.Drawing.Size(73, 20);
+            this.lblProvince.Size = new System.Drawing.Size(52, 13);
             this.lblProvince.TabIndex = 8;
             this.lblProvince.Text = "Province ";
             // 
             // CanadaProvinces
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cmbProvince);
             this.Controls.Add(this.lblProvince);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CanadaProvinces";
-            this.Size = new System.Drawing.Size(158, 47);
+            this.Size = new System.Drawing.Size(105, 31);
             this.ResumeLayout(false);
             this.PerformLayout();
 

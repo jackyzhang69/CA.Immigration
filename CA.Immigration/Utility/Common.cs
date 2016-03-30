@@ -151,11 +151,12 @@ namespace CA.Immigration.Utility
             }
         }
 
-        public static string getEmployerFromId(this int id)
+        public static string getEmployerFromId(this int? id)
         {
             using(CommonDataContext cdc = new CommonDataContext())
             {
-                return cdc.tblEmployers.Where(x => x.Id == id).Select(x => x.LegalName).Single();
+                if (id == null) return string.Empty;
+                else return cdc.tblEmployers.Where(x => x.Id == id).Select(x => x.LegalName).Single();
             }
 
         }

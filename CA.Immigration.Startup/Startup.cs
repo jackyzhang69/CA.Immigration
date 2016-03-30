@@ -72,6 +72,8 @@ namespace CA.Immigration.Startup
             EmployerSelector es = new EmployerSelector(this);
             es.Show();
             showMainStatus();
+           
+
         }
 
         private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
@@ -230,8 +232,7 @@ namespace CA.Immigration.Startup
         }
         private void chkBizSameAsMail_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBizSameAsMail.Checked) Employer.copyMailtoBiz(this);
-            Employer._chkBizSameAsMail = chkBizSameAsMail.Checked;
+
         }
         private void btnEMP5602_Click(object sender, EventArgs e)
         {
@@ -259,6 +260,16 @@ namespace CA.Immigration.Startup
         private void btnEBIAddSave_Click(object sender, EventArgs e)
         {
             Employer.addressUpdate(this);
+        }
+
+        private void StartupForm_TextChanged(object sender, EventArgs e)
+        {
+            Employer.getInput(this);
+        }
+
+        private void chkBizSameAsMail_CheckedChanged_1(object sender, EventArgs e)
+        {
+            Employer.getInput(this);
         }
     }
 }

@@ -99,7 +99,7 @@ namespace CA.Immigration.LMIA
         }
         public static void showMainStatus(LMIAForm lf)
         {
-            string emp= GlobalData.CurrentEmployerId == null ? null : ((int)GlobalData.CurrentEmployerId).getEmployerFromId();
+            string emp= GlobalData.CurrentEmployerId.getEmployerFromId();
             string empe = GlobalData.CurrentPersonId == null ? null : ((int)GlobalData.CurrentPersonId).getEmployeeFromId(); 
             string rcic = GlobalData.CurrentRCICId == null ? null : ((int)GlobalData.CurrentRCICId).getRCICFromId();
             string prog=GlobalData.CurrentProgramId == null ? null : ((int)GlobalData.CurrentProgramId).getProgramFromId();

@@ -326,12 +326,12 @@ Id int not null primary key identity(1,1),
 Name varchar(150),
 CategoryId int
 )
-insert into tblProgram values('LMIAPRSupportOnly',1)
-insert into tblProgram values('LMIAPRandWP',1)
-insert into tblProgram values('LMIAWPOnly',1)
-insert into tblProgram values('BCPNPSW',1)
-insert into tblProgram values('BCPNPEI',1)
-insert into tblProgram values('BCPNPInternationalGraduate',1)
+insert into tblProgram values('LMIA PR Support Only',1)
+insert into tblProgram values('LMIA PR and WP',1)
+insert into tblProgram values('LMIA WP Only',1)
+insert into tblProgram values('BCPNP SW',2)
+insert into tblProgram values('BCPNP EI',2)
+insert into tblProgram values('BCPNP International Graduate',2)
 
 create table tblCategory
 (

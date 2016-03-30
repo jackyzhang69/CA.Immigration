@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using CA.Immigration.Data;
 using CA.Immigration.PDF;
 using CA.Immigration.Utility;
+using System.Diagnostics;
 
 namespace CA.Immigration.LMIA
 {
@@ -28,18 +29,18 @@ namespace CA.Immigration.LMIA
         }
         private void ckbOtherEmployer_CheckedChanged(object sender, EventArgs e)
         {
-            if(ckbOtherEmployer.Checked) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
+            if (ckbOtherEmployer.Checked) { lblAnotherEmployer.Visible = true; txtAnotherEmployer.Visible = true; }
             else { lblAnotherEmployer.Visible = false; txtAnotherEmployer.Visible = false; }
         }
         private void cmbStream_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            if(cmbStream.SelectedIndex == 0)
+            if (cmbStream.SelectedIndex == 0)
             {
                 ckbOtherEmployer.Visible = false;// high wage stream has no second employer
                 lblAnotherEmployer.Visible = false;
                 txtAnotherEmployer.Visible = false;
             }
-            if(cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
+            if (cmbStream.SelectedIndex == 1) { ckbOtherEmployer.Visible = true; }
             GlobalData.CurrentStreamId = cmbStream.SelectedIndex;
             LMIAFormOps.showMainStatus(this);
             LMIAAnalysis.getIndicators(this);
@@ -53,7 +54,7 @@ namespace CA.Immigration.LMIA
         }
         private void btnEMP5575_Click(object sender, EventArgs e)
         {
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
                 //    Dictionary<string, string> emp5575 = RepDict.EMP5575((int)GlobalData.CurrentApplicationId);
                 //    FormOPs.fillForm(@"c:\data\emp5575.pdf", emp5575);
@@ -95,7 +96,7 @@ namespace CA.Immigration.LMIA
                 resetGlobalData();
                 LMIAFormOps.showMainStatus(this);
             }
-            catch(System.Exception ex)
+            catch (System.Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -112,7 +113,7 @@ namespace CA.Immigration.LMIA
 
         private void tabBusinessDetails_Layout(object sender, LayoutEventArgs e)
         {
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
                 LMIABusinessDetail.loadFromDB(this);
                 LMIABusinessDetail.fillForm(this);
@@ -129,7 +130,7 @@ namespace CA.Immigration.LMIA
 
         private void btnUpdateBD_Click(object sender, EventArgs e)
         {
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
                 LMIABusinessDetail.getInput(this);
                 LMIABusinessDetail.updateRecord((int)GlobalData.CurrentApplicationId);
@@ -171,7 +172,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobOfferClear_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure to clear all inputs?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) LMIAJobOffer.clearForm(this);
+            if (MessageBox.Show("Are you sure to clear all inputs?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) LMIAJobOffer.clearForm(this);
         }
 
         private void btnJobOfferBenefitDetails_Click(object sender, EventArgs e)
@@ -232,35 +233,7 @@ namespace CA.Immigration.LMIA
             GlobalData.CurrentPersonIdReadOnly = false;
             GlobalData.CurrentRCICIdReadOnly = false;
             GlobalData.CurrentWorkingHours = null;
-
-            //base.OnFormClosing(e);
-
-            //if(e.CloseReason == CloseReason.WindowsShutDown) return;
-
-            //// Confirm user wants to close
-            //if(textChanged == true)
-            //{
-            //    switch(MessageBox.Show(this, "Form data has been changed. Are you sure you want to close?", "Closing", MessageBoxButtons.YesNo))
-            //    {
-            //        case DialogResult.No:
-            //            e.Cancel = true;
-            //            break;
-            //        default:
-            //            GlobalData.CurrentApplicationId = null;
-            //            GlobalData.CurrentProgramId = null;
-            //            GlobalData.CurrentStreamId = null;
-            //            GlobalData.CurrentApplicationIdReadOnly = false;
-            //            GlobalData.CurrentEmployerIdReadOnly = false;
-            //            GlobalData.CurrentPersonIdReadOnly = false;
-            //            GlobalData.CurrentRCICIdReadOnly = false;
-            //            GlobalData.CurrentWorkingHours = null;
-            //            break;
-            //    }
-            //}
         }
-
-
-
 
         private void LMIAForm_TextChanged(object sender, EventArgs e)
         {
@@ -269,7 +242,7 @@ namespace CA.Immigration.LMIA
 
         private void btnJobAdSave_Click(object sender, EventArgs e)
         {
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
                 JobAd.SaveRecord(this);
             }
@@ -300,7 +273,7 @@ namespace CA.Immigration.LMIA
 
         private void dgvMedia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-         // do something
+            // do something
         }
 
         private void btnGoForPosting_Click(object sender, EventArgs e)
@@ -317,6 +290,33 @@ namespace CA.Immigration.LMIA
 
             }
             Media.setJobPosting(this, checkedIndecies);
+        }
+
+        private void btnUmemploymentRate_Click(object sender, EventArgs e)
+        {
+            String url = "http://www.esdc.gc.ca/en/foreign_workers/hire/service_tables.page";
+            Process.Start(url);
+        }
+
+        private void btnCOPSRate_Click(object sender, EventArgs e)
+        {
+            String url = "http://occupations.esdc.gc.ca/sppc-cops/w.2lc.4m.2@-eng.jsp";
+            Process.Start(url);
+        }
+
+        private void btnOccupationProfile_Click(object sender, EventArgs e)
+        {
+
+            String url = "http://www.esdc.gc.ca/en/jobs/opportunities/index.page";
+            switch (jobPositionAdvisor.cmbProvince.SelectedIndex)
+            {
+                case 1: //BC
+                    url = "https://www.workbc.ca/Jobs-Careers/Explore-Careers/Browse-Career-Profile/"+ jobPositionAdvisor.txtNoc.Text+ "#section-outlook";
+                    break;
+                default:
+                    break;
+            }
+            Process.Start(url);
         }
     }
 }

@@ -14,11 +14,11 @@ namespace CA.Immigration.Startup
 {
     public partial class PersonSelector : Form
     {
-        StartupForm sf;
-        public PersonSelector(StartupForm mainform)
+        StartupForm _sf;
+        public PersonSelector(StartupForm sf)
         {
             InitializeComponent();
-            sf = mainform;
+            this._sf = sf;
         }
 
         private void PersonSelector_Load(object sender, EventArgs e)
@@ -51,12 +51,17 @@ namespace CA.Immigration.Startup
             {
                 //GlobalData.CurrentPersonIdReadOnly = true;  // use it after application is created
                 GlobalData.CurrentPersonId = int.Parse(dgvPerson.SelectedRows[0].Cells[0].Value.ToString()); //get Person ID
-                StartupOps.RefreshMainForm(sf);
+                StartupOps.RefreshMainForm(_sf);
                 
                 this.Close();
             }
             else MessageBox.Show("Someone is working with current person. \nPlease finish that task then do it again.","Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
             
          }
+
+        private void PersonSelector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StartupOps.RefreshMainForm(_sf);
+        }
     }
 }

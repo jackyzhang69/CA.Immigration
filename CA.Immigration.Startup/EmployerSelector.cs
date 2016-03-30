@@ -54,6 +54,11 @@ namespace CA.Immigration.Startup
             else MessageBox.Show("Someone is working on this employer.\nPlease finish that task and then work on this", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
+
+        private void EmployerSelector_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StartupOps.RefreshMainForm(_sf);
+        }
     }
 
 }

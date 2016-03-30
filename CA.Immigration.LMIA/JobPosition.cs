@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using CA.Immigration.Utility;
+using CA.Immigration.Data;
 
 namespace CA.Immigration.LMIA
 {

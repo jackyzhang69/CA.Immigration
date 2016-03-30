@@ -189,7 +189,7 @@ namespace CA.Immigration.LMIA
             _otherEmployerName = null;
             _jobTitle = null;
             _NOC = null;
-            _province = -1;
+            _province = 0;
             _workingHours = null;
             _hourlyRate = null;
             _provincialMedian = null;

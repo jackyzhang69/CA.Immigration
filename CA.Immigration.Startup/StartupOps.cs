@@ -54,7 +54,7 @@ namespace CA.Immigration.Startup
             // Get LMIA application 
             using(CommonDataContext cdc = new CommonDataContext())
             {
-                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = ((int)x.EmployerId).getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate,SubmitDate=x.SubmittedDate,ApplicationNumber=x.ApplicationNumber,PositionNumber=x.NumberofPosition });
+                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = x.EmployerId.getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate,SubmitDate=x.SubmittedDate,ApplicationNumber=x.ApplicationNumber,PositionNumber=x.NumberofPosition });
                 sf.dgvLMIAApplication.Columns[0].Width = 35;
                 sf.dgvLMIAApplication.Columns[1].Width = 185;
                 sf.dgvLMIAApplication.Columns[2].Width = 110;

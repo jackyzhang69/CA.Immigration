@@ -78,7 +78,7 @@ namespace CA.Immigration.LMIA
             _Dental = lf.chkJobAdBenefit.CheckedIndices.Contains(1) ? true : false;
             _Pension = lf.chkJobAdBenefit.CheckedIndices.Contains(2) ? true : false;
             _ExtendedMedical = lf.chkJobAdBenefit.CheckedIndices.Contains(3) ? true : false;
-            _benefit = _benefit.Remove(_benefit.Length - 1);
+            _benefit = (_benefit==string.Empty || _benefit == null)?string.Empty:_benefit.Remove(_benefit.Length - 1);
             _otherBenefit = lf.txtOtherBenefit.Text;
             if (_otherBenefit != null && _otherBenefit != string.Empty) _otherBenefitFlag = true;
 
@@ -291,8 +291,12 @@ namespace CA.Immigration.LMIA
         }
         public static string getFullAddress()
         {
-            if(_workLocationUnit != string.Empty) return _workLocationUnit + ", " + _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
-            else return _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
+            if (_workLocationProvince != -1)
+            {
+                if (_workLocationUnit != string.Empty && _workLocationUnit != null) return _workLocationUnit + ", " + _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
+                else return _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
+            }
+            else return string.Empty;
 
         }
         public static void generatePreview(LMIAForm lf) {
@@ -314,7 +318,8 @@ namespace CA.Immigration.LMIA
             sb.AppendLine("Responsibilities: \n" + _jobDuties + "\n");
             // Qualifications
             sb.AppendLine("Qualification:\n");
-            sb.AppendLine(Definition.LMIAEduLevel[_education] + "\n");
+            if(_education==-1) sb.AppendLine("No education requirement");
+            else sb.AppendLine(Definition.LMIAEduLevel[_education] + "\n");
             sb.AppendLine(_workExperience+"\n");
             sb.AppendLine(_skillRequirement + "\n");
             sb.AppendLine(_languageRequirement + "\n");

@@ -134,11 +134,8 @@
             this.tblResidence = new System.Windows.Forms.TabPage();
             this.tabEmployer = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.btnEBIClear = new System.Windows.Forms.Button();
-            this.btnEBIDelete = new System.Windows.Forms.Button();
-            this.btnEBIUpdate = new System.Windows.Forms.Button();
-            this.btnEBIInsert = new System.Windows.Forms.Button();
             this.grpEBI = new System.Windows.Forms.GroupBox();
+            this.btnEBIClear = new System.Windows.Forms.Button();
             this.grpEmployerBusinessBrief = new System.Windows.Forms.GroupBox();
             this.txtEBIWebsite = new System.Windows.Forms.TextBox();
             this.txtEBIPhone = new System.Windows.Forms.TextBox();
@@ -148,36 +145,9 @@
             this.dtpBusinessStartDate = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.grpEmployerBizAddress = new System.Windows.Forms.GroupBox();
-            this.txtEBIPostalBusiness = new System.Windows.Forms.TextBox();
-            this.txtEBIStreetNameBiz = new System.Windows.Forms.TextBox();
-            this.lblEBIBizCity = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtEBIBusinessCity = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.lblEBIBizPost = new System.Windows.Forms.Label();
-            this.lblEBICountry = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.txtEBIBusinessCountry = new System.Windows.Forms.TextBox();
-            this.txtEBIStreetNoBiz = new System.Windows.Forms.TextBox();
-            this.txtEBIAptBiz = new System.Windows.Forms.TextBox();
-            this.txtEBIPOBoxBiz = new System.Windows.Forms.TextBox();
-            this.grpEmployerMailAddress = new System.Windows.Forms.GroupBox();
-            this.txtEBIStreetNameMail = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtEBIMailCity = new System.Windows.Forms.TextBox();
-            this.txtEBIStreetNoMail = new System.Windows.Forms.TextBox();
-            this.txtEBIPostalMail = new System.Windows.Forms.TextBox();
-            this.txtEBIAptMail = new System.Windows.Forms.TextBox();
-            this.txtEBIPOBoxMail = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.txtEBICountryMail = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.btnEBIDelete = new System.Windows.Forms.Button();
+            this.BEIcompanyType = new CA.Immigration.Data.CompanyType();
+            this.btnEBIUpdate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txteBIPrimaryContactFax = new System.Windows.Forms.TextBox();
             this.txtEBIJobTitle = new System.Windows.Forms.TextBox();
@@ -193,7 +163,7 @@
             this.txtEBIFirstName = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.chkBizSameAsMail = new System.Windows.Forms.CheckBox();
+            this.btnEBIInsert = new System.Windows.Forms.Button();
             this.chkFranchise = new System.Windows.Forms.CheckBox();
             this.txtCRABN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -205,9 +175,39 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtESDCId = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.grpEmployerBizAddress = new System.Windows.Forms.GroupBox();
+            this.txtEBIPostalBusiness = new System.Windows.Forms.TextBox();
+            this.txtEBIStreetNameBiz = new System.Windows.Forms.TextBox();
+            this.lblEBIBizPost = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtEBIBusinessCountry = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.lblEBIBizCity = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             this.canadaProvincesBusiness = new CA.Immigration.Data.CanadaProvinces();
+            this.lblEBICountry = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.txtEBIBusinessCity = new System.Windows.Forms.TextBox();
+            this.txtEBIStreetNoBiz = new System.Windows.Forms.TextBox();
+            this.txtEBIAptBiz = new System.Windows.Forms.TextBox();
+            this.txtEBIPOBoxBiz = new System.Windows.Forms.TextBox();
+            this.grpEmployerMailAddress = new System.Windows.Forms.GroupBox();
+            this.txtEBIStreetNameMail = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.canadaProvincesMail = new CA.Immigration.Data.CanadaProvinces();
-            this.BEIcompanyType = new CA.Immigration.Data.CompanyType();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtEBIMailCity = new System.Windows.Forms.TextBox();
+            this.txtEBIStreetNoMail = new System.Windows.Forms.TextBox();
+            this.txtEBIPostalMail = new System.Windows.Forms.TextBox();
+            this.txtEBIAptMail = new System.Windows.Forms.TextBox();
+            this.txtEBIPOBoxMail = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtEBICountryMail = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.chkBizSameAsMail = new System.Windows.Forms.CheckBox();
             this.MainMenu.SuspendLayout();
             this.tbcFrontPage.SuspendLayout();
             this.tbcMain.SuspendLayout();
@@ -247,9 +247,9 @@
             this.splitContainer3.SuspendLayout();
             this.grpEBI.SuspendLayout();
             this.grpEmployerBusinessBrief.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.grpEmployerBizAddress.SuspendLayout();
             this.grpEmployerMailAddress.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -333,7 +333,7 @@
             this.tbcFrontPage.Controls.Add(this.tabEmployer);
             this.tbcFrontPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcFrontPage.Location = new System.Drawing.Point(0, 24);
-            this.tbcFrontPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcFrontPage.Margin = new System.Windows.Forms.Padding(2);
             this.tbcFrontPage.Name = "tbcFrontPage";
             this.tbcFrontPage.SelectedIndex = 0;
             this.tbcFrontPage.Size = new System.Drawing.Size(1205, 570);
@@ -344,10 +344,10 @@
             this.tbcMain.Controls.Add(this.spcBase);
             this.tbcMain.Controls.Add(this.MainStatus);
             this.tbcMain.Location = new System.Drawing.Point(4, 25);
-            this.tbcMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcMain.Margin = new System.Windows.Forms.Padding(2);
             this.tbcMain.Name = "tbcMain";
-            this.tbcMain.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbcMain.Size = new System.Drawing.Size(1102, 814);
+            this.tbcMain.Padding = new System.Windows.Forms.Padding(2);
+            this.tbcMain.Size = new System.Drawing.Size(1197, 541);
             this.tbcMain.TabIndex = 0;
             this.tbcMain.Text = "Main";
             this.tbcMain.UseVisualStyleBackColor = true;
@@ -356,7 +356,7 @@
             // 
             this.spcBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spcBase.Location = new System.Drawing.Point(2, 2);
-            this.spcBase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spcBase.Margin = new System.Windows.Forms.Padding(2);
             this.spcBase.Name = "spcBase";
             this.spcBase.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -371,8 +371,8 @@
             this.spcBase.Panel2.Controls.Add(this.btnEMP5594);
             this.spcBase.Panel2.Controls.Add(this.btnEMP5602);
             this.spcBase.Panel2.Controls.Add(this.btnEMP5575);
-            this.spcBase.Size = new System.Drawing.Size(1098, 788);
-            this.spcBase.SplitterDistance = 270;
+            this.spcBase.Size = new System.Drawing.Size(1193, 515);
+            this.spcBase.SplitterDistance = 176;
             this.spcBase.SplitterWidth = 3;
             this.spcBase.TabIndex = 1;
             // 
@@ -381,7 +381,7 @@
             this.tbcApplication.Controls.Add(this.tblLMIA);
             this.tbcApplication.Controls.Add(this.tblSP);
             this.tbcApplication.Location = new System.Drawing.Point(426, 2);
-            this.tbcApplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcApplication.Margin = new System.Windows.Forms.Padding(2);
             this.tbcApplication.Name = "tbcApplication";
             this.tbcApplication.SelectedIndex = 0;
             this.tbcApplication.Size = new System.Drawing.Size(675, 217);
@@ -391,9 +391,9 @@
             // 
             this.tblLMIA.Controls.Add(this.dgvLMIAApplication);
             this.tblLMIA.Location = new System.Drawing.Point(4, 22);
-            this.tblLMIA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblLMIA.Margin = new System.Windows.Forms.Padding(2);
             this.tblLMIA.Name = "tblLMIA";
-            this.tblLMIA.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblLMIA.Padding = new System.Windows.Forms.Padding(2);
             this.tblLMIA.Size = new System.Drawing.Size(667, 191);
             this.tblLMIA.TabIndex = 0;
             this.tblLMIA.Text = "LMIA";
@@ -416,9 +416,9 @@
             // tblSP
             // 
             this.tblSP.Location = new System.Drawing.Point(4, 22);
-            this.tblSP.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblSP.Margin = new System.Windows.Forms.Padding(2);
             this.tblSP.Name = "tblSP";
-            this.tblSP.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblSP.Padding = new System.Windows.Forms.Padding(2);
             this.tblSP.Size = new System.Drawing.Size(667, 191);
             this.tblSP.TabIndex = 1;
             this.tblSP.Text = "Study Permit";
@@ -444,9 +444,9 @@
             this.grpSelect.Controls.Add(this.label5);
             this.grpSelect.Controls.Add(this.label3);
             this.grpSelect.Location = new System.Drawing.Point(2, 2);
-            this.grpSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelect.Margin = new System.Windows.Forms.Padding(2);
             this.grpSelect.Name = "grpSelect";
-            this.grpSelect.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSelect.Padding = new System.Windows.Forms.Padding(2);
             this.grpSelect.Size = new System.Drawing.Size(420, 217);
             this.grpSelect.TabIndex = 7;
             this.grpSelect.TabStop = false;
@@ -474,7 +474,7 @@
             // btnSelectPerson
             // 
             this.btnSelectPerson.Location = new System.Drawing.Point(4, 22);
-            this.btnSelectPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectPerson.Name = "btnSelectPerson";
             this.btnSelectPerson.Size = new System.Drawing.Size(92, 29);
             this.btnSelectPerson.TabIndex = 0;
@@ -487,7 +487,7 @@
             this.cmbProgram.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbProgram.FormattingEnabled = true;
             this.cmbProgram.Location = new System.Drawing.Point(103, 123);
-            this.cmbProgram.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbProgram.Margin = new System.Windows.Forms.Padding(2);
             this.cmbProgram.Name = "cmbProgram";
             this.cmbProgram.Size = new System.Drawing.Size(248, 21);
             this.cmbProgram.TabIndex = 3;
@@ -496,7 +496,7 @@
             // btnSelectEmployer
             // 
             this.btnSelectEmployer.Location = new System.Drawing.Point(4, 54);
-            this.btnSelectEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.btnSelectEmployer.Name = "btnSelectEmployer";
             this.btnSelectEmployer.Size = new System.Drawing.Size(92, 29);
             this.btnSelectEmployer.TabIndex = 1;
@@ -509,7 +509,7 @@
             this.cmbCategory.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Location = new System.Drawing.Point(103, 101);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCategory.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(248, 21);
             this.cmbCategory.TabIndex = 2;
@@ -529,7 +529,7 @@
             // btnApplication
             // 
             this.btnApplication.Location = new System.Drawing.Point(248, 177);
-            this.btnApplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnApplication.Margin = new System.Windows.Forms.Padding(2);
             this.btnApplication.Name = "btnApplication";
             this.btnApplication.Size = new System.Drawing.Size(101, 25);
             this.btnApplication.TabIndex = 2;
@@ -668,10 +668,10 @@
             this.tssRCIC,
             this.tssProgram,
             this.tssApplication});
-            this.MainStatus.Location = new System.Drawing.Point(2, 790);
+            this.MainStatus.Location = new System.Drawing.Point(2, 517);
             this.MainStatus.Name = "MainStatus";
             this.MainStatus.Padding = new System.Windows.Forms.Padding(1, 0, 9, 0);
-            this.MainStatus.Size = new System.Drawing.Size(1098, 22);
+            this.MainStatus.Size = new System.Drawing.Size(1193, 22);
             this.MainStatus.TabIndex = 0;
             this.MainStatus.Text = "Status";
             // 
@@ -710,9 +710,9 @@
             this.tblPerson.AutoScroll = true;
             this.tblPerson.Controls.Add(this.spltPerson);
             this.tblPerson.Location = new System.Drawing.Point(4, 25);
-            this.tblPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblPerson.Margin = new System.Windows.Forms.Padding(2);
             this.tblPerson.Name = "tblPerson";
-            this.tblPerson.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblPerson.Padding = new System.Windows.Forms.Padding(2);
             this.tblPerson.Size = new System.Drawing.Size(1197, 541);
             this.tblPerson.TabIndex = 1;
             this.tblPerson.Text = "Person";
@@ -722,7 +722,7 @@
             // 
             this.spltPerson.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spltPerson.Location = new System.Drawing.Point(2, 2);
-            this.spltPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spltPerson.Margin = new System.Windows.Forms.Padding(2);
             this.spltPerson.Name = "spltPerson";
             // 
             // spltPerson.Panel1
@@ -735,14 +735,14 @@
             // 
             this.spltPerson.Panel2.Controls.Add(this.tbcPersonDetails);
             this.spltPerson.Size = new System.Drawing.Size(1193, 537);
-            this.spltPerson.SplitterDistance = 242;
+            this.spltPerson.SplitterDistance = 241;
             this.spltPerson.SplitterWidth = 3;
             this.spltPerson.TabIndex = 0;
             // 
             // btnFindaPerson
             // 
             this.btnFindaPerson.Location = new System.Drawing.Point(12, 692);
-            this.btnFindaPerson.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnFindaPerson.Margin = new System.Windows.Forms.Padding(2);
             this.btnFindaPerson.Name = "btnFindaPerson";
             this.btnFindaPerson.Size = new System.Drawing.Size(94, 27);
             this.btnFindaPerson.TabIndex = 0;
@@ -753,7 +753,7 @@
             // btnMakeImm5476
             // 
             this.btnMakeImm5476.Location = new System.Drawing.Point(122, 692);
-            this.btnMakeImm5476.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMakeImm5476.Margin = new System.Windows.Forms.Padding(2);
             this.btnMakeImm5476.Name = "btnMakeImm5476";
             this.btnMakeImm5476.Size = new System.Drawing.Size(94, 27);
             this.btnMakeImm5476.TabIndex = 1;
@@ -795,9 +795,9 @@
             this.grpPersonBasic.Controls.Add(this.lblPBIMiddleName);
             this.grpPersonBasic.Controls.Add(this.lblPBIFirstName);
             this.grpPersonBasic.Location = new System.Drawing.Point(2, 2);
-            this.grpPersonBasic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpPersonBasic.Margin = new System.Windows.Forms.Padding(2);
             this.grpPersonBasic.Name = "grpPersonBasic";
-            this.grpPersonBasic.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpPersonBasic.Padding = new System.Windows.Forms.Padding(2);
             this.grpPersonBasic.Size = new System.Drawing.Size(226, 681);
             this.grpPersonBasic.TabIndex = 0;
             this.grpPersonBasic.TabStop = false;
@@ -806,7 +806,7 @@
             // btnPBIClear
             // 
             this.btnPBIClear.Location = new System.Drawing.Point(163, 645);
-            this.btnPBIClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPBIClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnPBIClear.Name = "btnPBIClear";
             this.btnPBIClear.Size = new System.Drawing.Size(44, 19);
             this.btnPBIClear.TabIndex = 17;
@@ -817,7 +817,7 @@
             // btnPBIDelete
             // 
             this.btnPBIDelete.Location = new System.Drawing.Point(108, 645);
-            this.btnPBIDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPBIDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnPBIDelete.Name = "btnPBIDelete";
             this.btnPBIDelete.Size = new System.Drawing.Size(44, 19);
             this.btnPBIDelete.TabIndex = 16;
@@ -828,7 +828,7 @@
             // btnPBIUpdate
             // 
             this.btnPBIUpdate.Location = new System.Drawing.Point(60, 645);
-            this.btnPBIUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPBIUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnPBIUpdate.Name = "btnPBIUpdate";
             this.btnPBIUpdate.Size = new System.Drawing.Size(44, 19);
             this.btnPBIUpdate.TabIndex = 15;
@@ -839,7 +839,7 @@
             // btnPBIInsert
             // 
             this.btnPBIInsert.Location = new System.Drawing.Point(12, 645);
-            this.btnPBIInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPBIInsert.Margin = new System.Windows.Forms.Padding(2);
             this.btnPBIInsert.Name = "btnPBIInsert";
             this.btnPBIInsert.Size = new System.Drawing.Size(44, 19);
             this.btnPBIInsert.TabIndex = 14;
@@ -850,7 +850,7 @@
             // pcbSignature
             // 
             this.pcbSignature.Location = new System.Drawing.Point(120, 574);
-            this.pcbSignature.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcbSignature.Margin = new System.Windows.Forms.Padding(2);
             this.pcbSignature.Name = "pcbSignature";
             this.pcbSignature.Size = new System.Drawing.Size(87, 29);
             this.pcbSignature.TabIndex = 9;
@@ -859,7 +859,7 @@
             // btnSignature
             // 
             this.btnSignature.Location = new System.Drawing.Point(13, 574);
-            this.btnSignature.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignature.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignature.Name = "btnSignature";
             this.btnSignature.Size = new System.Drawing.Size(67, 25);
             this.btnSignature.TabIndex = 13;
@@ -870,7 +870,7 @@
             // btnPhoto
             // 
             this.btnPhoto.Location = new System.Drawing.Point(13, 491);
-            this.btnPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(67, 25);
             this.btnPhoto.TabIndex = 12;
@@ -881,7 +881,7 @@
             // pcbPhoto
             // 
             this.pcbPhoto.Location = new System.Drawing.Point(120, 446);
-            this.pcbPhoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pcbPhoto.Margin = new System.Windows.Forms.Padding(2);
             this.pcbPhoto.Name = "pcbPhoto";
             this.pcbPhoto.Size = new System.Drawing.Size(87, 112);
             this.pcbPhoto.TabIndex = 6;
@@ -892,7 +892,7 @@
             this.dtpPBIDOB.CalendarTitleForeColor = System.Drawing.SystemColors.HotTrack;
             this.dtpPBIDOB.CustomFormat = "";
             this.dtpPBIDOB.Location = new System.Drawing.Point(99, 126);
-            this.dtpPBIDOB.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpPBIDOB.Margin = new System.Windows.Forms.Padding(2);
             this.dtpPBIDOB.Name = "dtpPBIDOB";
             this.dtpPBIDOB.Size = new System.Drawing.Size(110, 20);
             this.dtpPBIDOB.TabIndex = 3;
@@ -902,7 +902,7 @@
             this.cmbPBIMS.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbPBIMS.FormattingEnabled = true;
             this.cmbPBIMS.Location = new System.Drawing.Point(101, 350);
-            this.cmbPBIMS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPBIMS.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPBIMS.Name = "cmbPBIMS";
             this.cmbPBIMS.Size = new System.Drawing.Size(109, 21);
             this.cmbPBIMS.TabIndex = 9;
@@ -911,7 +911,7 @@
             // 
             this.cbxAlias.AutoSize = true;
             this.cbxAlias.Location = new System.Drawing.Point(13, 198);
-            this.cbxAlias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxAlias.Margin = new System.Windows.Forms.Padding(2);
             this.cbxAlias.Name = "cbxAlias";
             this.cbxAlias.Size = new System.Drawing.Size(118, 17);
             this.cbxAlias.TabIndex = 5;
@@ -924,7 +924,7 @@
             this.cmbPBIGender.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.cmbPBIGender.FormattingEnabled = true;
             this.cmbPBIGender.Location = new System.Drawing.Point(101, 166);
-            this.cmbPBIGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbPBIGender.Margin = new System.Windows.Forms.Padding(2);
             this.cmbPBIGender.Name = "cmbPBIGender";
             this.cmbPBIGender.Size = new System.Drawing.Size(109, 21);
             this.cmbPBIGender.TabIndex = 4;
@@ -933,7 +933,7 @@
             // 
             this.txtPBIEmail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIEmail.Location = new System.Drawing.Point(45, 425);
-            this.txtPBIEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIEmail.Name = "txtPBIEmail";
             this.txtPBIEmail.Size = new System.Drawing.Size(165, 20);
             this.txtPBIEmail.TabIndex = 11;
@@ -942,7 +942,7 @@
             // 
             this.txtPBIPhone.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIPhone.Location = new System.Drawing.Point(99, 385);
-            this.txtPBIPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIPhone.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIPhone.Name = "txtPBIPhone";
             this.txtPBIPhone.Size = new System.Drawing.Size(110, 20);
             this.txtPBIPhone.TabIndex = 10;
@@ -951,7 +951,7 @@
             // 
             this.txtPBIUCI.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIUCI.Location = new System.Drawing.Point(99, 317);
-            this.txtPBIUCI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIUCI.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIUCI.Name = "txtPBIUCI";
             this.txtPBIUCI.Size = new System.Drawing.Size(110, 20);
             this.txtPBIUCI.TabIndex = 8;
@@ -960,7 +960,7 @@
             // 
             this.txtPBIALN.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIALN.Location = new System.Drawing.Point(99, 278);
-            this.txtPBIALN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIALN.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIALN.Name = "txtPBIALN";
             this.txtPBIALN.Size = new System.Drawing.Size(110, 20);
             this.txtPBIALN.TabIndex = 7;
@@ -970,7 +970,7 @@
             // 
             this.txtPBIAFN.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIAFN.Location = new System.Drawing.Point(99, 236);
-            this.txtPBIAFN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIAFN.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIAFN.Name = "txtPBIAFN";
             this.txtPBIAFN.Size = new System.Drawing.Size(110, 20);
             this.txtPBIAFN.TabIndex = 6;
@@ -980,7 +980,7 @@
             // 
             this.txtPBIln.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIln.Location = new System.Drawing.Point(99, 90);
-            this.txtPBIln.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIln.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIln.Name = "txtPBIln";
             this.txtPBIln.Size = new System.Drawing.Size(110, 20);
             this.txtPBIln.TabIndex = 2;
@@ -989,7 +989,7 @@
             // 
             this.txtPBImn.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBImn.Location = new System.Drawing.Point(99, 56);
-            this.txtPBImn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBImn.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBImn.Name = "txtPBImn";
             this.txtPBImn.Size = new System.Drawing.Size(110, 20);
             this.txtPBImn.TabIndex = 1;
@@ -998,7 +998,7 @@
             // 
             this.txtPBIfn.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtPBIfn.Location = new System.Drawing.Point(99, 25);
-            this.txtPBIfn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPBIfn.Margin = new System.Windows.Forms.Padding(2);
             this.txtPBIfn.Name = "txtPBIfn";
             this.txtPBIfn.Size = new System.Drawing.Size(110, 20);
             this.txtPBIfn.TabIndex = 0;
@@ -1126,20 +1126,20 @@
             this.tbcPersonDetails.Controls.Add(this.tblResidence);
             this.tbcPersonDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcPersonDetails.Location = new System.Drawing.Point(0, 0);
-            this.tbcPersonDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcPersonDetails.Margin = new System.Windows.Forms.Padding(2);
             this.tbcPersonDetails.Name = "tbcPersonDetails";
             this.tbcPersonDetails.SelectedIndex = 0;
-            this.tbcPersonDetails.Size = new System.Drawing.Size(948, 537);
+            this.tbcPersonDetails.Size = new System.Drawing.Size(949, 537);
             this.tbcPersonDetails.TabIndex = 0;
             // 
             // tabPassport
             // 
             this.tabPassport.Controls.Add(this.splitContainer1);
             this.tabPassport.Location = new System.Drawing.Point(4, 22);
-            this.tabPassport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPassport.Margin = new System.Windows.Forms.Padding(2);
             this.tabPassport.Name = "tabPassport";
-            this.tabPassport.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPassport.Size = new System.Drawing.Size(940, 511);
+            this.tabPassport.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPassport.Size = new System.Drawing.Size(941, 511);
             this.tabPassport.TabIndex = 0;
             this.tabPassport.Text = "Passport";
             this.tabPassport.UseVisualStyleBackColor = true;
@@ -1148,7 +1148,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(2, 2);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1161,7 +1161,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(936, 507);
+            this.splitContainer1.Size = new System.Drawing.Size(937, 507);
             this.splitContainer1.SplitterDistance = 48;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 3;
@@ -1200,7 +1200,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1208,7 +1208,7 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.btnInsertPassport);
             this.splitContainer2.Panel1.Controls.Add(this.dgvPassport);
-            this.splitContainer2.Size = new System.Drawing.Size(936, 456);
+            this.splitContainer2.Size = new System.Drawing.Size(937, 456);
             this.splitContainer2.SplitterDistance = 200;
             this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 0;
@@ -1216,7 +1216,7 @@
             // btnInsertPassport
             // 
             this.btnInsertPassport.Location = new System.Drawing.Point(13, 193);
-            this.btnInsertPassport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInsertPassport.Margin = new System.Windows.Forms.Padding(2);
             this.btnInsertPassport.Name = "btnInsertPassport";
             this.btnInsertPassport.Size = new System.Drawing.Size(92, 23);
             this.btnInsertPassport.TabIndex = 1;
@@ -1229,7 +1229,7 @@
             // 
             this.dgvPassport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPassport.Location = new System.Drawing.Point(2, 2);
-            this.dgvPassport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPassport.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPassport.Name = "dgvPassport";
             this.dgvPassport.RowTemplate.Height = 28;
             this.dgvPassport.Size = new System.Drawing.Size(849, 187);
@@ -1239,10 +1239,10 @@
             // 
             this.tblEducation.Controls.Add(this.dgvPDIEducation);
             this.tblEducation.Location = new System.Drawing.Point(4, 22);
-            this.tblEducation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblEducation.Margin = new System.Windows.Forms.Padding(2);
             this.tblEducation.Name = "tblEducation";
-            this.tblEducation.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tblEducation.Size = new System.Drawing.Size(864, 784);
+            this.tblEducation.Padding = new System.Windows.Forms.Padding(2);
+            this.tblEducation.Size = new System.Drawing.Size(941, 511);
             this.tblEducation.TabIndex = 1;
             this.tblEducation.Text = "tblEducation";
             this.tblEducation.UseVisualStyleBackColor = true;
@@ -1263,10 +1263,10 @@
             this.EduCountry,
             this.EduCanadaProvince});
             this.dgvPDIEducation.Location = new System.Drawing.Point(3, 2);
-            this.dgvPDIEducation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPDIEducation.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPDIEducation.Name = "dgvPDIEducation";
             this.dgvPDIEducation.RowTemplate.Height = 28;
-            this.dgvPDIEducation.Size = new System.Drawing.Size(856, 304);
+            this.dgvPDIEducation.Size = new System.Drawing.Size(932, 304);
             this.dgvPDIEducation.TabIndex = 0;
             // 
             // EduId
@@ -1325,10 +1325,10 @@
             // tblWork
             // 
             this.tblWork.Location = new System.Drawing.Point(4, 22);
-            this.tblWork.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblWork.Margin = new System.Windows.Forms.Padding(2);
             this.tblWork.Name = "tblWork";
-            this.tblWork.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tblWork.Size = new System.Drawing.Size(864, 784);
+            this.tblWork.Padding = new System.Windows.Forms.Padding(2);
+            this.tblWork.Size = new System.Drawing.Size(941, 511);
             this.tblWork.TabIndex = 2;
             this.tblWork.Text = "Work Experience";
             this.tblWork.UseVisualStyleBackColor = true;
@@ -1336,10 +1336,10 @@
             // tblAssets
             // 
             this.tblAssets.Location = new System.Drawing.Point(4, 22);
-            this.tblAssets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblAssets.Margin = new System.Windows.Forms.Padding(2);
             this.tblAssets.Name = "tblAssets";
-            this.tblAssets.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tblAssets.Size = new System.Drawing.Size(864, 784);
+            this.tblAssets.Padding = new System.Windows.Forms.Padding(2);
+            this.tblAssets.Size = new System.Drawing.Size(941, 511);
             this.tblAssets.TabIndex = 3;
             this.tblAssets.Text = "Assets";
             this.tblAssets.UseVisualStyleBackColor = true;
@@ -1347,10 +1347,10 @@
             // tblPersonalHistory
             // 
             this.tblPersonalHistory.Location = new System.Drawing.Point(4, 22);
-            this.tblPersonalHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblPersonalHistory.Margin = new System.Windows.Forms.Padding(2);
             this.tblPersonalHistory.Name = "tblPersonalHistory";
-            this.tblPersonalHistory.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tblPersonalHistory.Size = new System.Drawing.Size(864, 784);
+            this.tblPersonalHistory.Padding = new System.Windows.Forms.Padding(2);
+            this.tblPersonalHistory.Size = new System.Drawing.Size(941, 511);
             this.tblPersonalHistory.TabIndex = 4;
             this.tblPersonalHistory.Text = "Personal History";
             this.tblPersonalHistory.UseVisualStyleBackColor = true;
@@ -1358,10 +1358,10 @@
             // tblTravelHistory
             // 
             this.tblTravelHistory.Location = new System.Drawing.Point(4, 22);
-            this.tblTravelHistory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblTravelHistory.Margin = new System.Windows.Forms.Padding(2);
             this.tblTravelHistory.Name = "tblTravelHistory";
-            this.tblTravelHistory.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tblTravelHistory.Size = new System.Drawing.Size(864, 784);
+            this.tblTravelHistory.Padding = new System.Windows.Forms.Padding(2);
+            this.tblTravelHistory.Size = new System.Drawing.Size(941, 511);
             this.tblTravelHistory.TabIndex = 5;
             this.tblTravelHistory.Text = "Travel History";
             this.tblTravelHistory.UseVisualStyleBackColor = true;
@@ -1369,10 +1369,10 @@
             // tblResidence
             // 
             this.tblResidence.Location = new System.Drawing.Point(4, 22);
-            this.tblResidence.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tblResidence.Margin = new System.Windows.Forms.Padding(2);
             this.tblResidence.Name = "tblResidence";
-            this.tblResidence.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tblResidence.Size = new System.Drawing.Size(864, 784);
+            this.tblResidence.Padding = new System.Windows.Forms.Padding(2);
+            this.tblResidence.Size = new System.Drawing.Size(941, 511);
             this.tblResidence.TabIndex = 6;
             this.tblResidence.Text = "Residence History";
             this.tblResidence.UseVisualStyleBackColor = true;
@@ -1382,9 +1382,9 @@
             this.tabEmployer.AutoScroll = true;
             this.tabEmployer.Controls.Add(this.splitContainer3);
             this.tabEmployer.Location = new System.Drawing.Point(4, 25);
-            this.tabEmployer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEmployer.Margin = new System.Windows.Forms.Padding(2);
             this.tabEmployer.Name = "tabEmployer";
-            this.tabEmployer.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabEmployer.Padding = new System.Windows.Forms.Padding(2);
             this.tabEmployer.Size = new System.Drawing.Size(1197, 541);
             this.tabEmployer.TabIndex = 2;
             this.tabEmployer.Text = "Employer";
@@ -1394,7 +1394,7 @@
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer3.Location = new System.Drawing.Point(2, 2);
-            this.splitContainer3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer3.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer3.Name = "splitContainer3";
             // 
             // splitContainer3.Panel1
@@ -1410,46 +1410,6 @@
             this.splitContainer3.SplitterDistance = 403;
             this.splitContainer3.SplitterWidth = 3;
             this.splitContainer3.TabIndex = 0;
-            // 
-            // btnEBIClear
-            // 
-            this.btnEBIClear.Location = new System.Drawing.Point(280, 501);
-            this.btnEBIClear.Name = "btnEBIClear";
-            this.btnEBIClear.Size = new System.Drawing.Size(75, 23);
-            this.btnEBIClear.TabIndex = 3;
-            this.btnEBIClear.Text = "Clear";
-            this.btnEBIClear.UseVisualStyleBackColor = true;
-            this.btnEBIClear.Click += new System.EventHandler(this.btnEBIClear_Click);
-            // 
-            // btnEBIDelete
-            // 
-            this.btnEBIDelete.Location = new System.Drawing.Point(188, 501);
-            this.btnEBIDelete.Name = "btnEBIDelete";
-            this.btnEBIDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnEBIDelete.TabIndex = 2;
-            this.btnEBIDelete.Text = "Delete";
-            this.btnEBIDelete.UseVisualStyleBackColor = true;
-            this.btnEBIDelete.Click += new System.EventHandler(this.btnEBIDelete_Click);
-            // 
-            // btnEBIUpdate
-            // 
-            this.btnEBIUpdate.Location = new System.Drawing.Point(94, 501);
-            this.btnEBIUpdate.Name = "btnEBIUpdate";
-            this.btnEBIUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnEBIUpdate.TabIndex = 1;
-            this.btnEBIUpdate.Text = "Update";
-            this.btnEBIUpdate.UseVisualStyleBackColor = true;
-            this.btnEBIUpdate.Click += new System.EventHandler(this.btnEBIUpdate_Click);
-            // 
-            // btnEBIInsert
-            // 
-            this.btnEBIInsert.Location = new System.Drawing.Point(0, 501);
-            this.btnEBIInsert.Name = "btnEBIInsert";
-            this.btnEBIInsert.Size = new System.Drawing.Size(75, 23);
-            this.btnEBIInsert.TabIndex = 0;
-            this.btnEBIInsert.Text = "Insert";
-            this.btnEBIInsert.UseVisualStyleBackColor = true;
-            this.btnEBIInsert.Click += new System.EventHandler(this.btnEBIInsert_Click);
             // 
             // grpEBI
             // 
@@ -1472,13 +1432,23 @@
             this.grpEBI.Controls.Add(this.txtESDCId);
             this.grpEBI.Controls.Add(this.label7);
             this.grpEBI.Location = new System.Drawing.Point(6, 5);
-            this.grpEBI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEBI.Margin = new System.Windows.Forms.Padding(2);
             this.grpEBI.Name = "grpEBI";
-            this.grpEBI.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEBI.Padding = new System.Windows.Forms.Padding(2);
             this.grpEBI.Size = new System.Drawing.Size(354, 553);
             this.grpEBI.TabIndex = 0;
             this.grpEBI.TabStop = false;
             this.grpEBI.Text = "Employer basic information";
+            // 
+            // btnEBIClear
+            // 
+            this.btnEBIClear.Location = new System.Drawing.Point(280, 501);
+            this.btnEBIClear.Name = "btnEBIClear";
+            this.btnEBIClear.Size = new System.Drawing.Size(75, 23);
+            this.btnEBIClear.TabIndex = 3;
+            this.btnEBIClear.Text = "Clear";
+            this.btnEBIClear.UseVisualStyleBackColor = true;
+            this.btnEBIClear.Click += new System.EventHandler(this.btnEBIClear_Click);
             // 
             // grpEmployerBusinessBrief
             // 
@@ -1491,9 +1461,9 @@
             this.grpEmployerBusinessBrief.Controls.Add(this.label23);
             this.grpEmployerBusinessBrief.Controls.Add(this.label22);
             this.grpEmployerBusinessBrief.Location = new System.Drawing.Point(3, 163);
-            this.grpEmployerBusinessBrief.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEmployerBusinessBrief.Margin = new System.Windows.Forms.Padding(2);
             this.grpEmployerBusinessBrief.Name = "grpEmployerBusinessBrief";
-            this.grpEmployerBusinessBrief.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEmployerBusinessBrief.Padding = new System.Windows.Forms.Padding(2);
             this.grpEmployerBusinessBrief.Size = new System.Drawing.Size(345, 180);
             this.grpEmployerBusinessBrief.TabIndex = 28;
             this.grpEmployerBusinessBrief.TabStop = false;
@@ -1503,19 +1473,21 @@
             // 
             this.txtEBIWebsite.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIWebsite.Location = new System.Drawing.Point(180, 30);
-            this.txtEBIWebsite.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIWebsite.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIWebsite.Name = "txtEBIWebsite";
             this.txtEBIWebsite.Size = new System.Drawing.Size(155, 20);
             this.txtEBIWebsite.TabIndex = 19;
+            this.txtEBIWebsite.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
             // 
             // txtEBIPhone
             // 
             this.txtEBIPhone.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIPhone.Location = new System.Drawing.Point(43, 30);
-            this.txtEBIPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIPhone.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIPhone.Name = "txtEBIPhone";
             this.txtEBIPhone.Size = new System.Drawing.Size(80, 20);
             this.txtEBIPhone.TabIndex = 18;
+            this.txtEBIPhone.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
             // 
             // label20
             // 
@@ -1541,17 +1513,18 @@
             // 
             this.txtEBIBusinessActivities.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIBusinessActivities.Location = new System.Drawing.Point(5, 112);
-            this.txtEBIBusinessActivities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIBusinessActivities.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIBusinessActivities.Multiline = true;
             this.txtEBIBusinessActivities.Name = "txtEBIBusinessActivities";
             this.txtEBIBusinessActivities.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtEBIBusinessActivities.Size = new System.Drawing.Size(330, 54);
             this.txtEBIBusinessActivities.TabIndex = 21;
+            this.txtEBIBusinessActivities.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
             // 
             // dtpBusinessStartDate
             // 
             this.dtpBusinessStartDate.Location = new System.Drawing.Point(143, 62);
-            this.dtpBusinessStartDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpBusinessStartDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpBusinessStartDate.Name = "dtpBusinessStartDate";
             this.dtpBusinessStartDate.Size = new System.Drawing.Size(191, 20);
             this.dtpBusinessStartDate.TabIndex = 20;
@@ -1576,6 +1549,321 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "Business Start Date";
             // 
+            // btnEBIDelete
+            // 
+            this.btnEBIDelete.Location = new System.Drawing.Point(188, 501);
+            this.btnEBIDelete.Name = "btnEBIDelete";
+            this.btnEBIDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnEBIDelete.TabIndex = 2;
+            this.btnEBIDelete.Text = "Delete";
+            this.btnEBIDelete.UseVisualStyleBackColor = true;
+            this.btnEBIDelete.Click += new System.EventHandler(this.btnEBIDelete_Click);
+            // 
+            // BEIcompanyType
+            // 
+            this.BEIcompanyType.Location = new System.Drawing.Point(14, 121);
+            this.BEIcompanyType.Margin = new System.Windows.Forms.Padding(1);
+            this.BEIcompanyType.Name = "BEIcompanyType";
+            this.BEIcompanyType.Size = new System.Drawing.Size(329, 30);
+            this.BEIcompanyType.TabIndex = 6;
+            // 
+            // btnEBIUpdate
+            // 
+            this.btnEBIUpdate.Location = new System.Drawing.Point(94, 501);
+            this.btnEBIUpdate.Name = "btnEBIUpdate";
+            this.btnEBIUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnEBIUpdate.TabIndex = 1;
+            this.btnEBIUpdate.Text = "Update";
+            this.btnEBIUpdate.UseVisualStyleBackColor = true;
+            this.btnEBIUpdate.Click += new System.EventHandler(this.btnEBIUpdate_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txteBIPrimaryContactFax);
+            this.groupBox1.Controls.Add(this.txtEBIJobTitle);
+            this.groupBox1.Controls.Add(this.txtEBIMiddleName);
+            this.groupBox1.Controls.Add(this.label29);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.label25);
+            this.groupBox1.Controls.Add(this.txtEBIPrimaryContactEmail);
+            this.groupBox1.Controls.Add(this.txtEBIPrimaryContactPhone);
+            this.groupBox1.Controls.Add(this.label30);
+            this.groupBox1.Controls.Add(this.txtEBILastName);
+            this.groupBox1.Controls.Add(this.label28);
+            this.groupBox1.Controls.Add(this.txtEBIFirstName);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Location = new System.Drawing.Point(3, 347);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(346, 140);
+            this.groupBox1.TabIndex = 22;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Primary Contact";
+            // 
+            // txteBIPrimaryContactFax
+            // 
+            this.txteBIPrimaryContactFax.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txteBIPrimaryContactFax.Location = new System.Drawing.Point(250, 79);
+            this.txteBIPrimaryContactFax.Margin = new System.Windows.Forms.Padding(2);
+            this.txteBIPrimaryContactFax.Name = "txteBIPrimaryContactFax";
+            this.txteBIPrimaryContactFax.Size = new System.Drawing.Size(80, 20);
+            this.txteBIPrimaryContactFax.TabIndex = 5;
+            this.txteBIPrimaryContactFax.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // txtEBIJobTitle
+            // 
+            this.txtEBIJobTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIJobTitle.Location = new System.Drawing.Point(250, 51);
+            this.txtEBIJobTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIJobTitle.Name = "txtEBIJobTitle";
+            this.txtEBIJobTitle.Size = new System.Drawing.Size(80, 20);
+            this.txtEBIJobTitle.TabIndex = 3;
+            this.txtEBIJobTitle.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // txtEBIMiddleName
+            // 
+            this.txtEBIMiddleName.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIMiddleName.Location = new System.Drawing.Point(250, 23);
+            this.txtEBIMiddleName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIMiddleName.Name = "txtEBIMiddleName";
+            this.txtEBIMiddleName.Size = new System.Drawing.Size(80, 20);
+            this.txtEBIMiddleName.TabIndex = 1;
+            this.txtEBIMiddleName.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(163, 83);
+            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(24, 13);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Fax";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(163, 55);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(47, 13);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Job Title";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(163, 27);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(69, 13);
+            this.label25.TabIndex = 0;
+            this.label25.Text = "Middle Name";
+            // 
+            // txtEBIPrimaryContactEmail
+            // 
+            this.txtEBIPrimaryContactEmail.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIPrimaryContactEmail.Location = new System.Drawing.Point(72, 109);
+            this.txtEBIPrimaryContactEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIPrimaryContactEmail.Name = "txtEBIPrimaryContactEmail";
+            this.txtEBIPrimaryContactEmail.Size = new System.Drawing.Size(257, 20);
+            this.txtEBIPrimaryContactEmail.TabIndex = 6;
+            this.txtEBIPrimaryContactEmail.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // txtEBIPrimaryContactPhone
+            // 
+            this.txtEBIPrimaryContactPhone.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIPrimaryContactPhone.Location = new System.Drawing.Point(72, 81);
+            this.txtEBIPrimaryContactPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIPrimaryContactPhone.Name = "txtEBIPrimaryContactPhone";
+            this.txtEBIPrimaryContactPhone.Size = new System.Drawing.Size(80, 20);
+            this.txtEBIPrimaryContactPhone.TabIndex = 4;
+            this.txtEBIPrimaryContactPhone.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(11, 110);
+            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(32, 13);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Email";
+            // 
+            // txtEBILastName
+            // 
+            this.txtEBILastName.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBILastName.Location = new System.Drawing.Point(72, 53);
+            this.txtEBILastName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBILastName.Name = "txtEBILastName";
+            this.txtEBILastName.Size = new System.Drawing.Size(80, 20);
+            this.txtEBILastName.TabIndex = 2;
+            this.txtEBILastName.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(11, 83);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(38, 13);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Phone";
+            // 
+            // txtEBIFirstName
+            // 
+            this.txtEBIFirstName.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIFirstName.Location = new System.Drawing.Point(72, 25);
+            this.txtEBIFirstName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIFirstName.Name = "txtEBIFirstName";
+            this.txtEBIFirstName.Size = new System.Drawing.Size(80, 20);
+            this.txtEBIFirstName.TabIndex = 0;
+            this.txtEBIFirstName.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(11, 55);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(58, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Last Name";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(11, 27);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(57, 13);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "First Name";
+            // 
+            // btnEBIInsert
+            // 
+            this.btnEBIInsert.Location = new System.Drawing.Point(0, 501);
+            this.btnEBIInsert.Name = "btnEBIInsert";
+            this.btnEBIInsert.Size = new System.Drawing.Size(75, 23);
+            this.btnEBIInsert.TabIndex = 0;
+            this.btnEBIInsert.Text = "Insert";
+            this.btnEBIInsert.UseVisualStyleBackColor = true;
+            this.btnEBIInsert.Click += new System.EventHandler(this.btnEBIInsert_Click);
+            // 
+            // chkFranchise
+            // 
+            this.chkFranchise.AutoSize = true;
+            this.chkFranchise.Location = new System.Drawing.Point(15, 101);
+            this.chkFranchise.Margin = new System.Windows.Forms.Padding(2);
+            this.chkFranchise.Name = "chkFranchise";
+            this.chkFranchise.Size = new System.Drawing.Size(95, 17);
+            this.chkFranchise.TabIndex = 4;
+            this.chkFranchise.Text = "Is Franchised?";
+            this.chkFranchise.UseVisualStyleBackColor = true;
+            this.chkFranchise.CheckedChanged += new System.EventHandler(this.chkBizSameAsMail_CheckedChanged_1);
+            // 
+            // txtCRABN
+            // 
+            this.txtCRABN.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtCRABN.Location = new System.Drawing.Point(238, 21);
+            this.txtCRABN.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCRABN.Name = "txtCRABN";
+            this.txtCRABN.Size = new System.Drawing.Size(106, 20);
+            this.txtCRABN.TabIndex = 1;
+            this.txtCRABN.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(178, 23);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "CRA BN";
+            // 
+            // txtFranchise
+            // 
+            this.txtFranchise.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtFranchise.Location = new System.Drawing.Point(152, 100);
+            this.txtFranchise.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFranchise.Name = "txtFranchise";
+            this.txtFranchise.Size = new System.Drawing.Size(192, 20);
+            this.txtFranchise.TabIndex = 5;
+            this.txtFranchise.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // txtOperatingName
+            // 
+            this.txtOperatingName.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtOperatingName.Location = new System.Drawing.Point(99, 73);
+            this.txtOperatingName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtOperatingName.Name = "txtOperatingName";
+            this.txtOperatingName.Size = new System.Drawing.Size(245, 20);
+            this.txtOperatingName.TabIndex = 3;
+            this.txtOperatingName.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // lblFranchise
+            // 
+            this.lblFranchise.AutoSize = true;
+            this.lblFranchise.Location = new System.Drawing.Point(114, 102);
+            this.lblFranchise.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFranchise.Name = "lblFranchise";
+            this.lblFranchise.Size = new System.Drawing.Size(35, 13);
+            this.lblFranchise.TabIndex = 0;
+            this.lblFranchise.Text = "Name";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 77);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(84, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Operatign Name";
+            // 
+            // txtLegalName
+            // 
+            this.txtLegalName.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtLegalName.Location = new System.Drawing.Point(99, 46);
+            this.txtLegalName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLegalName.Name = "txtLegalName";
+            this.txtLegalName.Size = new System.Drawing.Size(245, 20);
+            this.txtLegalName.TabIndex = 2;
+            this.txtLegalName.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 50);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Legal Name";
+            // 
+            // txtESDCId
+            // 
+            this.txtESDCId.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtESDCId.Location = new System.Drawing.Point(64, 19);
+            this.txtESDCId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtESDCId.Name = "txtESDCId";
+            this.txtESDCId.Size = new System.Drawing.Size(111, 20);
+            this.txtESDCId.TabIndex = 0;
+            this.txtESDCId.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 23);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "ESDC Id";
+            // 
             // grpEmployerBizAddress
             // 
             this.grpEmployerBizAddress.Controls.Add(this.txtEBIPostalBusiness);
@@ -1594,9 +1882,9 @@
             this.grpEmployerBizAddress.Controls.Add(this.txtEBIAptBiz);
             this.grpEmployerBizAddress.Controls.Add(this.txtEBIPOBoxBiz);
             this.grpEmployerBizAddress.Location = new System.Drawing.Point(18, 152);
-            this.grpEmployerBizAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEmployerBizAddress.Margin = new System.Windows.Forms.Padding(2);
             this.grpEmployerBizAddress.Name = "grpEmployerBizAddress";
-            this.grpEmployerBizAddress.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEmployerBizAddress.Padding = new System.Windows.Forms.Padding(2);
             this.grpEmployerBizAddress.Size = new System.Drawing.Size(354, 118);
             this.grpEmployerBizAddress.TabIndex = 27;
             this.grpEmployerBizAddress.TabStop = false;
@@ -1606,7 +1894,7 @@
             // 
             this.txtEBIPostalBusiness.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIPostalBusiness.Location = new System.Drawing.Point(279, 46);
-            this.txtEBIPostalBusiness.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIPostalBusiness.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIPostalBusiness.Name = "txtEBIPostalBusiness";
             this.txtEBIPostalBusiness.Size = new System.Drawing.Size(64, 20);
             this.txtEBIPostalBusiness.TabIndex = 14;
@@ -1615,49 +1903,10 @@
             // 
             this.txtEBIStreetNameBiz.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIStreetNameBiz.Location = new System.Drawing.Point(87, 48);
-            this.txtEBIStreetNameBiz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIStreetNameBiz.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIStreetNameBiz.Name = "txtEBIStreetNameBiz";
             this.txtEBIStreetNameBiz.Size = new System.Drawing.Size(135, 20);
             this.txtEBIStreetNameBiz.TabIndex = 7;
-            // 
-            // lblEBIBizCity
-            // 
-            this.lblEBIBizCity.AutoSize = true;
-            this.lblEBIBizCity.Location = new System.Drawing.Point(9, 76);
-            this.lblEBIBizCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEBIBizCity.Name = "lblEBIBizCity";
-            this.lblEBIBizCity.Size = new System.Drawing.Size(24, 13);
-            this.lblEBIBizCity.TabIndex = 0;
-            this.lblEBIBizCity.Text = "City";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(230, 18);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(52, 13);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Street No";
-            // 
-            // txtEBIBusinessCity
-            // 
-            this.txtEBIBusinessCity.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIBusinessCity.Location = new System.Drawing.Point(37, 74);
-            this.txtEBIBusinessCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIBusinessCity.Name = "txtEBIBusinessCity";
-            this.txtEBIBusinessCity.Size = new System.Drawing.Size(80, 20);
-            this.txtEBIBusinessCity.TabIndex = 15;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(113, 18);
-            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(47, 13);
-            this.label31.TabIndex = 25;
-            this.label31.Text = "Apt/Unit";
             // 
             // lblEBIBizPost
             // 
@@ -1669,15 +1918,45 @@
             this.lblEBIBizPost.TabIndex = 0;
             this.lblEBIBizPost.Text = "Postal";
             // 
-            // lblEBICountry
+            // label12
             // 
-            this.lblEBICountry.AutoSize = true;
-            this.lblEBICountry.Location = new System.Drawing.Point(237, 76);
-            this.lblEBICountry.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblEBICountry.Name = "lblEBICountry";
-            this.lblEBICountry.Size = new System.Drawing.Size(43, 13);
-            this.lblEBICountry.TabIndex = 0;
-            this.lblEBICountry.Text = "Country";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(230, 18);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(52, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Street No";
+            // 
+            // txtEBIBusinessCountry
+            // 
+            this.txtEBIBusinessCountry.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIBusinessCountry.Location = new System.Drawing.Point(280, 74);
+            this.txtEBIBusinessCountry.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIBusinessCountry.Name = "txtEBIBusinessCountry";
+            this.txtEBIBusinessCountry.Size = new System.Drawing.Size(64, 20);
+            this.txtEBIBusinessCountry.TabIndex = 17;
+            this.txtEBIBusinessCountry.Text = "Canada";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(113, 18);
+            this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(47, 13);
+            this.label31.TabIndex = 25;
+            this.label31.Text = "Apt/Unit";
+            // 
+            // lblEBIBizCity
+            // 
+            this.lblEBIBizCity.AutoSize = true;
+            this.lblEBIBizCity.Location = new System.Drawing.Point(9, 76);
+            this.lblEBIBizCity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEBIBizCity.Name = "lblEBIBizCity";
+            this.lblEBIBizCity.Size = new System.Drawing.Size(24, 13);
+            this.lblEBIBizCity.TabIndex = 0;
+            this.lblEBIBizCity.Text = "City";
             // 
             // label33
             // 
@@ -1689,6 +1968,25 @@
             this.label33.TabIndex = 26;
             this.label33.Text = "PO. Box";
             // 
+            // canadaProvincesBusiness
+            // 
+            this.canadaProvincesBusiness.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.canadaProvincesBusiness.Location = new System.Drawing.Point(120, 69);
+            this.canadaProvincesBusiness.Margin = new System.Windows.Forms.Padding(1);
+            this.canadaProvincesBusiness.Name = "canadaProvincesBusiness";
+            this.canadaProvincesBusiness.Size = new System.Drawing.Size(105, 31);
+            this.canadaProvincesBusiness.TabIndex = 16;
+            // 
+            // lblEBICountry
+            // 
+            this.lblEBICountry.AutoSize = true;
+            this.lblEBICountry.Location = new System.Drawing.Point(237, 76);
+            this.lblEBICountry.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEBICountry.Name = "lblEBICountry";
+            this.lblEBICountry.Size = new System.Drawing.Size(43, 13);
+            this.lblEBICountry.TabIndex = 0;
+            this.lblEBICountry.Text = "Country";
+            // 
             // label34
             // 
             this.label34.AutoSize = true;
@@ -1699,21 +1997,20 @@
             this.label34.TabIndex = 0;
             this.label34.Text = "Street Name";
             // 
-            // txtEBIBusinessCountry
+            // txtEBIBusinessCity
             // 
-            this.txtEBIBusinessCountry.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIBusinessCountry.Location = new System.Drawing.Point(280, 74);
-            this.txtEBIBusinessCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIBusinessCountry.Name = "txtEBIBusinessCountry";
-            this.txtEBIBusinessCountry.Size = new System.Drawing.Size(64, 20);
-            this.txtEBIBusinessCountry.TabIndex = 17;
-            this.txtEBIBusinessCountry.Text = "Canada";
+            this.txtEBIBusinessCity.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txtEBIBusinessCity.Location = new System.Drawing.Point(37, 74);
+            this.txtEBIBusinessCity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEBIBusinessCity.Name = "txtEBIBusinessCity";
+            this.txtEBIBusinessCity.Size = new System.Drawing.Size(80, 20);
+            this.txtEBIBusinessCity.TabIndex = 15;
             // 
             // txtEBIStreetNoBiz
             // 
             this.txtEBIStreetNoBiz.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIStreetNoBiz.Location = new System.Drawing.Point(285, 16);
-            this.txtEBIStreetNoBiz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIStreetNoBiz.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIStreetNoBiz.Name = "txtEBIStreetNoBiz";
             this.txtEBIStreetNoBiz.Size = new System.Drawing.Size(58, 20);
             this.txtEBIStreetNoBiz.TabIndex = 22;
@@ -1722,7 +2019,7 @@
             // 
             this.txtEBIAptBiz.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIAptBiz.Location = new System.Drawing.Point(165, 16);
-            this.txtEBIAptBiz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIAptBiz.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIAptBiz.Name = "txtEBIAptBiz";
             this.txtEBIAptBiz.Size = new System.Drawing.Size(57, 20);
             this.txtEBIAptBiz.TabIndex = 23;
@@ -1731,7 +2028,7 @@
             // 
             this.txtEBIPOBoxBiz.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIPOBoxBiz.Location = new System.Drawing.Point(63, 16);
-            this.txtEBIPOBoxBiz.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIPOBoxBiz.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIPOBoxBiz.Name = "txtEBIPOBoxBiz";
             this.txtEBIPOBoxBiz.Size = new System.Drawing.Size(38, 20);
             this.txtEBIPOBoxBiz.TabIndex = 20;
@@ -1754,9 +2051,9 @@
             this.grpEmployerMailAddress.Controls.Add(this.txtEBICountryMail);
             this.grpEmployerMailAddress.Controls.Add(this.label18);
             this.grpEmployerMailAddress.Location = new System.Drawing.Point(18, 17);
-            this.grpEmployerMailAddress.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEmployerMailAddress.Margin = new System.Windows.Forms.Padding(2);
             this.grpEmployerMailAddress.Name = "grpEmployerMailAddress";
-            this.grpEmployerMailAddress.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEmployerMailAddress.Padding = new System.Windows.Forms.Padding(2);
             this.grpEmployerMailAddress.Size = new System.Drawing.Size(354, 103);
             this.grpEmployerMailAddress.TabIndex = 23;
             this.grpEmployerMailAddress.TabStop = false;
@@ -1766,7 +2063,7 @@
             // 
             this.txtEBIStreetNameMail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIStreetNameMail.Location = new System.Drawing.Point(87, 48);
-            this.txtEBIStreetNameMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIStreetNameMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIStreetNameMail.Name = "txtEBIStreetNameMail";
             this.txtEBIStreetNameMail.Size = new System.Drawing.Size(135, 20);
             this.txtEBIStreetNameMail.TabIndex = 7;
@@ -1780,6 +2077,15 @@
             this.label15.Size = new System.Drawing.Size(52, 13);
             this.label15.TabIndex = 24;
             this.label15.Text = "Street No";
+            // 
+            // canadaProvincesMail
+            // 
+            this.canadaProvincesMail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.canadaProvincesMail.Location = new System.Drawing.Point(115, 69);
+            this.canadaProvincesMail.Margin = new System.Windows.Forms.Padding(1);
+            this.canadaProvincesMail.Name = "canadaProvincesMail";
+            this.canadaProvincesMail.Size = new System.Drawing.Size(105, 31);
+            this.canadaProvincesMail.TabIndex = 10;
             // 
             // label17
             // 
@@ -1825,7 +2131,7 @@
             // 
             this.txtEBIMailCity.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIMailCity.Location = new System.Drawing.Point(39, 75);
-            this.txtEBIMailCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIMailCity.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIMailCity.Name = "txtEBIMailCity";
             this.txtEBIMailCity.Size = new System.Drawing.Size(80, 20);
             this.txtEBIMailCity.TabIndex = 9;
@@ -1834,7 +2140,7 @@
             // 
             this.txtEBIStreetNoMail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIStreetNoMail.Location = new System.Drawing.Point(285, 16);
-            this.txtEBIStreetNoMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIStreetNoMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIStreetNoMail.Name = "txtEBIStreetNoMail";
             this.txtEBIStreetNoMail.Size = new System.Drawing.Size(54, 20);
             this.txtEBIStreetNoMail.TabIndex = 22;
@@ -1843,7 +2149,7 @@
             // 
             this.txtEBIPostalMail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIPostalMail.Location = new System.Drawing.Point(269, 50);
-            this.txtEBIPostalMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIPostalMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIPostalMail.Name = "txtEBIPostalMail";
             this.txtEBIPostalMail.Size = new System.Drawing.Size(64, 20);
             this.txtEBIPostalMail.TabIndex = 8;
@@ -1852,7 +2158,7 @@
             // 
             this.txtEBIAptMail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIAptMail.Location = new System.Drawing.Point(165, 16);
-            this.txtEBIAptMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIAptMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIAptMail.Name = "txtEBIAptMail";
             this.txtEBIAptMail.Size = new System.Drawing.Size(57, 20);
             this.txtEBIAptMail.TabIndex = 23;
@@ -1861,7 +2167,7 @@
             // 
             this.txtEBIPOBoxMail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBIPOBoxMail.Location = new System.Drawing.Point(63, 16);
-            this.txtEBIPOBoxMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBIPOBoxMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBIPOBoxMail.Name = "txtEBIPOBoxMail";
             this.txtEBIPOBoxMail.Size = new System.Drawing.Size(38, 20);
             this.txtEBIPOBoxMail.TabIndex = 20;
@@ -1880,7 +2186,7 @@
             // 
             this.txtEBICountryMail.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtEBICountryMail.Location = new System.Drawing.Point(271, 74);
-            this.txtEBICountryMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtEBICountryMail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEBICountryMail.Name = "txtEBICountryMail";
             this.txtEBICountryMail.Size = new System.Drawing.Size(61, 20);
             this.txtEBICountryMail.TabIndex = 11;
@@ -1896,309 +2202,19 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Country";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txteBIPrimaryContactFax);
-            this.groupBox1.Controls.Add(this.txtEBIJobTitle);
-            this.groupBox1.Controls.Add(this.txtEBIMiddleName);
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.label25);
-            this.groupBox1.Controls.Add(this.txtEBIPrimaryContactEmail);
-            this.groupBox1.Controls.Add(this.txtEBIPrimaryContactPhone);
-            this.groupBox1.Controls.Add(this.label30);
-            this.groupBox1.Controls.Add(this.txtEBILastName);
-            this.groupBox1.Controls.Add(this.label28);
-            this.groupBox1.Controls.Add(this.txtEBIFirstName);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Controls.Add(this.label24);
-            this.groupBox1.Location = new System.Drawing.Point(3, 347);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(346, 140);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Primary Contact";
-            // 
-            // txteBIPrimaryContactFax
-            // 
-            this.txteBIPrimaryContactFax.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txteBIPrimaryContactFax.Location = new System.Drawing.Point(250, 79);
-            this.txteBIPrimaryContactFax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txteBIPrimaryContactFax.Name = "txteBIPrimaryContactFax";
-            this.txteBIPrimaryContactFax.Size = new System.Drawing.Size(80, 20);
-            this.txteBIPrimaryContactFax.TabIndex = 5;
-            // 
-            // txtEBIJobTitle
-            // 
-            this.txtEBIJobTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIJobTitle.Location = new System.Drawing.Point(250, 51);
-            this.txtEBIJobTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIJobTitle.Name = "txtEBIJobTitle";
-            this.txtEBIJobTitle.Size = new System.Drawing.Size(80, 20);
-            this.txtEBIJobTitle.TabIndex = 3;
-            // 
-            // txtEBIMiddleName
-            // 
-            this.txtEBIMiddleName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIMiddleName.Location = new System.Drawing.Point(250, 23);
-            this.txtEBIMiddleName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIMiddleName.Name = "txtEBIMiddleName";
-            this.txtEBIMiddleName.Size = new System.Drawing.Size(80, 20);
-            this.txtEBIMiddleName.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(163, 83);
-            this.label29.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(24, 13);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "Fax";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(163, 55);
-            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(47, 13);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Job Title";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(163, 27);
-            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(69, 13);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Middle Name";
-            // 
-            // txtEBIPrimaryContactEmail
-            // 
-            this.txtEBIPrimaryContactEmail.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIPrimaryContactEmail.Location = new System.Drawing.Point(72, 109);
-            this.txtEBIPrimaryContactEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIPrimaryContactEmail.Name = "txtEBIPrimaryContactEmail";
-            this.txtEBIPrimaryContactEmail.Size = new System.Drawing.Size(257, 20);
-            this.txtEBIPrimaryContactEmail.TabIndex = 6;
-            // 
-            // txtEBIPrimaryContactPhone
-            // 
-            this.txtEBIPrimaryContactPhone.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIPrimaryContactPhone.Location = new System.Drawing.Point(72, 81);
-            this.txtEBIPrimaryContactPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIPrimaryContactPhone.Name = "txtEBIPrimaryContactPhone";
-            this.txtEBIPrimaryContactPhone.Size = new System.Drawing.Size(80, 20);
-            this.txtEBIPrimaryContactPhone.TabIndex = 4;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(11, 110);
-            this.label30.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(32, 13);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Email";
-            // 
-            // txtEBILastName
-            // 
-            this.txtEBILastName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBILastName.Location = new System.Drawing.Point(72, 53);
-            this.txtEBILastName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBILastName.Name = "txtEBILastName";
-            this.txtEBILastName.Size = new System.Drawing.Size(80, 20);
-            this.txtEBILastName.TabIndex = 2;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(11, 83);
-            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(38, 13);
-            this.label28.TabIndex = 0;
-            this.label28.Text = "Phone";
-            // 
-            // txtEBIFirstName
-            // 
-            this.txtEBIFirstName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtEBIFirstName.Location = new System.Drawing.Point(72, 25);
-            this.txtEBIFirstName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtEBIFirstName.Name = "txtEBIFirstName";
-            this.txtEBIFirstName.Size = new System.Drawing.Size(80, 20);
-            this.txtEBIFirstName.TabIndex = 0;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(11, 55);
-            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(58, 13);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Last Name";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(11, 27);
-            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(57, 13);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "First Name";
-            // 
             // chkBizSameAsMail
             // 
             this.chkBizSameAsMail.AutoSize = true;
             this.chkBizSameAsMail.Checked = true;
             this.chkBizSameAsMail.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBizSameAsMail.Location = new System.Drawing.Point(27, 131);
-            this.chkBizSameAsMail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkBizSameAsMail.Margin = new System.Windows.Forms.Padding(2);
             this.chkBizSameAsMail.Name = "chkBizSameAsMail";
             this.chkBizSameAsMail.Size = new System.Drawing.Size(231, 17);
             this.chkBizSameAsMail.TabIndex = 12;
             this.chkBizSameAsMail.Text = "Business address same as mailing address?";
             this.chkBizSameAsMail.UseVisualStyleBackColor = true;
-            this.chkBizSameAsMail.CheckedChanged += new System.EventHandler(this.chkBizSameAsMail_CheckedChanged);
-            // 
-            // chkFranchise
-            // 
-            this.chkFranchise.AutoSize = true;
-            this.chkFranchise.Location = new System.Drawing.Point(15, 101);
-            this.chkFranchise.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.chkFranchise.Name = "chkFranchise";
-            this.chkFranchise.Size = new System.Drawing.Size(95, 17);
-            this.chkFranchise.TabIndex = 4;
-            this.chkFranchise.Text = "Is Franchised?";
-            this.chkFranchise.UseVisualStyleBackColor = true;
-            // 
-            // txtCRABN
-            // 
-            this.txtCRABN.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtCRABN.Location = new System.Drawing.Point(238, 21);
-            this.txtCRABN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCRABN.Name = "txtCRABN";
-            this.txtCRABN.Size = new System.Drawing.Size(106, 20);
-            this.txtCRABN.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(178, 23);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "CRA BN";
-            // 
-            // txtFranchise
-            // 
-            this.txtFranchise.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtFranchise.Location = new System.Drawing.Point(152, 100);
-            this.txtFranchise.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtFranchise.Name = "txtFranchise";
-            this.txtFranchise.Size = new System.Drawing.Size(192, 20);
-            this.txtFranchise.TabIndex = 5;
-            // 
-            // txtOperatingName
-            // 
-            this.txtOperatingName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtOperatingName.Location = new System.Drawing.Point(99, 73);
-            this.txtOperatingName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtOperatingName.Name = "txtOperatingName";
-            this.txtOperatingName.Size = new System.Drawing.Size(245, 20);
-            this.txtOperatingName.TabIndex = 3;
-            // 
-            // lblFranchise
-            // 
-            this.lblFranchise.AutoSize = true;
-            this.lblFranchise.Location = new System.Drawing.Point(114, 102);
-            this.lblFranchise.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblFranchise.Name = "lblFranchise";
-            this.lblFranchise.Size = new System.Drawing.Size(35, 13);
-            this.lblFranchise.TabIndex = 0;
-            this.lblFranchise.Text = "Name";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 77);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 13);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Operatign Name";
-            // 
-            // txtLegalName
-            // 
-            this.txtLegalName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtLegalName.Location = new System.Drawing.Point(99, 46);
-            this.txtLegalName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtLegalName.Name = "txtLegalName";
-            this.txtLegalName.Size = new System.Drawing.Size(245, 20);
-            this.txtLegalName.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 50);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(64, 13);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Legal Name";
-            // 
-            // txtESDCId
-            // 
-            this.txtESDCId.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtESDCId.Location = new System.Drawing.Point(64, 19);
-            this.txtESDCId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtESDCId.Name = "txtESDCId";
-            this.txtESDCId.Size = new System.Drawing.Size(111, 20);
-            this.txtESDCId.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 23);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "ESDC Id";
-            // 
-            // canadaProvincesBusiness
-            // 
-            this.canadaProvincesBusiness.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.canadaProvincesBusiness.Location = new System.Drawing.Point(120, 69);
-            this.canadaProvincesBusiness.Margin = new System.Windows.Forms.Padding(1);
-            this.canadaProvincesBusiness.Name = "canadaProvincesBusiness";
-            this.canadaProvincesBusiness.Size = new System.Drawing.Size(105, 31);
-            this.canadaProvincesBusiness.TabIndex = 16;
-            // 
-            // canadaProvincesMail
-            // 
-            this.canadaProvincesMail.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.canadaProvincesMail.Location = new System.Drawing.Point(115, 69);
-            this.canadaProvincesMail.Margin = new System.Windows.Forms.Padding(1);
-            this.canadaProvincesMail.Name = "canadaProvincesMail";
-            this.canadaProvincesMail.Size = new System.Drawing.Size(105, 31);
-            this.canadaProvincesMail.TabIndex = 10;
-            // 
-            // BEIcompanyType
-            // 
-            this.BEIcompanyType.Location = new System.Drawing.Point(14, 121);
-            this.BEIcompanyType.Margin = new System.Windows.Forms.Padding(1);
-            this.BEIcompanyType.Name = "BEIcompanyType";
-            this.BEIcompanyType.Size = new System.Drawing.Size(329, 30);
-            this.BEIcompanyType.TabIndex = 6;
+            this.chkBizSameAsMail.CheckedChanged += new System.EventHandler(this.chkBizSameAsMail_CheckedChanged_1);
             // 
             // StartupForm
             // 
@@ -2209,11 +2225,12 @@
             this.Controls.Add(this.tbcFrontPage);
             this.Controls.Add(this.MainMenu);
             this.MainMenuStrip = this.MainMenu;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StartupForm";
             this.Text = "Canada Immigration Advisor & Processing System";
             this.Activated += new System.EventHandler(this.StartupForm_Activated);
             this.Load += new System.EventHandler(this.Startup_Load);
+            this.TextChanged += new System.EventHandler(this.StartupForm_TextChanged);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.tbcFrontPage.ResumeLayout(false);
@@ -2262,12 +2279,12 @@
             this.grpEBI.PerformLayout();
             this.grpEmployerBusinessBrief.ResumeLayout(false);
             this.grpEmployerBusinessBrief.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.grpEmployerBizAddress.ResumeLayout(false);
             this.grpEmployerBizAddress.PerformLayout();
             this.grpEmployerMailAddress.ResumeLayout(false);
             this.grpEmployerMailAddress.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

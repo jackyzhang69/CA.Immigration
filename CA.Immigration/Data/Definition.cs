@@ -96,6 +96,7 @@ namespace CA.Immigration.Data
             { 3,"Other" }
         };
         public static Dictionary<int, string> CndProvince = new Dictionary<int, string> {
+            {-1,""},
             {0,"AB"},
             {1,"BC"},
             {2,"MB"},

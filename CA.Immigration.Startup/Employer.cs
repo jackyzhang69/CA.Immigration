@@ -145,22 +145,28 @@ namespace CA.Immigration.Startup
                         {
                             tblCanadianAddress ca = cdc.tblCanadianAddresses.Where(x => x.Id == emp.MailAddressId).Select(x => x).FirstOrDefault();
                             tblCanadianAddress caB = cdc.tblCanadianAddresses.Where(x => x.Id == emp.BizAddressId).Select(x => x).FirstOrDefault();
-                            _mailPO = ca.POBox;
-                            _mailUnit = ca.Unit;
-                            _mailStreetNo = ca.StreetNo;
-                            _mailStreetName = ca.StreetName;
-                            _mailCity = ca.City;
-                            _mailProvince = ca.Province == null ? 0 : (int)ca.Province;
-                            _mailingCountry = "Canada";
-                            _mailPostalCode = ca.PostalCode;
-                            _businessPO = caB.POBox;
-                            _businessUnit = caB.Unit;
-                            _businessStreetNo = caB.StreetNo;
-                            _businessStreetName = caB.StreetName;
-                            _businessCity = caB.City; ;
-                            _businessProvince = caB.Province == null ? 0 : (int)caB.Province;
-                            _businessCountry = "Canada";
-                            _businessPostalCode = caB.PostalCode;
+                            if (ca!=null)
+                            {
+                                _mailPO = ca.POBox;
+                                _mailUnit = ca.Unit;
+                                _mailStreetNo = ca.StreetNo;
+                                _mailStreetName = ca.StreetName;
+                                _mailCity = ca.City;
+                                _mailProvince = ca.Province == null ? 0 : (int)ca.Province;
+                                _mailingCountry = "Canada";
+                                _mailPostalCode = ca.PostalCode; 
+                            }
+                            if (caB!=null)
+                            {
+                                _businessPO = caB.POBox;
+                                _businessUnit = caB.Unit;
+                                _businessStreetNo = caB.StreetNo;
+                                _businessStreetName = caB.StreetName;
+                                _businessCity = caB.City; ;
+                                _businessProvince = caB.Province == null ? 0 : (int)caB.Province;
+                                _businessCountry = "Canada";
+                                _businessPostalCode = caB.PostalCode; 
+                            }
                         }
                     }
                     _bizTelephone = emp.BizTelephone;
