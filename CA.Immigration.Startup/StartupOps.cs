@@ -22,7 +22,7 @@ namespace CA.Immigration.Startup
             sf.lblSelectedEmployer.Visible = false;
             sf.lblSelectedEmployerId.Visible = false;
 
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
                 //Setup Category Inforamtion
                 sf.cmbCategory.DataSource = cdc.tblCategories.Select(x => new { x.Name, x.Id });
@@ -45,16 +45,16 @@ namespace CA.Immigration.Startup
                 foreach (KeyValuePair<int, string> kvp in Definition.Gender) sf.cmbPBIGender.Items.Add(kvp.Value);
 
             }
-           
+
             getAllApplications(sf);
         }
         public static void getAllApplications(StartupForm sf)
         {
             // if no person or/and employer selected, display all applications
             // Get LMIA application 
-            using(CommonDataContext cdc = new CommonDataContext())
+            using (CommonDataContext cdc = new CommonDataContext())
             {
-                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = x.EmployerId.getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate,SubmitDate=x.SubmittedDate,ApplicationNumber=x.ApplicationNumber,PositionNumber=x.NumberofPosition });
+                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = x.EmployerId.getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate, SubmitDate = x.SubmittedDate, ApplicationNumber = x.ApplicationNumber, PositionNumber = x.NumberofPosition });
                 sf.dgvLMIAApplication.Columns[0].Width = 35;
                 sf.dgvLMIAApplication.Columns[1].Width = 185;
                 sf.dgvLMIAApplication.Columns[2].Width = 110;
@@ -74,10 +74,10 @@ namespace CA.Immigration.Startup
         public static void RefreshMainForm(StartupForm sf)
         {
             getAllApplications(sf);
-            if(GlobalData.CurrentPersonId != null)
+            if (GlobalData.CurrentPersonId != null)
             {
                 sf.lblSelectedPersonId.Text = GlobalData.CurrentPersonId.ToString();
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
                     tblPerson p = cdc.tblPersons.Where(x => x.Id == GlobalData.CurrentPersonId).Select(x => x).FirstOrDefault();
                     sf.lblSelectedPerson.Text = p.FirstName + " " + p.LastName;
@@ -95,10 +95,10 @@ namespace CA.Immigration.Startup
                 sf.btnPBIInsert.Visible = true;
             }
 
-            if(GlobalData.CurrentEmployerId != null)
+            if (GlobalData.CurrentEmployerId != null)
             {
                 sf.lblSelectedEmployerId.Text = GlobalData.CurrentEmployerId.ToString();
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
                     tblEmployer e = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
                     sf.lblSelectedEmployer.Text = e.LegalName;
@@ -126,23 +126,23 @@ namespace CA.Immigration.Startup
         public static void buildupEMP5575()
         {
             Dictionary<string, string> dict5575 = new Dictionary<string, string>();
-                       
+
             //RCIC's company Information
             RCIC.buildupDict5575(ref dict5575);
             // Employer Information
             Employer.buildupDict5575(ref dict5575);
             // Employee information
-            Person.buildupDict5575(ref dict5575);   
-            
+            Person.buildupDict5575(ref dict5575);
+
             FormOPs.fillForm(@"c:\data\emp5575.pdf", dict5575);
         }
         public static void buildupEMP5602()
         {
-          
+
             Dictionary<string, string> dict5602 = new Dictionary<string, string>();
 
             // Analysis information
-            LMIAAnalysis.buildupDict5602(ref dict5602);  
+            LMIAAnalysis.buildupDict5602(ref dict5602);
             //Employer Information
             Employer.buildupDict5602(ref dict5602);
             //3rd party information
@@ -154,6 +154,23 @@ namespace CA.Immigration.Startup
             // 
 
             FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5602);
+        }
+        public static void buildupEMP5593()
+        {
+            Dictionary<string, string> dict5593 = new Dictionary<string, string>();
+            // Analysis information
+            LMIAAnalysis.buildupDict5593(ref dict5593);
+            //Employer Information
+            Employer.buildupDict5593(ref dict5593);
+            //3rd party information
+            RCIC.buildupDict5593(ref dict5593);
+            // Business detail Information
+            LMIABusinessDetail.buildupDict5593(ref dict5593);
+            // Job offer information
+            LMIAJobOffer.buildupDict5593(ref dict5593);
+
+
+            FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5593);
         }
     }
 }

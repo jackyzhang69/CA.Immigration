@@ -114,7 +114,7 @@ namespace CA.Immigration.LMIA
             _PastCompliance = lf.ckbLmFactor.SelectedIndices.Contains(10);
 
         }
-        public static void loadFromDB(LMIAForm lf)
+        public static void loadFromDB()
         {
             //Load Tab Analysis data
             using(CommonDataContext cdc = new CommonDataContext())
@@ -731,6 +731,7 @@ namespace CA.Immigration.LMIA
         }
         public static void buildupDict5602(ref Dictionary<string, string> dict)
         {
+            loadFromDB();
             dict.Add("EMP5602_E[0].Page3[0].txtF_Job_Title[0]", _jobTitle);
 
             //P4 Q14-15
@@ -751,7 +752,22 @@ namespace CA.Immigration.LMIA
 
 
         }
+        public static void buildupDict5593(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+            dict.Add("EMP5593_E[0].Page1[0].rb_LMIA[0]",GlobalData.CurrentProgramId!=null?((int)GlobalData.CurrentProgramId).getProgramFromId():"");
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
+            //dict.Add();
 
+        }
 
     }
 }

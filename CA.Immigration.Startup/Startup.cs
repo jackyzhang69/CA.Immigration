@@ -196,6 +196,8 @@ namespace CA.Immigration.Startup
         private void btnEBIClear_Click(object sender, EventArgs e)
         {
             Employer.clearForm(this);
+            Employer.fillForm(this);
+            btnEBIInsert.Visible = true;
         }
         private void btnPBIInsert_Click(object sender, EventArgs e)
         {
@@ -270,6 +272,11 @@ namespace CA.Immigration.Startup
         private void chkBizSameAsMail_CheckedChanged_1(object sender, EventArgs e)
         {
             Employer.getInput(this);
+        }
+
+        private void btnEMP5593_Click(object sender, EventArgs e)
+        {
+            StartupOps.buildupEMP5593();
         }
     }
 }

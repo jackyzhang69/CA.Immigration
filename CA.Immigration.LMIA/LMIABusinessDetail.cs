@@ -340,6 +340,11 @@ namespace CA.Immigration.LMIA
             if(_q10==true)dict.Add("EMP5602_E[0].Page3[0].txtF_If_Yes2[0]", _q10Explanation);
             
         }
+        public static void buildupDict5593(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+
+        }
     }
 }
 

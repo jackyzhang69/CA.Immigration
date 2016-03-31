@@ -119,6 +119,7 @@ namespace CA.Immigration.Startup
                     _chkBizSameAsMail = emp.MailAddressId == emp.BizAddressId ? true : false;
                     if (_chkBizSameAsMail)
                     {
+
                         if (emp.MailAddressId != null)
                         {
                             tblCanadianAddress ca = cdc.tblCanadianAddresses.Where(x => x.Id == emp.MailAddressId).Select(x => x).FirstOrDefault();
@@ -263,6 +264,7 @@ namespace CA.Immigration.Startup
                     sf.txtEBIAptBiz.Text = _businessUnit;
                     sf.txtEBIStreetNoBiz.Text = _businessStreetNo;
                     sf.txtEBIStreetNameBiz.Text = _businessStreetName;
+                    sf.txtEBIBusinessCity.Text = _businessCity;
                     sf.canadaProvincesBusiness.cmbProvince.SelectedIndex = _businessProvince;
                     sf.txtEBIBusinessCountry.Text = _businessCountry;
                     sf.txtEBIPostalBusiness.Text = _businessPostalCode;
@@ -578,6 +580,10 @@ namespace CA.Immigration.Startup
             dict.Add("EMP5602_E[0].Page2[0].txtF_Email[0]", _contactEmail);
             dict.Add("EMP5602_E[0].Page2[0].rb_language[0]", "1");
 
+        }
+        public static void buildupDict5593(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
         }
     }
 }

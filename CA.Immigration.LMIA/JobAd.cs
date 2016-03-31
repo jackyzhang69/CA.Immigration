@@ -312,6 +312,8 @@ namespace CA.Immigration.LMIA
             sb.AppendLine("Benefits: " + _benefit+"\n");
             // Business Address
             sb.AppendLine("Business Address: " + _businessAddress+"\n");
+            // Work location
+            sb.AppendLine("Work Location:"+_workLocation+"\n");
             // Company Brief
 
             //Responsibilities

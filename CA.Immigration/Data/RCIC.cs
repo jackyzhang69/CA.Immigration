@@ -119,6 +119,11 @@ namespace CA.Immigration.CICDict
             dict.Add("EMP5602_E[0].Page2[0].No_E[0]","1");
 
         }
+        public static void buildupDict5593(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+
+        }
 
     }
 }

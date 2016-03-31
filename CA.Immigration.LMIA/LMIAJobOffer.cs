@@ -13,7 +13,7 @@ namespace CA.Immigration.LMIA
         private static int? _duration;
         private static int? _durationUnit;
         private static string _durationRationale;
-        private static DateTime _startDate=DateTime.Today;
+        private static DateTime _startDate = DateTime.Today;
         private static bool _languageRequired;
         private static bool _speakingEnglishFrenchRequied;
         private static bool _speakingEnglishRequired;
@@ -47,7 +47,7 @@ namespace CA.Immigration.LMIA
         private static string _notAttemptedReason;
         private static string _OfficialAdNumber;
         private static string _briefBenefit;
-        public  static string _detailedBenefit;
+        public static string _detailedBenefit;
         private static string _briefRationaleOfferingJob;
         private static string _detailedRationaleOfferingJob;
         private static bool _trainCanadian;
@@ -69,7 +69,7 @@ namespace CA.Immigration.LMIA
         private static string _howAndWhenOfferBrief;
         private static string _howAndWhenOfferDetail;
 
-        public static Dictionary<string, string> detailDict = new Dictionary<string, string>();
+        public static Dictionary<string, string> detailDict = new Dictionary<string, string>(); // used for some detailed question answers
         public static void getInput(LMIAForm lf)
         {
             _numOfTFWs = getValue.getIntValue(lf.txtJobOfferNumberofTFW.Text);
@@ -92,9 +92,9 @@ namespace CA.Immigration.LMIA
 
             _otherLanguageRequired = lf.chkLMIAOtherLanguage.Checked == true ? true : false;
             _otherLanguageExplanation = lf.txtLMIAOtherLanguage.Text;
-            if(lf.rdbJobOfferVacationDays.Checked) _vacationDays = getValue.getIntValue(lf.txtJobOfferVacationDays.Text);
+            if (lf.rdbJobOfferVacationDays.Checked) _vacationDays = getValue.getIntValue(lf.txtJobOfferVacationDays.Text);
             else _vacationDays = null;
-            if(lf.rdbJobOfferRemuneration.Checked) _remuneration = getValue.getIntValue(lf.txtJobOfferRemuneraton.Text);
+            if (lf.rdbJobOfferRemuneration.Checked) _remuneration = getValue.getIntValue(lf.txtJobOfferRemuneraton.Text);
             else _remuneration = null;
             _otherBenefit = lf.txtJobOfferOtherBenifits.Text;
             _isSeasonal = lf.chkJobOfferSeasonal.Checked == true ? true : false;
@@ -108,62 +108,62 @@ namespace CA.Immigration.LMIA
             _isJobUnion = lf.chkJobOfferIsUnion.Checked == true ? true : false;
             _unionNameLocation = lf.txtJobOfferUnionName.Text;
             _isUnionConsulted = lf.chkJobOfferUnionConsulted.Checked == true ? true : false;
-            if(_isUnionConsulted == false) _unionNotExplanation = lf.txtJobOfferUnionExpOrOpinion.Text;
-            if(_isUnionConsulted == true) _unionOpinion = lf.txtJobOfferUnionExpOrOpinion.Text;
+            if (_isUnionConsulted == false) _unionNotExplanation = lf.txtJobOfferUnionExpOrOpinion.Text;
+            if (_isUnionConsulted == true) _unionOpinion = lf.txtJobOfferUnionExpOrOpinion.Text;
             _attemptedRecruitCanadian = lf.chkJobOfferRecruitCanadian.Checked == true ? true : false;
-            if(_attemptedRecruitCanadian == false) _notAttemptedReason = lf.txtJobOfferRecruitCanadian.Text;
-            if(_attemptedRecruitCanadian == true) _OfficialAdNumber = lf.txtJobOfferRecruitCanadian.Text;
+            if (_attemptedRecruitCanadian == false) _notAttemptedReason = lf.txtJobOfferRecruitCanadian.Text;
+            if (_attemptedRecruitCanadian == true) _OfficialAdNumber = lf.txtJobOfferRecruitCanadian.Text;
             _briefBenefit = lf.txtJobOfferBenefitBrief.Text;
-            _detailedBenefit =(detailDict!=null && detailDict.ContainsKey("_detailedBenefit")) ? detailDict["_detailedBenefit"] : string.Empty;
+            _detailedBenefit = (detailDict != null && detailDict.ContainsKey("_detailedBenefit")) ? detailDict["_detailedBenefit"] : string.Empty;
             _briefRationaleOfferingJob = lf.txtJobOfferOfferRationale.Text;
             _detailedRationaleOfferingJob = (detailDict != null && detailDict.ContainsKey("_detailedRationaleOfferingJob")) ? detailDict["_detailedRationaleOfferingJob"] : string.Empty;
             _trainCanadian = lf.chkJobOfferTrainCanadian.Checked == true ? true : false;
-            if(_trainCanadian == false) _noTrainReason = lf.txtJobOfferTrainCanadian.Text;
-            if(_trainCanadian == true) _trainPlanBrief = lf.txtJobOfferTrainCanadian.Text;
-            _trainPlanDetails = (detailDict != null && detailDict.ContainsKey("_trainPlanDetails") )? detailDict["_trainPlanDetails"] : string.Empty;
+            if (_trainCanadian == false) _noTrainReason = lf.txtJobOfferTrainCanadian.Text;
+            if (_trainCanadian == true) _trainPlanBrief = lf.txtJobOfferTrainCanadian.Text;
+            _trainPlanDetails = (detailDict != null && detailDict.ContainsKey("_trainPlanDetails")) ? detailDict["_trainPlanDetails"] : string.Empty;
             _willProvideAccomadation = lf.chkJobOfferProvideAccomadation.Checked = true ? true : false;
-            if(_willProvideAccomadation == false) _notProvideButOffer = lf.txtJobOfferProvideAssistant.Text;
+            if (_willProvideAccomadation == false) _notProvideButOffer = lf.txtJobOfferProvideAssistant.Text;
             _provideRent = getValue.getIntValue(lf.txtJobOfferProvideRent.Text);
             _provideUnit = lf.cmbJobOfferProvideRent.SelectedText;
             _accommodationDescription = lf.txtJobOfferAccomadationDescription.Text;
             _accomadationNotApplicalbe = lf.chkJobOfferProvideRentNA.Checked == true ? true : false;
-            if(lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
+            if (lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
             {  //Below are EMP5593 Questions
                 _whoIsFillingBrief = lf.txtJobOfferWhoFillInThisJob.Text;
                 _whoIsFillingDetail = (detailDict != null && detailDict.ContainsKey("_whoIsFillingDetail")) ? detailDict["_whoIsFillingDetail"] : string.Empty;
             }
-            if(lf.lblJobOfferHowDidYouFind.Visible == true)
+            if (lf.lblJobOfferHowDidYouFind.Visible == true)
             {
                 _howDidYouFindBrief = lf.txtJobOfferHowDidYouFind.Text;
                 _howDidYouFindDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouFindDetail")) ? detailDict["_howDidYouFindDetail"] : string.Empty;
             }
-            if(lf.lblJobOfferHowtoQualify.Visible == true)
+            if (lf.lblJobOfferHowtoQualify.Visible == true)
             {
                 _howDidYouDetermineBrief = lf.txtJobOfferHowtoDetermine.Text;
                 _howDidYouDetermineDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouDetermineDetail")) ? detailDict["_howDidYouDetermineDetail"] : string.Empty;
             }
-            if(lf.lblJobOfferWhentoOffer.Visible == true)
+            if (lf.lblJobOfferWhentoOffer.Visible == true)
             {
                 _howAndWhenOfferBrief = lf.txtJobOfferWhentoOffer.Text;
                 _howAndWhenOfferDetail = (detailDict != null && detailDict.ContainsKey("_howAndWhenOfferDetail")) ? detailDict["_howAndWhenOfferDetail"] : string.Empty;
             }
 
         }
-        public static void loadFromDB(LMIAForm lf)
+        public static void loadFromDB()
         {
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
 
                     tblJobOffer jo = cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                    if(jo != null)
+                    if (jo != null)
                     {
                         _numOfTFWs = jo.numOfTFWs;
                         _duration = jo.duration;
                         _durationUnit = jo.durationUnit;
                         _durationRationale = jo.durationRationale;
-                        _startDate = (jo.startDate==null || (DateTime)jo.startDate<DateTime.MinValue || (DateTime)jo.startDate>DateTime.MaxValue) ?DateTime.Today : (DateTime)jo.startDate;
+                        _startDate = (jo.startDate == null || (DateTime)jo.startDate < DateTime.MinValue || (DateTime)jo.startDate > DateTime.MaxValue) ? DateTime.Today : (DateTime)jo.startDate;
                         _languageRequired = jo.languageRequired == true ? true : false;
                         _speakingEnglishFrenchRequied = jo.readingEnglishFrenchRequied == true ? true : false;
                         _speakingEnglishRequired = jo.readingEnglishRequired == true ? true : false;
@@ -229,9 +229,9 @@ namespace CA.Immigration.LMIA
         {
             lf.txtJobOfferNumberofTFW.Text = _numOfTFWs.ToString();
             lf.txtJobOfferExpectedDuration.Text = _duration.ToString();
-            lf.cmbDurationUnit.SelectedIndex = _durationUnit==null? -1 :(int)_durationUnit;
+            lf.cmbDurationUnit.SelectedIndex = _durationUnit == null ? -1 : (int)_durationUnit;
             lf.txtJobOfferDurationRationale.Text = _durationRationale;
-            lf.dtpJobOfferStartDate.Value = (_startDate<DateTime.MinValue || _startDate >DateTime.MaxValue)?DateTime.Today:_startDate;
+            lf.dtpJobOfferStartDate.Value = (_startDate < DateTime.MinValue || _startDate > DateTime.MaxValue) ? DateTime.Today : _startDate;
             lf.chkLanguageRequired.Checked = _languageRequired;
             lf.chkLIMAOralEnglish.Checked = _speakingEnglishFrenchRequied;
             lf.chkLMIAoralEnglish.Checked = _speakingEnglishRequired;
@@ -247,7 +247,7 @@ namespace CA.Immigration.LMIA
 
             lf.chkLMIAOtherLanguage.Checked = _otherLanguageRequired;
             lf.txtLMIAOtherLanguage.Text = _otherLanguageExplanation;
-            if(_vacationDays != null)
+            if (_vacationDays != null)
             {
                 lf.txtJobOfferVacationDays.Text = _vacationDays.ToString();
                 lf.rdbJobOfferVacationDays.Checked = true;
@@ -256,7 +256,7 @@ namespace CA.Immigration.LMIA
                 lf.rdbJobOfferVacationDays.Checked = false;
                 lf.txtJobOfferVacationDays.Text = null;
             }
-            if(_remuneration != null)
+            if (_remuneration != null)
             {
                 lf.txtJobOfferRemuneraton.Text = _remuneration.ToString();
                 lf.rdbJobOfferRemuneration.Checked = true;
@@ -277,39 +277,39 @@ namespace CA.Immigration.LMIA
             lf.chkJobOfferIsUnion.Checked = _isJobUnion;
             lf.txtJobOfferUnionName.Text = _unionNameLocation;
             lf.chkJobOfferUnionConsulted.Checked = _isUnionConsulted;
-            if(_isUnionConsulted == false) lf.txtJobOfferUnionExpOrOpinion.Text = _unionNotExplanation;
-            if(_isUnionConsulted == true) lf.txtJobOfferUnionExpOrOpinion.Text = _unionOpinion;
+            if (_isUnionConsulted == false) lf.txtJobOfferUnionExpOrOpinion.Text = _unionNotExplanation;
+            if (_isUnionConsulted == true) lf.txtJobOfferUnionExpOrOpinion.Text = _unionOpinion;
             lf.chkJobOfferRecruitCanadian.Checked = _attemptedRecruitCanadian;
-            if(_attemptedRecruitCanadian == false) lf.txtJobOfferRecruitCanadian.Text = _notAttemptedReason;
-            if(_attemptedRecruitCanadian == true) lf.txtJobOfferRecruitCanadian.Text = _OfficialAdNumber;
+            if (_attemptedRecruitCanadian == false) lf.txtJobOfferRecruitCanadian.Text = _notAttemptedReason;
+            if (_attemptedRecruitCanadian == true) lf.txtJobOfferRecruitCanadian.Text = _OfficialAdNumber;
             lf.txtJobOfferBenefitBrief.Text = _briefBenefit;
-             _detailedBenefit = (detailDict != null && detailDict.ContainsKey("_detailedBenefit"))?detailDict["_detailedBenefit"]:string.Empty;
+            _detailedBenefit = (detailDict != null && detailDict.ContainsKey("_detailedBenefit")) ? detailDict["_detailedBenefit"] : string.Empty;
             lf.txtJobOfferOfferRationale.Text = _briefRationaleOfferingJob;
             _detailedRationaleOfferingJob = (detailDict != null && detailDict.ContainsKey("_detailedRationaleOfferingJob")) ? detailDict["_detailedRationaleOfferingJob"] : string.Empty;
             lf.chkJobOfferTrainCanadian.Checked = _trainCanadian;
-            if(_trainCanadian == false) lf.txtJobOfferTrainCanadian.Text = _noTrainReason;
-            if(_trainCanadian == true) lf.txtJobOfferTrainCanadian.Text = _trainPlanBrief;
-            _trainPlanDetails = (detailDict != null && detailDict.ContainsKey("_trainPlanDetails")) ? detailDict["_trainPlanDetails"] : string.Empty ;
+            if (_trainCanadian == false) lf.txtJobOfferTrainCanadian.Text = _noTrainReason;
+            if (_trainCanadian == true) lf.txtJobOfferTrainCanadian.Text = _trainPlanBrief;
+            _trainPlanDetails = (detailDict != null && detailDict.ContainsKey("_trainPlanDetails")) ? detailDict["_trainPlanDetails"] : string.Empty;
             lf.chkJobOfferProvideAccomadation.Checked = _willProvideAccomadation;
-            if(_willProvideAccomadation == false) lf.txtJobOfferProvideAssistant.Text = _notProvideButOffer;
+            if (_willProvideAccomadation == false) lf.txtJobOfferProvideAssistant.Text = _notProvideButOffer;
             lf.txtJobOfferProvideRent.Text = _provideRent.ToString();
             lf.cmbJobOfferProvideRent.SelectedText = _provideUnit;
             lf.txtJobOfferAccomadationDescription.Text = _accommodationDescription;
             lf.chkJobOfferProvideRentNA.Checked = _accomadationNotApplicalbe;
-            if(lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
+            if (lf.lblJobOfferWhoCurrentInThePosition.Visible == true)
             {  //Below are EMP5593 Questions
                 lf.txtJobOfferWhoFillInThisJob.Text = _whoIsFillingBrief;
-                _whoIsFillingDetail = (detailDict != null && detailDict.ContainsKey("_whoIsFillingDetail")) ? detailDict["_whoIsFillingDetail"] : string.Empty ; 
+                _whoIsFillingDetail = (detailDict != null && detailDict.ContainsKey("_whoIsFillingDetail")) ? detailDict["_whoIsFillingDetail"] : string.Empty;
             }
             if (lf.lblJobOfferHowDidYouFind.Visible == true)
             {
                 lf.txtJobOfferHowDidYouFind.Text = _howDidYouFindBrief;
-                _howDidYouFindDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouFindDetail")) ? detailDict["_howDidYouFindDetail"] : string.Empty ;
+                _howDidYouFindDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouFindDetail")) ? detailDict["_howDidYouFindDetail"] : string.Empty;
             }
             if (lf.lblJobOfferHowtoQualify.Visible == true)
             {
                 lf.txtJobOfferHowtoDetermine.Text = _howDidYouDetermineBrief;
-                _howDidYouDetermineDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouDetermineDetail")) ? detailDict["_howDidYouDetermineDetail"] : string.Empty ;
+                _howDidYouDetermineDetail = (detailDict != null && detailDict.ContainsKey("_howDidYouDetermineDetail")) ? detailDict["_howDidYouDetermineDetail"] : string.Empty;
             }
             if (lf.lblJobOfferWhentoOffer.Visible == true)
             {
@@ -362,7 +362,7 @@ namespace CA.Immigration.LMIA
             lf.chkJobOfferRecruitCanadian.Checked = true;
             lf.txtJobOfferRecruitCanadian.Text = null;
             lf.txtJobOfferBenefitBrief.Text = null;
-             _detailedBenefit = string.Empty ;
+            _detailedBenefit = string.Empty;
             lf.txtJobOfferOfferRationale.Text = null;
             _detailedRationaleOfferingJob = string.Empty;
             lf.chkJobOfferTrainCanadian.Checked = false;
@@ -375,7 +375,7 @@ namespace CA.Immigration.LMIA
             lf.txtJobOfferAccomadationDescription.Text = null;
             lf.chkJobOfferProvideRentNA.Checked = false;
             lf.txtJobOfferWhoFillInThisJob.Text = null;
-             _whoIsFillingDetail = string.Empty; 
+            _whoIsFillingDetail = string.Empty;
             lf.txtJobOfferHowDidYouFind.Text = null;
 
             lf.txtJobOfferHowtoDetermine.Text = null;
@@ -387,14 +387,14 @@ namespace CA.Immigration.LMIA
         }
         public static void deleteRecord(LMIAForm lf)
         {
-            if(MessageBox.Show("Do you really want to delete the job offer record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Do you really want to delete the job offer record?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                if(GlobalData.CurrentApplicationId != null)
+                if (GlobalData.CurrentApplicationId != null)
                 {
-                    using(CommonDataContext cdc = new CommonDataContext())
+                    using (CommonDataContext cdc = new CommonDataContext())
                     {
                         tblJobOffer jo = cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                        if(jo != null)
+                        if (jo != null)
                         {
                             try
                             {
@@ -403,7 +403,7 @@ namespace CA.Immigration.LMIA
                                 clearForm(lf);
                                 MessageBox.Show("Record has been deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                            catch(Exception)
+                            catch (Exception)
                             {
 
                                 throw;
@@ -417,24 +417,25 @@ namespace CA.Immigration.LMIA
                 }
             }
         }
-        public static void SaveRecord(LMIAForm lf) {
+        public static void SaveRecord(LMIAForm lf)
+        {
 
-            if(GlobalData.CurrentApplicationId != null)
+            if (GlobalData.CurrentApplicationId != null)
             {
-                using(CommonDataContext cdc = new CommonDataContext())
+                using (CommonDataContext cdc = new CommonDataContext())
                 {
                     tblJobOffer jo = cdc.tblJobOffers.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).FirstOrDefault();
-                    if(jo != null)
+                    if (jo != null)
                     {
                         getInput(lf);
-                        jo.numOfTFWs= _numOfTFWs;
-                        jo.duration= _duration;
-                        jo.durationUnit= _durationUnit;
-                        jo.durationRationale= _durationRationale;
-                        jo.startDate= _startDate;
+                        jo.numOfTFWs = _numOfTFWs;
+                        jo.duration = _duration;
+                        jo.durationUnit = _durationUnit;
+                        jo.durationRationale = _durationRationale;
+                        jo.startDate = _startDate;
                         jo.languageRequired = _languageRequired;
                         jo.readingEnglishFrenchRequied = _speakingEnglishFrenchRequied;
-                        jo.readingEnglishRequired= _speakingEnglishRequired;
+                        jo.readingEnglishRequired = _speakingEnglishRequired;
                         jo.readingFrenchRequired = _speakingFrenchRequired;
                         jo.readingEnglishOrFrenchRequired = _speakingEnglishOrFrenchRequired;
                         jo.readingEnglishAndFrenchRequired = _speakingEnglishAndFrenchRequired;
@@ -444,57 +445,57 @@ namespace CA.Immigration.LMIA
                         jo.writingEnglishOrFrenchRequired = _writingEnglishOrFrenchRequired;
                         jo.writingEnglishAndFrenchRequired = _writingEnglishAndFrenchRequired;
                         jo.otherLanguageRequired = _otherLanguageRequired;
-                        jo.otherLanguageExplanation= _otherLanguageExplanation;
-                        jo.vacationDays= _vacationDays;
-                        jo.remuneration= _remuneration;
+                        jo.otherLanguageExplanation = _otherLanguageExplanation;
+                        jo.vacationDays = _vacationDays;
+                        jo.remuneration = _remuneration;
                         jo.otherBenefit = _otherBenefit;
                         jo.isSeasonal = _isSeasonal;
                         jo.isFullyCoveredLMIA = _isFullyCoveredLMIA;
-                        jo.notFullyCoveredReason= _notFullyCoveredReason;
+                        jo.notFullyCoveredReason = _notFullyCoveredReason;
                         jo.isJobLicensed = _isJobLicensed;
-                        jo.licenseAuthority= _licenseAuthority;
+                        jo.licenseAuthority = _licenseAuthority;
                         jo.licenseReady = _licenseReady;
-                        jo.licenseReadyTime= _licenseReadyTime;
-                        jo.licenseReadyUnit= _licenseReadyUnit;
+                        jo.licenseReadyTime = _licenseReadyTime;
+                        jo.licenseReadyUnit = _licenseReadyUnit;
                         jo.isJobUnion = _isJobUnion;
-                        jo.unionNameLocation= _unionNameLocation;
+                        jo.unionNameLocation = _unionNameLocation;
                         jo.isUnionConsulted = _isUnionConsulted;
-                        jo.unionNotExplanation= _unionNotExplanation;
-                        jo.unionOpinion= _unionOpinion;
+                        jo.unionNotExplanation = _unionNotExplanation;
+                        jo.unionOpinion = _unionOpinion;
                         jo.attemptedRecruitCanadian = _attemptedRecruitCanadian;
-                        jo.notAttemptedReason= _notAttemptedReason;
-                        jo.OfficialAdNumber= _OfficialAdNumber;
-                        jo.briefBenefit= _briefBenefit;
-                        jo.detailedBenefit= _detailedBenefit;
-                        jo.briefRationaleOfferingJob= _briefRationaleOfferingJob;
-                        jo.detailedRationaleOfferingJob= _detailedRationaleOfferingJob;
+                        jo.notAttemptedReason = _notAttemptedReason;
+                        jo.OfficialAdNumber = _OfficialAdNumber;
+                        jo.briefBenefit = _briefBenefit;
+                        jo.detailedBenefit = _detailedBenefit;
+                        jo.briefRationaleOfferingJob = _briefRationaleOfferingJob;
+                        jo.detailedRationaleOfferingJob = _detailedRationaleOfferingJob;
                         jo.trainCanadian = _trainCanadian;
-                        jo.noTrainReason= _noTrainReason;
-                        jo.trainPlanBrief= _trainPlanBrief;
-                        jo.trainPlanDetails= _trainPlanDetails;
+                        jo.noTrainReason = _noTrainReason;
+                        jo.trainPlanBrief = _trainPlanBrief;
+                        jo.trainPlanDetails = _trainPlanDetails;
                         jo.willProvideAccomadation = _willProvideAccomadation;
-                        jo.notProvideButOffer= _notProvideButOffer;
-                        jo.provideRent= _provideRent;
-                        jo.provideUnit= _provideUnit;
+                        jo.notProvideButOffer = _notProvideButOffer;
+                        jo.provideRent = _provideRent;
+                        jo.provideUnit = _provideUnit;
                         jo.accommodationDescription = _accommodationDescription;
                         jo.accomadationNotApplicalbe = _accomadationNotApplicalbe;
-                        jo.whoIsFillingBrief= _whoIsFillingBrief;
-                        jo.whoIsFillingDetail= _whoIsFillingDetail;
-                        jo.howDidYouFindBrief= _howDidYouFindBrief;
-                        jo.howDidYouFindDetail= _howDidYouFindDetail;
-                        jo.howDidYouDetermineBrief= _howDidYouDetermineBrief;
-                        jo.howDidYouDetermineDetail= _howDidYouDetermineDetail;
-                        jo.howAndWhenOfferBrief= _howAndWhenOfferBrief;
-                        jo.howAndWhenOfferDetail= _howAndWhenOfferDetail;
+                        jo.whoIsFillingBrief = _whoIsFillingBrief;
+                        jo.whoIsFillingDetail = _whoIsFillingDetail;
+                        jo.howDidYouFindBrief = _howDidYouFindBrief;
+                        jo.howDidYouFindDetail = _howDidYouFindDetail;
+                        jo.howDidYouDetermineBrief = _howDidYouDetermineBrief;
+                        jo.howDidYouDetermineDetail = _howDidYouDetermineDetail;
+                        jo.howAndWhenOfferBrief = _howAndWhenOfferBrief;
+                        jo.howAndWhenOfferDetail = _howAndWhenOfferDetail;
                         try
                         {
                             cdc.SubmitChanges();
-                            MessageBox.Show("Data has been saved.","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                            MessageBox.Show("Data has been saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
-                        catch(Exception exc)
+                        catch (Exception exc)
                         {
 
-                            MessageBox.Show(exc.Message);;
+                            MessageBox.Show(exc.Message); ;
                         }
                     }
                     else MessageBox.Show("There is no job offer record to delete.");
@@ -505,23 +506,25 @@ namespace CA.Immigration.LMIA
             lf.textChanged = false;
 
         }
-        public static void buildupDict5602(ref Dictionary<string, string> dict) {
-
+        public static void buildupDict5602(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
             dict.Add("EMP5602_E[0].Page3[0].txtF_Number_of_foreign_workers[0]", _numOfTFWs.ToString());
-            dict.Add("EMP5602_E[0].Page3[0].txtF_Date_E[0]",String.Format("{0:yyyy-MM-dd}",_startDate.ToString()));
-            dict.Add("EMP5602_E[0].Page3[0].txtF_Employment_Rational[0]",_durationRationale);
-            switch(_durationUnit) {
+            dict.Add("EMP5602_E[0].Page3[0].txtF_Date_E[0]", String.Format("{0:yyyy-MM-dd}", _startDate.ToString()));
+            dict.Add("EMP5602_E[0].Page3[0].txtF_Employment_Rational[0]", _durationRationale);
+            switch (_durationUnit)
+            {
                 case 0:
                     dict.Add("EMP5602_E[0].Page3[0].txtF_Days[0]", _duration.ToString());
                     break;
                 case 1:
-                    dict.Add("EMP5602_E[0].Page3[0].txtF_Weeks[0]",_duration.ToString());
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Weeks[0]", _duration.ToString());
                     break;
                 case 2:
-                    dict.Add("EMP5602_E[0].Page3[0].txtF_Months[0]",_duration.ToString());
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Months[0]", _duration.ToString());
                     break;
                 case 3:
-                    dict.Add("EMP5602_E[0].Page3[0].txtF_Years[0]",_duration.ToString());
+                    dict.Add("EMP5602_E[0].Page3[0].txtF_Years[0]", _duration.ToString());
                     break;
             }
             dict.Add("EMP5602_E[0].Page3[0].chkB_NoLanguage[0]", _languageRequired == true ? "0" : "1");
@@ -536,30 +539,35 @@ namespace CA.Immigration.LMIA
             dict.Add("EMP5602_E[0].Page3[0].chkB_EnglishOrFrench2[0]", _writingEnglishOrFrenchRequired == true ? "1" : "0");
             dict.Add("EMP5602_E[0].Page3[0].chkB_EnglishAndFrench2[0]", _writingEnglishAndFrenchRequired == true ? "1" : "0");
             //P4 Q16
-            dict.Add("EMP5602_E[0].Page4[0].txtF_Days[0]",_vacationDays.ToString());
-            dict.Add("EMP5602_E[0].Page4[0].txtF_Remuneration[0]",_remuneration.ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_Days[0]", _vacationDays.ToString());
+            dict.Add("EMP5602_E[0].Page4[0].txtF_Remuneration[0]", _remuneration.ToString());
             //P4 Q20
-            dict.Add("EMP5602_E[0].Page4[0].txtF_OtherBenefits[0]",_otherBenefit==string.Empty?"N/A":_otherBenefit);
+            dict.Add("EMP5602_E[0].Page4[0].txtF_OtherBenefits[0]", _otherBenefit == string.Empty ? "N/A" : _otherBenefit);
             //P4 Q24 Provide Details
             dict.Add("EMP5602_E[0].Page5[0].txtF_ProvideDetails[0]", _briefBenefit);
             //P4 Q25
             dict.Add("EMP5602_E[0].Page5[0].txtF_ProvideARationale[0]", _briefRationaleOfferingJob);
             //P5 Q26
-            dict.Add("EMP5602_E[0].Page5[0].No_E[0]", _trainCanadian==false?"1":"0");
-            dict.Add("EMP5602_E[0].Page5[0].Yes_E[0]", _trainCanadian==true?"1":"0");
-            dict.Add("EMP5602_E[0].Page5[0].txtF_IfNo19[0]",_noTrainReason);
-            dict.Add("EMP5602_E[0].Page5[0].txtF_IfYes19[0]",_trainPlanBrief);
+            dict.Add("EMP5602_E[0].Page5[0].No_E[0]", _trainCanadian == false ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page5[0].Yes_E[0]", _trainCanadian == true ? "1" : "0");
+            dict.Add("EMP5602_E[0].Page5[0].txtF_IfNo19[0]", _noTrainReason);
+            dict.Add("EMP5602_E[0].Page5[0].txtF_IfYes19[0]", _trainPlanBrief);
             //P5 Q27
             //dict.Add("",);
             //dict.Add("",);
             dict.Add("EMP5602_E[0].Page5[0].txtF_no[0]", _notProvideButOffer);
             dict.Add("EMP5602_E[0].Page5[0].txtF_yes[0]", _provideRent.ToString());
-            dict.Add("EMP5602_E[0].Page5[0].CheckBox1[0]", _provideUnit=="Weeks"?"1":"0");
+            dict.Add("EMP5602_E[0].Page5[0].CheckBox1[0]", _provideUnit == "Weeks" ? "1" : "0");
             dict.Add("EMP5602_E[0].Page5[0].CheckBox1[1]", _provideUnit == "Months" ? "1" : "0");
-            dict.Add("EMP5602_E[0].Page5[0].txtF_accomodation[0]",_accommodationDescription);
+            dict.Add("EMP5602_E[0].Page5[0].txtF_accomodation[0]", _accommodationDescription);
 
 
 
         }
+        public static void buildupDict5593(ref Dictionary<string, string> dict)
+        {
+            loadFromDB();
+        }
     }
 }
+

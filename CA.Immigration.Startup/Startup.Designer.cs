@@ -135,7 +135,7 @@
             this.tabEmployer = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.grpEBI = new System.Windows.Forms.GroupBox();
-            this.btnEBIClear = new System.Windows.Forms.Button();
+            this.btnEBINew = new System.Windows.Forms.Button();
             this.grpEmployerBusinessBrief = new System.Windows.Forms.GroupBox();
             this.txtEBIWebsite = new System.Windows.Forms.TextBox();
             this.txtEBIPhone = new System.Windows.Forms.TextBox();
@@ -208,6 +208,7 @@
             this.txtEBICountryMail = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.chkBizSameAsMail = new System.Windows.Forms.CheckBox();
+            this.btnEMP5593 = new System.Windows.Forms.Button();
             this.MainMenu.SuspendLayout();
             this.tbcFrontPage.SuspendLayout();
             this.tbcMain.SuspendLayout();
@@ -368,6 +369,7 @@
             // spcBase.Panel2
             // 
             this.spcBase.Panel2.AutoScroll = true;
+            this.spcBase.Panel2.Controls.Add(this.btnEMP5593);
             this.spcBase.Panel2.Controls.Add(this.btnEMP5594);
             this.spcBase.Panel2.Controls.Add(this.btnEMP5602);
             this.spcBase.Panel2.Controls.Add(this.btnEMP5575);
@@ -1413,7 +1415,7 @@
             // 
             // grpEBI
             // 
-            this.grpEBI.Controls.Add(this.btnEBIClear);
+            this.grpEBI.Controls.Add(this.btnEBINew);
             this.grpEBI.Controls.Add(this.grpEmployerBusinessBrief);
             this.grpEBI.Controls.Add(this.btnEBIDelete);
             this.grpEBI.Controls.Add(this.BEIcompanyType);
@@ -1440,15 +1442,15 @@
             this.grpEBI.TabStop = false;
             this.grpEBI.Text = "Employer basic information";
             // 
-            // btnEBIClear
+            // btnEBINew
             // 
-            this.btnEBIClear.Location = new System.Drawing.Point(280, 501);
-            this.btnEBIClear.Name = "btnEBIClear";
-            this.btnEBIClear.Size = new System.Drawing.Size(75, 23);
-            this.btnEBIClear.TabIndex = 3;
-            this.btnEBIClear.Text = "Clear";
-            this.btnEBIClear.UseVisualStyleBackColor = true;
-            this.btnEBIClear.Click += new System.EventHandler(this.btnEBIClear_Click);
+            this.btnEBINew.Location = new System.Drawing.Point(280, 501);
+            this.btnEBINew.Name = "btnEBINew";
+            this.btnEBINew.Size = new System.Drawing.Size(75, 23);
+            this.btnEBINew.TabIndex = 3;
+            this.btnEBINew.Text = "New";
+            this.btnEBINew.UseVisualStyleBackColor = true;
+            this.btnEBINew.Click += new System.EventHandler(this.btnEBIClear_Click);
             // 
             // grpEmployerBusinessBrief
             // 
@@ -2216,6 +2218,16 @@
             this.chkBizSameAsMail.UseVisualStyleBackColor = true;
             this.chkBizSameAsMail.CheckedChanged += new System.EventHandler(this.chkBizSameAsMail_CheckedChanged_1);
             // 
+            // btnEMP5593
+            // 
+            this.btnEMP5593.Location = new System.Drawing.Point(10, 100);
+            this.btnEMP5593.Name = "btnEMP5593";
+            this.btnEMP5593.Size = new System.Drawing.Size(75, 23);
+            this.btnEMP5593.TabIndex = 0;
+            this.btnEMP5593.Text = "EMP5593";
+            this.btnEMP5593.UseVisualStyleBackColor = true;
+            this.btnEMP5593.Click += new System.EventHandler(this.btnEMP5593_Click);
+            // 
             // StartupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2386,7 +2398,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button btnEBIClear;
+        private System.Windows.Forms.Button btnEBINew;
         private System.Windows.Forms.Button btnEBIDelete;
         public System.Windows.Forms.ComboBox cmbProgram;
         public System.Windows.Forms.ComboBox cmbCategory;
@@ -2472,6 +2484,7 @@
         public System.Windows.Forms.TextBox txtEBIAptMail;
         public System.Windows.Forms.TextBox txtEBIPOBoxMail;
         public System.Windows.Forms.GroupBox grpEmployerBizAddress;
+        private System.Windows.Forms.Button btnEMP5593;
     }
 }
 
