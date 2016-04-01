@@ -33,7 +33,9 @@ namespace CA.Immigration.LMIA
             //set another employer if in low wage stream
 
             // Media & Job posting
-            Media.InitialDGVMedia(lf);
+            Media.ConstructMedias(lf);
+            JobPost.ConstructJobPost(lf);
+            JobPost.SetJobPosting(lf);
 
             lf.DTPQ8.Format = DateTimePickerFormat.Custom;
             lf.DTPQ8.CustomFormat = "yyyy-MM-dd";
@@ -89,7 +91,7 @@ namespace CA.Immigration.LMIA
                 JobAd.loadFromDB(lf);
                 JobAd.fillForm(lf);
                 // Initialize job offer form
-                LMIAJobOffer.loadFromDB(lf);
+                LMIAJobOffer.loadFromDB();
                 LMIAJobOffer.fillForm(lf);
                 //Setup Media Form
                 Media.LoadNocMainDuties(lf);

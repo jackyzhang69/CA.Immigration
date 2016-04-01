@@ -276,7 +276,7 @@ namespace CA.Immigration.LMIA
         public static void analysisLoadInitialization(LMIAForm lf)
         {
             //get analysis data
-            loadFromDB(lf);
+            loadFromDB();
             fillForm(lf);
             // get average wage based on data loaded from database
             // set up and display qualification indicator

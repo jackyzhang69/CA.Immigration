@@ -10725,7 +10725,7 @@ namespace CA.Immigration.Data
 		
 		private System.Nullable<int> _Status;
 		
-		private System.Nullable<bool> _Qualified;
+		private System.Nullable<bool> _Checked;
 		
 		private string _MediaName;
 		
@@ -10757,8 +10757,8 @@ namespace CA.Immigration.Data
     partial void OnapplicationIDChanged();
     partial void OnStatusChanging(System.Nullable<int> value);
     partial void OnStatusChanged();
-    partial void OnQualifiedChanging(System.Nullable<bool> value);
-    partial void OnQualifiedChanged();
+    partial void OnCheckedChanging(System.Nullable<bool> value);
+    partial void OnCheckedChanged();
     partial void OnMediaNameChanging(string value);
     partial void OnMediaNameChanged();
     partial void OnPostDateChanging(System.Nullable<System.DateTime> value);
@@ -10846,22 +10846,22 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Qualified", DbType="Bit")]
-		public System.Nullable<bool> Qualified
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Checked", DbType="Bit")]
+		public System.Nullable<bool> Checked
 		{
 			get
 			{
-				return this._Qualified;
+				return this._Checked;
 			}
 			set
 			{
-				if ((this._Qualified != value))
+				if ((this._Checked != value))
 				{
-					this.OnQualifiedChanging(value);
+					this.OnCheckedChanging(value);
 					this.SendPropertyChanging();
-					this._Qualified = value;
-					this.SendPropertyChanged("Qualified");
-					this.OnQualifiedChanged();
+					this._Checked = value;
+					this.SendPropertyChanged("Checked");
+					this.OnCheckedChanged();
 				}
 			}
 		}

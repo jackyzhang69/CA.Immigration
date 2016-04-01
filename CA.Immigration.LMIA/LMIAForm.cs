@@ -284,7 +284,8 @@ namespace CA.Immigration.LMIA
             {
                 if(Convert.ToBoolean(dgvMedia.Rows[i].Cells[0].Value)) checkedIndecies.Add(i);
             }
-            Media.SetJobPosting(this, checkedIndecies);
+            JobPost.SetJobPosting(this, checkedIndecies);
+
         }
 
         private void btnUmemploymentRate_Click(object sender, EventArgs e)
