@@ -13,19 +13,18 @@ namespace CA.Immigration.LMIA
     public class JobPost
     {
         public static Dictionary<int, int> jobPostIndex = new Dictionary<int, int>();
-        public int _applicationID { get; set; }
-        public int _Status { get; set; }
-        public int _Qualified { get; set; }
-        public string _MediaName { get; set; }
-        public DateTime _PostDate { get; set; }
-        public DateTime _ExpiryDate { get; set; }
-        public DateTime _InitialPrintDate { get; set; }
-        public DateTime _LastPrintDate { get; set; }
-        public string _Account { get; set; }
-        public string _Password { get; set; }
-        public string _OtherInfo { get; set; }
-        public decimal? _Cost { get; set; }
-        public string _Link { get; set; }
+        public static int _applicationID { get; set; }
+        public static int _Status { get; set; }
+        public static string _MediaName { get; set; }
+        public static DateTime _PostDate { get; set; }
+        public static DateTime _ExpiryDate { get; set; }
+        public static DateTime _InitialPrintDate { get; set; }
+        public static DateTime _LastPrintDate { get; set; }
+        public static string _Account { get; set; }
+        public static string _Password { get; set; }
+        public static string _OtherInfo { get; set; }
+        public static decimal? _Cost { get; set; }
+        public static string _Link { get; set; }
 
         // Media variables
         public static string _mediaName { get; set; }
@@ -133,16 +132,18 @@ namespace CA.Immigration.LMIA
             lf.dgvJobPost.Columns.Add(OtherInfo);
             lf.dgvJobPost.Columns.Add(Cost);
             lf.dgvJobPost.Columns.Add(Link);
-
+            lf.dgvJobPost.AllowUserToAddRows = false;
 
         }
         public static void SetJobPosting(LMIAForm lf)  // for form load construction
         {
+            jobPostIndex.Clear();
             List<tblJobPost> jp = LoadFromDB();
-            if (jp != null)
+
+            if(jp != null)
             {
                 FillDGVJobPost(lf, jp);
-                for (int i = 0; i < jp.Count; i++) jobPostIndex.Add(i, jp[i].Id);
+                for(int i = 0; i < jp.Count; i++) jobPostIndex.Add(i, jp[i].Id);
             }
 
         }
@@ -151,19 +152,18 @@ namespace CA.Immigration.LMIA
             InsertToDB(lf, indecies);
             List<tblJobPost> jp = LoadFromDB();
             jobPostIndex.Clear();
-            if (jp != null)
+            if(jp != null)
             {
                 FillDGVJobPost(lf, jp);
-                for (int i = 0; i < jp.Count; i++) jobPostIndex.Add(i, jp[i].Id);
+                for(int i = 0; i < jp.Count; i++) jobPostIndex.Add(i, jp[i].Id);
             }
 
         }
-
-
-        private static void FillDGVJobPost(LMIAForm lf, List<tblJobPost> jp)
+        public static void FillDGVJobPost(LMIAForm lf, List<tblJobPost> jp)
         {
             int i;
-            for (i = 0; i < jp.Count; i++)
+            lf.dgvJobPost.Rows.Clear();
+            for(i = 0; i < jp.Count; i++)
             {
                 lf.dgvJobPost.Rows.Add();
                 lf.dgvJobPost.Rows[i].Cells[0].Value = jp[i].Checked;
@@ -183,10 +183,10 @@ namespace CA.Immigration.LMIA
         }
         public static void InsertToDB(LMIAForm lf, List<int> indecies)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 List<tblJobPost> jp = new List<tblJobPost>();
-                foreach (int index in indecies)
+                foreach(int index in indecies)
                 {
                     _mediaName = (string)lf.dgvMedia.Rows[index].Cells[1].Value;
                     _MediaCost = (decimal)lf.dgvMedia.Rows[index].Cells[4].Value;
@@ -198,14 +198,14 @@ namespace CA.Immigration.LMIA
                     };
                     jp.Add(tjp);
                 }
-                for (int i = 0; i < jp.Count; i++) cdc.tblJobPosts.InsertOnSubmit(jp[i]);
+                for(int i = 0; i < jp.Count; i++) cdc.tblJobPosts.InsertOnSubmit(jp[i]);
 
                 try
                 {
                     cdc.SubmitChanges();
-                    MessageBox.Show("Job posts have been created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //  MessageBox.Show("Job posts have been created", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -214,12 +214,87 @@ namespace CA.Immigration.LMIA
         }
         public static List<tblJobPost> LoadFromDB()
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 List<tblJobPost> jp = cdc.tblJobPosts.Where(x => x.applicationID == GlobalData.CurrentApplicationId).Select(x => x).ToList();
                 return jp;
             }
         }
 
+        public static void DeleteJobPosts(List<int> idList)
+        {
+            using(CommonDataContext cdc = new CommonDataContext())
+            {
+                for(int i = 0; i < idList.Count; i++)
+                {
+                    tblJobPost jp = cdc.tblJobPosts.Where(x => x.Id == idList[i]).Select(x => x).FirstOrDefault();
+                    if(jp != null) cdc.tblJobPosts.DeleteOnSubmit(jp);
+                }
+                try
+                {
+
+                    if(MessageBox.Show("Are you sure to delete selected Job Post?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes) cdc.SubmitChanges();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+        }
+
+        public static void GetInput(LMIAForm lf)
+        {
+            for(int i = 0; i < lf.dgvJobPost.Rows.Count; i++)
+            {
+                _Status = lf.dgvJobPost.Rows[i].Cells[1].Value==null?-1: (int)lf.dgvJobPost.Rows[i].Cells[1].Value;
+                _MediaName = (string)lf.dgvJobPost.Rows[i].Cells[2].Value;
+                //_PostDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[3].Value;
+                //_ExpiryDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[4].Value;
+                //_InitialPrintDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[5].Value;
+                //_LastPrintDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[6].Value;
+                _Account = (string)lf.dgvJobPost.Rows[i].Cells[8].Value;
+                _Password = (string)lf.dgvJobPost.Rows[i].Cells[9].Value;
+                _OtherInfo = (string)lf.dgvJobPost.Rows[i].Cells[10].Value;
+                _Cost = (decimal)lf.dgvJobPost.Rows[i].Cells[11].Value;
+                _Link = (string)lf.dgvJobPost.Rows[i].Cells[12].Value;
+
+            }
+
+        }
+
+        internal static void UpdateJobPost(LMIAForm lf)
+        {
+            GetInput(lf);
+            using(CommonDataContext cdc = new CommonDataContext())
+            {
+                for(int i = 0; i < lf.dgvJobPost.Rows.Count; i++)
+                {
+                    tblJobPost jp = cdc.tblJobPosts.Where(x => x.Id == jobPostIndex[i]).Select(x => x).FirstOrDefault();
+
+                    jp.Status = _Status;
+                    jp.MediaName = _MediaName;
+                    //jp.PostDate = _PostDate;
+                    //jp.ExpiryDate = _ExpiryDate;
+                    //jp.InitialPrintDate = _InitialPrintDate;
+                    //jp.LastPrintDate = _LastPrintDate;
+                    jp.Account = _Account;
+                    jp.Password = _Password;
+                    jp.OtherInfo = _OtherInfo;
+                    jp.Cost = _Cost;
+                    jp.Link = _Link;
+                }
+                try
+                {
+                    cdc.SubmitChanges();
+                    MessageBox.Show("Data has been updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
     }
 }

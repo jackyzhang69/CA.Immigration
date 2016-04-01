@@ -347,6 +347,24 @@ namespace CA.Immigration.LMIA
 
             }
         }
+
+        private void btnJobPostDelete_Click(object sender, EventArgs e)
+        {
+            List<int> idList = new List<int>();
+            for(int i = 0; i < dgvJobPost.Rows.Count; i++)
+            {
+                if(Convert.ToBoolean(dgvJobPost.Rows[i].Cells[0].Value)) idList.Add(JobPost.jobPostIndex[i]);
+            }
+            JobPost.DeleteJobPosts(idList);
+            dgvJobPost.Rows.Clear();
+            List<tblJobPost> jpl = JobPost.LoadFromDB();
+            JobPost.FillDGVJobPost(this,jpl);
+        }
+
+        private void btnJobPostSave_Click(object sender, EventArgs e)
+        {
+            JobPost.UpdateJobPost(this);
+        }
     }
 }
 
