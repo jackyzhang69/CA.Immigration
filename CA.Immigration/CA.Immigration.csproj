@@ -113,7 +113,7 @@
       <DependentUpon>Top100.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\Common.cs" />
-    <Compile Include="Utility\DateDiff.cs" />
+    <Compile Include="Utility\DateOps.cs" />
     <Compile Include="Utility\StringOps.cs" />
   </ItemGroup>
   <ItemGroup>

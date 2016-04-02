@@ -16,10 +16,10 @@ namespace CA.Immigration.LMIA
         public static int _applicationID { get; set; }
         public static int _Status { get; set; }
         public static string _MediaName { get; set; }
-        public static DateTime _PostDate { get; set; }
-        public static DateTime _ExpiryDate { get; set; }
-        public static DateTime _InitialPrintDate { get; set; }
-        public static DateTime _LastPrintDate { get; set; }
+        public static DateTime? _PostDate { get; set; }
+        public static DateTime? _ExpiryDate { get; set; }
+        public static DateTime? _InitialPrintDate { get; set; }
+        public static DateTime? _LastPrintDate { get; set; }
         public static string _Account { get; set; }
         public static string _Password { get; set; }
         public static string _OtherInfo { get; set; }
@@ -68,21 +68,25 @@ namespace CA.Immigration.LMIA
             MediaName.Width = 150;
             //PostDate 
             PostDate.HeaderText = "PostDate";
+            PostDate.DefaultCellStyle.Format="yyyy/MM/dd";
             PostDate.DataPropertyName = "PostDate";
             PostDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
             PostDate.Width = 150;
             //ExpiryDate 
             ExpiryDate.HeaderText = "ExpiryDate";
+            ExpiryDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             ExpiryDate.DataPropertyName = "ExpiryDate";
             ExpiryDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
             ExpiryDate.Width = 150;
             //InitialPrintDate 
             InitialPrintDate.HeaderText = "InitialPrintDate";
+            InitialPrintDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             InitialPrintDate.DataPropertyName = "InitialPrintDate";
             InitialPrintDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
             InitialPrintDate.Width = 150;
             //LastPrintDate 
             LastPrintDate.HeaderText = "LastPrintDate";
+            LastPrintDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             LastPrintDate.DataPropertyName = "LastPrintDate";
             LastPrintDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
             LastPrintDate.Width = 150;
@@ -249,10 +253,10 @@ namespace CA.Immigration.LMIA
             {
                 _Status = lf.dgvJobPost.Rows[i].Cells[1].Value==null?-1: (int)lf.dgvJobPost.Rows[i].Cells[1].Value;
                 _MediaName = (string)lf.dgvJobPost.Rows[i].Cells[2].Value;
-                //_PostDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[3].Value;
-                //_ExpiryDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[4].Value;
-                //_InitialPrintDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[5].Value;
-                //_LastPrintDate = (DateTime)lf.dgvJobPost.Rows[i].Cells[6].Value;
+                _PostDate=  DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[3].Value);
+                _ExpiryDate = DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[4].Value);
+                _InitialPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[5].Value);
+                _LastPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[6].Value);
                 _Account = (string)lf.dgvJobPost.Rows[i].Cells[8].Value;
                 _Password = (string)lf.dgvJobPost.Rows[i].Cells[9].Value;
                 _OtherInfo = (string)lf.dgvJobPost.Rows[i].Cells[10].Value;
@@ -262,6 +266,8 @@ namespace CA.Immigration.LMIA
             }
 
         }
+
+        
 
         internal static void UpdateJobPost(LMIAForm lf)
         {
@@ -274,10 +280,10 @@ namespace CA.Immigration.LMIA
 
                     jp.Status = _Status;
                     jp.MediaName = _MediaName;
-                    //jp.PostDate = _PostDate;
-                    //jp.ExpiryDate = _ExpiryDate;
-                    //jp.InitialPrintDate = _InitialPrintDate;
-                    //jp.LastPrintDate = _LastPrintDate;
+                    jp.PostDate = _PostDate;
+                    jp.ExpiryDate = _ExpiryDate;
+                    jp.InitialPrintDate = _InitialPrintDate;
+                    jp.LastPrintDate = _LastPrintDate;
                     jp.Account = _Account;
                     jp.Password = _Password;
                     jp.OtherInfo = _OtherInfo;
@@ -295,6 +301,17 @@ namespace CA.Immigration.LMIA
                 }
             }
 
+        }
+
+        public static void getProvenDays(LMIAForm lf, int columnIndex, int rowIndex)
+        {
+
+            if (DateOps.isValidDate(lf.dgvJobPost.Rows[rowIndex].Cells[5].Value) && DateOps.isValidDate(lf.dgvJobPost.Rows[rowIndex].Cells[6].Value))
+            {
+                _InitialPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[5].Value);
+                _LastPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[6].Value);
+                lf.dgvJobPost.Rows[rowIndex].Cells[7].Value = _LastPrintDate-_InitialPrintDate;
+            }
         }
     }
 }

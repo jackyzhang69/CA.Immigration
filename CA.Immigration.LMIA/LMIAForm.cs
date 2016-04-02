@@ -365,6 +365,14 @@ namespace CA.Immigration.LMIA
         {
             JobPost.UpdateJobPost(this);
         }
+
+        private void dgvJobPost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            List<int> clmn = new List<int> {3,4,5,6 };
+            if (clmn.Contains(e.ColumnIndex)) {
+                JobPost.getProvenDays(this, e.ColumnIndex, e.RowIndex);
+            }
+        }
     }
 }
 

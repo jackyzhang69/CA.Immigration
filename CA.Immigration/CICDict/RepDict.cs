@@ -30,7 +30,7 @@ namespace CA.Immigration
 
             DateTime dob = (DateTime)person.DOB;
 
-            int PAage = DateDiff.age(dob);
+            int PAage = DateOps.age(dob);
 
             Dictionary<string, string> dict = new Dictionary<string, string>()
             {
