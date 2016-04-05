@@ -409,10 +409,23 @@ namespace CA.Immigration.LMIA
                 };
                 try
                 {
+                    // Create database
                     cdc.tblLMIAApplications.InsertOnSubmit(la);
                     cdc.SubmitChanges();
                     GlobalData.CurrentApplicationId = la.Id;
                     lf.btnAnalysisInsert.Visible = false;
+                    // Create application dictionary
+                    App.Folders.ApplicationSubFolder = @"\" + String.Format("{0:yyMMdd}", DateTime.Today) + " " + GlobalData.CurrentPersonId.getEmployeeFromId() + "@" +
+                                               StringOps.sep(GlobalData.CurrentEmployerId.getEmployerFromId(), ' ')[0];
+                    try
+                    {
+                        System.IO.Directory.CreateDirectory(App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
                     msg.Append("Application has been created. Id= " + la.Id + "\n");
                 }
                 catch(Exception exc)

@@ -97,6 +97,7 @@ namespace CA.Immigration.LMIA
             lf.dgvMedia.Columns.Add(Pro);
             lf.dgvMedia.Columns.Add(Con);
             lf.dgvMedia.Columns.Add(Link);
+            lf.dgvMedia.AllowUserToAddRows = false;
 
             List<tblMedia> tm = new List<tblMedia>();
 
@@ -120,6 +121,11 @@ namespace CA.Immigration.LMIA
                     i++;
 
                 }
+            }
+            // disable column sort 
+            foreach(DataGridViewColumn column in lf.dgvMedia.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
         }
  

@@ -10723,9 +10723,13 @@ namespace CA.Immigration.Data
 		
 		private System.Nullable<int> _applicationID;
 		
-		private System.Nullable<int> _Status;
+		private System.Nullable<int> _mediaId;
 		
 		private System.Nullable<bool> _Checked;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<bool> _Qualified;
 		
 		private string _MediaName;
 		
@@ -10755,10 +10759,14 @@ namespace CA.Immigration.Data
     partial void OnIdChanged();
     partial void OnapplicationIDChanging(System.Nullable<int> value);
     partial void OnapplicationIDChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
-    partial void OnStatusChanged();
+    partial void OnmediaIdChanging(System.Nullable<int> value);
+    partial void OnmediaIdChanged();
     partial void OnCheckedChanging(System.Nullable<bool> value);
     partial void OnCheckedChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    partial void OnQualifiedChanging(System.Nullable<bool> value);
+    partial void OnQualifiedChanged();
     partial void OnMediaNameChanging(string value);
     partial void OnMediaNameChanged();
     partial void OnPostDateChanging(System.Nullable<System.DateTime> value);
@@ -10826,22 +10834,22 @@ namespace CA.Immigration.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mediaId", DbType="Int")]
+		public System.Nullable<int> mediaId
 		{
 			get
 			{
-				return this._Status;
+				return this._mediaId;
 			}
 			set
 			{
-				if ((this._Status != value))
+				if ((this._mediaId != value))
 				{
-					this.OnStatusChanging(value);
+					this.OnmediaIdChanging(value);
 					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
+					this._mediaId = value;
+					this.SendPropertyChanged("mediaId");
+					this.OnmediaIdChanged();
 				}
 			}
 		}
@@ -10862,6 +10870,46 @@ namespace CA.Immigration.Data
 					this._Checked = value;
 					this.SendPropertyChanged("Checked");
 					this.OnCheckedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Qualified", DbType="Bit")]
+		public System.Nullable<bool> Qualified
+		{
+			get
+			{
+				return this._Qualified;
+			}
+			set
+			{
+				if ((this._Qualified != value))
+				{
+					this.OnQualifiedChanging(value);
+					this.SendPropertyChanging();
+					this._Qualified = value;
+					this.SendPropertyChanged("Qualified");
+					this.OnQualifiedChanged();
 				}
 			}
 		}

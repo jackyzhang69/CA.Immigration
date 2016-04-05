@@ -47,6 +47,7 @@ namespace CA.Immigration.LMIA
         {
             if(GlobalData.CurrentApplicationId != null)
             {
+                DateTime ? createDate;
                 GlobalData.CurrentApplicationIdReadOnly = true;
                 GlobalData.CurrentEmployerIdReadOnly = true;
                 GlobalData.CurrentPersonIdReadOnly = true;
@@ -55,6 +56,7 @@ namespace CA.Immigration.LMIA
                 {
 
                     GlobalData.CurrentEmployerId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployerId).FirstOrDefault();
+                    createDate=cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.CreatedDate).FirstOrDefault();
                     GlobalData.CurrentPersonId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.EmployeeId).FirstOrDefault();
                     GlobalData.CurrentRCICId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.RCICId).FirstOrDefault();
                     GlobalData.CurrentProgramId = cdc.tblLMIAApplications.Where(x => x.Id == GlobalData.CurrentApplicationId).Select(x => x.ProgramType).FirstOrDefault();
@@ -97,13 +99,62 @@ namespace CA.Immigration.LMIA
                 Media.LoadNocMainDuties(lf);
                 lf.btnMediaSave.Visible = false;
 
+                // visible or invisible setup based on program and stream
+                setupUI(lf);
+                App.Folders.ApplicationSubFolder = @"\" +String.Format("{0:yyMMdd}", createDate)+" "+GlobalData.CurrentPersonId.getEmployeeFromId() + "@" +
+                                                StringOps.sep(GlobalData.CurrentEmployerId.getEmployerFromId(),' ')[0];
+                try
+                {
+                    if (!System.IO.Directory.Exists(App.Folders.DefaultLMIAFolder+App.Folders.ApplicationSubFolder))
+                        System.IO.Directory.CreateDirectory(App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
             else lf.btnAnalysisInsert.Visible = true;
         }
+
+        public static void setupUI(LMIAForm lf)
+        {
+            switch (GlobalData.CurrentProgramId)
+            {
+                case 1:  //PR only
+                case 2:  //PR and WP
+                    toggleFields(lf, true);
+                    break;
+                case 3:  //WP only
+                    toggleFields(lf, false);
+                    break;
+                default:
+                    break;
+
+            }
+        }
+
+        private static void toggleFields(LMIAForm lf, bool status)
+        {
+            lf.lblJobOfferWhoCurrentInThePosition.Visible = status;
+            lf.txtJobOfferWhoFillInThisJob.Visible = status;
+            lf.btnJobOfferWhoFillInTheJob.Visible = status;
+            lf.lblJobOfferHowDidYouFind.Visible = status;
+            lf.txtJobOfferHowDidYouFind.Visible = status;
+            lf.btnJobOfferHowDidYouFind.Visible = status;
+            lf.lblJobOfferHowtoQualify.Visible = status;
+            lf.txtJobOfferHowtoDetermine.Visible = status;
+            lf.btnJobOfferHowtoDetermine.Visible = status;
+            lf.lblJobOfferWhentoOffer.Visible = status;
+            lf.txtJobOfferWhentoOffer.Visible = status;
+            lf.btnJobOfferWhentoOffer.Visible = status;
+        }
+
+
         public static void showMainStatus(LMIAForm lf)
         {
             string emp= GlobalData.CurrentEmployerId.getEmployerFromId();
-            string empe = GlobalData.CurrentPersonId == null ? null : ((int)GlobalData.CurrentPersonId).getEmployeeFromId(); 
+            string empe = GlobalData.CurrentPersonId == null ? null : (GlobalData.CurrentPersonId).getEmployeeFromId(); 
             string rcic = GlobalData.CurrentRCICId == null ? null : ((int)GlobalData.CurrentRCICId).getRCICFromId();
             string prog=GlobalData.CurrentProgramId == null ? null : ((int)GlobalData.CurrentProgramId).getProgramFromId();
             string strm= GlobalData.CurrentStreamId == null ? null : Definition.LMIAStream[(int)GlobalData.CurrentStreamId]; 

@@ -6,30 +6,14 @@ using System.Threading.Tasks;
 
 namespace CA.Immigration.App
 {
-    public class App
+    public static class Folders
     {
-        public int ApplicationID;
-        public DateTime CreationDate { get; set; }
-        public DateTime SubmissionDate { get; set; }
-        public string ApplicationNumber { get; set; }
+        public static string DefaultFormFolder = @"C:\Users\jacky\Google Drive\Forms";
+        public static string DefaultLMIAFolder = @"C:\Users\jacky\Google Drive\5. LMIA";
+        public static string ApplicationSubFolder;
+        public static string ApplicationFullFolder = DefaultLMIAFolder + ApplicationSubFolder;
 
     }
-
-    public class Followup
-    {
-        public int ApplicationID { get; set; }
-        public string Requst { get; set; }
-        public DateTime RequestDate { get; set; }
-        public string Response { get; set; }
-        public DateTime ResponseDate { get; set; }
-    }
-
-    public class LMIAApplication : App
-    {
-        public int  EmployerID { get; set; }
-        public int EmployeeID { get; set; }
-    }
-
 
 
 }

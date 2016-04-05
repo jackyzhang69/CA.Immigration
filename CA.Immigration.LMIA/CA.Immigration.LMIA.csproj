@@ -73,7 +73,6 @@
       <DependentUpon>JobPosition.cs</DependentUpon>
     </Compile>
     <Compile Include="JobPost.cs" />
-    <Compile Include="JobPosting.cs" />
     <Compile Include="LMFactors.cs">
       <SubType>UserControl</SubType>
     </Compile>

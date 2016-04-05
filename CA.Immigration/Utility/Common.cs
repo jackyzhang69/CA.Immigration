@@ -160,7 +160,7 @@ namespace CA.Immigration.Utility
             }
 
         }
-        public static string getEmployeeFromId(this int id)
+        public static string getEmployeeFromId(this int? id)
         {
             if(id==0)   //Define Id=0 as no employee in LMIA application
             {

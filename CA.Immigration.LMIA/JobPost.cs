@@ -25,6 +25,7 @@ namespace CA.Immigration.LMIA
         public static string _OtherInfo { get; set; }
         public static decimal? _Cost { get; set; }
         public static string _Link { get; set; }
+        public static int _days { get; set; }
 
         // Media variables
         public static string _mediaName { get; set; }
@@ -68,33 +69,34 @@ namespace CA.Immigration.LMIA
             MediaName.Width = 150;
             //PostDate 
             PostDate.HeaderText = "PostDate";
-            PostDate.DefaultCellStyle.Format="yyyy/MM/dd";
+            PostDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             PostDate.DataPropertyName = "PostDate";
             PostDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            PostDate.Width = 150;
+            PostDate.Width = 80;
             //ExpiryDate 
             ExpiryDate.HeaderText = "ExpiryDate";
             ExpiryDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             ExpiryDate.DataPropertyName = "ExpiryDate";
             ExpiryDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            ExpiryDate.Width = 150;
+            ExpiryDate.Width = 80;
             //InitialPrintDate 
             InitialPrintDate.HeaderText = "InitialPrintDate";
             InitialPrintDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             InitialPrintDate.DataPropertyName = "InitialPrintDate";
             InitialPrintDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            InitialPrintDate.Width = 150;
+            InitialPrintDate.Width = 80;
             //LastPrintDate 
             LastPrintDate.HeaderText = "LastPrintDate";
             LastPrintDate.DefaultCellStyle.Format = "yyyy/MM/dd";
             LastPrintDate.DataPropertyName = "LastPrintDate";
             LastPrintDate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            LastPrintDate.Width = 150;
+            LastPrintDate.Width = 80;
             //ProvenDays 
-            ProvenDays.HeaderText = "ProvenDays";
+            ProvenDays.HeaderText = "Days";
             ProvenDays.DataPropertyName = "ProvenDays";
+            ProvenDays.DefaultCellStyle.Format = "#";
             ProvenDays.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            ProvenDays.Width = 150;
+            ProvenDays.Width = 40;
             //Account 
             Account.HeaderText = "Account";
             Account.DataPropertyName = "Account";
@@ -115,7 +117,7 @@ namespace CA.Immigration.LMIA
             Cost.DataPropertyName = "txtCost";
             Cost.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.HotTrack;
             Cost.DefaultCellStyle.Format = "N2";
-            Cost.Width = 60;
+            Cost.Width = 50;
             //Link
             Link.HeaderText = "Link";
             Link.DataPropertyName = "lnkLink";
@@ -137,6 +139,14 @@ namespace CA.Immigration.LMIA
             lf.dgvJobPost.Columns.Add(Cost);
             lf.dgvJobPost.Columns.Add(Link);
             lf.dgvJobPost.AllowUserToAddRows = false;
+            // disable column sort 
+            foreach(DataGridViewColumn column in lf.dgvJobPost.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+            //lf.dgvJobPost.AutoSizeRowsMode =DataGridVieutoSizeRowsMode.AllCells;
+            lf.dgvJobPost.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
         }
         public static void SetJobPosting(LMIAForm lf)  // for form load construction
@@ -173,16 +183,22 @@ namespace CA.Immigration.LMIA
                 lf.dgvJobPost.Rows[i].Cells[0].Value = jp[i].Checked;
                 lf.dgvJobPost.Rows[i].Cells[1].Value = jp[i].Status;
                 lf.dgvJobPost.Rows[i].Cells[2].Value = jp[i].MediaName;
+                setRowAndColumn(lf, 2, i);
                 lf.dgvJobPost.Rows[i].Cells[3].Value = jp[i].PostDate;
                 lf.dgvJobPost.Rows[i].Cells[4].Value = jp[i].ExpiryDate;
                 lf.dgvJobPost.Rows[i].Cells[5].Value = jp[i].InitialPrintDate;
                 lf.dgvJobPost.Rows[i].Cells[6].Value = jp[i].LastPrintDate;
-                lf.dgvJobPost.Rows[i].Cells[7].Value = jp[i].LastPrintDate - jp[i].InitialPrintDate;
+                lf.dgvJobPost.Rows[i].Cells[7].Value = (jp[i].LastPrintDate==null || jp[i].InitialPrintDate==null) ?0:((DateTime)jp[i].LastPrintDate - (DateTime)jp[i].InitialPrintDate).Days;
                 lf.dgvJobPost.Rows[i].Cells[8].Value = jp[i].Account;
+                setRowAndColumn(lf, 8, i);
                 lf.dgvJobPost.Rows[i].Cells[9].Value = jp[i].Password;
+                setRowAndColumn(lf, 9, i);
                 lf.dgvJobPost.Rows[i].Cells[10].Value = jp[i].OtherInfo;
+                setRowAndColumn(lf, 10, i);
                 lf.dgvJobPost.Rows[i].Cells[11].Value = jp[i].Cost;
                 lf.dgvJobPost.Rows[i].Cells[12].Value = jp[i].Link;
+                setRowAndColumn(lf, 12, i);
+                // lf.dgvJobPost.AutoResizeRow(i);
             }
         }
         public static void InsertToDB(LMIAForm lf, List<int> indecies)
@@ -197,6 +213,7 @@ namespace CA.Immigration.LMIA
                     tblJobPost tjp = new tblJobPost
                     {
                         applicationID = GlobalData.CurrentApplicationId,
+                        mediaId=Media.mediaIndex[index],
                         MediaName = _mediaName,
                         Cost = _MediaCost
                     };
@@ -224,7 +241,6 @@ namespace CA.Immigration.LMIA
                 return jp;
             }
         }
-
         public static void DeleteJobPosts(List<int> idList)
         {
             using(CommonDataContext cdc = new CommonDataContext())
@@ -246,38 +262,30 @@ namespace CA.Immigration.LMIA
 
             }
         }
-
-        public static void GetInput(LMIAForm lf)
+        public static void GetInput(LMIAForm lf, int rowIndex)
         {
-            for(int i = 0; i < lf.dgvJobPost.Rows.Count; i++)
-            {
-                _Status = lf.dgvJobPost.Rows[i].Cells[1].Value==null?-1: (int)lf.dgvJobPost.Rows[i].Cells[1].Value;
-                _MediaName = (string)lf.dgvJobPost.Rows[i].Cells[2].Value;
-                _PostDate=  DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[3].Value);
-                _ExpiryDate = DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[4].Value);
-                _InitialPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[5].Value);
-                _LastPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[i].Cells[6].Value);
-                _Account = (string)lf.dgvJobPost.Rows[i].Cells[8].Value;
-                _Password = (string)lf.dgvJobPost.Rows[i].Cells[9].Value;
-                _OtherInfo = (string)lf.dgvJobPost.Rows[i].Cells[10].Value;
-                _Cost = (decimal)lf.dgvJobPost.Rows[i].Cells[11].Value;
-                _Link = (string)lf.dgvJobPost.Rows[i].Cells[12].Value;
-
-            }
+            _Status = lf.dgvJobPost.Rows[rowIndex].Cells[1].Value == null ? -1 : (int)lf.dgvJobPost.Rows[rowIndex].Cells[1].Value;
+            _MediaName = (string)lf.dgvJobPost.Rows[rowIndex].Cells[2].Value;
+            _PostDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[3].Value);
+            _ExpiryDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[4].Value);
+            _InitialPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[5].Value);
+            _LastPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[6].Value);
+            _Account = (string)lf.dgvJobPost.Rows[rowIndex].Cells[8].Value;
+            _Password = (string)lf.dgvJobPost.Rows[rowIndex].Cells[9].Value;
+            _OtherInfo = (string)lf.dgvJobPost.Rows[rowIndex].Cells[10].Value;
+            _Cost = (decimal)lf.dgvJobPost.Rows[rowIndex].Cells[11].Value;
+            _Link = (string)lf.dgvJobPost.Rows[rowIndex].Cells[12].Value;
 
         }
-
-        
-
         internal static void UpdateJobPost(LMIAForm lf)
         {
-            GetInput(lf);
+
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 for(int i = 0; i < lf.dgvJobPost.Rows.Count; i++)
                 {
+                    GetInput(lf, i);
                     tblJobPost jp = cdc.tblJobPosts.Where(x => x.Id == jobPostIndex[i]).Select(x => x).FirstOrDefault();
-
                     jp.Status = _Status;
                     jp.MediaName = _MediaName;
                     jp.PostDate = _PostDate;
@@ -302,15 +310,32 @@ namespace CA.Immigration.LMIA
             }
 
         }
+        internal static void setRowAndColumn(LMIAForm lf, int columnIndex, int rowIndex)
+        {
+            int maxRowHeight = 0;
+            for(int i = 0; i < lf.dgvJobPost.Columns.Count; i++)
+            {
+                if(lf.dgvJobPost.Rows[rowIndex].Cells[i].Value != null)
+                {
+                    string cellValue = lf.dgvJobPost.Rows[rowIndex].Cells[i].Value.ToString();
+
+                    int rowHeight = (int)(cellValue.Length * 10 / lf.dgvJobPost.Columns[columnIndex].Width);
+                    rowHeight =  rowHeight * 10+22; //default row height is 22
+                    maxRowHeight = rowHeight > maxRowHeight ? rowHeight : maxRowHeight;
+
+                }
+            }
+            lf.dgvJobPost.Rows[rowIndex].Height = maxRowHeight > 65536 ? 65536 : maxRowHeight;
+        }
 
         public static void getProvenDays(LMIAForm lf, int columnIndex, int rowIndex)
         {
 
-            if (DateOps.isValidDate(lf.dgvJobPost.Rows[rowIndex].Cells[5].Value) && DateOps.isValidDate(lf.dgvJobPost.Rows[rowIndex].Cells[6].Value))
+            if(DateOps.isValidDate(lf.dgvJobPost.Rows[rowIndex].Cells[5].Value) && DateOps.isValidDate(lf.dgvJobPost.Rows[rowIndex].Cells[6].Value))
             {
                 _InitialPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[5].Value);
                 _LastPrintDate = DateOps.getDate(lf.dgvJobPost.Rows[rowIndex].Cells[6].Value);
-                lf.dgvJobPost.Rows[rowIndex].Cells[7].Value = _LastPrintDate-_InitialPrintDate;
+                lf.dgvJobPost.Rows[rowIndex].Cells[7].Value =(_LastPrintDate==null || _InitialPrintDate==null) ?0:((DateTime)_LastPrintDate - (DateTime)_InitialPrintDate).Days;
             }
         }
     }

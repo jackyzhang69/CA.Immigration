@@ -486,7 +486,8 @@ theWitness nvarchar(20)
 create table tblJobPost
 (
 Id int not null primary key identity(1,1),
-applicationID int, 
+applicationID int,
+mediaId int, 
 [Status] int,
 Qualified bit,
 MediaName varchar(150),

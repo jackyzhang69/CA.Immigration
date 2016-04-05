@@ -220,6 +220,7 @@ namespace CA.Immigration.LMIA
         private void cmbLMIAProgram_SelectionChangeCommitted(object sender, EventArgs e)
         {
             GlobalData.CurrentProgramId = cmbLMIAProgram.SelectedIndex + 1;
+            LMIAFormOps.setupUI(this);
             LMIAFormOps.showMainStatus(this);
         }
 
@@ -270,11 +271,6 @@ namespace CA.Immigration.LMIA
         {
             btnMediaSave.Visible = true;
             // update media data
-        }
-
-        private void dgvMedia_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // do something
         }
 
         private void btnGoForPosting_Click(object sender, EventArgs e)
@@ -368,10 +364,18 @@ namespace CA.Immigration.LMIA
 
         private void dgvJobPost_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            //calculate the proven days
             List<int> clmn = new List<int> {3,4,5,6 };
             if (clmn.Contains(e.ColumnIndex)) {
                 JobPost.getProvenDays(this, e.ColumnIndex, e.RowIndex);
             }
+            //calculate the column width and row hight if needed
+            JobPost.setRowAndColumn(this, e.ColumnIndex,e.RowIndex);
+        }
+
+        private void btnOpenHomeDirectory_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(App.Folders.DefaultLMIAFolder+App.Folders.ApplicationSubFolder);
         }
     }
 }

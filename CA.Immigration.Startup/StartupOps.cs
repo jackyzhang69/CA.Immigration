@@ -54,7 +54,7 @@ namespace CA.Immigration.Startup
             // Get LMIA application 
             using (CommonDataContext cdc = new CommonDataContext())
             {
-                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = x.EmployerId.getEmployerFromId(), Employee = ((int)x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate, SubmitDate = x.SubmittedDate, ApplicationNumber = x.ApplicationNumber, PositionNumber = x.NumberofPosition });
+                sf.dgvLMIAApplication.DataSource = cdc.tblLMIAApplications.Select(x => new { ID = x.Id, Employer = x.EmployerId.getEmployerFromId(), Employee = (x.EmployeeId).getEmployeeFromId(), CreateDate = x.CreatedDate, SubmitDate = x.SubmittedDate, ApplicationNumber = x.ApplicationNumber, PositionNumber = x.NumberofPosition });
                 sf.dgvLMIAApplication.Columns[0].Width = 35;
                 sf.dgvLMIAApplication.Columns[1].Width = 185;
                 sf.dgvLMIAApplication.Columns[2].Width = 110;
@@ -133,8 +133,15 @@ namespace CA.Immigration.Startup
             Employer.buildupDict5575(ref dict5575);
             // Employee information
             Person.buildupDict5575(ref dict5575);
-
-            FormOPs.fillForm(@"c:\data\emp5575.pdf", dict5575);
+            try
+            {
+                System.IO.File.Copy(App.Folders.DefaultFormFolder + @"\emp5575.pdf", App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder + @"\emp5575.pdf", true);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            FormOPs.fillForm(App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder + @"\emp5575.pdf", dict5575);
         }
         public static void buildupEMP5602()
         {
@@ -151,9 +158,18 @@ namespace CA.Immigration.Startup
             LMIABusinessDetail.buildupDict5602(ref dict5602);
             // Job offer information
             LMIAJobOffer.buildupDict5602(ref dict5602);
-            // 
 
-            FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5602);
+
+            try
+            {
+                System.IO.File.Copy(App.Folders.DefaultFormFolder + @"\emp5602.pdf", App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder + @"\emp5602.pdf", true);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            FormOPs.fillForm(App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder + @"\emp5602.pdf", dict5602);
         }
         public static void buildupEMP5593()
         {
@@ -168,9 +184,17 @@ namespace CA.Immigration.Startup
             LMIABusinessDetail.buildupDict5593(ref dict5593);
             // Job offer information
             LMIAJobOffer.buildupDict5593(ref dict5593);
+            try
+            {
+                System.IO.File.Copy(App.Folders.DefaultFormFolder+@"\emp5593.pdf", App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder + @"\emp5593.pdf", true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
 
-
-            FormOPs.fillForm(@"c:\data\emp5602.pdf", dict5593);
+            FormOPs.fillForm(App.Folders.DefaultLMIAFolder+App.Folders.ApplicationSubFolder + @"\emp5593.pdf", dict5593);
         }
     }
 }
