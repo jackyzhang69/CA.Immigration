@@ -768,17 +768,109 @@ namespace CA.Immigration.LMIA
         public static void buildupDict5593(ref Dictionary<string, string> dict)
         {
             loadFromDB();
-            dict.Add("EMP5593_E[0].Page1[0].rb_LMIA[0]",GlobalData.CurrentProgramId!=null?((int)GlobalData.CurrentProgramId).getProgramFromId():"");
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
-            //dict.Add();
+            dict.Add("EMP5593_E[0].Page1[0].rb_LMIA[0]",GlobalData.CurrentProgramId!=null?((int)GlobalData.CurrentProgramId).getProgramFromId():"");// LMIAApp.LMIAType.ToString(), // 0 is for PR Only 2 is for PR+WP
+            dict.Add("EMP5593_E[0].Page1[0].rb_skilled_trades[0]", _otherEmployerName==null?"0":"2");  // (LMIAApp.SecondEmployer==null)?"0":"2", //0 is No 2 is Yes
+            dict.Add("EMP5593_E[0].Page1[0].txtF_if_yes[0]", _otherEmployerName);  // LMIAApp.SecondEmployer, // second employer name
+            //// p2 17 franchis , update database define
+            dict.Add("EMP5593_E[0].Page2[0].rb_Question4[1]","0");  // (employer.FranchiseName == null) ? "0" : "2", // 17 no is 0, yes is 2
+            ////p2 18 
+            dict.Add("EMP5593_E[0].Page2[0].rb_Question4[0]","3");  // employer.FranchiseAware.ToString(),  //18 yes is 1, no is 2, not applicable is 3
+
+            // Job offer part 1
+            dict.Add("EMP5593_E[0].Page3[0].txtF_Job_Title[0]", _jobTitle);  // joboffer1.JobTile,
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[1]", _samePlaceSamePositionLowest.ToString());  // joboffer1.LowestWage.ToString(), // check
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[2]", _samePlaceSamePositionHighest.ToString());  // joboffer1.HighestWage.ToString(),
+                                                                 // miss q15 final check 
+
+
+
+            //// Summary of meeting minium recruitment effort||| need to do after recruit summary finish
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_numberOfApplications[0]",);  // recruitsum.CndResumesReceived.ToString(),
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_NumberOfCanadiansHired[0]",);  // recruitsum.CndInterviewed.ToString(),
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_PermanentResidentsOffered[0]",);  // recruitsum.CndNotQualified.ToString(),
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_NumberOfCanadians[0]",);  // recruitsum.CndJobOffered.ToString(),
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_JobOffersDeclined[0]",);  // recruitsum.CndOfferDeclined.ToString(),
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_NumberOfCanadianNotQualified[0]",);  // recruitsum.CndHired.ToString(),
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_BriefExplanation[0]",);  // recruitsum.WhyNotCnd,
+
+            //// Impact on Canadian Labour Market
+            dict.Add("EMP5593_E[0].Page7[0].rb_Question1_E[0]","0");  // impactlm.JobLoss.ToString(),  //no
+            dict.Add("EMP5593_E[0].Page7[0].rb_Question2_E[0]", "0");  // impactlm.OutSourcing.ToString(),
+            dict.Add("EMP5593_E[0].Page7[0].txtF_ProvideSummary[0]", "N/A");  // impactlm.ContractSummary,
+            dict.Add("EMP5593_E[0].Page7[0].txtF_ProvideDetails[0]","N/A");  // impactlm.ImpactCanadian,
+            dict.Add("EMP5593_E[0].Page7[0].rb_QuestionC_E[0]","");  // impactlm.HireWithoutLMIA.ToString(),
+                                                                   // dict.Add("EMP5593_E[0].Page7[0].txtF_IfYes19[0]",);  //
+            dict.Add("EMP5593_E[0].Page7[0].txtF_Ci[0]","N/A");  // impactlm.RecruitEffort,
+            dict.Add("EMP5593_E[0].Page7[0].txtF_Cii[0]","N/A");  // impactlm.HiringImpactCanadian,
+
+           
+
+
+            // Employer declaration
+           
+            dict.Add("EMP5593_E[0].Page8[0].chkB_2[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page8[0].chkB_3[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page8[0].chkB_4[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page8[0].chkB_5[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page8[0].chkB_6[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page8[0].chkB_7[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page8[0].chkB_8[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_10[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_11[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_12[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_13[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_14[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_15[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_16[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_16[1]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_18[0]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_18[1]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_18[2]", "1");  // "1",
+            dict.Add("EMP5593_E[0].Page9[0].chkB_9[0]", "1");  // "1",
+
+            // dict.Add("EMP5593_E[0].Page9[0].chkB_9[0]",);  // (app.LMIAType == 2) ? "1" : "2",
+            
+
+            //Documentation required
+
+            // Below should get data from Document List talbe, will do it someday
+            //dict.Add("EMP5593_E[0].Page10[0].CB10[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB11[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB12[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB3[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB5[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB8[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB9[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].CB[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0].Row10[1]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0].Row10[1].#subform[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0].Row10[1].#subform[0].ClaimType[1]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0].Row4[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0].Row4[0].#subform[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].Table1[0].Row4[0].#subform[0].ClaimType[0]",);  // "0",
+            //dict.Add("EMP5593_E[0].Page10[0].txtF_IfNo1[0]",);  // "Not Applicable",
+
+            // EMP5576(embeded in EMP5593)
+            //dict.Add("EMP5593_E[0].Page11[0].rb_Card_Type[0]",);  // creditcard.CardType.ToString(),  // 0 is visa, 1 is master 2 is american express
+            //dict.Add("EMP5593_E[0].Page11[0].rb_Payment[0]",);  // LMIAApp.PayMethod.ToString(),  //1 is cheque 2 is credit card
+            
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Applicant_Name[1]",);  // creditcard.CardNumber.Substring(creditcard.CardNumber.Length - 4),  //get last four chars from a string
+            
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Card_Number[0]",);  // creditcard.CardNumber,
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Charge[0]",);  // (LMIAApp.NumberofPosition * LMIAApp.ApplicationFeePerPosition).ToString(),
+           
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Given_Names[0]",);  //creditcard.CardHolderName,
+           
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Month[1]",);  //creditcard.ExpireMonth,
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Number_Positions[0]",);  //LMIAApp.NumberofPosition.ToString(),
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Number_Positions[1]",);  //creditcard.SecurityCode,
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Off_use[0]",);  //"off use",
+            //dict.Add("EMP5593_E[0].Page11[0].txtF_Processing_Fee[0]",);  // (LMIAApp.NumberofPosition * LMIAApp.ApplicationFeePerPosition).ToString(),
+            //                                                             //dict.Add("EMP5593_E[0].Page11[0].txtF_Signature_E[0]",);  //"sign",
+            
+           // dict.Add("EMP5593_E[0].Page11[0].txtF_Year[1]",);  //creditcard.ExpireYear
+
 
         }
 

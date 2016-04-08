@@ -67,7 +67,7 @@ namespace CA.Immigration.Startup
             _mailingCountry = sf.txtEBICountryMail.Text;
             _mailPostalCode = sf.txtEBIPostalMail.Text;
             _chkBizSameAsMail = sf.chkBizSameAsMail.Checked;
-            if (_chkBizSameAsMail == false)
+            if(_chkBizSameAsMail == false)
             {
                 _businessPO = sf.txtEBIPOBoxBiz.Text;
                 _businessUnit = sf.txtEBIAptBiz.Text;
@@ -104,9 +104,9 @@ namespace CA.Immigration.Startup
         }
         public static void loadFromDB()
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
-                if (GlobalData.CurrentEmployerId != null)
+                if(GlobalData.CurrentEmployerId != null)
                 {
                     tblEmployer emp = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
                     _ESDCId = emp.ESDCId;
@@ -117,10 +117,10 @@ namespace CA.Immigration.Startup
                     _companyType = emp.CompanyType == null ? -1 : (int)emp.CompanyType;
 
                     _chkBizSameAsMail = emp.MailAddressId == emp.BizAddressId ? true : false;
-                    if (_chkBizSameAsMail)
+                    if(_chkBizSameAsMail)
                     {
 
-                        if (emp.MailAddressId != null)
+                        if(emp.MailAddressId != null)
                         {
                             tblCanadianAddress ca = cdc.tblCanadianAddresses.Where(x => x.Id == emp.MailAddressId).Select(x => x).FirstOrDefault();
                             _mailPO = ca.POBox;
@@ -142,11 +142,11 @@ namespace CA.Immigration.Startup
                         }
                     }
                     else {
-                        if (emp.MailAddressId != null && emp.BizAddressId != null)
+                        if(emp.MailAddressId != null && emp.BizAddressId != null)
                         {
                             tblCanadianAddress ca = cdc.tblCanadianAddresses.Where(x => x.Id == emp.MailAddressId).Select(x => x).FirstOrDefault();
                             tblCanadianAddress caB = cdc.tblCanadianAddresses.Where(x => x.Id == emp.BizAddressId).Select(x => x).FirstOrDefault();
-                            if (ca!=null)
+                            if(ca != null)
                             {
                                 _mailPO = ca.POBox;
                                 _mailUnit = ca.Unit;
@@ -155,9 +155,9 @@ namespace CA.Immigration.Startup
                                 _mailCity = ca.City;
                                 _mailProvince = ca.Province == null ? 0 : (int)ca.Province;
                                 _mailingCountry = "Canada";
-                                _mailPostalCode = ca.PostalCode; 
+                                _mailPostalCode = ca.PostalCode;
                             }
-                            if (caB!=null)
+                            if(caB != null)
                             {
                                 _businessPO = caB.POBox;
                                 _businessUnit = caB.Unit;
@@ -166,7 +166,7 @@ namespace CA.Immigration.Startup
                                 _businessCity = caB.City; ;
                                 _businessProvince = caB.Province == null ? 0 : (int)caB.Province;
                                 _businessCountry = "Canada";
-                                _businessPostalCode = caB.PostalCode; 
+                                _businessPostalCode = caB.PostalCode;
                             }
                         }
                     }
@@ -181,7 +181,7 @@ namespace CA.Immigration.Startup
                     _contactPhone = emp.ContactPhone;
                     _contactFax = emp.ContactFax;
                     _contactEmail = emp.ContactEmail;
-                    if (emp.MailAddressId == emp.BizAddressId) _chkBizSameAsMail = true;
+                    if(emp.MailAddressId == emp.BizAddressId) _chkBizSameAsMail = true;
                 }
 
             }
@@ -249,10 +249,10 @@ namespace CA.Immigration.Startup
             sf.txtEBIPostalMail.Text = _mailPostalCode;
 
 
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
 
-                if (_chkBizSameAsMail)
+                if(_chkBizSameAsMail)
                 {
                     sf.chkBizSameAsMail.Checked = true;
                     sf.grpEmployerBizAddress.Visible = false;
@@ -273,7 +273,7 @@ namespace CA.Immigration.Startup
 
             sf.txtEBIPhone.Text = _bizTelephone;
             sf.txtEBIWebsite.Text = _website;
-            if (_bizStartDate == null) sf.dtpBusinessStartDate.CustomFormat = "";
+            if(_bizStartDate == null) sf.dtpBusinessStartDate.CustomFormat = "";
             else sf.dtpBusinessStartDate.Value = (DateTime)_bizStartDate;
             sf.txtEBIBusinessActivities.Text = _bizActivity;
             sf.txtEBIFirstName.Text = _contactFirstName;
@@ -291,7 +291,7 @@ namespace CA.Immigration.Startup
             StringBuilder sb = new StringBuilder();
             int? mailAddrssId = null;
             int? businessAddressId = null;
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 getInput(sf);
                 tblCanadianAddress cam = new tblCanadianAddress
@@ -324,7 +324,7 @@ namespace CA.Immigration.Startup
                     businessAddressId = cab.Id;
                     sb.Append("Address has been saved \n");
                 }
-                catch (Exception exc)
+                catch(Exception exc)
                 {
                     MessageBox.Show(exc.Message);
                 }
@@ -360,7 +360,7 @@ namespace CA.Immigration.Startup
                     sf.btnEBIInsert.Visible = false;
 
                 }
-                catch (Exception exc)
+                catch(Exception exc)
                 {
 
                     MessageBox.Show(exc.Message);
@@ -372,9 +372,9 @@ namespace CA.Immigration.Startup
         }
         public static void employerUpdate(StartupForm sf)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
-                if (GlobalData.CurrentEmployerId != null)
+                if(GlobalData.CurrentEmployerId != null)
                 {
                     StringBuilder sb = new StringBuilder();
                     getInput(sf);
@@ -405,7 +405,7 @@ namespace CA.Immigration.Startup
                         sb.Append("Your addresses record have been updated!");
                         MessageBox.Show(sb.ToString(), "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception exc)
+                    catch(Exception exc)
                     {
 
                         MessageBox.Show(exc.Message);
@@ -419,7 +419,7 @@ namespace CA.Immigration.Startup
         }
         public static void addressUpdate(StartupForm sf)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
                 getInput(sf);
                 tblEmployer emp = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
@@ -448,7 +448,7 @@ namespace CA.Immigration.Startup
                     cdc.SubmitChanges();
 
                 }
-                catch (Exception exc)
+                catch(Exception exc)
                 {
                     MessageBox.Show(exc.Message);
                 }
@@ -456,31 +456,31 @@ namespace CA.Immigration.Startup
         }
         public static void employerDelete(StartupForm sf)
         {
-            using (CommonDataContext cdc = new CommonDataContext())
+            using(CommonDataContext cdc = new CommonDataContext())
             {
 
                 tblEmployer emp = cdc.tblEmployers.Where(x => x.Id == GlobalData.CurrentEmployerId).Select(x => x).FirstOrDefault();
                 tblCanadianAddress cab = null;
 
                 tblCanadianAddress cam = cdc.tblCanadianAddresses.Where(x => x.Id == emp.MailAddressId).Select(x => x).FirstOrDefault();
-                if (_chkBizSameAsMail != true)
+                if(_chkBizSameAsMail != true)
                 {
                     cab = cdc.tblCanadianAddresses.Where(x => x.Id == emp.BizAddressId).Select(x => x).FirstOrDefault();
                 }
 
-                if (MessageBox.Show("Do you really want to delete the record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if(MessageBox.Show("Do you really want to delete the record?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     try
                     {
                         cdc.tblEmployers.DeleteOnSubmit(emp);
                         cdc.tblCanadianAddresses.DeleteOnSubmit(cam);
-                        if (_chkBizSameAsMail != true) cdc.tblCanadianAddresses.DeleteOnSubmit(cab);
+                        if(_chkBizSameAsMail != true) cdc.tblCanadianAddresses.DeleteOnSubmit(cab);
                         cdc.SubmitChanges();
                         MessageBox.Show("The record of employer & its addresses has been deleted", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GlobalData.CurrentEmployerId = null;
 
                     }
-                    catch (Exception exc)
+                    catch(Exception exc)
                     {
 
                         MessageBox.Show(exc.Message);
@@ -490,7 +490,8 @@ namespace CA.Immigration.Startup
 
             }
         }
-        public static void copyMailtoBiz(StartupForm sf) {
+        public static void copyMailtoBiz(StartupForm sf)
+        {
             sf.txtEBIPOBoxBiz.Text = sf.txtEBIPOBoxMail.Text;
             sf.txtEBIAptBiz.Text = sf.txtEBIAptMail.Text;
             sf.txtEBIStreetNoBiz.Text = sf.txtEBIStreetNoMail.Text;
@@ -501,20 +502,20 @@ namespace CA.Immigration.Startup
         }
         public static string getStreetAddress(string str)
         {
-            if (str == "MailAddress")
+            if(str == "MailAddress")
             {
-                if (_mailPO != string.Empty && _mailUnit != string.Empty)
+                if(_mailPO != string.Empty && _mailUnit != string.Empty)
                     return _mailPO + ", " + _mailUnit + ", " + _mailStreetNo + " " + _mailStreetName;
-                else if (_mailPO != string.Empty) return _mailPO + ", " + _mailStreetNo + " " + _mailStreetName;
-                else if (_mailUnit != string.Empty) return _mailUnit + ", " + _mailStreetNo + " " + _mailStreetName;
+                else if(_mailPO != string.Empty) return _mailPO + ", " + _mailStreetNo + " " + _mailStreetName;
+                else if(_mailUnit != string.Empty) return _mailUnit + ", " + _mailStreetNo + " " + _mailStreetName;
                 else return _mailStreetNo + " " + _mailStreetName;
             }
 
             else {
-                if (_businessPO != string.Empty && _businessUnit != string.Empty)
+                if(_businessPO != string.Empty && _businessUnit != string.Empty)
                     return _businessPO + ", " + _businessUnit + ", " + _businessStreetNo + " " + _businessStreetName;
-                else if (_businessPO != string.Empty) return _businessPO + ", " + _businessStreetNo + " " + _businessStreetName;
-                else if (_businessUnit != string.Empty) return _businessUnit + ", " + _businessStreetNo + " " + _businessStreetName;
+                else if(_businessPO != string.Empty) return _businessPO + ", " + _businessStreetNo + " " + _businessStreetName;
+                else if(_businessUnit != string.Empty) return _businessUnit + ", " + _businessStreetNo + " " + _businessStreetName;
                 else return _businessStreetNo + " " + _businessStreetName;
             }
 
@@ -584,7 +585,57 @@ namespace CA.Immigration.Startup
         public static void buildupDict5593(ref Dictionary<string, string> dict)
         {
             loadFromDB();
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Emp_ID[0]", _ESDCId);  // employer.ESDCId.ToString(),
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Bus_Number1[0]",_CRA_BN);  // employer.CRA_BN,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Bus_Name[0]", _legalName);  // employer.LegalName,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Emp_Legal[0]", _operatingName);  // employer.OperatingName, // it's strange, but the form is like this
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Mail_Adress[0]", getStreetAddress("MailAddress"));  // employer.MailingAddress,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_City[0]", _mailCity);  // employer.BizCity,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Province[0]", Definition.CndProvince[_mailProvince]);  // Definition.CndProvince[(int)employer.BizProvince,0],
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Postal_Code[0]", "Canada");  // employer.BizCountry,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_Country[0]",_mailPostalCode);  // employer.BizPostalCode,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_City[1]", _bizTelephone);  // employer.BizTelephone,
+            dict.Add("EMP5593_E[0].Page1[0].txtF_City[2]", _chkBizSameAsMail?"":getStreetAddress("BusinessAddress"));  // employer.BizAddress,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_City[0]", _chkBizSameAsMail?"": _businessCity);  // employer.BizCity,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Province[0]", _chkBizSameAsMail ? "" :Definition.CndProvince[_businessProvince]);  // Definition.CndProvince[(int)employer.BizProvince, 0],
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Postal_Code[0]", _chkBizSameAsMail ? "" : "Canada");  // employer.BizCountry, // ESDC form error, this refers to a country
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Country[0]", _chkBizSameAsMail ? "" : _businessPostalCode);  // employer.BizPostalCode,
+                                                                 //// P2 16 name is ridiculous
+            dict.Add("EMP5593_E[0].Page2[0].cb_Benefit_Dis_Ins[0]", _companyType==0?"1":"0");  // ((int)employer.CompanyType == 1) ? "1" : "0",  //1 is set // need change database
+            dict.Add("EMP5593_E[0].Page2[0].cb_Benefit_Dental_Ins[0]", _companyType==1?"1":"0");  // ((int)employer.CompanyType == 2) ? "1" : "0",
+            dict.Add("EMP5593_E[0].Page2[0].cb_Benefit_Pension[0]", _companyType==2?"1":"0");  // ((int)employer.CompanyType == 3) ? "1" : "0",
+            dict.Add("EMP5593_E[0].Page2[0].cb_Benefit_Extended_Medical_Ins[0]", _companyType==3?"1":"0");  // ((int)employer.CompanyType != 1 && (int)employer.CompanyType != 2 && (int)employer.CompanyType != 3) ? "1" : "0",
+                                                                                                            // dict.Add("EMP5593_E[0].Page2[0].txtF_Other_Benefit[0]",);  //employer. // Type of business other spficy, so far don't need it
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Web_Employer[0]", _website);  // employer.Website,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Bus_Date[0]", String.Format("{0:yyyy-MM-dd}", _bizStartDate));  // String.Format("{0:yyyy-MM-dd}", employer.BizStartDate),
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Activity[0]", _bizActivity);  // employer.BizActivity,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Prim_Contact_last_Name[0]", _contactLastName);  // employer.ContactLastName,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Prim_Contact_Middle[0]", _contactMiddleName);  // employer.ContactMiddleName,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Prim_Contact_Name[0]", _contactFirstName);  // employer.ContactFirstName,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Job_Title[0]", _contactJobTitle);  // employer.ContactJobTitle,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Contact_Tel[0]", _contactPhone);  // employer.ContactPhone,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Fax[0]", _contactFax);  // employer.ContactFax,
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Email[0]", _contactEmail);  // employer.ContactEmail,
+            dict.Add("EMP5593_E[0].Page2[0].rb_language[0]", "0");  // "0",  //Contact preferred language: hard code to set it as English
+
+            dict.Add("EMP5593_E[0].Page8[0].rb_Declaration_E[0]",_companyType==0?"4":"2");  // (employer.CompanyType == 1) ? "4" : "2", //company type 1 is incorporated 2 other. then 2 mark yes, 4 mark no
+            dict.Add("EMP5593_E[0].Page8[0].rb_IfYes_E[0]",  "3");  // (employer.CompanyType != 1) ? "3" : "", // hard code to 3, otherwise cannot apply 
+
+            dict.Add("EMP5593_E[0].Page9[0].txtF_PrintedNameOfEmployer[0]",_contactFirstName+" "+_contactLastName);  // employer.ContactFirstName + " " + employer.ContactLastName,
+            dict.Add("EMP5593_E[0].Page9[0].txtF_SignatureDate_E[0]", String.Format("{0:yyyy-MM-dd}", DateTime.Today));  //String.Format("{0:yyyy-MM-dd}", DateTime.Today),
+                                                                         //dict.Add("EMP5593_E[0].Page9[0].txtF_Signature_E[0]",);  //
+            dict.Add("EMP5593_E[0].Page9[0].txtF_TitleOfEmployer[0]",_contactJobTitle);  // employer.ContactJobTitle,
+
+            //appendix 5576
+            dict.Add("EMP5593_E[0].Page11[0].txtF_Applicant_Name[0]",_contactFirstName+" "+_contactLastName);  // employer.ContactFirstName + " " + employer.ContactLastName,
+            dict.Add("EMP5593_E[0].Page11[0].txtF_CRA_Business_Number[0]",_CRA_BN);  // employer.CRA_BN,
+            dict.Add("EMP5593_E[0].Page11[0].txtF_Day[0]", DateTime.Today.Year.ToString());  // DateTime.Today.Year.ToString(),  //ESDC Form error, it refers this to a Year
+            dict.Add("EMP5593_E[0].Page11[0].txtF_EMployer_Name[0]",_legalName);  //employer.LegalName,
+            dict.Add("EMP5593_E[0].Page11[0].txtF_Month[0]", DateTime.Today.Month.ToString());  //DateTime.Today.Month.ToString(),
+            dict.Add("EMP5593_E[0].Page11[0].txtF_Year[0]", String.Format("{0:yyyy-MM-dd}", DateTime.Today));  //DateTime.Today.Day.ToString(),  //ESDC Form error, it refers this to a Day
+        }
+            
         }
     }
-}
+
 

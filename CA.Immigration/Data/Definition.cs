@@ -41,6 +41,13 @@ namespace CA.Immigration.Data
         };
 
         // LMIA DICTIONARY
+        public static Dictionary<int, string> LMIAStatus = new Dictionary<int, string>
+        {
+            {0, "Student"},
+            {1,"Foreign Worker"},
+            {2, "Visitor"}
+
+        };
         public static Dictionary<int, string> MediaType = new Dictionary<int, string>
         {
             { -1,"" },

@@ -183,7 +183,13 @@ namespace CA.Immigration.Startup
             // Business detail Information
             LMIABusinessDetail.buildupDict5593(ref dict5593);
             // Job offer information
+            JobAd.buildupDict5593(ref dict5593);
+            // Job offer information
             LMIAJobOffer.buildupDict5593(ref dict5593);
+            //Rcic info
+            RCIC.buildupDict5593(ref dict5593);
+            //Person Info
+            Person.buildupDict5593(ref dict5593);
             try
             {
                 System.IO.File.Copy(App.Folders.DefaultFormFolder+@"\emp5593.pdf", App.Folders.DefaultLMIAFolder + App.Folders.ApplicationSubFolder + @"\emp5593.pdf", true);

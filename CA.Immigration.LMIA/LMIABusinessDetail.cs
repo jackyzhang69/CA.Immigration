@@ -343,7 +343,28 @@ namespace CA.Immigration.LMIA
         public static void buildupDict5593(ref Dictionary<string, string> dict)
         {
             loadFromDB();
+            //// Business Details
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Business_Activity[0]", _q1.ToString());  // bizdetail.TotalEmployeeUnderCRA.ToString(),
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Business_Activity[2]", _q2.ToString());  // bizdetail.TotalEmployeeThisLocation.ToString(),
+            dict.Add("EMP5593_E[0].Page2[0].txtF_Business_Activity[1]", _q3.ToString());  // bizdetail.TotalCndThisLocation.ToString(),
+            dict.Add("EMP5593_E[0].Page3[0].txtF_Business_Activity[1]", _q4.ToString());  // bizdetail.TotalEmployeeThisOccupationLocation.ToString(),
+            dict.Add("EMP5593_E[0].Page3[0].txtF_Business_Activity[0]", _q5.ToString());  // bizdetail.TotalTFWAfterPositive.ToString(),
+            dict.Add("EMP5593_E[0].Page3[0].rb_ForeignWorkerEmploy[0]", (bool)_q6?"1":"0");  // bizdetail.Q6.ToString(), //Did you employ a foreign worker (as the result of receiving a positive LMIA) in the last two years, prior to December 31, 2013?
+            dict.Add("EMP5593_E[0].Page3[0].rb_ForeignWorkerEmploy[1]",(bool)_q61?"1":"0");  // bizdetail.Q6_1.ToString(), //If YES – did you provide all foreign workers employed by you in the last two years with wages, working conditions and employment in an occupation that
+                                                                           ////were substantially the same as those that were described in the offer(s) of employment(and confirmed in the LMIA letter(s) and annexe(s)) ?
+                                                                           //// 7 don't know where
+                                                                           ////8 don't know where, miss 3
+            dict.Add("EMP5593_E[0].Page3[0].txtF_Date_E[0]",String.Format("{0:yyyy-MM-dd}", _q81Date));  // bizdetail.Q8_2.ToString(), //Date
+            dict.Add("EMP5593_E[0].Page3[0].num_How_Many[2]",_q81FileNumber);  // bizdetail.Q8_3, // system file number
 
+            ////9
+            dict.Add("EMP5593_E[0].Page3[0].rb_EmployeesLaidOff[0]",(bool)_q9?"1":"0");  // bizdetail.Q9.ToString(), //lay off 1 no, 2 yes
+            dict.Add("EMP5593_E[0].Page3[0].num_How_Many[0]",_q91.ToString());  // bizdetail.Q9_1.ToString(), //how many canadians
+            dict.Add("EMP5593_E[0].Page3[0].num_How_Many[1]",_q92.ToString());  // bizdetail.Q9_2.ToString(), //how many tfw
+            dict.Add("EMP5593_E[0].Page3[0].txtF_Reason_Of_Layoff[0]",_q9Reason);  // bizdetail.Q9_3,  // reasons
+                                                                          ////10
+            dict.Add("EMP5593_E[0].Page3[0].rb_GoCProgramSupport[0]",(bool)_q10?"1":"0");  // bizdetail.Q10.ToString(),
+            dict.Add("EMP5593_E[0].Page3[0].txtF_Other_Benefit[0]",_q10Explanation);  // bizdetail.Q10_1,
         }
     }
 }

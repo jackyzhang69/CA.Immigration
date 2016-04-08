@@ -40,10 +40,6 @@ namespace CA.Immigration.LMIA
         private static string _workLocationPostCode;
         private static string _website;
 
-
-
-
-
         public static void getAllData(LMIAForm lf)
         {
             // 1. get information from database
@@ -78,9 +74,9 @@ namespace CA.Immigration.LMIA
             _Dental = lf.chkJobAdBenefit.CheckedIndices.Contains(1) ? true : false;
             _Pension = lf.chkJobAdBenefit.CheckedIndices.Contains(2) ? true : false;
             _ExtendedMedical = lf.chkJobAdBenefit.CheckedIndices.Contains(3) ? true : false;
-            _benefit = (_benefit==string.Empty || _benefit == null)?string.Empty:_benefit.Remove(_benefit.Length - 1);
+            _benefit = (_benefit == string.Empty || _benefit == null) ? string.Empty : _benefit.Remove(_benefit.Length - 1);
             _otherBenefit = lf.txtOtherBenefit.Text;
-            if (_otherBenefit != null && _otherBenefit != string.Empty) _otherBenefitFlag = true;
+            if(_otherBenefit != null && _otherBenefit != string.Empty) _otherBenefitFlag = true;
 
             _education = lf.cmbLMIAEduReq.SelectedIndex;
 
@@ -214,7 +210,7 @@ namespace CA.Immigration.LMIA
         }
         public static void deleteRecord()
         {
-            
+
             using(CommonDataContext cdc = new CommonDataContext())
             {
                 // delete the working address
@@ -291,45 +287,109 @@ namespace CA.Immigration.LMIA
         }
         public static string getFullAddress()
         {
-            if (_workLocationProvince != -1)
+            if(_workLocationProvince != -1)
             {
-                if (_workLocationUnit != string.Empty && _workLocationUnit != null) return _workLocationUnit + ", " + _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
+                if(_workLocationUnit != string.Empty && _workLocationUnit != null) return _workLocationUnit + ", " + _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
                 else return _workLocationStreetNo + " " + _workLocationStreetName + _workLocationCity + "," + Definition.CndProvince[(int)_workLocationProvince] + " " + _workLocationPostCode;
             }
             else return string.Empty;
 
         }
-        public static void generatePreview(LMIAForm lf) {
+        public static string getStreetAddress()
+        {
+            if(_workLocationProvince != -1)
+            {
+                if(_workLocationUnit != string.Empty && _workLocationUnit != null) return _workLocationUnit + ", " + _workLocationStreetNo + " " + _workLocationStreetName;
+                else return _workLocationStreetNo + " " + _workLocationStreetName;
+            }
+            else return string.Empty;
+
+        }
+        public static void generatePreview(LMIAForm lf)
+        {
             getAllData(lf);
             StringBuilder sb = new StringBuilder();
             //Job Title
-            sb.AppendLine(lf.jobPositionAdvisor.txtJobTitle.Text+"\n");
+            sb.AppendLine(lf.jobPositionAdvisor.txtJobTitle.Text + "\n");
             // Term of employment
-            sb.AppendLine("Term:"+_employmentTerm + "," + _workingHours + "hours/Week\n");
+            sb.AppendLine("Term:" + _employmentTerm + "," + _workingHours + "hours/Week\n");
             // Salary
-            sb.AppendLine("Salary: "+String.Format("{0:0.00}",_wage)+"\n");
+            sb.AppendLine("Salary: " + String.Format("{0:0.00}", _wage) + "\n");
             // Benefits
-            sb.AppendLine("Benefits: " + _benefit+"\n");
+            sb.AppendLine("Benefits: " + _benefit + "\n");
             // Business Address
-            sb.AppendLine("Business Address: " + _businessAddress+"\n");
+            sb.AppendLine("Business Address: " + _businessAddress + "\n");
             // Work location
-            sb.AppendLine("Work Location:"+_workLocation+"\n");
+            sb.AppendLine("Work Location:" + _workLocation + "\n");
             // Company Brief
 
             //Responsibilities
             sb.AppendLine("Responsibilities: \n" + _jobDuties + "\n");
             // Qualifications
             sb.AppendLine("Qualification:\n");
-            if(_education==-1) sb.AppendLine("No education requirement");
+            if(_education == -1) sb.AppendLine("No education requirement");
             else sb.AppendLine(Definition.LMIAEduLevel[_education] + "\n");
-            sb.AppendLine(_workExperience+"\n");
+            sb.AppendLine(_workExperience + "\n");
             sb.AppendLine(_skillRequirement + "\n");
             sb.AppendLine(_languageRequirement + "\n");
             // Contact Information
             sb.AppendLine(_contactInformation);
-            sb.AppendLine("For more information about our company, please visit our website at "+_website);
+            sb.AppendLine("For more information about our company, please visit our website at " + _website);
 
             lf.txtJobAdPreview.Text = sb.ToString();
+        }
+        public static void buildupDict5593(ref Dictionary<string, string> dict)
+        {
+            dict.Add("EMP5593_E[0].Page3[0].txtF_LocationOfEmployment[0]", getStreetAddress());  // joboffer1.WorkLocation,
+            dict.Add("EMP5593_E[0].Page4[0].txtF_City[0]", _workLocationCity);  // joboffer1.City,
+            dict.Add("EMP5593_E[0].Page4[0].txtF_Province[0]", Definition.CndProvince[_workLocationProvince]);  // joboffer1.Province,
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PostalCode[0]", _workLocationPostCode);  // joboffer1.PostalCode, 
+            dict.Add("EMP5593_E[0].Page4[0].txtF_MainDuties[0]", _jobDuties);  // joboffer1.Mainduties,
+            switch(_education)
+            {
+                case 0:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_DoctoratePhd[0]", "1");  // joboffer1.Doctorate_PHD.ToString(),
+                    break;
+                case 1:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_DoctorOfMedicine[0]", "1");  // joboffer1.DoctorOfMdeicine.ToString(),
+                    break;
+                case 2:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_MastersDegree[0]", "1");  // joboffer1.MasterDegree.ToString(),
+                    break;
+                case 3:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_BachelorsDegree[0]", "1");  // joboffer1.Bachelor.ToString(),
+                    break;
+                case 4:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_CollegeLevelDiploma[0]", "1");  // joboffer1.College.ToString(),
+                    break;
+                case 5:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_Apprenticeship[0]", "1");  // joboffer1.Apprentice.ToString(),
+                    break;
+                case 6:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_TradeDiploma[0]", "1");  // joboffer1.Trade.ToString(), // need check, two trade in nodes
+                    break;
+                case 7:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_SecondarySchool[0]", "1");  // joboffer1.SecondarySchool.ToString(),
+                    break;
+                case 8:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_VocationalSchool[0]", "1");  // joboffer1.Vocational.ToString(),
+                    break;
+                case 9:
+                    dict.Add("EMP5593_E[0].Page4[0].chkB_TradeDiploma[1]", "1");  // joboffer1.NotRequired.ToString(), // need check 
+                    break;
+
+            }
+            dict.Add("EMP5593_E[0].Page4[0].txtF_AdditionalInformation[0]","N/A");  // joboffer1.EduAdditionalInfo. FIX SOMEDAY
+            dict.Add("EMP5593_E[0].Page4[0].txtF_MainDuties[1]", _skillRequirement);  // joboffer1.SkillRequirement,
+
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[0]", _wage.ToString());  // joboffer1.HourlyWage.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PerYear[0]", String.Format("{0:0.00}", Convert.ToString(_wage* (decimal)_workingHours*365/7)));  // joboffer1.YearlyWage.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_OtRate[0]",String.Format("{0:0.00}",Convert.ToString((float)_wage*1.5)));  // joboffer1.OverTimeRate.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_hoursOfWorkPerWeek[0]",_workingHours.ToString());  // joboffer1.OverTimeStart.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_NumberOfHours[0]", (_workingHours/5).ToString());  // joboffer1.Dayhours.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_TotalNumberOfHoursPerWeek[0]",_workingHours.ToString());  // joboffer1.WeeklyHours.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_TotalNumberOfHoursPerMonth[0]",(_workingHours*365/7/12).ToString());  // joboffer1.MonthlyHours.ToString(),
+
         }
 
     }
