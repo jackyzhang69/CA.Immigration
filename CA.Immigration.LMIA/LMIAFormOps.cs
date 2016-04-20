@@ -90,7 +90,7 @@ namespace CA.Immigration.LMIA
                 LMIABusinessDetail.loadFromDB(lf);
                 LMIABusinessDetail.fillForm(lf);
                 //load job ad
-                JobAd.loadFromDB(lf);
+                JobAd.loadFromDB();
                 JobAd.fillForm(lf);
                 // Initialize job offer form
                 LMIAJobOffer.loadFromDB();

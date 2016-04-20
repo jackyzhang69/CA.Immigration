@@ -123,13 +123,13 @@ namespace CA.Immigration.CICDict
         {
             loadFromDB();
             //// Below 3rd part: Recruiter
-            dict.Add("EMP5593_E[0].Page2[0].rb_Using_a_Third_party[0]","0");  // "0", // hard code set to No
-            dict.Add("EMP5593_E[0].Page2[0].txtF_Name_of_third_party_recruiter[0]","");  // "", // hard code set to empty
-            dict.Add("EMP5593_E[0].Page2[0].txtF_Registration_Number[0]","");  // "", // hard code set to empty
-                                                                             //// RCIC
-            dict.Add("EMP5593_E[0].Page2[0].rb_Appointing_a_Third_party_Rep[0]","1");  // (rcicId == null) ? "0" : "1", // if no rcic, then 1, otherwise is 2
-            dict.Add("EMP5593_E[0].Page2[0].txtF_Name_of_third_party_rep[0]", FirstName + " " + LastName);  // (rcicId == null) ? "" : rcicName,
-            dict.Add("EMP5593_E[0].Page2[0].rb_Question6_E[0]","2");  // "2", // force to No
+            //dict.Add("EMP5593_E[0].Page2[0].rb_Using_a_Third_party[0]","0");  // "0", // hard code set to No
+            //dict.Add("EMP5593_E[0].Page2[0].txtF_Name_of_third_party_recruiter[0]","");  // "", // hard code set to empty
+            //dict.Add("EMP5593_E[0].Page2[0].txtF_Registration_Number[0]","");  // "", // hard code set to empty
+            //                                                                 //// RCIC
+            //dict.Add("EMP5593_E[0].Page2[0].rb_Appointing_a_Third_party_Rep[0]","1");  // (rcicId == null) ? "0" : "1", // if no rcic, then 1, otherwise is 2
+            //dict.Add("EMP5593_E[0].Page2[0].txtF_Name_of_third_party_rep[0]", FirstName + " " + LastName);  // (rcicId == null) ? "" : rcicName,
+            //dict.Add("EMP5593_E[0].Page2[0].rb_Question6_E[0]","2");  // "2", // force to No
         }
 
     }

@@ -590,7 +590,7 @@ namespace CA.Immigration.LMIA
                     dict.Add("EMP5593_E[0].Page3[0].chkB_Perm[0]", "1");  // joboffer1.Permanent.ToString(), 
                     break;
             }
-            dict.Add("EMP5593_E[0].Page3[0].txtF_Date_E[0]",String.Format("{0:yyyy-MM-dd}", _startDate));  // String.Format("{0:yyyy-MM-dd}", joboffer1.StartDate),
+           
             // Job location in Job Ad
            // Language requirement
             dict.Add("EMP5593_E[0].Page4[0].chkB_OrallyIn[0]", _speakingEnglishFrenchRequied?"1":"0");  // joboffer1.Oral.ToString(),
@@ -611,42 +611,38 @@ namespace CA.Immigration.LMIA
                                                                         //Q16 if seasonal , strange
             dict.Add("EMP5593_E[0].Page4[0].rb_Question11_E[0]", _isSeasonal?"0":"2");   //joboffer1.Seasonal.ToString(), //0 yes, 2 no
 
-            
+            //q17-18
+            dict.Add("EMP5593_E[0].Page5[0].txtF_Days[0]",_vacationDays!=null?_vacationDays.ToString():"");  // joboffer1.VacationDays.ToString(),
+            dict.Add("EMP5593_E[0].Page5[0].txtF_Remuneration[0]",_remuneration!=null?_remuneration.ToString():"");  // joboffer1.Remuneration.ToString(),
+            dict.Add("EMP5593_E[0].Page5[0].txtF_OtherBenefits[0]",_otherBenefit);  // joboffer1.OtherBenefits,
 
-            // q17-18 good
-            dict.Add("EMP5593_E[0].Page5[0].chkB_DentalInsurance[0]",);  // joboffer1.DentalInsurance.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].chkB_DisabilityInsurance[0]",);  // joboffer1.DisabilityInsurance.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].chkB_ExtendedMed[0]",);  // joboffer1.ExtendedMedical.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].chkB_Pension[0]",);  // joboffer1.Pension.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].txtF_Days[0]",);  // joboffer1.VacationDays.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].txtF_Remuneration[0]",);  // joboffer1.Remuneration.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].txtF_OtherBenefits[0]",);  // joboffer1.OtherBenefits,
+
 
             ////19 -21
             //dict.Add("EMP5593_E[0].Page5[0].rb_Question19_E[0]",);  // joboffer2.licenseRequired.ToString(),
             //// miss something... 
 
 
-            dict.Add("EMP5593_E[0].Page5[0].txtF_IfYes16[0]",);   //joboffer2.ProveYes,  // ok
-            dict.Add("EMP5593_E[0].Page5[0].txtF_IfNo16[0]",);   //joboffer2.ExplainifNo, //ok
+            //dict.Add("EMP5593_E[0].Page5[0].txtF_IfYes16[0]",);   //joboffer2.ProveYes,  // ok
+            //dict.Add("EMP5593_E[0].Page5[0].txtF_IfNo16[0]",);   //joboffer2.ExplainifNo, //ok
 
 
 
             ////22 
-            dict.Add("EMP5593_E[0].Page5[0].chkB_FillingLabourShortage[0]",);  // joboffer2.FillLabourShort.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].chkB_developmentOrTransfer[0]",);  // joboffer2.SkillTransfer.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].chkB_DirectJobCreation[0]",);  // joboffer2.JobCreation.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].chkB_Other[0]",);  // joboffer2.Other.ToString(),
-            dict.Add("EMP5593_E[0].Page5[0].txtF_ProvideDetails[0]",);  // joboffer2.Details,
-                                                                        ////23-28
-            dict.Add("EMP5593_E[0].Page6[0].txtF_ProvideARationale[0]",);  // joboffer2.JobOfferRationale,
-            dict.Add("EMP5593_E[0].Page6[0].txtF_duties_resp[0]",);  // joboffer2.WhoElse,
-            dict.Add("EMP5593_E[0].Page6[0].txtF_identify_foreign[0]",);  // joboffer2.HowToFindTheTFW,
-            dict.Add("EMP5593_E[0].Page6[0].txtF_determine_foreign[0]",);  // joboffer2.WhyTFWQualified,
-            dict.Add("EMP5593_E[0].Page6[0].txtF_offer_foreign[0]",);  // joboffer2.HowAndWhen,
-            dict.Add("EMP5593_E[0].Page6[0].rb_Question23_E[0]",);  // joboffer2.NoTraining.ToString(),  //0 is no, 1 is yes
-            dict.Add("EMP5593_E[0].Page6[0].txtF_IfNo19[0]",);  // joboffer2.ExplainNoTraining,
-            dict.Add("EMP5593_E[0].Page6[0].txtF_IfYes19[0]",);  // joboffer2.DescriptionTrainingPlan,
+            //dict.Add("EMP5593_E[0].Page5[0].chkB_FillingLabourShortage[0]",);  // joboffer2.FillLabourShort.ToString(),
+            //dict.Add("EMP5593_E[0].Page5[0].chkB_developmentOrTransfer[0]",);  // joboffer2.SkillTransfer.ToString(),
+            //dict.Add("EMP5593_E[0].Page5[0].chkB_DirectJobCreation[0]",);  // joboffer2.JobCreation.ToString(),
+            //dict.Add("EMP5593_E[0].Page5[0].chkB_Other[0]",);  // joboffer2.Other.ToString(),
+            //dict.Add("EMP5593_E[0].Page5[0].txtF_ProvideDetails[0]",);  // joboffer2.Details,
+            //                                                            //23-28
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_ProvideARationale[0]",);  // joboffer2.JobOfferRationale,
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_duties_resp[0]",);  // joboffer2.WhoElse,
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_identify_foreign[0]",);  // joboffer2.HowToFindTheTFW,
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_determine_foreign[0]",);  // joboffer2.WhyTFWQualified,
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_offer_foreign[0]",);  // joboffer2.HowAndWhen,
+            //dict.Add("EMP5593_E[0].Page6[0].rb_Question23_E[0]",);  // joboffer2.NoTraining.ToString(),  //0 is no, 1 is yes
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_IfNo19[0]",);  // joboffer2.ExplainNoTraining,
+            //dict.Add("EMP5593_E[0].Page6[0].txtF_IfYes19[0]",);  // joboffer2.DescriptionTrainingPlan,
         }
     }
 }

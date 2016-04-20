@@ -118,7 +118,7 @@ namespace CA.Immigration.LMIA
             _contactInformation = lf.txtJobAdContactInfo.Text;
         }
 
-        public static void loadFromDB(LMIAForm lf)
+        public static void loadFromDB()
         {
             //1. load working address, benefits, and part of position data
             using(CommonDataContext cdc = new CommonDataContext())
@@ -340,6 +340,7 @@ namespace CA.Immigration.LMIA
         }
         public static void buildupDict5593(ref Dictionary<string, string> dict)
         {
+            loadFromDB();
             dict.Add("EMP5593_E[0].Page3[0].txtF_LocationOfEmployment[0]", getStreetAddress());  // joboffer1.WorkLocation,
             dict.Add("EMP5593_E[0].Page4[0].txtF_City[0]", _workLocationCity);  // joboffer1.City,
             dict.Add("EMP5593_E[0].Page4[0].txtF_Province[0]", Definition.CndProvince[_workLocationProvince]);  // joboffer1.Province,
@@ -382,14 +383,14 @@ namespace CA.Immigration.LMIA
             dict.Add("EMP5593_E[0].Page4[0].txtF_AdditionalInformation[0]","N/A");  // joboffer1.EduAdditionalInfo. FIX SOMEDAY
             dict.Add("EMP5593_E[0].Page4[0].txtF_MainDuties[1]", _skillRequirement);  // joboffer1.SkillRequirement,
 
-            dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[0]", _wage.ToString());  // joboffer1.HourlyWage.ToString(),
-            dict.Add("EMP5593_E[0].Page4[0].txtF_PerYear[0]", String.Format("{0:0.00}", Convert.ToString(_wage* (decimal)_workingHours*365/7)));  // joboffer1.YearlyWage.ToString(),
-            dict.Add("EMP5593_E[0].Page4[0].txtF_OtRate[0]",String.Format("{0:0.00}",Convert.ToString((float)_wage*1.5)));  // joboffer1.OverTimeRate.ToString(),
-            dict.Add("EMP5593_E[0].Page4[0].txtF_hoursOfWorkPerWeek[0]",_workingHours.ToString());  // joboffer1.OverTimeStart.ToString(),
-            dict.Add("EMP5593_E[0].Page4[0].txtF_NumberOfHours[0]", (_workingHours/5).ToString());  // joboffer1.Dayhours.ToString(),
-            dict.Add("EMP5593_E[0].Page4[0].txtF_TotalNumberOfHoursPerWeek[0]",_workingHours.ToString());  // joboffer1.WeeklyHours.ToString(),
-            dict.Add("EMP5593_E[0].Page4[0].txtF_TotalNumberOfHoursPerMonth[0]",(_workingHours*365/7/12).ToString());  // joboffer1.MonthlyHours.ToString(),
+            
 
+            // q17-18 good
+            dict.Add("EMP5593_E[0].Page5[0].chkB_DentalInsurance[0]",_Dental?"1":"0");  // joboffer1.DentalInsurance.ToString(),
+            dict.Add("EMP5593_E[0].Page5[0].chkB_DisabilityInsurance[0]",_Disability?"1":"0");  // joboffer1.DisabilityInsurance.ToString(),
+            dict.Add("EMP5593_E[0].Page5[0].chkB_ExtendedMed[0]",_ExtendedMedical?"1":"0");  // joboffer1.ExtendedMedical.ToString(),
+            dict.Add("EMP5593_E[0].Page5[0].chkB_Pension[0]",_Pension ? "1" : "0");  // joboffer1.Pension.ToString(),
+            
         }
 
     }

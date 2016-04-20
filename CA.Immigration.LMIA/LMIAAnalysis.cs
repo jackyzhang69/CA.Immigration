@@ -780,8 +780,14 @@ namespace CA.Immigration.LMIA
             dict.Add("EMP5593_E[0].Page3[0].txtF_Job_Title[0]", _jobTitle);  // joboffer1.JobTile,
             dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[1]", _samePlaceSamePositionLowest.ToString());  // joboffer1.LowestWage.ToString(), // check
             dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[2]", _samePlaceSamePositionHighest.ToString());  // joboffer1.HighestWage.ToString(),
-                                                                 // miss q15 final check 
-
+                                                                                                          // miss q15 final check 
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PerHour[0]", _hourlyRate.ToString());  // joboffer1.HourlyWage.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_PerYear[0]", String.Format("{0:0.00}", Convert.ToString(_hourlyRate * (decimal)_workingHours * 365 / 7)));  // joboffer1.YearlyWage.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_OtRate[0]", String.Format("{0:0.00}", Convert.ToString((float)_hourlyRate * 1.5)));  // joboffer1.OverTimeRate.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_hoursOfWorkPerWeek[0]", _workingHours.ToString());  // joboffer1.OverTimeStart.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_NumberOfHours[0]", (_workingHours / 5).ToString());  // joboffer1.Dayhours.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_TotalNumberOfHoursPerWeek[0]", _workingHours.ToString());  // joboffer1.WeeklyHours.ToString(),
+            dict.Add("EMP5593_E[0].Page4[0].txtF_TotalNumberOfHoursPerMonth[0]", (_workingHours * 365 / 7 / 12).ToString());  // joboffer1.MonthlyHours.ToString(),
 
 
             //// Summary of meeting minium recruitment effort||| need to do after recruit summary finish
@@ -828,8 +834,10 @@ namespace CA.Immigration.LMIA
             dict.Add("EMP5593_E[0].Page9[0].chkB_18[2]", "1");  // "1",
             dict.Add("EMP5593_E[0].Page9[0].chkB_9[0]", "1");  // "1",
 
-            // dict.Add("EMP5593_E[0].Page9[0].chkB_9[0]",);  // (app.LMIAType == 2) ? "1" : "2",
             
+
+            // dict.Add("EMP5593_E[0].Page9[0].chkB_9[0]",);  // (app.LMIAType == 2) ? "1" : "2",
+
 
             //Documentation required
 
@@ -854,22 +862,22 @@ namespace CA.Immigration.LMIA
             // EMP5576(embeded in EMP5593)
             //dict.Add("EMP5593_E[0].Page11[0].rb_Card_Type[0]",);  // creditcard.CardType.ToString(),  // 0 is visa, 1 is master 2 is american express
             //dict.Add("EMP5593_E[0].Page11[0].rb_Payment[0]",);  // LMIAApp.PayMethod.ToString(),  //1 is cheque 2 is credit card
-            
+
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Applicant_Name[1]",);  // creditcard.CardNumber.Substring(creditcard.CardNumber.Length - 4),  //get last four chars from a string
-            
+
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Card_Number[0]",);  // creditcard.CardNumber,
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Charge[0]",);  // (LMIAApp.NumberofPosition * LMIAApp.ApplicationFeePerPosition).ToString(),
-           
+
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Given_Names[0]",);  //creditcard.CardHolderName,
-           
+
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Month[1]",);  //creditcard.ExpireMonth,
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Number_Positions[0]",);  //LMIAApp.NumberofPosition.ToString(),
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Number_Positions[1]",);  //creditcard.SecurityCode,
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Off_use[0]",);  //"off use",
             //dict.Add("EMP5593_E[0].Page11[0].txtF_Processing_Fee[0]",);  // (LMIAApp.NumberofPosition * LMIAApp.ApplicationFeePerPosition).ToString(),
             //                                                             //dict.Add("EMP5593_E[0].Page11[0].txtF_Signature_E[0]",);  //"sign",
-            
-           // dict.Add("EMP5593_E[0].Page11[0].txtF_Year[1]",);  //creditcard.ExpireYear
+
+            // dict.Add("EMP5593_E[0].Page11[0].txtF_Year[1]",);  //creditcard.ExpireYear
 
 
         }
